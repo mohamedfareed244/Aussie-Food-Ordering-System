@@ -77,7 +77,7 @@ for(let i=0;i<it.items.length;i++){
 // for(let i=0;i<itemsa.length;i++){
 //     const all_data=new All(itemsa[i]);
 //     all_data.save().then(function(result){
-//         console.log("el7 awyyyy fol ");
+//         
 //     })
 // }
 })
