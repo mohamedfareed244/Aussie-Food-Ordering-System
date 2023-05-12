@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=men%></title>
+<link rel="stylesheet" href="/Css/style.css">
+
+<script src="/js/script.js"></script>
+<script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+ 
+    <div class="container">
+        
+        <!-- <div class="imgg">
+            <img src="signlogo.png" alt="">
+        </div> -->
+        <i class="fa-solid fa-bars" id="fx" onclick="showmenu()"></i>
+        <div class="navbar">
+            <i class="fa-sharp fa-solid fa-xmark" id="fx" onclick="hidemenu()"></i>
+            <h1>Aussie</h1>
+      
+            <ul>
+                <li>
+                    <input class="search" type="text" placeholder="Search Food">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </li>
+                <li class ="part2"><a href="index.html">Home</a></li>
+                <li class ="part2"><a href="menu.html">Menu</a></li>
+                <li class ="part2" id="cart">
+                    <i class="fa-solid fa-cart-shopping" onclick="location.href = 'check_out.html';" ></i>
+                    <!-- onclick="check_out(event.target)" -->
+                     <div class="kk" >
+                        <%if(s.length>0){%>
+                        <% s.forEach(function(itemss) {  %>
+                            
+                            <div class ="art"><img src="<%-itemss.path%>"alt="" class="item_img" >
+                                <h1><%itemss.name%></h1>
+                            <span class="s1"> <b>item name :</b> <%- itemss.name %></span>
+                            <br>
+                            <span class="s2"><b>Price : <%-itemss.price%> $</b></span>
+                            
+                        </div>  
+                        <% }); %>  
+<a href="/checkout"><button id ="check_now" >CheckOut Now </button></a>
+
+<%}%>
+                     </div>
+                    </li>
+                     <span id ="notification"><%= num %></span>
+                <li class ="part2"><a  class="sign" href="user_profile.html">Profile</a></li>
+                <li class ="part2"><a class="sign" href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+   <div id="menu_selections">
+    <h2 id ="headaftersafety">Choose What You Love </h2>
+    <hr>
+  <ul id="menulist" >
+    <% sections.forEach(function(itemss) { %>
+    <li class="menu_section" ><a href="/menu/<%=itemss.name%>"><%= itemss.name%></a></li>
+    <% }); %> 
+  </ul>
+   
+</div>
+<hr>
+<!-- onclick="favorites(event.target)" -->
+<div id ="menubody" >
+ 
+    <% browse.forEach(function(items) { %>
+      
+    <div class="menu_items" ><img src="<%=items.path %>"alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="/images/love.png" class="favs" alt=""title="add to favourite">
+            <a href="/menu/<%=items.section%>/<%=items.id%>"><img src="/images/add.png" alt="add_item" class="icons"></a>
+            
+               
+               
+            
+        <div class="description"> 
+            <span class="names">  <%= items.name %></span>
+            <br>
+            <p class="ingred"><%= items.description %></p>
+            <span class="prices">Price : <%= items.price %> $</span>
+        </div></div>
+    
+    </div>
+    <% }); %> 
+
+
+
+
+
+    </div>
+
+   
+
+</body>
+
+
+    
+
+</html>

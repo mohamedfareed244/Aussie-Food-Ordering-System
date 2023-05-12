@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Out</title>
+    <link rel="stylesheet" href="/Css/chechk_out.css">
+    <script src="/js/script.js"></script>
+</head>
+<body>
+    <div id="container">
+<ul id ="list_of_items">
+<% cart.forEach(function (items){ %>
+    <li>
+        <%console.log(items.path+"  "+"items.name")%>
+        <article id ="art"><img src="<%=items.path%>" alt="" id="item_img" >
+            <span class="s1"> <b>item name :</b> <%=items.name%></span>
+            <br>
+            <span class="s2"><b>Price : <%=items.price%>$</b></span>
+            <ul class ="cart_items">
+                <li><img src="/images/minus.png" alt="" class ="im" ></li>
+                <li><span class ="in_span">1</span></li>
+                <li><img src="/images/plus2.png" alt="" class="im"></li>
+            </ul>
+        </article>
+    </li>
+
+<%});%>
+
+
+
+  
+</ul>
+ 
+
+
+
+    </div>
+    <table id ="prices">
+       
+        <tr>
+            <td><b>Total Items : </b></td>
+            <td class="data"><span><%=cart.length%> Items </span></td>
+        </tr>
+        <tr>
+            <td><b>price (exc .vat) : </b></td>
+            <% let sum =0;for(let i=0;i<cart.length;i++){sum+=cart[i].price} %>
+            <td class="data"><span><%=sum%> $ </span></td>
+        </tr>
+        <tr>
+            <td><b>vat 14% : </b></td>
+            <td class ="data"><span><%=Math.round(((sum/100)*14))%> $ </span></td>
+        </tr>
+        <tr>
+            <td><b>Total Price : </b></td>
+            <td class ="data"><span><%=Math.round(((sum/100)*14))+sum%> $ </span></td>
+        </tr>
+
+    </table>
+<div id ="voucher_area">
+
+    <div id ="v1">
+        <input type="text" placeholder="Voucher Code " id="voucher">
+        <button id = "app_vouch_btn">Apply </button>
+    </div>
+
+
+    <div id="drop_addr">
+        <button id="dropbtn" onclick="">Choose Your Address <img src="/images/arrow-down-sign-to-navigate.png" alt="" width="15px" id ="hide_img"></button>
+        <div id="dropdown-content">
+        <ul id="adds_list">
+            <li>
+                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
+                    <br>
+                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
+            </li>
+            <li>
+                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
+                    <br>
+                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
+            </li>
+            <li>
+                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
+                    <br>
+                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
+            </li>
+            <li>
+                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
+                    <br>
+                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
+            </li>
+            <li>
+                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
+                    <br>
+                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
+            </li>
+        </ul>
+        </div>
+      </div>
+   
+      <textarea name="" id="notes" cols="30" rows="10" placeholder="Add delivery notes here "></textarea>
+      <button id ="end">check out now </button>
+</div>
+
+</body>
+</html>

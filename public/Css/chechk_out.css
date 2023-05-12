@@ -1,0 +1,279 @@
+body, html{
+    width: 100%;
+    height: 100%;
+}
+
+
+#list_of_items{
+    margin-left: -25px;
+    list-style: none;
+    width: 100%;
+}
+#container{
+    border: 1px solid gray;
+    overflow-x: hidden;
+    overflow-y: auto;
+  
+
+    height: 320px;
+}
+#art{
+    overflow: auto;
+    transition: .5s;
+    position: relative;
+   width: 95%;
+  height: 70px;
+    margin-top: 10px;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(63, 48, 48, 0.445), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#art:hover #item_img{
+   
+transform: scale(1.2);
+}
+#art:hover{
+    background-color: rgba(91, 128, 28, 0.459);
+}
+#item_img {
+    transition: .3s;
+  position: absolute;
+  
+  top: 13px;
+  left: 15px;
+    width: 10%;
+    max-width: 60px;
+
+}
+
+.s1 {
+    margin-top: 10px;
+    position: absolute;
+    left: 100px;
+}
+.s2{
+    margin-top: 20px;
+    position: absolute;
+    left: 100px;
+}
+.cart_items li{
+    display: inline;
+}
+.im{
+width: 20px;
+height: 20px;
+border-radius: 50%;
+margin-bottom: -3px;
+transition: .3s;
+}
+.im:hover{
+    cursor: pointer;
+    background-color: rgba(30, 152, 62, 0.424);
+}
+.in_span{
+    padding: 9px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+.cart_items{
+    overflow: hidden;
+
+    position: absolute;
+    list-style: none;
+    left: 73%;
+   
+}
+#prices {
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    margin-top: 0%;
+    width: 100%;
+    border-collapse: collapse;
+}
+#prices tr:nth-child(even){background-color: #dce7be;}
+#prices tr{
+   
+    border-bottom: 1px solid rgb(28, 16, 16);
+}
+#prices td{
+    padding: 9px;
+}
+#voucher_area{
+    position: relative;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+#voucher:focus{
+    outline: none;
+}
+#v1{
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    padding: 5px;
+   margin-left: 15%;
+    width: 80%;
+    height: 70px;
+  
+}
+#drop_addr{
+    margin-left: 15%;
+    margin-top: 10px;
+display: block;
+
+}
+
+#voucher{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    border: none;
+    border-bottom: 1px solid black;
+    position: absolute;
+    padding: 5px;
+    width: 60%;
+    max-width: 400px;
+    left: 10px;
+}
+#app_vouch_btn:hover{
+    font-size: 16px;
+    background-color:rgb(30, 152, 62);
+    cursor: pointer;
+}
+#app_vouch_btn{
+    transition: .5s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    border: none;
+    text-align: center;
+    position: absolute;
+    left: 70%;
+    height: 30px;
+    width: 100px;
+    color: white;
+    background-color: black;
+}
+
+
+#adds_list{
+   transition: 1s;
+    margin-top: 2px;
+    height: 150px;
+    overflow: auto;
+    list-style: none;
+}
+.art2{
+    padding: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 300px;
+    border: 1px solid black;
+border-radius: 8px;
+transition: .3s;
+    
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+.art2:hover{
+    background-color: rgba(30, 152, 62, 0.659);
+    cursor: pointer;
+}
+
+ #dropbtn:hover #hide_img{
+    transform: scale(1.2);
+}
+
+#dropbtn{
+   transition: .3s;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+    height: 30px;
+    margin-left: 39px;
+    width: 300px;
+}
+#hide_img{
+   transition: .3s;
+    float: right;
+}
+
+#dropbtn:hover{
+    cursor: pointer;
+    
+}
+
+#drop_addr:hover #dropdown-content{
+display: block;
+}
+
+#dropdown-content{
+    transition: 2s;
+    display: none;
+}
+#notes{
+    resize: none;
+    margin-left: 15%;
+    width: 400px;
+    margin-top: 10%;
+}
+#end{
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: green;
+    color: white;
+    margin-bottom: 5px;
+    margin-left: -8px;
+    transition: .5s;
+}
+#notes:focus{
+    outline: none;
+}
+#end:hover{
+    background-color: rgb(3, 57, 3);
+}
+@media only screen and (min-width:1000px) {
+    #v1{
+        margin-left: 10px;
+        width: 50%;
+    }
+   #app_vouch_btn{
+    left: 50%;
+   }
+   
+      #drop_addr{
+        
+        margin-left: 100px;
+width: 30%;
+      margin-top: 0;
+      }
+    .cart_items{
+        left: 90%;
+    }
+    #notes{
+        
+        resize: none;
+       
+        margin-top: 50px;
+        margin-left: 10px;
+    }
+    #voucher_area{
+        flex-direction: row;
+    }
+    #end {
+        margin-top: 5%;
+        border-radius: 8px;
+        margin-left: 35%;
+        width: 200px;
+        height: 70px;
+    }
+}

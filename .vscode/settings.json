@@ -1,0 +1,5 @@
+{
+    "git.allowForcePush": false,
+    "git.enabled": true,
+    "git.enableStatusBarSync": false
+}
