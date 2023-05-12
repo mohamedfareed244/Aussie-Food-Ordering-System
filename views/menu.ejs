@@ -35,9 +35,10 @@
                     <i class="fa-solid fa-cart-shopping" onclick="location.href = 'check_out.html';" ></i>
                     <!-- onclick="check_out(event.target)" -->
                      <div class="kk" >
+                        <div style="width: 100%;height: 80%;  overflow: auto; border: 1px solid white;">
                         <%if(s.length>0){%>
                         <% s.forEach(function(itemss) {  %>
-                            
+                           
                             <div class ="art"><img src="<%-itemss.path%>"alt="" class="item_img" >
                                 <h1><%itemss.name%></h1>
                             <span class="s1"> <b>item name :</b> <%- itemss.name %></span>
@@ -46,7 +47,10 @@
                             
                         </div>  
                         <% }); %>  
-<a href="/checkout"><button id ="check_now" >CheckOut Now </button></a>
+                    </div>
+
+                        
+ <a href="/checkout"><button id ="check_now" >CheckOut Now </button></a> 
 
 <%}%>
                      </div>
@@ -86,7 +90,8 @@
         <div class="descr_and_add">
             <img src="/images/favourite.png" class="favrs" alt=""title="remove from favourite">
             <img src="/images/love.png" class="favs" alt=""title="add to favourite">
-            <a href="/menu/<%=items.section%>/<%=items.id%>"><img src="/images/add.png" alt="add_item" class="icons"></a>
+            <img src="/images/add.png" alt="add_item" class="icons" onclick=add_to_cart("<%=items.id%>")>
+            <!-- <a href="/menu/<%=items.section%>/<%=items.id%>" ></a> -->
             
                
                

@@ -109,6 +109,19 @@ app.get('/checkout',function(req,res){
 app.get('/admin',function(req,res){
     res.render("partials/admin_sidebar");
 })
+app.get('/:id', async function(req,res){
+    let d= await All.findById(req.params.id);
+    console.log(d);
+    if(req.session.cart_items===undefined){
+        req.session.cart_items=new Array();
+    }else{
+    req.session.cart_items.push(d);
+    }
+    res.json(d);
+})
+app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
+    res.sendFile(path.join("/Users/user/Downloads/Message notification.m4r"));
+})
 
 
 

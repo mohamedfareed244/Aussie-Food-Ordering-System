@@ -109,11 +109,14 @@ function test(){
         }
 
         }
-        function add_to_cart(ind){
+        async function add_to_cart(id){
+            console.log(id);
+            let obj= await get_item(id);
+            console.log(obj)
 let node=document.createElement("div");
 node.className="art";
 let node1=document.createElement("img");
-node1.src=document.getElementsByClassName("menu_img")[ind].src;
+node1.src=obj.path;
 console.log(node1.src);
 node1.className="item_img";
 let node2=document.createElement("span");
@@ -121,14 +124,14 @@ node2.className="s1";
 let node3=document.createElement("b");
 node3.innerHTML="item name : ";
 node2.appendChild(node3);
-let item_name=document.getElementsByClassName("names")[ind].innerHTML;
+let item_name=obj.name;
 node2.innerHTML+=item_name;
 let node4=document.createElement("br");
 let node5=document.createElement("span");
 node5.className="s2";
 let node6=document.createElement("b");
 node5.appendChild(node6);
-node6.innerHTML=document.getElementsByClassName("prices")[ind].innerHTML;
+node6.innerHTML=obj.price;
 node.appendChild(node1);
 node.appendChild(node2);
 node.appendChild(node4);
@@ -137,12 +140,19 @@ let parent=document.getElementsByClassName("kk")[0];
 
 parent.appendChild(node);
 document.getElementById("notification").innerHTML=document.getElementsByClassName("art").length;
-let but=document.createElement("button");
-but.id="check_now";
-but.innerHTML="CheckOut Now";
-let index=parent.childElementCount;
-parent.removeChild(parent.children[index-2]);
-parent.appendChild(but);
+// let but=document.createElement("button");
+// but.id="check_now";
+// but.innerHTML="CheckOut Now";
+// but.addEventListener('click',function(){
+//     document.location.href="check_out";
+// })
+// let index=parent.childElementCount;
+// if(index>0&&index==1){
+// parent.removeChild(parent.children[index-1]);
+// }else if (index>=2){
+//     parent.removeChild(parent.children[index-2]);
+// }
+// parent.appendChild(but);
 console.log("yes");
         }
 
@@ -157,4 +167,23 @@ console.log("yes");
         }
 
 
+      async function get_item(id){
+        // let audio=  await new Audio("/Users/user/Downloads/Message notification.m4r");
+        // audio.play();
+        let data;
+        console.log(`the    http://127.0.0.1:3000/${id}`);
+        let item= await fetch(`http://127.0.0.1:3000/${id}`,{method:'GET'}).then( function (response){
+           data=response.json();
+         console.log("the is "+data);
+          return data;
+        
+      }
+        ).then(function(data){
+            console.log(data);
+           
+      })
+        return data;
       
+      
+    }
+
