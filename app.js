@@ -106,7 +106,9 @@ res.redirect("/menu/"+req.params.sec_name);
 app.get('/checkout',function(req,res){
     res.render("check_out",{cart:req.session.cart_items});
 })
-
+app.get('/admin',function(req,res){
+    res.render("partials/admin_sidebar");
+})
 
 
 

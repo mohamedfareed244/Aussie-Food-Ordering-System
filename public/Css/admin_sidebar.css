@@ -1,3 +1,13 @@
+body,html{
+    height: 100%;
+    width: 100%;
+    /* background: rgba(0, 0, 0, 0.7) url(../photos/qqqq3.webp)  fixed; */
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow-x: hidden;
+}
+
+
 #side_panel{
     display: flex;
     justify-content: center;
@@ -13,6 +23,7 @@
    background-color: #f0743a;
 }
 #side_panel ul{
+   
     position: absolute;
     width: 100%;
    margin-left: 0;
