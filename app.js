@@ -30,6 +30,7 @@ items:[{id:"645addea49fd0936f566da5d"},{id:"645addea49fd0936f566da5e"},{id:"645a
  
     ]
 
+
 async function read(id){
     
    let d=await All.findById(id);

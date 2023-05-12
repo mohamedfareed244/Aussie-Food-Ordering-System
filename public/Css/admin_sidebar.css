@@ -1,0 +1,52 @@
+#side_panel{
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    flex-wrap: wrap;
+    width: 30%;
+    max-width: 300px;
+    background-color: none;
+    height: 110%;
+    margin-top: -2%;
+    position: relative;
+    margin-left: -2%;
+   background-color: #f0743a;
+}
+#side_panel ul{
+    position: absolute;
+    width: 100%;
+   margin-left: 0;
+ top: 15px;
+}
+#side_panel li{
+
+    position: relative;
+    overflow: hidden;
+    flex-wrap: wrap;
+    flex-direction: row;
+padding: 3px;
+margin-bottom: 0;
+}
+#side_panel img{
+    width: 20%;
+    max-width:50px;
+  bottom: 0;
+  margin-bottom: -9px;
+  margin-top: 10px;
+  margin-left: 30px;
+transition: 1s;
+}
+#side_panel span{
+    position: absolute;
+    left: 30%;
+    bottom: 0;
+font-size: 90%;
+}
+#side_panel li:hover{
+cursor: pointer;
+color: white;
+}
+#side_panel li:hover img{
+    -webkit-transform: rotate(360deg);
+   transform: rotate(360deg);
+}
