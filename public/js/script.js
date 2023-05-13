@@ -130,13 +130,14 @@ let node4=document.createElement("br");
 let node5=document.createElement("span");
 node5.className="s2";
 let node6=document.createElement("b");
+node6.innerHTML="Price : ";
 node5.appendChild(node6);
-node6.innerHTML=obj.price;
+node6.innerHTML+= `${obj.price} $`;
 node.appendChild(node1);
 node.appendChild(node2);
 node.appendChild(node4);
 node.appendChild(node5);
-let parent=document.getElementsByClassName("kk")[0];
+let parent=document.getElementsByClassName("cc")[0];
 
 parent.appendChild(node);
 document.getElementById("notification").innerHTML=document.getElementsByClassName("art").length;
@@ -166,10 +167,12 @@ console.log("yes");
             document.getElementById("addform").submit();
         }
 
-
+async function playsound(){
+ let audio=  await new Audio("/Users/user/Downloads/Message notification.m4r");
+        audio.play();
+}
       async function get_item(id){
-        // let audio=  await new Audio("/Users/user/Downloads/Message notification.m4r");
-        // audio.play();
+       
         let data;
         console.log(`the    http://127.0.0.1:3000/${id}`);
         let item= await fetch(`http://127.0.0.1:3000/${id}`,{method:'GET'}).then( function (response){

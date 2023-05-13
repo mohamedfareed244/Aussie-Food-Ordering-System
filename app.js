@@ -16,7 +16,16 @@ const hostname = "127.0.0.1";
 const port = 3000;
 const app = express();
 app.use(session({ secret: 'Your_Secret_Key' }));
-
+let clients_connected={
+    client_id:String,
+employee_id:String
+}
+let employees_connected={
+    employee_id:String,
+    number:Number,
+    //number stands for the number of customers that this employee is conncected to and chatting with them now 
+    customers:[{id:String}]
+}
 let itemsa =[
     {name:'desserts',
     items:[{id:"645addea49fd0936f566da59"},{id:"645addea49fd0936f566da5a"}]
@@ -110,17 +119,30 @@ app.get('/admin',function(req,res){
     res.render("partials/admin_sidebar");
 })
 app.get('/:id', async function(req,res){
-    let d= await All.findById(req.params.id);
-    console.log(d);
+    let d= await All.findById(req.params.id).then(function(result){
+        return result;
+    }).catch(function (result){
+        res.send("OOPS! it seems that there are an error try again with a valid URL ");
+    })
+ 
+   
     if(req.session.cart_items===undefined){
         req.session.cart_items=new Array();
+        req.session.cart_items.push(d);
     }else{
     req.session.cart_items.push(d);
     }
     res.json(d);
+
 })
 app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
     res.sendFile(path.join("/Users/user/Downloads/Message notification.m4r"));
+})
+
+
+//error handling 
+app.use((req,res)=>{
+    res.send("OOPS! it seems that there are an error try again with a valid URL ");
 })
 
 

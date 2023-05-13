@@ -615,7 +615,7 @@ padding-left: 1px;
    margin-left: 8px;
     position: relative;
     width: 280px;
-    height: 30%;
+    height: 40%;
 margin-top:10px;
 overflow: hidden;
 }
@@ -664,6 +664,11 @@ margin: 0;
 .ingred{
     position: absolute;
    bottom: 20px;
+}
+#div-btn{
+    position: absolute;
+    top: 80%;
+    left: -4px;
 }
 
 
