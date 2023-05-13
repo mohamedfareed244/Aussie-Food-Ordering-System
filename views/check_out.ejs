@@ -14,13 +14,14 @@
 <% cart.forEach(function (items){ %>
     <li>
         <%console.log(items.path+"  "+"items.name")%>
-        <article id ="art"><img src="<%=items.path%>" alt="" id="item_img" >
-            <span class="s1"> <b>item name :</b> <%=items.name%></span>
+        <article id ="art"><img src="<%=items.item.path%>" alt="" id="item_img" >
+            <span class="s1"> <b>item name :</b> <%=items.item.name%></span>
             <br>
-            <span class="s2"><b>Price : <%=items.price%>$</b></span>
+            <span class="s2"><b>Price : <%=items.item.price%>$</b></span>
             <ul class ="cart_items">
                 <li><img src="/images/minus.png" alt="" class ="im" ></li>
-                <li><span class ="in_span">1</span></li>
+                 
+                <li><span class ="in_span"><%=items.qty%></span></li>
                 <li><img src="/images/plus2.png" alt="" class="im"></li>
             </ul>
         </article>
@@ -41,11 +42,12 @@
        
         <tr>
             <td><b>Total Items : </b></td>
-            <td class="data"><span><%=cart.length%> Items </span></td>
+            <% let nu =0;for(let i=0;i<cart.length;i++){nu+=(cart[i].qty)} %>
+            <td class="data"><span><%=nu%> Items </span></td>
         </tr>
         <tr>
             <td><b>price (exc .vat) : </b></td>
-            <% let sum =0;for(let i=0;i<cart.length;i++){sum+=cart[i].price} %>
+            <% let sum =0;for(let i=0;i<cart.length;i++){sum+=(cart[i].item.price*cart[i].qty)} %>
             <td class="data"><span><%=sum%> $ </span></td>
         </tr>
         <tr>

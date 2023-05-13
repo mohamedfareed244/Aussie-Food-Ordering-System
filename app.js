@@ -109,9 +109,7 @@ for(let i=0;i<it.items.length;i++){
 }
 let number=0;
 if(req.session.cart_items!=undefined){
-for(let i=0;i<req.session.cart_items.length;i++){
-    number+=req.session.cart_items[i].qty;
-}
+for(let i=0;i<req.session.cart_items.length;i++){ number+=req.session.cart_items[i].qty;}
 }
 console.log("the number will be sent is "+number);
     res.render("menu",{men:("menu|"+req.params.sec_name),num:number,sections:sections_data,browse:section_items
