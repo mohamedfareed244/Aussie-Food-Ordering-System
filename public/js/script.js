@@ -111,8 +111,12 @@ function test(){
         }
         async function add_to_cart(id){
             console.log(id);
+
             let obj= await get_item(id);
-            console.log(obj)
+            console.log(obj);
+            console.log(obj.path)
+            if(obj.path!=undefined){
+                console.log("i entered ");
 let node=document.createElement("div");
 node.className="art";
 let node1=document.createElement("img");
@@ -132,7 +136,11 @@ node5.className="s2";
 let node6=document.createElement("b");
 node6.innerHTML="Price : ";
 node5.appendChild(node6);
-node6.innerHTML+= `${obj.price} $`;
+let node7=document.createElement("b");
+node7.innerHTML="1";
+node7.className="qty1";
+node5.appendChild(node7);
+node6.innerHTML+= `${obj.price} $ Qty : `;
 node.appendChild(node1);
 node.appendChild(node2);
 node.appendChild(node4);
@@ -140,20 +148,19 @@ node.appendChild(node5);
 let parent=document.getElementsByClassName("cc")[0];
 
 parent.appendChild(node);
-document.getElementById("notification").innerHTML=document.getElementsByClassName("art").length;
-// let but=document.createElement("button");
-// but.id="check_now";
-// but.innerHTML="CheckOut Now";
-// but.addEventListener('click',function(){
-//     document.location.href="check_out";
-// })
-// let index=parent.childElementCount;
-// if(index>0&&index==1){
-// parent.removeChild(parent.children[index-1]);
-// }else if (index>=2){
-//     parent.removeChild(parent.children[index-2]);
-// }
-// parent.appendChild(but);
+let number=parseInt( document.getElementById("notification").innerHTML);
+number++;
+document.getElementById("notification").innerHTML=number;
+            }
+             else{
+              let g= document.getElementsByClassName("qty1")[obj].innerHTML;
+              let num=parseInt(g);
+              num++; 
+              document.getElementsByClassName("qty1")[obj].innerHTML=num;
+              let number=parseInt( document.getElementById("notification").innerHTML);
+number++;
+document.getElementById("notification").innerHTML=number;
+            }
 console.log("yes");
         }
 
@@ -177,6 +184,26 @@ async function playsound(){
         console.log(`the    http://127.0.0.1:3000/${id}`);
         let item= await fetch(`http://127.0.0.1:3000/${id}`,{method:'GET'}).then( function (response){
            data=response.json();
+         console.log("the data "+data);
+          return data;
+        
+      }
+        ).then(function(data){
+            console.log("step 2 : "+data);
+           
+      })
+        console.log("step 3 : "+data);
+        return data;
+      
+      
+      
+      
+    }
+    async function get_cart_items(){
+        let data;
+       
+        let item= await fetch(`http://127.0.0.1:3000/getcart_items`,{method:'GET'}).then( function (response){
+           data=response.json();
          console.log("the is "+data);
           return data;
         
@@ -186,7 +213,5 @@ async function playsound(){
            
       })
         return data;
-      
-      
     }
 

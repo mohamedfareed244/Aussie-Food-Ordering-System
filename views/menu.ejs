@@ -40,11 +40,11 @@
                         <%if(s.length>0){%>
                         <% s.forEach( function(itemss) { %> 
                            
-                            <div class ="art"><img src="<%-itemss.path%>"alt="" class="item_img" >
-                                <h1><%itemss.name%></h1>
-                            <span class="s1"> <b>item name :</b> <%- itemss.name %></span>
+                            <div class ="art"><img src="<%-itemss.item.path%>"alt="" class="item_img" >
+                                
+                            <span class="s1"> <b>item name :</b> <%- itemss.item.name %></span>
                             <br>
-                            <span class="s2"><b>Price : <%-itemss.price%> $</b></span>
+                            <span class="s2"><b>Price : <%-itemss.item.price%> $ Qty : </b> <b class="qty1"><%-itemss.qty%></b> </span>
                             
                         </div>  
                         <% }); %>  

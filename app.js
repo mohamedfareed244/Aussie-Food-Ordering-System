@@ -39,7 +39,36 @@ items:[{id:"645addea49fd0936f566da5d"},{id:"645addea49fd0936f566da5e"},{id:"645a
  
     ]
 
+async function addto_sess_cart(req,id){
+    let found=false;
+  if(req.session.cart_items===undefined){
+    req.session.cart_items=new Array();
 
+  }else{
+    for(let i=0;i<req.session.cart_items.length;i++){
+        if(req.session.cart_items[i].item._id==id){
+            req.session.cart_items[i].qty++;
+            console.log(req.session.cart_items[i]);
+            found=true;
+            return i;
+            
+        }
+        
+    }
+  }
+      
+        
+    
+if(!found){
+    console.log("enter the not found case ")
+    let d= await All.findById(id);
+    let obj={"item":d,"qty":1};
+   
+    req.session.cart_items.push(obj);
+   
+return d;
+}
+}
 async function read(id){
     
    let d=await All.findById(id);
@@ -49,6 +78,7 @@ async function read(id){
 
 mongoose.connect("mongodb+srv://mohamed2102759:202102759@cluster0.6cb4ip3.mongodb.net/?retryWrites=true&w=majority")
 .then(result => {app.listen(3000, () => {
+    console.log("connected to mongo");
     console.log(`Server running at http://${hostname}:${port}/`);
     console.log(`Server running at local dirname :  ${__dirname})  `);
  
@@ -77,8 +107,14 @@ for(let i=0;i<it.items.length;i++){
     let d=await All.findById(it.items[i].id);
     section_items.push(d);
 }
-
-    res.render("menu",{men:("menu|"+req.params.sec_name),num:(req.session.cart_items===undefined?new Array():req.session.cart_items.length),sections:sections_data,browse:section_items
+let number=0;
+if(req.session.cart_items!=undefined){
+for(let i=0;i<req.session.cart_items.length;i++){
+    number+=req.session.cart_items[i].qty;
+}
+}
+console.log("the number will be sent is "+number);
+    res.render("menu",{men:("menu|"+req.params.sec_name),num:number,sections:sections_data,browse:section_items
     ,s:(req.session.cart_items===undefined?new Array():req.session.cart_items)});
 
 
@@ -92,26 +128,26 @@ for(let i=0;i<it.items.length;i++){
 // }
 })
 
-app.get('/menu/:sec_name/:item_id', async function (req,res){
-    let it=await Sec.findOne({name:req.params.sec_name});
-    let sections_data= await Sec.find();
-    let section_items=new Array();
-for(let i=0;i<it.items.length;i++){
-    let d=await All.findById(it.items[i].id);
-    section_items.push(d);
-}
-if(req.session.cart_items===undefined){
-    req.session.cart_items=new Array();
-}
+// app.get('/menu/:sec_name/:item_id', async function (req,res){
+//     let it=await Sec.findOne({name:req.params.sec_name});
+//     let sections_data= await Sec.find();
+//     let section_items=new Array();
+// for(let i=0;i<it.items.length;i++){
+//     let d=await All.findById(it.items[i].id);
+//     section_items.push(d);
+// }
+// if(req.session.cart_items===undefined){
+//     req.session.cart_items=new Array();
+// }
 
-let d=await All.findById(req.params.item_id);
-console.log(req.params.item_id);
-req.session.cart_items.push(d);
+// let d=await All.findById(req.params.item_id);
+// console.log(req.params.item_id);
+// req.session.cart_items.push(d);
 
-res.redirect("/menu/"+req.params.sec_name);
-//res.render("menu",{men:("menu|"+req.params.sec_name),s:req.session.cart_items,sections:sections_data,browse:section_items,num:req.session.cart_items.length});
+// res.redirect("/menu/"+req.params.sec_name);
+// //res.render("menu",{men:("menu|"+req.params.sec_name),s:req.session.cart_items,sections:sections_data,browse:section_items,num:req.session.cart_items.length});
 
-})
+// })
 app.get('/checkout',function(req,res){
     res.render("check_out",{cart:req.session.cart_items});
 })
@@ -119,20 +155,29 @@ app.get('/admin',function(req,res){
     res.render("partials/admin_sidebar");
 })
 app.get('/:id', async function(req,res){
-    let d= await All.findById(req.params.id).then(function(result){
-        return result;
-    }).catch(function (result){
-        res.send("OOPS! it seems that there are an error try again with a valid URL ");
-    })
+    // let d= await All.findById(req.params.id).then(function(result){
+    //     return result;
+    // }).catch(function (result){
+    //     res.send("OOPS! it seems that there are an error try again with a valid URL ");
+    // })
  
-   
-    if(req.session.cart_items===undefined){
-        req.session.cart_items=new Array();
-        req.session.cart_items.push(d);
-    }else{
-    req.session.cart_items.push(d);
+    let index=await addto_sess_cart(req,req.params.id);
+    // if(req.session.cart_items===undefined){
+    //     req.session.cart_items=new Array();
+    //     req.session.cart_items.push(d);
+    // }else{
+    // req.session.cart_items.push(d);
+    // }
+    console.log("i recieve "+index);
+    console.log(typeof(index));
+    if(!typeof(index)===Object){
+        console.log("start redirection to number page ");
+        let f={"num":index};
+        
+        res.json(f);
     }
-    res.json(d);
+    else{ res.json(index); }
+  
 
 })
 app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
