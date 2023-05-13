@@ -152,6 +152,9 @@ app.get('/checkout',function(req,res){
 app.get('/admin',function(req,res){
     res.render("partials/admin_sidebar");
 })
+app.get('/admin1',function(req,res){
+    res.render("admin_stat");
+})
 app.get('/:id', async function(req,res){
     // let d= await All.findById(req.params.id).then(function(result){
     //     return result;
