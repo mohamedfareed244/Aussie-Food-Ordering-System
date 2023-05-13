@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/user.css">
+    <link rel="stylesheet" href="Css/admin_home.css">
+    <script src="js/rej.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="Account"
+        style="margin:auto; width: 300px ; padding-left: 120px; height: 450px;
+         background-color: rgb(203, 224, 243);">
+        <h1> Admin name: Dr.Essam</h1>
+        <h1>ID:1234</h1>
+        <h2>change password</h2>
+        <form action='#' method='post' onsubmit='return validate1(this)'>
+            <input type="password" name="psw" id="inputpass" placeholder="Enter new Password">
+            <div id='password' class='err'></div>
+            <input type="password" name="psw-confirmt" id="inputcpass" placeholder="confirm Password">
+            <div id='cpassword' class='err'></div>
+
+            <button type="submit" class="registerbtn" style="margin-left: 3%; ">Update password</button>
+        </form>
+
+
+    </div>
+
+</body>
+
+</html>
