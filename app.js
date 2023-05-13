@@ -155,6 +155,9 @@ app.get('/admin',function(req,res){
 app.get('/admin1',function(req,res){
     res.render("admin_stat");
 })
+app.get('/admin2',function(req,res){
+    res.render("admin_account");
+})
 app.get('/:id', async function(req,res){
     // let d= await All.findById(req.params.id).then(function(result){
     //     return result;
