@@ -1,0 +1,17 @@
+table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+thead{
+    text-align: center;
+}
+.order_summ{
+    text-align: center;
+    align-items: center;
+    width: 30%;
+    border: 2px solid black;
+}
+.item_details{
+    border: none;
+}
