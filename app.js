@@ -237,6 +237,7 @@ if(req.session.cart_items[i].qty==0){
     
     res.json(index);
 })
+
 //error handling 
 app.use((req,res)=>{
     res.send("OOPS! it seems that there are an error try again with a valid URL ");
