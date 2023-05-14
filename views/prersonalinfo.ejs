@@ -1,0 +1,63 @@
+
+<html lang="en">
+
+<body>
+    <%- include("./partials/admin_sidebar") %>
+    <link rel="stylesheet" href="/personalinfo.css">
+    <div class="personalinf" >
+		<div class="wrapper" >
+			<div class="form">
+			   <div class="inputfield">
+				  <label>FirstName</label>
+				  <p>marrk</p>
+			   </div>  
+				<div class="inputfield">
+				  <label>middlename</label>
+				  <p>mickey</p>
+			   </div> 
+			   <div class="inputfield">
+				<label>LastName</label>
+				<p>hanrey</p>
+			   </div>
+			   <div class="inputfield">
+				<label>Email Address</label>
+				<p>markso@yahoo </p>
+			 </div> 
+			   <div class="inputfield">
+				<label>Phone Number</label>
+				<p>25478964</p>
+			 </div> 
+			   <div class="inputfield">
+				  <label>new Password</label>
+				  <input type="password" class="input"value="1234"id="inputt">
+				  <input type="checkbox" onclick="myFunction()">Show Password
+			   </div>  
+			  <div class="inputfield">
+				  <label>Confirm Password</label>
+				  <input type="password" class="input"value="1234"id="inputt">
+			   </div> 
+			   <div class="inputfield">
+				<input type="submit" value="Update" class="btn">
+			  </div>
+
+			</div>
+		</div>	
+	</div>
+
+    </script>
+</div>
+<script>
+    function myFunction() {
+var x = document.getElementById("inputt");
+if (x.type === "password") {
+x.type = "text";
+} else {
+x.type = "password";
+}
+}
+</script>
+</body>
+</html>
+
+</body>
+</html>
