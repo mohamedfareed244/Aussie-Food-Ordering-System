@@ -17,7 +17,7 @@ body, html{
 
     height: 320px;
 }
-#art{
+.art{
     overflow: auto;
     transition: .5s;
     position: relative;
@@ -28,11 +28,11 @@ body, html{
     box-shadow: 0 4px 8px 0 rgba(63, 48, 48, 0.445), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#art:hover #item_img{
+.art:hover #item_img{
    
 transform: scale(1.2);
 }
-#art:hover{
+.art:hover{
     background-color: rgba(91, 128, 28, 0.459);
 }
 #item_img {
