@@ -214,4 +214,85 @@ async function playsound(){
       })
         return data;
     }
+    async function get_the(id){
+        let data;
+       
+        let item= await fetch(`http://127.0.0.1:3000/add/item/${id}`,{method:'GET'}).then( function (response){
+           data=response.json();
+         console.log("the is "+response);
+          return data;
+        
+      }
+        ).then(function(result){
+            console.log(result);
+            data =result;
+            return result;
+           
+      })
+        return data;
+    }
+    async function get_the2(id){
+        let data;
+       
+        let item= await fetch(`http://127.0.0.1:3000/del/item/${id}`,{method:'GET'}).then( function (response){
+           data=response.json();
+         console.log("the is "+response);
+          return data;
+        
+      }
+        ).then(function(result){
+            console.log(result);
+            data =result;
+            return result;
+           
+      })
+        return data;
+    }
+
+    async function inc_qty(id,price){
+        let data =await get_the(id);
+        console.log("start perocessing ");
+
+console.log("theee data areeee "+data);
+let num =parseInt(document.getElementsByClassName("in_span")[data.num].innerHTML);
+num++;
+document.getElementsByClassName("in_span")[data.num].innerHTML=num;
+let curr_sum=parseInt(document.getElementById("table_item_number").innerHTML);
+console.log(curr_sum);
+curr_sum++;
+let f=parseInt(document.getElementById("table_price").innerHTML);
+f+=price;
+document.getElementById("table_price").innerHTML= f;
+document.getElementById("table_item_number").innerHTML=curr_sum;
+document.getElementById("table_tax").innerHTML=Math.round((f/100)*14);
+document.getElementById("table_total").innerHTML=Math.round((f/100)*14)+f;
+    }
+    async function dec_qty(id,price){
+        let data =await get_the2(id);
+        console.log("start perocessing ");
+
+
+let num =parseInt(document.getElementsByClassName("in_span")[data.num].innerHTML);
+num--;
+if(num!=0){
+document.getElementsByClassName("in_span")[data.num].innerHTML=num;
+}else{
+    const elements = document.getElementsByClassName("art");
+    
+        elements[data.num].parentNode.removeChild(elements[data.num]);
+    
+    
+}
+let curr_sum=parseInt(document.getElementById("table_item_number").innerHTML);
+console.log(curr_sum);
+curr_sum--;
+let f=parseInt(document.getElementById("table_price").innerHTML);
+f-=price;
+document.getElementById("table_price").innerHTML= f;
+document.getElementById("table_item_number").innerHTML=curr_sum;
+document.getElementById("table_tax").innerHTML=Math.round((f/100)*14);
+document.getElementById("table_total").innerHTML=Math.round((f/100)*14)+f;
+    }
+  
+
 
