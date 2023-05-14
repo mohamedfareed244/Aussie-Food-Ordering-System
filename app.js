@@ -90,6 +90,44 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended:true}));
 
 
+
+
+app.get('/add/item/:id',function(req,res){
+   
+    let index;
+    for(let i=0;i<req.session.cart_items.length;i++){
+        console.log("start searching ");
+        if(req.session.cart_items[i].item._id==req.params.id){
+index=i;
+req.session.cart_items[i].qty++;
+console.log("doneeeeee");
+        }
+    }
+    let g={"num":index};
+    console.log(" i will repsonse with "+g.num);
+   res.json(g);
+})
+app.get('/del/item/:id',function(req,res){
+   
+    let index;
+    for(let i=0;i<req.session.cart_items.length;i++){
+        console.log("start searching ");
+        if(req.session.cart_items[i].item._id==req.params.id){
+index=i;
+req.session.cart_items[i].qty--;
+if(req.session.cart_items[i].qty==0){
+    req.session.cart_items.splice(i,1);
+}
+        }
+    }
+    let g={"num":index};
+    console.log(" i will repsonse with "+g.num);
+   res.json(g);
+})
+
+
+
+
 app.get('/menu/:sec_name',  async function(req,res){
     let it=await Sec.findOne({name:req.params.sec_name});
     let sections_data= await Sec.find();
@@ -152,12 +190,6 @@ app.get('/checkout',function(req,res){
 app.get('/admin',function(req,res){
     res.render("partials/admin_sidebar");
 })
-app.get('/admin1',function(req,res){
-    res.render("admin_stat");
-})
-app.get('/admin2',function(req,res){
-    res.render("admin_account");
-})
 app.get('/:id', async function(req,res){
     // let d= await All.findById(req.params.id).then(function(result){
     //     return result;
@@ -189,6 +221,22 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 })
 
 
+app.get("/dec/:id",function(req,res){
+    
+    let index;
+    for(let i=0;i<req.session.cart_items.length;i++){
+        if(req.session.cart_items[i].item._id==req.params.id){
+index=i;
+req.session.cart_items[i].qty--;
+if(req.session.cart_items[i].qty==0){
+    req.session.cart_items=req.session.cart_items.filter(req.session.cart_items[i]);
+}
+
+        }
+    }
+    
+    res.json(index);
+})
 //error handling 
 app.use((req,res)=>{
     res.send("OOPS! it seems that there are an error try again with a valid URL ");
