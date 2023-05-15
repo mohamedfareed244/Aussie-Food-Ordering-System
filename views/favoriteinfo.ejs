@@ -1,0 +1,56 @@
+<html>
+    <html lang="en">
+        <link rel="stylesheet" href="/favoriteinfo.css">      
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+<body>
+    <%- include("./partials/admin_sidebar") %>
+    <div class="tablesfav" >
+        <table class="table table-striped">
+            <tr  class="bg-info">
+                <th>Product</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            <tbody id="myTable">
+        
+            </tbody>
+        </table>
+        </div>
+        <script>
+            var myArray = [
+                { "image":"images/aaa3.jpeg","namse":'fried', "price":'30','edit':''},
+                {"image":"images/burger.webp","name":'burger', "price":'30','edit':''},
+                {"image":"images/dish2.jpeg","name":'dish', "price":'30','edit':''},
+                {"image":"images/dish3.webp","name":'fqash',"price":'30','edit':''},
+                {"image":"images/fried chekein.jpg","name":'Tim', "price":'30','edit':''},
+                {"image":"images/Hamburger.jpg","name":'ssss', "price":'30','edit':''}
+            ]
+            
+            buildTable(myArray)
+        
+        
+        
+            function buildTable(data){
+                var table = document.getElementById('myTable')
+        
+                for (var i = 0; i < data.length; i++){
+                    var row = `<tr>
+                        <td> <img src='${data[i].image}'> </td>
+                                    <td>${data[i].name}</td>
+                                    <td>${data[i].price}</td>
+                                    <td>${data[i].edit}
+                                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                        </td>
+        
+                              </tr>`
+                              
+                    table.innerHTML += row
+        
+        
+                }
+            }
+        
+        </script>
+</body>
+</html>
