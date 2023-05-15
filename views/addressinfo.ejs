@@ -1,0 +1,56 @@
+
+
+<div class="tables">
+    <table class="table table-striped">
+        <tr  class="bg-info">
+            <th>location</th>
+            <th>Address</th>
+            <th>apt</th>
+            <th>floor</th>
+            <th>building</th>
+        </tr>
+        <tbody id="myTable">
+    
+        </tbody>
+    </table>
+    </div>
+    <script>
+        var myArray = [
+            { 'location':'newcairo','Address':'90north', 'apt':'30', 'floor':'4', 'building':'11','edit':''},
+            {'location':'giza','Address':'Mila', '25 doke':'32', 'floor':'10', 'building':'33','edit':''},
+            {'location':'masr gdeda','Address':'nabil wakked', 'apt':'29', '7':'10/14/1990', 'building':'1144','edit':''},
+            {'location':'nasr city','Address':'sab3', 'apt':'25', 'floor':'0', 'building':'567','edit':''},
+            {'location':'newcairo','Address':'Tim', 'apt':'27', 'floor':'3/12/1991', 'building':'11/10/1989','edit':''},
+            {'location':'newcairo','Address':'Erik', 'apt':'24', 'floor':'10/31/1995', 'building':'11/10/1989','edit':''},
+            {'location':'newcairo','Address':'Erik', 'apt':'24', 'floor':'10/31/1995', 'building':'11/10/1989','edit':''},
+            {'location':'newcairo','Address':'Erik', 'apt':'24', 'floor':'10/31/1995', 'building':'11/10/1989','edit':''}
+        ]
+        
+        buildTable(myArray)
+    
+    
+    
+        function buildTable(data){
+            var table = document.getElementById('myTable')
+    
+            for (var i = 0; i < data.length; i++){
+                var row = `<tr>
+                                <td>${data[i].location}</td>
+                                <td>${data[i].Address}</td>
+                                <td>${data[i].apt}</td>
+                                <td>${data[i].floor}</td>
+                                <td>${data[i].building}</td>
+                                <td>${data[i].edit}
+                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+                <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    </td>
+    
+                          </tr>`
+                          
+                table.innerHTML += row
+    
+    
+            }
+        }
+    
+    </script>

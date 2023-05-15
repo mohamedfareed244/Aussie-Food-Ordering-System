@@ -1,0 +1,48 @@
+
+.table td {
+    margin: 19px;
+    padding: 0.75rem;
+    border-top: 1px solid gray;
+    font-weight: 500;
+}
+table th{ 
+    width: 10%;
+    padding: 0.75rem 5.75rem;
+    vertical-align: top;
+    border-top: 13px solid rgb(113, 113, 234);
+    background-color: rgb(113, 113, 234);
+    color: #fff;
+}
+    .tables {
+        max-width: 500px;
+        margin-left: 358px;
+        padding: 0px;
+  }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  
+.delete{
+	color: red;
+}
+.delete:hover{
+	color: brown;
+}
+		  
+		  
+		  
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  
