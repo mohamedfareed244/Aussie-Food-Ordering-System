@@ -1,7 +1,10 @@
-table{
+#t{
     border: 2px solid black;
     border-collapse: collapse;
     width: 100%;
+}
+td{
+    width: 30%;
 }
 thead{
     text-align: center;
@@ -14,4 +17,35 @@ thead{
 }
 .item_details{
     border: none;
+}
+#table_inside{
+   
+  display: block;
+   
+   
+}
+.item_details {
+   display: none;
+    /* display: none; */
+    /* animation: hideMe 1s forwards; */
+}
+
+@keyframes hideMe{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#yy{
+    display: none;
+}
+tr{
+    transition: 2s;
+}
+#t:hover #yy {
+    display: table-row;
+    animation: hideMe 1s forwards;
 }

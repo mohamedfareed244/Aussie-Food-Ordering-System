@@ -237,6 +237,9 @@ if(req.session.cart_items[i].qty==0){
     
     res.json(index);
 })
+app.get('/l/l/l',function(req,res){
+    res.render("a.ejs");
+})
 
 //error handling 
 app.use((req,res)=>{
