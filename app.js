@@ -86,8 +86,28 @@ mongoose.connect("mongodb+srv://mohamed2102759:202102759@cluster0.6cb4ip3.mongod
 .catch(err => {console.log(err);})
 
 app.set('view engine', 'ejs');
+
+
+
+
+
+
+
+
+
+
+
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended:true}));
+
+// ali
+app.get('/index',function(req,res){
+    res.render("index");
+})
+
+
+// ali
+
 
 
 
@@ -240,6 +260,39 @@ if(req.session.cart_items[i].qty==0){
 app.get('/l/l/l',function(req,res){
     res.render("a.ejs");
 })
+
+
+
+
+
+
+
+//app.get('/',function(req,res){
+//     res.render("index");
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //error handling 
 app.use((req,res)=>{
