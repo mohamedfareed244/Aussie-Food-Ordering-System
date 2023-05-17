@@ -1,17 +1,14 @@
 .tablesfav{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: sans-serif;
-	min-height: 100vh;
-	color: #555;
-	max-width: 500px;
-	margin-left: 358px;
-	padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    min-height: 89vh;
+    color: #555;
+    max-width: 500px;
+    margin-left: 451px;
+    margin-top: -971px;
 }
 table{
 	width:  1000px;
-	margin: 30px auto;
 }
 table th{
 	padding: 10px 0;
@@ -19,11 +16,11 @@ table th{
 	border:  thin solid #d4d4d4;
 }
 table td{
-	padding: 10px;
-	border:  thin solid #d4d4d4;
-	width: 18%;
-	text-align: center;
-	background-color: #fff;
+	padding: 14px;
+    border: thin solid #d4d4d4;
+    width: 37%;
+    text-align: center;
+    background-color: #fff;
 }
 table img{
 	width:  70%;
