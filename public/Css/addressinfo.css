@@ -18,7 +18,11 @@ table th{
     background-color: rgb(113, 113, 234);
     color: #fff;
 }
-
+    .tables {
+        max-width: 500px;
+        margin-left: 358px;
+        padding: 0px;
+  }
   tr:nth-child(even) {background-color: #f2f2f2;}
   
 .delete{

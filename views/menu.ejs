@@ -52,7 +52,7 @@
 
                     
 <%}%>
-<div style="border: 1px soild black ;" id="div-btn"> <a href="/checkout" ><button id ="check_now" >CheckOut Now </button></a></div>
+<div style="border: 1px soild black ;" id="div-btn"> <a href="/products/cart/end/checkout" ><button id ="check_now" >CheckOut Now </button></a></div>
 
                      </div>
                      
@@ -78,7 +78,7 @@
     <hr>
   <ul id="menulist" >
     <% sections.forEach(function(itemss) { %>
-    <li class="menu_section" ><a href="/menu/<%=itemss.name%>"><%= itemss.name%></a></li>
+    <li class="menu_section" ><a href="/products/<%=itemss.name%>"><%= itemss.name%></a></li>
     <% }); %> 
   </ul>
    

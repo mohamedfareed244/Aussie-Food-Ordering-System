@@ -182,7 +182,7 @@ async function playsound(){
        
         let data;
         console.log(`the    http://127.0.0.1:3000/${id}`);
-        let item= await fetch(`http://127.0.0.1:3000/${id}`,{method:'GET'}).then( function (response){
+        let item= await fetch(`http://127.0.0.1:3000/products/getitem/${id}`,{method:'GET'}).then( function (response){
            data=response.json();
          console.log("the data "+data);
           return data;
@@ -199,64 +199,18 @@ async function playsound(){
       
       
     }
-    async function get_cart_items(){
-        let data;
-       
-        let item= await fetch(`http://127.0.0.1:3000/getcart_items`,{method:'GET'}).then( function (response){
-           data=response.json();
-         console.log("the is "+data);
-          return data;
-        
-      }
-        ).then(function(data){
-            console.log(data);
-           
-      })
-        return data;
-    }
-    async function get_the(id){
-        let data;
-       
-        let item= await fetch(`http://127.0.0.1:3000/add/item/${id}`,{method:'GET'}).then( function (response){
-           data=response.json();
-         console.log("the is "+response);
-          return data;
-        
-      }
-        ).then(function(result){
-            console.log(result);
-            data =result;
-            return result;
-           
-      })
-        return data;
-    }
-    async function get_the2(id){
-        let data;
-       
-        let item= await fetch(`http://127.0.0.1:3000/del/item/${id}`,{method:'GET'}).then( function (response){
-           data=response.json();
-         console.log("the is "+response);
-          return data;
-        
-      }
-        ).then(function(result){
-            console.log(result);
-            data =result;
-            return result;
-           
-      })
-        return data;
-    }
-
+  
+  
+  
+//add items to the cart at checkout page 
     async function inc_qty(id,price){
-        let data =await get_the(id);
+        let data =await get_item(id);
         console.log("start perocessing ");
 
 console.log("theee data areeee "+data);
-let num =parseInt(document.getElementsByClassName("in_span")[data.num].innerHTML);
+let num =parseInt(document.getElementsByClassName("in_span")[data].innerHTML);
 num++;
-document.getElementsByClassName("in_span")[data.num].innerHTML=num;
+document.getElementsByClassName("in_span")[data].innerHTML=num;
 let curr_sum=parseInt(document.getElementById("table_item_number").innerHTML);
 console.log(curr_sum);
 curr_sum++;
@@ -267,7 +221,30 @@ document.getElementById("table_item_number").innerHTML=curr_sum;
 document.getElementById("table_tax").innerHTML=Math.round((f/100)*14);
 document.getElementById("table_total").innerHTML=Math.round((f/100)*14)+f;
     }
+//add items to the cart at checkout page 
+//del items from the cart at checkout page 
+async function get_the2(id){
+    let data;
+   
+    let item= await fetch(`http://127.0.0.1:3000/products/cartdel/${id}`,{method:'GET'}).then( function (response){
+       data=response.json();
+     console.log("the is "+response);
+      return data;
+    
+  }
+    ).then(function(result){
+        console.log(result);
+        data =result;
+        return result;
+       
+  })
+    return data;
+}
+
+
+
     async function dec_qty(id,price){
+        //function send to backend api to decrease quantity of this item 
         let data =await get_the2(id);
         console.log("start perocessing ");
 
@@ -293,6 +270,7 @@ document.getElementById("table_item_number").innerHTML=curr_sum;
 document.getElementById("table_tax").innerHTML=Math.round((f/100)*14);
 document.getElementById("table_total").innerHTML=Math.round((f/100)*14)+f;
     }
+    //del items from the cart at checkout page 
   
 
 
