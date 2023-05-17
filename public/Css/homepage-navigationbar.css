@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+body{
+   background: rgba(0, 0, 0, 0.7) url(../photos/food2.webp)  fixed;
+   background-size: cover;
+   background-blend-mode: darken;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.container h1{
+    color: orangered;
+    margin-left: 15px;
+    cursor: pointer;
+   /* padding-top: 30px; */
+   position: fixed;
+   top: 30px;
+}
+
+.navbar ul li{
+    display: inline-block;
+    padding: 25px;
+    text-transform: uppercase;
+    /* background-color: black;
+    opacity: 30%; */
+}
+
+.navbar ul li a{
+
+    text-decoration: none;
+    color: #fff;
+    padding: 4px;
+    transition: .5s;
+
+
+}
+
+ .navbar ul li i{
+
+    /* color:#fff;
+    
+   
+    height: 30px; */
+
+    
+    text-decoration: none;
+    color: #fff;
+    padding: 4px;
+    transition: 1s;
+} 
+
+ul li i:hover{
+    box-shadow: 0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset;
+    cursor: pointer;
+border-radius: 4px;
+}
+
+/* input[type="text"]{
+    background: #fff;
+} */
+
+
+
+
+.navbar ul li a:hover{
+    border-radius: 6px;
+    box-shadow: 0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset;
+
+}
+.navbar  .sign {
+    padding: 10px;
+    background-color: orangered;
+
+}
+
+.navbar{
+    position:fixed;
+    z-index: 1;
+  /* align-items: center; */
+  left: 250px;
+  top: 10px;
+  /* right: 30px; */
+}
