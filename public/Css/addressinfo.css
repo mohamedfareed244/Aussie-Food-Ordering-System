@@ -19,8 +19,9 @@ table th{
     color: #fff;
 }
     .tables {
-        max-width: 500px;
-        margin-left: 358px;
+        
+        max-width: 450px;
+        margin-left: 20%;
         padding: 0px;
   }
   tr:nth-child(even) {background-color: #f2f2f2;}
