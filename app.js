@@ -100,13 +100,34 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended:true}));
 
+
+
 // ali
 app.get('/index',function(req,res){
     res.render("index");
 })
 
+app.get('/reg',function(req,res){
+    res.render("register");
+})
 
+app.get('/sign',function(req,res){
+    res.render("sign-in");
+})
+
+app.get('/dashmenu',function(req,res){
+    res.render("admin-dashboard-menu");
+})
+
+app.get('/dashorders',function(req,res){
+    res.render("dashboard-orders");
+})
+
+app.get('/dashcustom',function(req,res){
+    res.render("recent-customers");
+})
 // ali
+
 
 
 
