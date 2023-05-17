@@ -46,11 +46,11 @@
   }
   
   .wrapper .form .inputfield .input{
-    width: 100%;
+    width: 101%;
     outline: none;
-    border: 1px solid #d5dbd9;
-    font-size: 15px;
-    padding: 8px 10px;
+    border: 2px solid #d5dbd9;
+    font-size: 16px;
+    padding: 0px 4px;
     border-radius: 3px;
     transition: all 0.3s ease;
   }
