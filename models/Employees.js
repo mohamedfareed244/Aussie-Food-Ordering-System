@@ -4,10 +4,9 @@ const { Schema } = mongoose;
 
 const employees= new Schema({
  Firstname:String,
- Middlename:String,
  Lastname:String,
  Phone:Number,
- Orders:[{id:String}],
+ Salary:Number,
  Email:String,
  Password:String,
 
@@ -18,4 +17,4 @@ const employees= new Schema({
 });
 const Emp=mongoose.model('Reg',employees);
 
-export {Reg};
+export {Emp};

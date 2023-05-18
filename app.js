@@ -19,7 +19,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //ali
-const customers= require("./models/customers.js");
+// const customers= require("./models/customers.js");
+// const Emp= require("./models/Employees.js");
 
 //set up app 
 const app = express();
@@ -49,9 +50,9 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 //ali
 
 
-app.get("/reg",function(req,res){
-    res.render("register");
-})
+// app.get("/reg",function(req,res){
+//     res.render("register");
+// })
 
 
 // app.post('/recent-customers', (req, res)=> {
@@ -66,6 +67,36 @@ app.get("/reg",function(req,res){
 //       console.log(err);
 //     });
 //   })
+
+
+
+
+
+// // app.post('/employees', (req, res)=> {
+
+// //     const employee=new Emp(req.body);
+// //     employee
+// //     .save( )
+// //     .then( result => {
+// //      console.log("succesfully saved");
+// //     })
+// //     .catch( err => {
+// //       console.log(err);
+// //     });
+// //   })
+
+// // app.get('/employees', (req, res)=> {
+
+// //    
+// //     employee
+// //     .find( )
+// //     .then( result => {
+// //      console.log(result);
+// //     })
+// //     .catch( err => {
+// //       console.log(err);
+// //     });
+// //   })
 
 
 
