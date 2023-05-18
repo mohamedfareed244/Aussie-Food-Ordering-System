@@ -18,6 +18,9 @@ import cors from "cors"
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+//ali
+const customers= require("./models/customers.js");
+
 //set up app 
 const app = express();
 //set up session 
@@ -27,6 +30,8 @@ app.use(session({ secret: 'Your_Secret_Key' }));
 app.set('view engine', 'ejs');
 //setup static 
 app.use(express.static(path.join(__dirname,'public')));
+
+//db post request
 app.use(express.urlencoded({extended:true}));
 
 //routes 
@@ -37,6 +42,39 @@ app.use('/products',product_router);
 app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
     res.sendFile(path.join("/Users/user/Downloads/Message notification.m4r"));
 })
+
+
+
+
+//ali
+
+
+app.get("/reg",function(req,res){
+    res.render("register");
+})
+
+
+// app.post('/recent-customers', (req, res)=> {
+
+//     const customer=new customers(req.body);
+//     customer
+//     .save( )
+//     .then( result => {
+//      console.log("succesfully saved");
+//     })
+//     .catch( err => {
+//       console.log(err);
+//     });
+//   })
+
+
+
+
+
+
+
+
+
 
 
 //error handling 
