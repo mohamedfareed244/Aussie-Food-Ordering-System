@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 
 //ali
 // const customers= require("./models/customers.js");
-// const Emp= require("./models/Employees.js");
+ const Emp= require("./models/Employees.js");
 
 //set up app 
 const app = express();

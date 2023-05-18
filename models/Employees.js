@@ -3,11 +3,12 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const employees= new Schema({
- Firstname:String,
- Lastname:String,
- Phone:Number,
- Salary:Number,
+ Name:String,
  Email:String,
+ Address:String,
+ Phone:Number,
+
+ 
  Password:String,
 
 //ConfirmPassword:String,
