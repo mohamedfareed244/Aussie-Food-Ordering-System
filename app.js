@@ -17,13 +17,14 @@ import cors from "cors"
 //Read the current directory name
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const app = express();
 
 //ali
-// const customers= require("./models/customers.js");
- const Emp= require("./models/Employees.js");
+import {customers} from "./models/customers.js";
+ import {Emp} from "./models/Employees.js";
 
 //set up app 
-const app = express();
+
 //set up session 
 app.use(session({ secret: 'Your_Secret_Key' }));
 
@@ -54,49 +55,43 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 //     res.render("register");
 // })
 
+ app.post('/recent-customers', (req, res)=> {
 
-// app.post('/recent-customers', (req, res)=> {
-
-//     const customer=new customers(req.body);
-//     customer
-//     .save( )
-//     .then( result => {
-//      console.log("succesfully saved");
-//     })
-//     .catch( err => {
-//       console.log(err);
-//     });
-//   })
-
+    const customer=new customers(req.body);
+    customer
+    .save( )
+    .then( result => {
+     console.log("succesfully saved");
+    })
+    .catch( err => {
+      console.log(err);
+   });
+  })
 
 
 
 
-// // app.post('/employees', (req, res)=> {
 
-// //     const employee=new Emp(req.body);
-// //     employee
-// //     .save( )
-// //     .then( result => {
-// //      console.log("succesfully saved");
-// //     })
-// //     .catch( err => {
-// //       console.log(err);
-// //     });
-// //   })
-
-// // app.get('/employees', (req, res)=> {
-
-// //    
-// //     employee
-// //     .find( )
-// //     .then( result => {
-// //      console.log(result);
-// //     })
-// //     .catch( err => {
-// //       console.log(err);
-// //     });
-// //   })
+ app.post('/employees', (req, res)=> {
+  
+    const employee=new Emp(req.body);
+    employee
+    .save( )
+    .then( result => {
+     console.log("succesfully saved");
+    })
+    .catch( err => {
+      console.log(err);
+    });
+  })
+app.get('/employees', (req, res)=> {
+       employee
+     .find( )
+     .then( result => {     console.log(result);    })
+   .catch( err => {
+     console.log(err);
+    });
+ })
 
 
 
