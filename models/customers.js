@@ -6,7 +6,7 @@ const Custom = new Schema({
 Firstname:String,
 Middlename:String,
 Lastname:String,
-Phone:Number,
+Phone:String,
 Orders:[{id:String}],
 Email:String,
 Password:String,
