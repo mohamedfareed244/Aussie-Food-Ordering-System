@@ -70,7 +70,7 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 
 
 
-
+ 
 
  app.post('/employees', (req, res)=> {
   
@@ -84,22 +84,37 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
       console.log(err);
     });
   })
-app.get('/employees', (req, res)=> {
-       employee
-     .find( )
-     .then( result => {     console.log(result);    })
-   .catch( err => {
-     console.log(err);
-    });
+
+
+
+
+
+
+  app.get("/employees", (req, res) => {
+ 
+    employee.find()
+      .then((result) => {
+        res.render("index", { arrEmp: result });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+
+
+
+// app.get('/', (req, res) => 
+// {
+//   res.render('index')
+// })
+
+
+app.get('/emp', (req, res) => 
+  {
+
+    res.render('dashboard-employees')
  })
-
-
-
-
-app.get('/', (req, res) => 
-{
-  res.render('index')
-})
 
 
 
