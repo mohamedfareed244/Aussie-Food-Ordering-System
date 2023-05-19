@@ -1,7 +1,7 @@
-import {customers} from "../models/customers";
+import {customers} from "../models/customers.js";
 
 
-const postcustomers =(req, res)=> {
+const postcustomers = async (req, res)=> {
 
     const customer=new customers(req.body);
     customer
