@@ -1,7 +1,7 @@
 
 import Router from "express"
-import {getemployees} from "../controllers/employees-controller";
-import {postemployees} from "../controllers/employees-controller";
+import {getemployees} from "../controllers/employees-controllers";
+import {postemployees} from "../controllers/employees-controllers";
 
 const router=Router();
 
