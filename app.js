@@ -72,6 +72,18 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
   })
 
 
+  app.get("/recentt-customers", (req, res) => {
+ 
+   customer.find()
+      .then((result) => {
+        res.render("index", { arrCust: result });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+
 
 
 
