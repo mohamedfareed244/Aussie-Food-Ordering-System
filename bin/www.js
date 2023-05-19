@@ -11,6 +11,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+
+
 // Get port from environment variable or default to 8000
 const PORT = process.env.PORT || "3000";
 const HOST = process.env.HOST || "127.0.0.1";
@@ -63,3 +65,5 @@ function onListening() {
   const { port } = server.address();
   console.log(`Listening on Port ${port}`);
 }
+
+export default mongoose;
