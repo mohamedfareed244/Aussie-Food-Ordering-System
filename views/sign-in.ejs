@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <%- include("./partials/homepage-navigationbar")  %>
+    <!-- <%- include("./partials/homepage-navigationbar")  %> -->
 
     <div class="container">
 
@@ -24,7 +24,7 @@
         <form action='/customers/signin' method='post' onsubmit='return validate(this)'>
         <input type="text" id="idmail" name="phone" placeholder=" Mobile number " >
         <div id='mail' class='err'></div>
-        <input type="password"  id="idpass" placeholder=" Password" name="password">
+        <input type="password"  name="password" id="idpass" placeholder=" Password" >
         <div id='password' class='err'></div>
         <button type="submit" class="registerbtn">Sign In</button> 
     </form>

@@ -8,8 +8,11 @@ const router=Router();
 router.post('/signup', postcustomers );
   router.post("/signin", getcustomers);
 
-  router.get('/j/k',async (req,res)=>{
+  router.get('/signup',async (req,res)=>{
     res.render("register");
+  });
+  router.get('/signin',async (req,res)=>{
+    res.render("sign-in");
   });
 
   export default router;

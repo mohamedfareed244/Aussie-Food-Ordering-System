@@ -33,11 +33,18 @@ console.log(err);
 //customer sign in 
   const getcustomers= async (req, res) => {
  
-   const current_customer= await customers.findOne({phone:req.body.phone,Password:req.body.Password});
+  let  current_customer;
+  console.log(req.body.phone);
+  console.log(req.body.password);
+   await customers.findOne({Phone:req.body.phone,Password:req.body.password}).then((result)=>{
+    current_customer=result;
+   })
+   
    if(current_customer===undefined){
     res.send("invalid phone or password ");
    }else{
     req.session.signed_customer=current_customer;
+    
     res.redirect("/products/All");
    }
    }
