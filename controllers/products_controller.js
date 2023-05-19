@@ -4,6 +4,21 @@ import {All} from "../models/schema.js";
 import {Sec} from "../models/menu_sections.js";
 //end import models 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //get section items by section name 
 const getsection = async (req, res, next) => {
     let it=await Sec.findOne({name:req.params.sec_name});

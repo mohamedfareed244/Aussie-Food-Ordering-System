@@ -8,6 +8,7 @@ const postcustomers = async (req, res)=> {
     .save( )
     .then( result => {
      console.log("succesfully saved");
+     res.send("done ! welcome to aussie ");
     })
     .catch( err => {
       console.log(err);
@@ -16,7 +17,13 @@ const postcustomers = async (req, res)=> {
 //customer sign in 
   const getcustomers= async (req, res) => {
  
-   const current_customer=customers.findOne({})
+   const current_customer= await customers.findOne({phone:req.body.phone,Password:req.body.Password});
+   if(current_customer===undefined){
+    res.send("invalid phone or password ");
+   }else{
+    req.session.signed_customer=current_customer;
+    res.redirect("/products/All");
+   }
    }
 
    export {getcustomers,postcustomers};
