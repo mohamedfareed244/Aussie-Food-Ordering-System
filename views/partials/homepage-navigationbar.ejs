@@ -35,7 +35,12 @@
                     <a href=""></a>
                
                 </li>
-                <li><a  class="sign" href="user_profile.html">Profile</a></li>
+                <%if (current_user!==undefined){%>
+                <li><a  class="sign" href="customer/profile/<%=current_user.id%>"><%=current_user.Firstname%></a></li>
+                <%}%>
+                <%else{%>
+                    <li><a  class="sign" href="user_profile.html"><%=current_user.Firstname%></a></li>
+                    <%}%>
                 <li><a class="sign" href="../register.ejs">Register</a></li>
             </ul>
 
