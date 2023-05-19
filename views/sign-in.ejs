@@ -21,10 +21,10 @@
 
         <h1>Sign In</h1>
         <h3>Aussie food to be enjoyed</h3>
-        <form action='#' method='post' onsubmit='return validate(this)'>
-        <input type="text" id="idmail" placeholder="Enter Email" >
+        <form action='/customers/signin' method='post' onsubmit='return validate(this)'>
+        <input type="text" id="idmail" name="phone" placeholder=" Mobile number " >
         <div id='mail' class='err'></div>
-        <input type="password" name="email" id="idpass" placeholder="Enter Password" name="psw">
+        <input type="password"  id="idpass" placeholder=" Password" name="password">
         <div id='password' class='err'></div>
         <button type="submit" class="registerbtn">Sign In</button> 
     </form>

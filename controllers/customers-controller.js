@@ -1,6 +1,6 @@
 import {customers} from "../models/customers.js";
 
-
+//add new customer to the database 
 const postcustomers = async (req, res)=> {
 
     const customer=new customers(req.body);
@@ -13,16 +13,10 @@ const postcustomers = async (req, res)=> {
       console.log(err);
    });
   }
-
-  const getcustomers= (req, res) => {
+//customer sign in 
+  const getcustomers= async (req, res) => {
  
-    customers.find()
-       .then((result) => {
-         res.render("index", { arrCust: result });
-       })
-       .catch((err) => {
-         console.log(err);
-       });
+   const current_customer=customers.findOne({})
    }
 
    export {getcustomers,postcustomers};

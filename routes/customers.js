@@ -5,9 +5,9 @@ import {postcustomers} from "../controllers/customers-controller.js";
 
 const router=Router();
 
-router.post('/', postcustomers )
+router.post('/signin', postcustomers )
 
 
-  router.get("/", getcustomers);
+  router.post("/sing_up", getcustomers);
 
   export default router;

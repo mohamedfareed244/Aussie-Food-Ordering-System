@@ -1,7 +1,12 @@
 function validateemail(field)
 {
     if(field==''){
-        document.getElementById('mail').innerHTML='Please enter your email adress';
+        document.getElementById('mail').innerHTML='Please enter your phone number';
+        document.getElementById('idmail').style.borderColor = "red";
+        return false;
+    }
+    else if(field.length!==11){
+        document.getElementById('mail').innerHTML=' invalid phone number ';
         document.getElementById('idmail').style.borderColor = "red";
         return false;
     }

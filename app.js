@@ -10,10 +10,7 @@ import product_router from "./routes/products.js";
 import cust_router from "./routes/customers.js";
 import emp_router from "./routes/employees.js";
 
-
-//import the routes 
-import {All} from "./models/schema.js";
-import {Sec} from "./models/menu_sections.js";
+// end import routes 
 import { CLIENT_RENEG_LIMIT } from "tls";
 import session from "express-session";
 import cors from "cors"
@@ -41,7 +38,7 @@ app.use(express.urlencoded({extended:true}));
 //routes 
 app.use('/products',product_router);
 app.use('/employees',emp_router);
-app.use('/recentt-customers',cust_router);
+app.use('/customers',cust_router);
 
 
 //test playing sound for use in the future at orders 
