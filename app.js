@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 //import the routes 
 import product_router from "./routes/products.js";
 //ali
-import cust_router from "./models/customers.js";
+import cust_router from "./routes/customers.js";
 import emp_router from "./routes/employees.js";
 
 
