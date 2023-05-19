@@ -1,31 +1,13 @@
 
 import Router from "express"
-import {customers} from "../models/customers";
+import {getcustomers} from "../controllers/customers-controller";
+import {postcustomers} from "../controllers/customers-controller";
+
 const router=Router();
 
-router.post('/', (req, res)=> {
-
-    const customer=new customers(req.body);
-    customer
-    .save( )
-    .then( result => {
-     console.log("succesfully saved");
-    })
-    .catch( err => {
-      console.log(err);
-   });
-  })
+router.post('/', postcustomers )
 
 
-  router.get("/", (req, res) => {
- 
-   customer.find()
-      .then((result) => {
-        res.render("index", { arrCust: result });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+  router.get("/", getcustomers);
 
   export default router;
