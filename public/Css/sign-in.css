@@ -1,12 +1,11 @@
 body{
-    background-image: url(../photos/back3.jpg); 
-
-    background-repeat: no-repeat;
+    background: rgba(0, 0, 0, 0.7) url(../images/food2.webp)  fixed;
     background-size: cover;
-    background-position: center;
-    font-family: sans-serif; 
-
-}
+    background-blend-mode: darken;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+ 
+ }
+ 
 .container{
    width: 400px;
    height: 600px;
