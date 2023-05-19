@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 //import the routes 
 import product_router from "./routes/products.js";
 //ali
-import {customers} from "./models/customers.js";
+import cust_router from "./models/customers.js";
 import emp_router from "./routes/employees.js";
 
 
@@ -41,6 +41,7 @@ app.use(express.urlencoded({extended:true}));
 //routes 
 app.use('/products',product_router);
 app.use('/employees',emp_router);
+app.use('/recentt-customers',cust_router);
 
 
 //test playing sound for use in the future at orders 
@@ -58,30 +59,6 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 //     res.render("register");
 // })
 
- app.post('/recentt-customers', (req, res)=> {
-
-    const customer=new customers(req.body);
-    customer
-    .save( )
-    .then( result => {
-     console.log("succesfully saved");
-    })
-    .catch( err => {
-      console.log(err);
-   });
-  })
-
-
-  app.get("/recentt-customers", (req, res) => {
- 
-   customer.find()
-      .then((result) => {
-        res.render("index", { arrCust: result });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
 
 
 
