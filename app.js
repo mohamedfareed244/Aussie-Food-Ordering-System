@@ -6,6 +6,9 @@ import fs from "fs";
 import { fileURLToPath } from "url";
 //import the routes 
 import product_router from "./routes/products.js";
+//ali
+import {customers} from "./models/customers.js";
+import emp_router from "./routes/employees.js";
 
 
 //import the routes 
@@ -19,9 +22,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 
-//ali
-import {customers} from "./models/customers.js";
- import {Emp} from "./models/Employees.js";
+
+ 
 
 //set up app 
 
@@ -38,6 +40,7 @@ app.use(express.urlencoded({extended:true}));
 
 //routes 
 app.use('/products',product_router);
+app.use('/employees',emp_router);
 
 
 //test playing sound for use in the future at orders 
@@ -67,55 +70,6 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
       console.log(err);
    });
   })
-
-
-
- 
-
- app.post('/employees', (req, res)=> {
-  
-    const employee=new Emp(req.body);
-    employee
-    .save( )
-    .then( result => {
-     console.log("succesfully saved");
-    })
-    .catch( err => {
-      console.log(err);
-    });
-  })
-
-
-
-
-
-
-  app.get("/employees", (req, res) => {
- 
-    employee.find()
-      .then((result) => {
-        res.render("index", { arrEmp: result });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-
-
-
-
-// app.get('/', (req, res) => 
-// {
-//   res.render('index')
-// })
-
-
-app.get('/emp', (req, res) => 
-  {
-
-    res.render('dashboard-employees')
- })
-
 
 
 
