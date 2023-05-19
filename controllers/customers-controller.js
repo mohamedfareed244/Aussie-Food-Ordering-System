@@ -39,12 +39,11 @@ console.log(err);
    await customers.findOne({Phone:req.body.phone,Password:req.body.password}).then((result)=>{
     current_customer=result;
    })
-   
-   if(current_customer===undefined){
+   console.log(current_customer);
+   if(current_customer===undefined||current_customer===null){
     res.send("invalid phone or password ");
    }else{
     req.session.signed_customer=current_customer;
-    
     res.redirect("/products/All");
    }
    }
