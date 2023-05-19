@@ -10,6 +10,7 @@ Phone:Number,
 Orders:[{id:String}],
 Email:String,
 Password:String,
+chat:[{msg:String, issent:Boolean}],
   
 });
  const customers =mongoose.model('customers',Custom);
