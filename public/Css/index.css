@@ -1,3 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+body{
+   background: rgba(0, 0, 0, 0.7) url(../images/food2.webp)  fixed;
+   background-size: cover;
+   background-blend-mode: darken;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+
+}
+
+
+
 .content{
     position: absolute;
     color: #fff;

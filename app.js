@@ -58,7 +58,9 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 
 
 
-
+app.get('/',(req,res)=>{
+  res.render("index");
+});
 
 
 //error handling 
