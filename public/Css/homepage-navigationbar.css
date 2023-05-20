@@ -143,12 +143,13 @@ body,html{
  padding: 5px 20px;
  width: 70%; */
  background: #fff;
+
  width: 250px;
  height: 20px;
  border: none;
  outline: none;
  padding: 0 25px;
- border-radius: 20px 0 0 20px;
+ border-radius:20px;
  
  }
  

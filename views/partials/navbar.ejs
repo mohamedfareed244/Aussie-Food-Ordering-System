@@ -27,10 +27,12 @@
             <h1>Aussie</h1>
       
             <ul>
+                
                 <li>
                     <input class="search" type="text" placeholder="Search Food">
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </li>
+
                 <li class ="part2"><a href="/">Home</a></li>
                 <li class ="part2"><a href="/products/All">Menu</a></li>
                 <li class ="part2" id="cart" onclick="dis()">
@@ -79,4 +81,9 @@
     
 
     </div>
+    <script> if(document.title==="Aussie"){
+        document.getElementsByClassName("search")[0].style.display="none";
+       
+        document.getElementsByClassName(" fa-solid fa-magnifying-glass")[0].style.display="none";
+    } </script>
 </body>
