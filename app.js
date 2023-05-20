@@ -59,7 +59,12 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 
 
 app.get('/',(req,res)=>{
-  res.render("index",{s:new Array(),num:9,current_user:req.session.signed_customer==undefined?null:req.session.signed_customer});
+  let number=0;
+  if(req.session.cart_items!==undefined){
+  for(let i=0;i<req.session.cart_items.length;i++){ number+=req.session.cart_items[i].qty;}
+  }
+  res.render("index",{s:(req.session.cart_items===undefined?new Array():req.session.cart_items)
+    ,num:number,current_user:req.session.signed_customer==undefined?null:req.session.signed_customer});
 });
 
 
