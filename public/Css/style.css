@@ -434,16 +434,7 @@ padding-left: 1px;
     position: relative;
 
 }
-#notification{
-    position: absolute;
-    text-align: center;
-    color: white;
-    background-color: red;
-   width: 20px;
-    border-radius: 50%;
-    right: 320px;
-    top: 14px;
-}
+
 
 
 
