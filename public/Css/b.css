@@ -1,7 +1,7 @@
 #t{
-    border: 2px solid black;
+   
     border-collapse: collapse;
-    width: 75%;
+    width: 74%;
 position: relative;
 top: -810px;
 left: 350px;
@@ -10,13 +10,14 @@ td{
     width: 30%;
 }
 thead{
+    background-color: rgb(70, 121, 203);
     text-align: center;
 }
 .order_summ{
     text-align: center;
     align-items: center;
     width: 30%;
-    border: 2px solid black;
+    border-bottom: 1px solid rgb(56, 56, 205);
 }
 .item_details{
     border: none;
@@ -24,8 +25,8 @@ thead{
 #table_inside{
    
   display: block;
-   
-   
+   width: 1200px;
+   border-bottom: 1px solid rgb(56, 56, 205);
 }
 .item_details {
    display: none;
@@ -46,7 +47,9 @@ thead{
     display: none;
 }
 tr{
+    border: none;
     transition: 2s;
+    height: 50px;
 }
 #t:hover #yy {
     display: table-row;
