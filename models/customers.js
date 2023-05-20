@@ -11,6 +11,7 @@ Orders:[{id:String}],
 Email:String,
 Password:String,
 chat:[{msg:String, issent:Boolean}],
+addreses:[{ location: String, Adress:String, apartement: string, floor: String, Building:String}],
   
 });
  const customers =mongoose.model('customers',Custom);
