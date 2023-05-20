@@ -6,7 +6,7 @@ const employees= new Schema({
  Name:String,
  Email:String,
  Address:String,
- Phone:Number,
+ Phone:String,
 
  
  Password:String,
