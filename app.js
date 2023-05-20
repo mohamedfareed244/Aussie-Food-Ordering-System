@@ -59,7 +59,7 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 
 
 app.get('/',(req,res)=>{
-  res.render("index",{s:new Array(),num:9});
+  res.render("index",{s:new Array(),num:9,current_user:req.session.signed_customer==undefined?null:req.session.signed_customer});
 });
 
 

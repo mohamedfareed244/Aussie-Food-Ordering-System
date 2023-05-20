@@ -35,6 +35,7 @@
                 <li class ="part2"><a href="/products/All">Menu</a></li>
                 <li class ="part2" id="cart">
                     <i class="fa-solid fa-cart-shopping" onclick="location.href = '/products/cart/end/checkout';" ></i>
+                    <span id ="notification"><%= num %></span>
                     <!-- onclick="check_out(event.target)" -->
                      <div class="kk" >
                         <div style="width: 98%;height: 78.5%;  overflow: auto; border: 1px solid rgb(23, 28, 100);" class="cc">
@@ -61,8 +62,12 @@
                      
                      <!-- <div style="height: 90%; width: 80%; border: 1px solid black;"></div> -->
                     </li>
-                     <span id ="notification"><%= num %></span>
-                <li class ="part2"><a  class="sign" href="user_profile.html">Profile</a></li>
+                    
+                    <%if(current_user!==null){%> 
+                        <li class ="part2"><a  class="sign" href="/customers/profile"><%=current_user.Firstname%></a></li>
+                        <%}else{%>
+                <li class ="part2"><a  class="sign" href="/customers/signin">Profile</a></li>
+                <%}%>
                 <li class ="part2"><a class="sign" href="register.ejs">Register</a></li>
             </ul>
         </div>

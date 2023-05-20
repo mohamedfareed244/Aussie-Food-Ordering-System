@@ -36,7 +36,8 @@ for(let i=0;i<req.session.cart_items.length;i++){ number+=req.session.cart_items
 }
 
     res.render("menu",{men:("menu|"+req.params.sec_name),num:number,sections:sections_data,browse:section_items
-    ,s:(req.session.cart_items===undefined?new Array():req.session.cart_items)});
+    ,s:(req.session.cart_items===undefined?new Array():req.session.cart_items),
+    current_user:req.session.signed_customer==undefined?null:req.session.signed_customer});
   
   };
 
