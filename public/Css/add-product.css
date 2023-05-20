@@ -1,5 +1,5 @@
 body{
-    background: rgba(0, 0, 0, 0.7) url(photos/food2.webp)  fixed;
+    background: rgba(0, 0, 0, 0.7) url(/images/food2.webp)  fixed;
    background-size: cover;
    background-blend-mode: darken;
    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
@@ -126,4 +126,39 @@ color: rgb(82, 82, 87);
 div.err
 {
    color: red;
+}
+
+
+
+/* choose photo */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600;700&display=swap');
+
+.display{
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    /* margin: 20px; */
+   
+    border-radius: 999px;
+    overflow: hidden;
+}
+#upload{
+    display: none;
+}
+label{
+    background: rgb(39, 149, 11);
+    cursor: pointer;
+    border-radius: 10px;
+    
+    padding: 10px;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+/* uploaded image */
+img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    object-fit: cover;
 }
