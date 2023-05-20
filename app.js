@@ -57,7 +57,10 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 //    })
 
 
-
+app.get('/test',(req,res)=>{
+  console.log("start")
+res.render("add-employee");
+});
 app.get('/',(req,res)=>{
   let number=0;
   if(req.session.cart_items!==undefined){
