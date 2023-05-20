@@ -17,10 +17,13 @@
    
    
     <div class="container">
-     
-        <i class="fa-solid fa-bars" id="fx" ></i>
+        
+        <!-- <div class="imgg">
+            <img src="signlogo.png" alt="">
+        </div> -->
+        <i class="fa-solid fa-bars" id="fx" onclick="showmenu()"></i>
         <div class="navbar">
-            <i class="fa-sharp fa-solid fa-xmark" id="fx" ></i>
+            <i class="fa-sharp fa-solid fa-xmark" id="fx" onclick="hidemenu()"></i>
             <h1>Aussie</h1>
       
             <ul>
@@ -28,15 +31,39 @@
                     <input class="search" type="text" placeholder="Search Food">
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </li>
-                <li class ="part2"><a href="index.html">Home</a></li>
-                <li class ="part2"><a href="menu.html">Menu</a></li>
+                <li class ="part2"><a href="/">Home</a></li>
+                <li class ="part2"><a href="/products/All">Menu</a></li>
                 <li class ="part2" id="cart">
-                    <i class="fa-solid fa-cart-shopping" onclick="location.href = 'check_out.html';" ></i></li>
-             
-                   
+                    <i class="fa-solid fa-cart-shopping" onclick="location.href = '/products/cart/end/checkout';" ></i>
+                    <!-- onclick="check_out(event.target)" -->
+                     <div class="kk" >
+                        <div style="width: 98%;height: 78.5%;  overflow: auto; border: 1px solid rgb(23, 28, 100);" class="cc">
+                            
+                        <%if(s.length>0){%>
+                        <% s.forEach( function(itemss) { %> 
+                           
+                            <div class ="art"><img src="<%-itemss.item.path%>"alt="" class="item_img" >
+                                
+                            <span class="s1"> <b>item name :</b> <%- itemss.item.name %></span>
+                            <br>
+                            <span class="s2"><b>Price : <%-itemss.item.price%> $ Qty : </b> <b class="qty1"><%-itemss.qty%></b> </span>
+                            
+                        </div>  
+                        <% }); %>  
+                    </div>
+
+                    
+<%}%>
+<div style="border: 1px soild black ;" id="div-btn"> 
+    <a href="/products/cart/end/checkout" ><button id ="check_now" >CheckOut Now </button></a></div>
+
+                     </div>
+                     
+                     <!-- <div style="height: 90%; width: 80%; border: 1px solid black;"></div> -->
+                    </li>
+                     <span id ="notification"><%= num %></span>
                 <li class ="part2"><a  class="sign" href="user_profile.html">Profile</a></li>
-                <li class ="part2"><a class="sign" href="register.html">Register</a></li>
-            
+                <li class ="part2"><a class="sign" href="register.ejs">Register</a></li>
             </ul>
         </div>
     </div>
