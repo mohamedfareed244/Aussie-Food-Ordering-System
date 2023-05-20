@@ -14,6 +14,7 @@
 
 <body>
     <%- include("./partials/navbar") %>
+    
    <div id="menu_selections">
     <h2 id ="headaftersafety">Choose What You Love </h2>
     <hr>
@@ -55,7 +56,32 @@
 
 
     </div>
+    <div  id="shows">
+        <div id ="cc">
+            <div id="cart_body">
 
+                <%if(s.length>0){%>
+                    <% s.forEach( function(itemss) { %> 
+                       
+                        <div class ="art"><img src="<%-itemss.item.path%>"alt="" class="item_img" >
+                            
+                        <span class="s1"> <b>item name :</b> <%- itemss.item.name %></span>
+                        <br>
+                        <span class="s2"><b>Price : <%-itemss.item.price%> $ Qty : </b> <b class="qty1"><%-itemss.qty%></b> </span>
+                        
+                    </div>  
+                    <% }); %>  
+               
+                
+     <%}%>
+    </div>
+
+     <button id="chout" onclick="location.href = '/products/cart/end/checkout';">Proceed to checkout</button>
+            </div>
+    
+            
+    </div>
+    <!-- end shows -->
    
 
 </body>

@@ -36,7 +36,7 @@ node.appendChild(node1);
 node.appendChild(node2);
 node.appendChild(node4);
 node.appendChild(node5);
-let parent=document.getElementsByClassName("cc")[0];
+let parent=document.getElementById("cart_body");
 
 parent.appendChild(node);
 let number=parseInt( document.getElementById("notification").innerHTML);
@@ -158,4 +158,14 @@ document.getElementById("table_total").innerHTML=Math.round((f/100)*14)+f;
     //del items from the cart at checkout page 
   
 
-
+function dis(){
+    console.log("started");
+    const item=document.getElementById("shows");
+    console.log(item.style.display);
+    if(item.style.display==="none"){
+        console.log("started1");
+        item.style.display="block";
+    }else{
+        item.style.display="none";
+    }
+}
