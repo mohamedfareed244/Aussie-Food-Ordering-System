@@ -60,4 +60,16 @@ console.log(req.body.Phone);
    }
    }
 
-   export {getcustomers,postcustomers};
+
+
+   const customerpr= async (req, res) => {
+    if(req.session.signed_customer===null||req.session.signed_customer===undefined){
+     res.render("sign-in");
+    }else{
+ res.render("personalinfo",{customer:req.session.signed_customer});
+    }
+     }
+
+   
+
+   export {getcustomers,postcustomers,customerpr};

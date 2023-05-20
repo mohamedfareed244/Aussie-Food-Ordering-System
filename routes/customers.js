@@ -2,6 +2,7 @@
 import Router from "express"
 import {getcustomers} from "../controllers/customers-controller.js";
 import {postcustomers} from "../controllers/customers-controller.js";
+import {customerpr} from "../controllers/customers-controller.js";
 
 const router=Router();
 
@@ -14,5 +15,7 @@ router.post('/signup', postcustomers );
   router.get('/signin',async (req,res)=>{
     res.render("sign-in");
   });
+  router.get('/profile/login',customerpr);
+
 
   export default router;
