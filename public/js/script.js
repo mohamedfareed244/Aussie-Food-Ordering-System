@@ -161,7 +161,7 @@ document.getElementById("table_total").innerHTML=Math.round((f/100)*14)+f;
 function dis(){
     console.log("started");
     const item=document.getElementById("shows");
-    console.log(item.style.display);
+  
     if(item.style.display==="none"){
         console.log("started1");
         item.style.display="block";
