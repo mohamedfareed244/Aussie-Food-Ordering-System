@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include("./partials/nav-profileinfo") %>
     <table id="t">
         <thead>
             <td>order_number</td>
@@ -15,13 +16,13 @@
               <td>price</td>
         </thead>
         <tbody>
-<tr class="order_summ">
-    <td>12345</td>
+      <tr class="order_summ" onclick="show(0)">
+        <td>12345</td>
      <td>10</td>
       <td>300 $ </td>
-</tr>
-<tr id ="yy" >
-    <td id ="uu" style="text-align: center; " colspan="3">
+     </tr>
+      <tr class ="yy" >
+     <td id ="uu" style="text-align: center; " colspan="3">
         <table  id="table_inside" style="width:100%; display: table;">
             <thead >
                 <td>item name </td>
@@ -81,76 +82,86 @@
                 
               
             </tbody>
-        </table></td>
+        </table></td> <tr class="order_summ" onclick="show(1)">
+            <td>12345</td>
+         <td>10</td>
+          <td>300 $ </td>
+         </tr>
+          <tr class ="yy" >
+         <td id ="uu" style="text-align: center; " colspan="3">
+            <table  id="table_inside" style="width:100%; display: table;">
+                <thead >
+                    <td>item name </td>
+                    <td>item price </td>
+                    <td>qty </td>
+                </thead>
+                <tbody >
+                    <tr style="text-align: center;">
+                        <td>burger 150 gm </td>
+                        <td> 20 $</td>
+                        <td> 3</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td>burger 150 gm </td>
+                        <td> 20 $</td>
+                        <td> 3</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td>burger 150 gm </td>
+                        <td> 20 $</td>
+                        <td> 3</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td>burger 150 gm </td>
+                        <td> 20 $</td>
+                        <td> 3</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td>burger 150 gm </td>
+                        <td> 20 $</td>
+                        <td> 3</td>
+                    </tr>
+                    <tr style="text-align: center;background-color: green; ">
+                        <td style="border-bottom: 2px solid black;">burger 150 gm </td>
+                        <td style="border-bottom: 2px solid black;"> 20 $</td>
+                        <td style="border-bottom: 2px solid black;"> 3</td>
+                        
+                    </tr>
+                    <tr style=" border-top: 2px solid black;">
+                        <td>price : </td>
+                        <td>20$</td>
+                        
+        
+                    </tr>
+                    <tr style="text-align: center; border-bottom: 2px solid black;">
+                        <td>Address : </td>
+                        <td style="max-width: 50px;  word-wrap: break-word;">new cairo (north 90)</td>
+                        
+        
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td>delivery comments  : </td>
+                        <td style="max-width: 50px;  word-wrap: break-word;">please add more ketchup with my order because the last order was so bad thank you </td>
+                        
+        
+                    </tr>
+                    
+                  
+                </tbody>
+            </table></td>
    
-    <!-- <td colspan="3" > 
-        <table  id="table_inside" style="width:1000px; background-color: red;">
-            <thead style="width: 100%;">
-                <td style="width: 10%;">item name </td>
-                <td style="width: 30%;">item price </td>
-                <td style="width: 30%;">qty </td>
-            </thead>
-            <tbody style="width: 100%;">
-                <tr style="text-align: center;">
-                    <td>burger 150 gm </td>
-                    <td> 20 $</td>
-                    <td> 3</td>
-                </tr>
-                <tr style="text-align: center;">
-                    <td>burger 150 gm </td>
-                    <td> 20 $</td>
-                    <td> 3</td>
-                </tr>
-                <tr style="text-align: center;">
-                    <td>burger 150 gm </td>
-                    <td> 20 $</td>
-                    <td> 3</td>
-                </tr>
-                <tr style="text-align: center;">
-                    <td>burger 150 gm </td>
-                    <td> 20 $</td>
-                    <td> 3</td>
-                </tr>
-                <tr style="text-align: center;">
-                    <td>burger 150 gm </td>
-                    <td> 20 $</td>
-                    <td> 3</td>
-                </tr>
-                <tr style="text-align: center;border-bottom: 2px solid black; ">
-                    <td >burger 150 gm </td>
-                    <td> 20 $</td>
-                    <td> 3</td>
-                    
-                </tr>
-                <tr style="text-align: center; border-bottom: 2px solid black;">
-                    <td>price : </td>
-                    <td>20$</td>
-                    
-    
-                </tr>
-                <tr style="text-align: center; border-bottom: 2px solid black;">
-                    <td>Address : </td>
-                    <td style="max-width: 50px;  word-wrap: break-word;">new cairo (north 90)</td>
-                    
-    
-                </tr>
-                <tr style="text-align: center;">
-                    <td>delivery comments  : </td>
-                    <td style="max-width: 50px;  word-wrap: break-word;">please add more ketchup with my order because the last order was so bad thank you </td>
-                    
-    
-                </tr>
-                
-              
-            </tbody>
-        </table>
-    </td> -->
-    
-    
    
-</tr>
-
-        </tbody>
-    </table>
 </body>
+<script>
+
+    function show(index){
+const ele=document.getElementsByClassName("yy")[index];
+if(ele.style.display==="table-row"){
+    ele.style.display="none";
+}else{
+    ele.style.display="table-row";
+}
+
+    }
+</script>
 </html>

@@ -1,9 +1,12 @@
 .personalinf{
     margin: 0;
     padding: 0;
-    bottom: 783px;
+   
     position: relative;
+width: 500px;
 
+left: 500px;
+top: -800px;
 }
 *{
     font-family: 'Montserrat', sans-serif;
@@ -13,8 +16,10 @@
     padding: 0 10px;
   }
   .wrapper{
-    max-width: 500px;
-    width: 100%;
+position: relative;
+top: -50px;
+left: -100px;
+ width: 500px;
     margin: 20px auto;
     padding: 30px;
   }

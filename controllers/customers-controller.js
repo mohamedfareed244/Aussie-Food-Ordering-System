@@ -70,6 +70,10 @@ console.log(req.body.Phone);
     }
      }
 
+     const customeror=async (req,res)=>{
+      res.render("customer_orders");
+     }
+
    
 
-   export {getcustomers,postcustomers,customerpr};
+   export {getcustomers,postcustomers,customerpr,customeror};

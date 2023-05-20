@@ -1,7 +1,10 @@
 #t{
     border: 2px solid black;
     border-collapse: collapse;
-    width: 100%;
+    width: 75%;
+position: relative;
+top: -810px;
+left: 350px;
 }
 td{
     width: 30%;
@@ -39,7 +42,7 @@ thead{
     }
 }
 
-#yy{
+.yy{
     display: none;
 }
 tr{

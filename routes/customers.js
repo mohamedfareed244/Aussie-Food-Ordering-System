@@ -3,7 +3,7 @@ import Router from "express"
 import {getcustomers} from "../controllers/customers-controller.js";
 import {postcustomers} from "../controllers/customers-controller.js";
 import {customerpr} from "../controllers/customers-controller.js";
-
+import {customeror} from "../controllers/customers-controller.js";
 const router=Router();
 
 router.post('/signup', postcustomers );
@@ -17,5 +17,5 @@ router.post('/signup', postcustomers );
   });
   router.get('/profile/login',customerpr);
 
-
+  router.get('/profile/orders',customeror);
   export default router;
