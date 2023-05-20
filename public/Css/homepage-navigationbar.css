@@ -282,3 +282,15 @@ margin: 0;
     top: 80%;
     left: -4px;
 }
+#show{
+    position: relative;
+    top: -60px;
+    width: 1500px;
+    height: 1000px;
+    background-color: rgb(44, 39, 39);
+   
+}
+#cc{
+    float: right;
+    background-color: white;
+}
