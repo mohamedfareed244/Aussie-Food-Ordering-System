@@ -9,7 +9,7 @@ router.post('/signup', postcustomers );
   router.post("/signin", getcustomers);
 
   router.get('/signup',async (req,res)=>{
-    res.render("register");
+    res.render("register",{alert:false});
   });
   router.get('/signin',async (req,res)=>{
     res.render("sign-in");

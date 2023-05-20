@@ -2,23 +2,35 @@ import {customers} from "../models/customers.js";
 import mongoose from "../bin/www.js";
 //add new customer to the database 
 const postcustomers = async (req, res)=> {
-const obj={Firstname:req.body.Firstname,
-Middlename:req.body.Middlename,
-Lastname:req.body.Lastname,
-Phone:req.body.Phone,
-"Orders":new Array(),
-Email:req.body.Email,
-Password:req.body.Password,
-"chat":new Array()
-}
-    const customer=new customers(obj);
+let validatephone
+console.log(req.body.Phone);
+ await customers.findOne({Phone:req.body.Phone}).then(async (result)=>{
+  if(result!==null){
+    res.render("register",{alert:true});
+  }else{
+    const obj={Firstname:req.body.Firstname,
+      Middlename:req.body.Middlename,
+      Lastname:req.body.Lastname,
+      Phone:req.body.Phone,
+      "Orders":new Array(),
+      Email:req.body.Email,
+      Password:req.body.Password,
+      "chat":new Array()
+      }
+          const customer=new customers(obj);
+      
+      try{
+      await customer.save();
+      req.session.signed_customer=obj;
+      res.redirect("/products/All");
+      }catch(err){
+      console.log(err);
+      }
+  }
+ })
 
-try{
-await customer.save();
-console.log("done");
-}catch(err){
-console.log(err);
-}
+
+
 
     // customer.save().then((result)=>{
     //   console.log("saved successfully ");
