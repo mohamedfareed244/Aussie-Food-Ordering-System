@@ -11,21 +11,33 @@ import dotenv from "dotenv";
 import twilio from "twilio";
 import readline from "readline"
 import nodemailer from "nodemailer"
+import ejs from "ejs"
+import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
 dotenv.config();
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // async function sendsms(){
 
 //   const trans=nodemailer.createTransport({service:'gmail',
 // auth:{
 //   user:"mohamedfareed429@gmail.com",
-//   pass:"subvkcitoy99ppvfdmfa"
+//   pass:"subvkcito99yppvfdmfa"
 // }});
+// let data;
+// ejs.renderFile("/Users/user/Desktop/web_back2 /views/template.ejs",(err,d)=>{
+//   data=d;
+//   console.log(d);
+// });
 // const options={
 //   from:"mohamedfareed429@gmail.com",
 //   to:"mohamedfareed443@gmail.com",
 //   subject:"testing",
-//   text:"hello this is a text "
+//  html:data
+
 // }
+// console.log("start send messaeg")
 // trans.sendMail(options,function (err,info){
 //   if(err){
 //     console.log("there are an error "+err)
@@ -47,7 +59,7 @@ dotenv.config();
 //     from:'+17817767522'// From a valid Twilio number
 //   })
 //   .then((message) => console.log(message));
-// }
+ //}
 
 // Get port from environment variable or default to 8000
 const PORT = process.env.PORT || "3000";
@@ -69,8 +81,8 @@ async function startServer() {
     server.on("error", onError);
     server.on("listening", onListening);
     console.log(`Server running at http://${HOST}:${PORT}/`);
-    console.log("start the process of sending message ");
-   
+  
+  
   } catch (error) {
     console.error("Mongo Error: " + error);
   }
