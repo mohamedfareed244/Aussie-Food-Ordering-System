@@ -34,7 +34,7 @@ let number=0;
 if(req.session.cart_items!=undefined){
 for(let i=0;i<req.session.cart_items.length;i++){ number+=req.session.cart_items[i].qty;}
 }
-
+console.log(req.rawHeaders[15]);
     res.render("menu",{men:("menu|"+req.params.sec_name),num:number,sections:sections_data,browse:section_items
     ,s:(req.session.cart_items===undefined?new Array():req.session.cart_items),
     current_user:req.session.signed_customer==undefined?null:req.session.signed_customer});
@@ -114,6 +114,7 @@ if(req.session.cart_items[i].qty==0){
 //check out function 
 
 const check_out=async (req,res)=>{
+  console.log(req.rawHeaders[15]);
     res.render("check_out",{cart:req.session.cart_items});
 }
   export {getsection,

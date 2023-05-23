@@ -18,33 +18,33 @@ import { fileURLToPath } from "url";
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// async function sendsms(){
+async function sendsms(){
 
-//   const trans=nodemailer.createTransport({service:'gmail',
-// auth:{
-//   user:"mohamedfareed429@gmail.com",
-//   pass:"subvkcito99yppvfdmfa"
-// }});
-// let data;
-// ejs.renderFile("/Users/user/Desktop/web_back2 /views/template.ejs",(err,d)=>{
-//   data=d;
-//   console.log(d);
-// });
-// const options={
-//   from:"mohamedfareed429@gmail.com",
-//   to:"mohamedfareed443@gmail.com",
-//   subject:"testing",
-//  html:data
+  const trans=nodemailer.createTransport({service:'gmail',
+auth:{
+  user:"mohamedfareed429@gmail.com",
+  pass:"subvkcitoyppvfdm"
+}});
+let data;
+ejs.renderFile("/Users/user/Desktop/web_back2 /views/template.ejs",(err,d)=>{
+  data=d;
+  console.log(d);
+});
+const options={
+  from:"mohamedfareed429@gmail.com",
+  to:"mohamedfareed443@gmail.com",
+  subject:"testing",
+ html:data
 
-// }
-// console.log("start send messaeg")
-// trans.sendMail(options,function (err,info){
-//   if(err){
-//     console.log("there are an error "+err)
-//   }else{
-//     console.log(info);
-//   }
-// })
+}
+console.log("start send messaeg")
+trans.sendMail(options,function (err,info){
+  if(err){
+    console.log("there are an error "+err)
+  }else{
+    console.log(info);
+  }
+})
 
 //   Your AccountSID and Auth Token from console.twilio.com
 // const accountSid = process.env.myacc;
@@ -59,7 +59,7 @@ const __dirname = path.dirname(__filename);
 //     from:'+17817767522'// From a valid Twilio number
 //   })
 //   .then((message) => console.log(message));
- //}
+ }
 
 // Get port from environment variable or default to 8000
 const PORT = process.env.PORT || "3000";
