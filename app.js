@@ -52,9 +52,9 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
 //ali
 
 
-//  app.get("/",function(req,res){
-//        res.render("add-product");
-//    })
+  app.get("/",function(req,res){
+        res.render("dashboard-orders");
+    })
 
 
 app.get('/test',(req,res)=>{
