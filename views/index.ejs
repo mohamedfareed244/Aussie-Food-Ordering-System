@@ -230,8 +230,8 @@
       <i class="material-icons"> comment </i>
   </button>
 
-  <div class="chat-popup">
-      <div class="badge">1</div>
+   <div class="chat-popup">
+     <!-- <div class="badge">1</div>
       <div class="chat-area">
        <div class="income-msg">
            <img src="/images/ex1.jpeg" class="avatar" alt="">
@@ -243,8 +243,49 @@
           <input type="text">
           <button id="emoji-btn"> &#127773;</button>
           <button class="submit"> <i class="material-icons"> send</i></button>
-      </div>
+      </div>-->
+  
+  <div class="chat-main">
+    <div class="chat-name">
+      <span><i class="far fa-user"></i></span>
+      <input type="text" id="name-input" class="name-input" value="anonymous" maxlength="20">
+    </div>
+    <ul class="message-container" id="message-container">
+      <li class="message-left">
+        <p class="message">
+          lorem impsum
+          <span>bluebird 26 july 10:40</span>
+        </p>
+      </li>
+
+
+
+      <li class="message-right">
+        <p class="message">
+          lorem impsum
+          <span>bluebird 26 july 10:40</span>
+        </p>
+      </li>
+
+      <li class="message-feedback">
+        <p class="feedback" id="feedback"></p>
+      </li>
+
+    </ul>
+
+    <form  class="message-form"  id="message-form">
+      <input type="text" name="message" id="message-input" class="message-input">
+  <div class="v-divider"></div>
+  <button type="submit" class="send-button">
+    send <span><i class="fas fa-paper-plane"></i></span>
+  </button>
+  
+    </form>
+
   </div>
+</div> 
+
+
 </section>
 <script src="/js/chatbox.js"></script>
 
