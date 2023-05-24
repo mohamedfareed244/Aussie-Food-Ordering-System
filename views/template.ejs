@@ -573,14 +573,14 @@
                                                         <table cellpadding="0" cellspacing="0" width="100%"
                                                             role="presentation"
                                                             style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
-                                                            <% for(let i=0;i<9;i++){ %>
+                                                            
                                                                 <tr>
                                                                     <td align="left"
                                                                         style="padding:0;Margin:0;padding-top:5px;padding-bottom:5px">
                                                                         <h3
                                                                             style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:'Josefin Sans', helvetica, arial, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#2D033A">
-                                                                            Dear Mohamed ,</h3>
-                                                                            <%}%>
+                                                                            Dear <%=user.Firstname%> ,</h3>
+                                                                            
                                                                         <p
                                                                             style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'Josefin Sans', helvetica, arial, sans-serif;line-height:21px;color:#38363A;font-size:14px">
                                                                             <br></p>
@@ -601,11 +601,11 @@
                                                                         <p
                                                                             style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'Josefin Sans', helvetica, arial, sans-serif;line-height:21px;color:#38363A;font-size:14px">
                                                                             Thank you again for your business. We look
-                                                                            forward to serving you again soon!<br><br>
+                                                                            forward to serving you again soon! Please click on this button to verify your email <br><br>
                                                                         </p>
                                                                         <p
                                                                             style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'Josefin Sans', helvetica, arial, sans-serif;line-height:21px;color:#38363A;font-size:14px">
-                                                                            Best regards,<br>Delivery Company</p>
+                                                                            Best regards,<br>Aussie Company</p>
                                                                     </td>
                                                                 </tr>
                                                               
@@ -613,7 +613,7 @@
                                                                         <td align="center"
                                                                                   style="padding:0;Margin:0;padding-top:20px"><span class="msohide es-button-border" style="border-style:solid;border-color:#2CB543;background:#ff6e12;border-width:0px;display:inline-block;border-radius:30px;width:auto;mso-hide:all">
                                                                                     <a
-                                                                                    href="https://viewstripo.email"
+                                                                                    href="127.0.0.1:3000:/customers/validation/<%=user.id%>"
                                                                                     class="es-button" target="_blank"
                                                                                     style="mso-style-priority:100 !important;text-decoration:none;
                                                                                     -webkit-text-size-adjust:none;-ms-text-size-adjust:none;
@@ -621,8 +621,8 @@
                                                                                     font-size:18px;display:inline-block;background:#FF6E12;
                                                                                     border-radius:30px;font-family:'Josefin Sans', helvetica, arial, sans-serif;font-weight:normal;
                                                                                     font-style:normal;line-height:22px;width:auto;text-align:center;padding:10px 20px 10px 20px;
-                                                                                    mso-padding-alt:0;mso-border-alt:10px solid  #ff6e12">Order
-                                                                                    Food</a></span><!--<![endif]--></td>
+                                                                                    mso-padding-alt:0;mso-border-alt:10px solid  #ff6e12">Verify Now 
+                                                                                   </a></span><!--<![endif]--></td>
                                                                     </tr>
                                                         </table>
                                                     </td>

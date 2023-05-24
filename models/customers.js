@@ -12,7 +12,8 @@ Email:String,
 Password:String,
 chat:[{msg:String, issent:Boolean}],
 addreses:[{ location: String, Adress:String, apartement: String, floor: String, Building:String}],
-favorites:[{ itemId: String}]
+favorites:[{ itemId: String}],
+verified:Boolean
   
 });
  const customers =mongoose.model('customers',Custom);
