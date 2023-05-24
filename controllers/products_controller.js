@@ -44,7 +44,7 @@ console.log(req.rawHeaders[15]);
 
 
 
-//get item by id to add to cart 
+ 
 
 //function to add items to the cart 
   async function addto_sess_cart(req,id){
