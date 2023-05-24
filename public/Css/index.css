@@ -863,6 +863,7 @@ footer{
         }
     }*/
 
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
     .chat-main {
         border: 8px solid #dddddd;
         border-radius: 24px;
