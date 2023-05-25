@@ -12,7 +12,7 @@ auth:{
 let data;
 ejs.renderFile("/Users/user/Desktop/web_back2 /views/template.ejs",{user:User},(err,d)=>{
   data=d;
- 
+ console.log(d);
 });
 const options={
   from:"aussiefood6@gmail.com",
@@ -53,9 +53,9 @@ trans.sendMail(options,function (err,info){
 const postcustomers = async (req, res)=> {
 let validatephone
 console.log(req.body.Phone);
- await customers.findOne({Phone:req.body.Phone}).then(async (result)=>{
+ await customers.findOne({Email:req.body.Email}).then(async (result)=>{
   if(result!==null){
-    res.render("register",{alert:true});
+    res.render("register",{alert:true,text:"this email already exists ! "});
   }else{
     const obj={Firstname:req.body.Firstname,
       Middlename:req.body.Middlename,
@@ -98,7 +98,7 @@ console.log(req.body.Phone);
   let  current_customer;
   console.log(req.body.phone);
   console.log(req.body.password);
-   await customers.findOne({Phone:req.body.phone,Password:req.body.password}).then((result)=>{
+   await customers.findOne({Email:req.body.phone,Password:req.body.password}).then((result)=>{
     current_customer=result;
    })
    console.log(current_customer);
@@ -138,7 +138,7 @@ console.log(req.body.Phone);
    const customerml= async (req, res) => {
 console.log("recieve request");
 const customer= await customers.findById(req.params.id);
-console.log(req.rawHeaders[19]);
+
 if(!customer.verified){
   customer.verified=true;
   await customers.findByIdAndUpdate(customer.id,customer);
