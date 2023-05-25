@@ -33,4 +33,47 @@ table img{
 }
 table img{
 	width:  60%;
+} 
+
+@media only screen and (max-width: 768px) {
+    .tablesfav {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 0;
+    }
+  
+    table {
+      width: 100%;
+    }
+  
+    table th,
+    table td {
+      width: 100%;
+     padding: 10px 8px
+    }
+  
+    table img {
+      width: 53%;
+    }
+  }
+@media only screen and (max-width: 480px) {
+  .tablesfav {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 100%;
+    padding: 10px 6px;
+  }
+
+  table img {
+    width: 62%;
+  }
 }
