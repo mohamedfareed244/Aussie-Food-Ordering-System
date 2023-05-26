@@ -1,20 +1,23 @@
 .tables {
-    max-width: 495px;
-    margin-left: 409px;
-    margin-top: -1037px;
-    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    min-height: 89vh;
+    color: #555;
+    max-width: 500px;
+    margin-left: 285px;
+    margin-top: -780px;
 }
 .table td {
     margin: 19px;
-    padding: 1.75rem;
-    border-top: 3px solid gray;
+    padding: 0.75rem;
+    border-top: 1px solid gray;
     font-weight: 500;
     font-family: sans-serif;
 }
 table th{ 
     width: 10%;
-    padding: 0.75rem 5.75rem;
-    border-top: 17px solid rgb(113, 113, 234);
+    padding: 0.75rem 1.75rem;
+    border-top: 9px solid rgb(113, 113, 234);
     background-color: rgb(113, 113, 234);
     color: #fff;
     font-size: 18px;
@@ -33,6 +36,7 @@ table th{
   
 .delete{
 	color: red;
+    align-items: center;
 }
 .delete:hover{
 	color: brown;
@@ -43,13 +47,12 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
-    margin: 1px 0px;
-    transition-duration: -1.6s;
+    font-size: 16px;
+    margin: 4px 22px;
     cursor: pointer;
     background-color: rgb(7, 147, 45);
     color: #f2f2f2;
-    width: 100px;
+    width: 81px;
 }
   
  
@@ -57,43 +60,46 @@ button:hover {
     background-color: rgb(242, 242, 242);
     color: rgb(0, 0, 0);
   }
-	
-		  
-		  
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+  @media only screen and (max-width: 768px) {
+    .tables {
+        width: 100%;
+        margin-left: -86px;
+        margin-top: 3px;
+        padding: 0px;
+    }
   
-
-		  
-		  
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    table {
+      width: 100%;
+    }
   
+    table th,
+    table td {
+      width: 100%;
+     padding: 10px 8px
+    }
+  
+    table img {
+      width: 53%;
+    }
+  }
+@media only screen and (max-width: 480px) {
+  .tables {
+    width: 100%;
+    margin-left: -82px;
+    margin-top: -1px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 100%;
+    padding: 10px 6px;
+  }
+
+  table img {
+    width: 62%;
+  }
+}
