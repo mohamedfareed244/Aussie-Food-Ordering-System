@@ -7,12 +7,13 @@
     margin-left: 285px;
     margin-top: -780px;
 }
-.table td {
-    margin: 19px;
-    padding: 0.75rem;
-    border-top: 1px solid gray;
-    font-weight: 500;
-    font-family: sans-serif;
+table td {
+        margin: 19px;
+        padding: 0.75rem;
+        border-top: 1px solid gray;
+        font-weight: 500;
+        font-family: sans-serif;
+        text-align: center;
 }
 table th{ 
     width: 10%;
