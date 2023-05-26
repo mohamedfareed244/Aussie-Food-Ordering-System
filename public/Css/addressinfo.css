@@ -7,16 +7,22 @@
 .table td {
     margin: 19px;
     padding: 1.75rem;
-    border-top: 8px solid gray;
+    border-top: 3px solid gray;
     font-weight: 500;
+    font-family: sans-serif;
 }
 table th{ 
     width: 10%;
     padding: 0.75rem 5.75rem;
-    vertical-align: top;
-    border-top: 13px solid rgb(113, 113, 234);
+    border-top: 17px solid rgb(113, 113, 234);
     background-color: rgb(113, 113, 234);
     color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+.table tr{
+    border-radius: 10px;
+
 }
 
 .table.table-striped {
@@ -33,12 +39,12 @@ table th{
 }
 button {
     color: white;
-    padding: 1px 12px;
+    padding: 0px 0px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 13px;
-    margin: -2px 0px;
+    font-size: 18px;
+    margin: 1px 0px;
     transition-duration: -1.6s;
     cursor: pointer;
     background-color: rgb(7, 147, 45);
@@ -52,6 +58,26 @@ button:hover {
     color: rgb(0, 0, 0);
   }
 	
+		  
+		  
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  
+
 		  
 		  
 
