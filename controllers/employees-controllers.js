@@ -1,7 +1,44 @@
 
 import {Emp} from "../models/Employees.js";
- 
+ import nodemailer from "nodemailer"
 
+import ejs from "ejs";
+
+
+
+
+
+
+
+function sendmail(User){
+  const trans = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: "aussiefood6@gmail.com",
+      pass: "gqhnpwicffirkdhn"
+    }
+  });
+  let data;
+  ejs.renderFile("/Users/user/Desktop/web_back2 /views/emp_mail.ejs", { user: User }, (err, d) => {
+    data = d;
+   
+  });
+  console.log(User.id);
+  const options = {
+    from: "aussiefood6@gmail.com",
+    to: User.Email,
+    subject: "mail confirmation",
+    html: data
+
+  }
+  trans.sendMail(options, function (err, info) {
+    if (err) {
+      console.log("there are an error " + err)
+    } else {
+      console.log(info);
+    }
+  })
+}
 
 // const postemployees=(req, res)=> {
   
@@ -31,6 +68,7 @@ verified:false
     
     try{
     await employee.save();
+    await sendmail(employee);
     console.log("saved successfully");
     }catch(err){
     console.log(err);
@@ -63,11 +101,19 @@ if(curr===null||curr===undefined||!curr.verified){
 
   const empprof=async (req,res)=>{
     if(req.session.employee===undefined||req.session.employee===null){
-res.rnder("admin_signin",{alert:true,text:"You must login first to access this section !"});
+res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
     }
   }
 
-
+const changepass= async (req,res)=>{
+  if(req.session.employee===undefined||req.session.employee===null){
+    res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
+        }
+        const curr=req.session.employee;
+        curr.Password=req.body.psw;
+        Emp.findOneAndReplace({Email:curr.Email},curr);
+res.redirect("admin_account");
+}
 
 
 
