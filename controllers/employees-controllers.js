@@ -62,7 +62,8 @@ function sendmail(User){
     Address:req.body.Address,
     Phone:req.body.Phone,
     isadmin:req.body.admin===undefined?false:true,
-verified:false
+verified:false,
+Password:""
     }
         const employee=new Emp(obj);
     
@@ -78,14 +79,18 @@ verified:false
 
 
 
-  const getemployees= (req, res) => {
- 
-const curr=Emp.findOne({Email:req.body.Email,Password:req.body.Password});
+  const getemployees= async (req, res) => {
+ console.log(req.body.Email)
+ console.log(req.body.password)
+const curr=await Emp.findOne({Email:req.body.Email,Password:req.body.password});
+
+console.log(curr);
 if(curr===null||curr===undefined||!curr.verified){
-  res.render("sign-in",{alert:true,text:"invalid Email or Password"})
+  res.render("admin_signin",{alert:true,text:"invalid Email or Password"})
 }else{
   req.session.employee=curr;
-  res.redirect("employees/profile")
+  console.log("start redirection")
+  res.redirect("http://127.0.0.1:3001/employees/profile");
 }
 
   }
@@ -93,6 +98,9 @@ if(curr===null||curr===undefined||!curr.verified){
   const confirmmail=async (req,res)=>{
     const User = await Emp.findById(req.params.id);
     if(!User.verified){
+      req.session.employee=User;
+      User.verified=true;
+      await User.save();
       res.render("admin_account",{user:User});
     }else{
       res.redirect("/employees/profile")
@@ -102,6 +110,8 @@ if(curr===null||curr===undefined||!curr.verified){
   const empprof=async (req,res)=>{
     if(req.session.employee===undefined||req.session.employee===null){
 res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
+    }else{
+      res.render("admin_account",{user:req.session.employee});
     }
   }
 
@@ -109,13 +119,15 @@ const changepass= async (req,res)=>{
   if(req.session.employee===undefined||req.session.employee===null){
     res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
         }
+        else{
         const curr=req.session.employee;
         curr.Password=req.body.psw;
-        Emp.findOneAndReplace({Email:curr.Email},curr);
-res.redirect("admin_account");
+        await Emp.findOneAndReplace({Email:curr.Email},curr);
+res.render("admin_account",{user:req.session.employee});
+        }
 }
 
 
 
 
-  export {getemployees,postemployees,confirmmail,empprof};
+  export {getemployees,postemployees,confirmmail,empprof,changepass};

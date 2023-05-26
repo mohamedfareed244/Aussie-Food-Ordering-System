@@ -4,6 +4,7 @@ import {getemployees} from "../controllers/employees-controllers.js";
 import {postemployees} from "../controllers/employees-controllers.js";
 import {confirmmail} from "../controllers/employees-controllers.js";
 import {empprof} from "../controllers/employees-controllers.js";
+import {changepass} from "../controllers/employees-controllers.js";
 const router=Router();
 //employees sign up 
  router.post("/", postemployees)
@@ -14,8 +15,10 @@ router.get("/profile",empprof);
 //verify employees mail 
 router.get("/mail/verification/:id",confirmmail);
 //change employees password 
-router.post("/profile/password/change");
-
+router.post("/profile/password/change",changepass);
+router.get("/signin",(req,res)=>{
+  res.render("admin_signin",{alert:false});
+})
 
 // app.get('/', (req, res) => 
 // {
