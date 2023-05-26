@@ -4,7 +4,7 @@
 // and listens for connections on the specified port.
 
 // Module dependencies
-import app from "../app.js";
+import {app} from "../app.js";
 import mongoose from "mongoose";
 import { createServer } from "http";
 import dotenv from "dotenv";

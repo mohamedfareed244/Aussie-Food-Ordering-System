@@ -3,16 +3,8 @@
 import {All} from "../models/schema.js";
 import {Sec} from "../models/menu_sections.js";
 import {orders} from "../models/orders.js";
+import {findfororder} from "../app.js";
 //end import models 
-
-
-
-
-
-
-
-
-
 
 
 
@@ -124,16 +116,36 @@ const check_out=async (req,res)=>{
 const new_order=async (req,res)=>{
   const current_cart=req.session.cart_items;
   const current_customer=req.session.signed_customer;
+  const emp=findfororder();
+  if(emp===null){
+    res.json({done:false});
+  }
+
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1; 
+  let dd = today.getDate();
+  
+  if (dd < 10) dd = '0' + dd;
+  if (mm < 10) mm = '0' + mm;
+  
+  const formattedToday = dd + '/' + mm + '/' + yyyy;
+const numbers= await orders.find({customerphone:current_customer.Phone}).then((result)=>{
+  return result.length;
+})
+numbers++;
  const ord=new orders({
-  customername:current_customer.Firstname,
+  customermail:current_customer.Email,
   customerphone:current_customer.Phone,
 items:[{item_name:String,Qty:Number,price:Number}],
-emp_name:string,
-emp_phone:String,
-orderdate:Date,
-status:String,
-Addressid:String
+emp_name:emp.Name,
+emp_phone:emp.Phone,
+orderdate:formattedToday,
+status:"Pending",
+Addressid:req.body.obj,
+num:numbers,
  })
+
 }
 
 
