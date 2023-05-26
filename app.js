@@ -22,7 +22,6 @@ const app = express();
 
 
 //set up app 
-
 //set up session 
 app.use(session({ secret: 'Your_Secret_Key' }));
 
@@ -45,7 +44,11 @@ app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
     res.sendFile(path.join("/Users/user/Downloads/Message notification.m4r"));
 })
 
-
+app.get("/photos/aussieimage/cc",(req,res)=>{
+  console.log("i recieve request");
+  
+  res.sendFile(__dirname+"/public/images/logo.png");
+})
 
 
 //ali
