@@ -63,28 +63,13 @@ if(curr===null||curr===undefined||!curr.verified){
 
   const empprof=async (req,res)=>{
     if(req.session.employee===undefined||req.session.employee===null){
-res.redirect()
+res.rnder("admin_signin",{alert:true,text:"You must login first to access this section !"});
     }
   }
 
 
 
 
-  // const getemployees= async (req, res) => {
- 
-  //   let  current_employee;
-  //   console.log(req.body.phone);
-  //   console.log(req.body.Address);
-  //    await Emp.findOne({Phone:req.body.phone,Address:req.body.Address}).then((result)=>{
-  //     current_employee=result;
-  //    })
-  //    console.log(current_employee);
-  //    if(current_employee===undefined||current_employee===null){
-  //     res.send("invalid phone or address ");
-  //    }else{
-  //     req.session.signed_employee=current_employee;
-  //     res.redirect("/products/All");
-  //    }
-  //    }
 
-  export {getemployees,postemployees,confirmmail};
+
+  export {getemployees,postemployees,confirmmail,empprof};
