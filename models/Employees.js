@@ -7,14 +7,9 @@ const employees= new Schema({
  Email:String,
  Address:String,
  Phone:String,
-
- 
  Password:String,
-
-//ConfirmPassword:String,
-
-
-  
+isadmin:Boolean,
+verified:Boolean
 });
 const Emp=mongoose.model('Reg',employees);
 

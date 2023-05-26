@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const Items= new Schema({
-customerid:String,
+customermail:String,
+customerphone:String,
 items:[{item_name:String,Qty:Number,price:Number}],
 emp_name:string,
 emp_phone:String,

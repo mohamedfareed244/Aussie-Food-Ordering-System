@@ -2,6 +2,7 @@
 //import database models 
 import {All} from "../models/schema.js";
 import {Sec} from "../models/menu_sections.js";
+import {orders} from "../models/orders.js";
 //end import models 
 
 
@@ -119,5 +120,25 @@ const check_out=async (req,res)=>{
   }
     res.render("check_out",{cart:req.session.cart_items,user:req.session.signed_customer});
 }
+//make order 
+const new_order=async (req,res)=>{
+  const current_cart=req.session.cart_items;
+  const current_customer=req.session.signed_customer;
+ const ord=new orders({
+  customername:current_customer.Firstname,
+  customerphone:current_customer.Phone,
+items:[{item_name:String,Qty:Number,price:Number}],
+emp_name:string,
+emp_phone:String,
+orderdate:Date,
+status:String,
+Addressid:String
+ })
+}
+
+
+
+
+
   export {getsection,
   getitembyid,delitem,check_out};
