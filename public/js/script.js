@@ -169,3 +169,25 @@ function dis(){
         item.style.display="none";
     }
 }
+
+var selected;
+
+function selecaddr(id){
+    selected=id;
+}
+function sub(){
+    let obj={
+"o":selected
+    }
+    fetch('http:/127.0.0.1:3001/products/customer/order', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: obj
+})
+   .then(response => response.json())
+   .then(response => console.log(JSON.stringify(response)))
+}
+

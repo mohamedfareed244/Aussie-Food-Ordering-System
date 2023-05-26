@@ -8,7 +8,8 @@ items:[{item_name:String,Qty:Number,price:Number}],
 emp_name:string,
 emp_phone:String,
 orderdate:Date,
-status:String
+status:String,
+Addressid:String
   
 });
 const orders=mongoose.model('orders',Items);
