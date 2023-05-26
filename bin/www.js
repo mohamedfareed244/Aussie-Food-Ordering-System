@@ -30,6 +30,27 @@ const MURI = process.env.MURI;
 // Create HTTP server.
 const server = createServer(app);
 
+
+
+
+//aliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+
+// import {Server} from 'socket.io';
+// const io =new Server(server);
+// // import io from 'socket.io-client';
+// app.set('io', io);
+// // let socketConnected=new set()
+
+
+// io.on('connection',onConnected)
+// function onConnected(socket){
+//   console.log(socket.id)
+// }
+
+
+
+
+
 // Connect to DB and start the server
 async function startServer() {
   try {

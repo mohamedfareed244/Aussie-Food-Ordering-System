@@ -38,3 +38,5 @@ submitBtn.addEventListener('click', ()=>{
     inputElm.value = '';
 
 })
+
+const socket=io()

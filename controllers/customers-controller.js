@@ -129,6 +129,8 @@ function validate  (req, res) {
 
 
 
+
+
 //add new customer to the database 
 const postcustomers = async (req, res) => {
   validate(req,res);

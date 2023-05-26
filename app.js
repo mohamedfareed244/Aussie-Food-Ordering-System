@@ -13,8 +13,8 @@ import emp_router from "./routes/employees.js";
 // end import routes 
 import { CLIENT_RENEG_LIMIT } from "tls";
 import session from "express-session";
-import cors from "cors"
-import { Server } from "http";
+// import cors from "cors"
+// import { Server } from "http";
 //Read the current directory name
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -54,9 +54,13 @@ app.get("/photos/aussieimage/cc",(req,res)=>{
 //ali
 
 
-    app.get("/",function(req,res){
-            res.render("add-employee");
-       })
+
+
+
+
+    // app.get("/",function(req,res){
+    //         res.render("add-employee");
+    //    })
 
 
 app.get('/test',(req,res)=>{
