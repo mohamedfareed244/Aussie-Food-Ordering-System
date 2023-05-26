@@ -6,7 +6,7 @@ const Items= new Schema({
 customermail:String,
 customerphone:String,
 items:[{item_name:String,Qty:Number,price:Number}],
-emp_name:string,
+emp_name:String,
 emp_mail:String,
 orderdate:String,
 status:String,
