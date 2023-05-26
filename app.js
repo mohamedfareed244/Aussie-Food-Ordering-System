@@ -79,6 +79,45 @@ app.use((req,res)=>{
     res.send("OOPS! it seems that there are an error try again with a valid URL ");
 })
 
+let onlineemp=new Array();
+ async function addemp(emp){
+  const obj ={curr:emp,orders:0,chat:0};
+onlineemp.push(obj);
+ }
+ async function delemp(emp){
+for(let i=0;i<onlineemp.length;i++){
+  if(onlineemp[i].curr.id===emp.id){
+    onlineemp.splice(i,1);
+    break;
+  }
+}
+ }
+ async function findforchat(){
+  if(onlineemp.length===0){
+    return null;
+  }
+  let min=onlineemp[0];
+  for(let i=1;i<onlineemp.length;i++){
+if(onlineemp[i].chat<min.chat){
+  min=onlineemp[i];
+}
+  }
+  min.chat++;
+  return min;
+ }
+ async function findfororder(){
+  if(onlineemp.length===0){
+    return null;
+  }
+  let min=onlineemp[0];
+  for(let i=1;i<onlineemp.length;i++){
+if(onlineemp[i].chat<min.chat){
+  min=onlineemp[i];
+}
+  }
+  min.chat++;
+  return min;
+ }
 export default app;
 
 

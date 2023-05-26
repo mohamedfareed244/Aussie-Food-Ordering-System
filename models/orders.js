@@ -7,7 +7,7 @@ customermail:String,
 customerphone:String,
 items:[{item_name:String,Qty:Number,price:Number}],
 emp_name:string,
-emp_phone:String,
+emp_mail:String,
 orderdate:Date,
 status:String,
 Addressid:String
