@@ -1,13 +1,13 @@
 .tables {
-    max-width: 504px;
-    margin-left: 355px;
-    margin-top: -774px;
-    padding: 0
+    max-width: 495px;
+    margin-left: 409px;
+    margin-top: -1037px;
+    padding: 0;
 }
 .table td {
     margin: 19px;
-    padding: 0.75rem;
-    border-top: 1px solid gray;
+    padding: 1.75rem;
+    border-top: 8px solid gray;
     font-weight: 500;
 }
 table th{ 
@@ -18,12 +18,11 @@ table th{
     background-color: rgb(113, 113, 234);
     color: #fff;
 }
-    .tables {
-        
-        max-width: 450px;
-        margin-left: 20%;
-        padding: 0px;
-  }
+
+.table.table-striped {
+    margin-left: 74px;
+}
+
   tr:nth-child(even) {background-color: #f2f2f2;}
   
 .delete{
