@@ -66,8 +66,8 @@ async function playsound(){
       async function get_item(id){
        
         let data;
-        console.log(`the    http://127.0.0.1:3000/${id}`);
-        let item= await fetch(`http://127.0.0.1:3000/products/getitem/${id}`,{method:'GET'}).then( function (response){
+        console.log(`the    http://127.0.0.1:3001/${id}`);
+        let item= await fetch(`http://127.0.0.1:3001/products/getitem/${id}`,{method:'GET'}).then( function (response){
            data=response.json();
          console.log("the data "+data);
           return data;
@@ -111,7 +111,7 @@ document.getElementById("table_total").innerHTML=Math.round((f/100)*14)+f;
 async function get_the2(id){
     let data;
    
-    let item= await fetch(`http://127.0.0.1:3000/products/cartdel/${id}`,{method:'GET'}).then( function (response){
+    let item= await fetch(`http://127.0.0.1:3001/products/cartdel/${id}`,{method:'GET'}).then( function (response){
        data=response.json();
      console.log("the is "+response);
       return data;

@@ -76,31 +76,14 @@
         <button id="dropbtn" onclick="">Choose Your Address <img src="/images/arrow-down-sign-to-navigate.png" alt="" width="15px" id ="hide_img"></button>
         <div id="dropdown-content">
         <ul id="adds_list">
+            <%for(let i=0;i<user.addreses.length;i++){%>
             <li>
-                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
+                <article class="art2" title="Select This address"> <span class="sp1"> <b><%=user.addreses[i].location%> </b> </span>
                     <br>
-                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
+                    <span class="sp2"><%=user.addreses[i].Adress%> , apt : <%=user.addreses[i].apartment%> , floor :<%=user.addreses[i].floor%>, building : <%=user.addreses[i].building%> </span></article>
             </li>
-            <li>
-                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
-                    <br>
-                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
-            </li>
-            <li>
-                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
-                    <br>
-                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
-            </li>
-            <li>
-                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
-                    <br>
-                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
-            </li>
-            <li>
-                <article class="art2" title="Select This address"> <span class="sp1"> <b>New Cairo </b> </span>
-                    <br>
-                    <span class="sp2">north 90 , apt : 3 , floor : 5 , building : 340 </span></article>
-            </li>
+            <%}%>
+           
         </ul>
         </div>
       </div>

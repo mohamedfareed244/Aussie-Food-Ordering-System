@@ -114,8 +114,10 @@ if(req.session.cart_items[i].qty==0){
 //check out function 
 
 const check_out=async (req,res)=>{
-  console.log(req.rawHeaders[15]);
-    res.render("check_out",{cart:req.session.cart_items});
+  if(req.session.signed_customer===undefined||req.session.signed_customer===null){
+    res.redirect("/customers/signin");
+  }
+    res.render("check_out",{cart:req.session.cart_items,user:req.session.signed_customer});
 }
   export {getsection,
   getitembyid,delitem,check_out};
