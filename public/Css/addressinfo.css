@@ -31,27 +31,27 @@ table th{
 .delete:hover{
 	color: brown;
 }
-.button {
-    border: none;
+button {
     color: white;
-    padding: 16px 32px;
+    padding: 1px 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
+    font-size: 13px;
+    margin: -2px 0px;
+    transition-duration: -1.6s;
     cursor: pointer;
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
-    width:100 px;
-  }
+    background-color: rgb(7, 147, 45);
+    color: #f2f2f2;
+    width: 100px;
+}
+  
  
-  .button:hover {
-    background-color: rgb(113, 113, 234);
-    color: white;
+button:hover {
+    background-color: rgb(242, 242, 242);
+    color: rgb(0, 0, 0);
   }
+	
 		  
 		  
 
