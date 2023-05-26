@@ -19,10 +19,13 @@ import {Emp} from "../models/Employees.js";
 
 
   const postemployees = async (req, res)=> {
+   
     const obj={Name:req.body.Name,
    Email:req.body.Email,
     Address:req.body.Address,
-    Phone:req.body.Phone
+    Phone:req.body.Phone,
+    isadmin:req.body.admin===undefined?false:true,
+verified:false
     }
         const employee=new Emp(obj);
     
@@ -48,6 +51,20 @@ import {Emp} from "../models/Employees.js";
       });
   }
 
+  const confirmmail=async (req,res)=>{
+    const User = await Emp.findById(req.params.id);
+    if(!User.verified){
+      res.render("admin_account",{user:User});
+    }else{
+      res.redirect("/employees/profile")
+    }
+  }
+
+  const empprof=async (req,res)=>{
+    if(req.session.employee===undefined||req.session.employee===null){
+res.redirect()
+    }
+  }
 
 
 

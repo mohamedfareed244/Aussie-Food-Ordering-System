@@ -1,0 +1,71 @@
+body,html{
+    width: 100%;
+    height: 100%;
+}
+#left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    float: left;
+    width: 40%;
+    background-color: rgb(197, 210, 210);
+    height: 100%;
+}
+#LoginForms{
+    background-color: rgba(148, 157, 150, 0.485);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    border: 2px solid green;
+    border-radius: 9px;
+    margin-right: 20%;
+    margin-top: 12%;
+    width: 30%;
+    height: 50%;
+    float: right;
+
+
+}
+
+#LoginForm{
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    border-radius: 4px;
+    width: 100%;
+
+}
+#LoginForm input[type='Text'],input[type='Password']{
+    background-color: whitesmoke;
+  margin-top: 30px;
+border: none;
+padding: 8px;
+border-bottom: 1px solid black;
+    margin-right: 10%;
+    margin-left: 10%;
+
+}
+#LoginForm input[type='Text']:focus,input[type='Password']:focus{
+  outline: none;
+
+}
+#LoginForm input[type='Submit']{
+    margin-top: 20%;
+    margin-bottom: 10px;
+    margin-right: 10%;
+   margin-left: 10%;
+    border-radius: 5px;
+    border: .5px solid black;
+    background-color: rgb(64, 160, 64);
+    color: white;
+    padding: 5px;
+}
+#LoginForm input[type='Submit']:hover{
+    background-color:rgb(44, 108, 44) ;
+    cursor: pointer;
+}

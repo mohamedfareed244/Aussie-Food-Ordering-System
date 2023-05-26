@@ -15,10 +15,11 @@
     <div id="Account"
         style="margin:auto; width: 300px ; padding-left: 120px; height: 450px;
          background-color: rgb(203, 224, 243);">
-        <h1> Admin name: Dr.Essam</h1>
-        <h1>ID:1234</h1>
+        <h1>  name: <%user.Name%></h1>
+        <h1>Phone:user.Phone</h1>
+        <h2>Email:user.Email</h2>
         <h2>change password</h2>
-        <form action='#' method='post' onsubmit='return validate1(this)'>
+        <form action='/employees/profile/password/change' method='post' onsubmit='return validate1(this)'>
             <input type="password" name="psw" id="inputpass" placeholder="Enter new Password">
             <div id='password' class='err'></div>
             <input type="password" name="psw-confirmt" id="inputcpass" placeholder="confirm Password">
