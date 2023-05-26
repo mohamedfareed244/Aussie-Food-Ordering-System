@@ -87,6 +87,7 @@ let onlineemp=new Array();
  async function addemp(emp){
   const obj ={curr:emp,orders:0,chat:0};
 onlineemp.push(obj);
+console.log("now "+onlineemp.length+" employees are conected ");
  }
  async function delemp(emp){
 for(let i=0;i<onlineemp.length;i++){

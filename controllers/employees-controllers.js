@@ -1,8 +1,8 @@
 
 import {Emp} from "../models/Employees.js";
  import nodemailer from "nodemailer"
-
 import ejs from "ejs";
+import {addemp} from "../app.js";
 
 
 
@@ -90,7 +90,8 @@ if(curr===null||curr===undefined||!curr.verified){
 }else{
   req.session.employee=curr;
   console.log("start redirection")
-  res.redirect("http://127.0.0.1:3001/employees/profile");
+  await addemp(curr);
+  res.redirect("/employees/profile");
 }
 
   }
@@ -101,6 +102,7 @@ if(curr===null||curr===undefined||!curr.verified){
       req.session.employee=User;
       User.verified=true;
       await User.save();
+      await addemp(User);
       res.render("admin_account",{user:User});
     }else{
       res.redirect("/employees/profile")
@@ -111,6 +113,7 @@ if(curr===null||curr===undefined||!curr.verified){
     if(req.session.employee===undefined||req.session.employee===null){
 res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
     }else{
+     
       res.render("admin_account",{user:req.session.employee});
     }
   }
@@ -123,6 +126,7 @@ const changepass= async (req,res)=>{
         const curr=req.session.employee;
         curr.Password=req.body.psw;
         await Emp.findOneAndReplace({Email:curr.Email},curr);
+        
 res.render("admin_account",{user:req.session.employee});
         }
 }
