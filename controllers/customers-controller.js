@@ -72,7 +72,7 @@ function validate  (req, res) {
     const hasLowerCase = /[a-z]/.test(obj.Password);
     const hasNumber = /[0-9]/.test(obj.Password);
     const hasSpecialChar = /[!@#$%^&*()]/.test(obj.Password);
-    if (!(hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar)) {
+    if (!hasUpperCase || !hasLowerCase || !hasNumber || !hasSpecialChar) {
 
       text = 'password must contain uppercase, lowercase , number and special character';
       res.render("register", { alert: true, text: text });
@@ -125,6 +125,7 @@ function validate  (req, res) {
 
 //add new customer to the database 
 const postcustomers = async (req, res) => {
+  validate(req,res);
   let validatephone
   console.log(req.body.Phone);
   await customers.findOne({ Email: req.body.Email }).then(async (result) => {
@@ -211,7 +212,7 @@ const customeror = async (req, res) => {
 
 
 const customerml = async (req, res) => {
- await validate(req,res);
+
   console.log("recieve request");
   const customer = await customers.findById(req.params.id);
 
