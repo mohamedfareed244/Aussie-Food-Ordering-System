@@ -54,9 +54,9 @@ app.get("/photos/aussieimage/cc",(req,res)=>{
 //ali
 
 
-//   app.get("/",function(req,res){
-//         res.render("test");
-//     })
+  //  app.get("/",function(req,res){
+  //          res.render("add-employee");
+  //      })
 
 
 app.get('/test',(req,res)=>{
