@@ -16,23 +16,32 @@
             <th><button>Add new Adress</button></th>
         </tr>
         <tbody id="myTable">
-    
+<%if(user.addreses.length<=0){%>
+  <h1>
+    sorry , you dont have any address click here to add new address
+  </h1>
+  <%}%>
+
+         <% user.addreses.forEach(function(item)){%>
+          <tr>
+            <td>${item.location}</td>
+            <td>${item.Address}</td>
+            <td>${item.apt}</td>
+            <td>${item.floor}</td>
+            <td>${item.building}</td>
+            <td>${item.edit}
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                </td>
+
+          </tr>
+          <%}%>
         </tbody>
     </table>
     </div>
-    <script>
-    var myArray = [
-    {'location':'newcairo','Address':'90north', 'apt':'30', 'floor':'4', 'building':'11','edit':''},
-    {'location':'giza','Address':'Mila', '25 doke':'32', 'floor':'10', 'building':'33','edit':''},
-    {'location':'masr gdeda','Address':'nabil wakked', 'apt':'29', '7':'10/14/1990', 'building':'1144','edit':''},
-    {'location':'nasr city','Address':'sab3', 'apt':'25', 'floor':'0', 'building':'567','edit':''},
-    {'location':'newcairo','Address':'Tim', 'apt':'27', 'floor':'3/12/1991', 'building':'11/10/1989','edit':''},
-    {'location':'newcairo','Address':'Erik', 'apt':'24', 'floor':'10/31/1995', 'building':'11/10/1989','edit':''},
-    {'location':'newcairo','Address':'Erik', 'apt':'24', 'floor':'10/31/1995', 'building':'11/10/1989','edit':''},
-    {'location':'newcairo','Address':'Erik', 'apt':'24', 'floor':'10/31/1995', 'building':'11/10/1989','edit':''}
-  ];
+
   
-  function buildTable(data){
+
     var table = document.getElementById('myTable')
   
     data.forEach(function(item) {
@@ -53,8 +62,7 @@
   
   
     });
-  }
   
-  buildTable(myArray);
-</script>
+  
+
     </body>

@@ -106,31 +106,6 @@ function validate  (req, res) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //add new customer to the database 
 const postcustomers = async (req, res) => {
   validate(req,res);
@@ -149,7 +124,9 @@ const postcustomers = async (req, res) => {
         Email: req.body.Email,
         Password: req.body.Password,
         "chat": new Array(),
-        verified: false
+        verified: false,
+        favorites:new Array(),
+        addreses:new Array()
       }
       const customer = new customers(obj);
 
