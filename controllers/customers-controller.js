@@ -50,6 +50,17 @@ function validate  (req, res) {
     confirm: req.body.psw-confirmt
   };
 
+  if (obj.Firstname.length == 0 || obj.Lastname.length == 0 || obj.Middlename.length == 0
+    || obj.Password.length == 0 || obj.confirm.length == 0 || obj.Email.length == 0 || obj.Phone.length == 0) {
+    text = 'Please fill out all the form!';
+    res.render("register", { alert: true, text: text });
+
+  }
+
+
+
+
+
   let text = '';
 
   if (!validator.isEmail(obj.Email)) {
@@ -82,17 +93,12 @@ function validate  (req, res) {
   }
   else {
 
-    text = 'Enter the same password';
+    text = 'Passwords are not match';
     res.render("register", { alert: true, text: text });
 
   }
 
-  if (obj.Firstname.length == 0 || obj.Lastname.length == 0 || obj.Middlename.length == 0
-    || obj.Password.length == 0 || obj.confirm.length == 0 || obj.Email.length == 0 || obj.Phone.length == 0) {
-    text = 'Please fill out all the form!';
-    res.render("register", { alert: true, text: text });
 
-  }
 }
 
 
