@@ -7,7 +7,7 @@ const router=Router();
 
  router.post("/", postemployees)
 
-  router.get("/", getemployees);
+  router.post("/signin", getemployees);
 
 router.get("/mail/verification/:id");
 

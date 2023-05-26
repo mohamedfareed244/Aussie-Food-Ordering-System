@@ -42,13 +42,14 @@ verified:false
 
   const getemployees= (req, res) => {
  
-    employee.find()
-      .then((result) => {
-        res.render("index", { arrEmp: result });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+const curr=Emp.findOne({Email:req.body.Email,Password:req.body.Password});
+if(curr===null||curr===undefined||!curr.verified){
+  res.render("sign-in",{alert:true,text:"invalid Email or Password"})
+}else{
+  req.session.employee=curr;
+  res.redirect("employees/profile")
+}
+
   }
 
   const confirmmail=async (req,res)=>{
@@ -86,4 +87,4 @@ res.redirect()
   //    }
   //    }
 
-  export {getemployees,postemployees};
+  export {getemployees,postemployees,confirmmail};

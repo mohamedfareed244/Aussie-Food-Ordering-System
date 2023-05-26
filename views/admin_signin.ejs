@@ -5,13 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin|portal</title>
-    <link rel="stylesheet" href="Css/admin_login.css">
+    <link rel="stylesheet" href="/Css/admin_login.css">
 </head>
 <body>
+
+    <%if(alert){%>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Error ! </strong> <%=text%> 
+          </div>
+        <%}%>
     <div id="LoginForms">
-        <form action="#" id ="LoginForm">
-            <input type="text" placeholder="User Name">
-            <input type="password" placeholder="password" >
+        <form action="/employee/signin" id ="LoginForm">
+            <input type="text" placeholder="User Name" name="Email">
+            <input type="password" placeholder="password" name="password">
             <input type="submit" value="Login">
         </form>
     </div>
