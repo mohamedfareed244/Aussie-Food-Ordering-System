@@ -36,9 +36,10 @@ async function sendsms(User) {
 
 
 
-
+let pass=true;
 //validations
 function validate  (req, res) {
+  pass=true;
   console.log("i entered the function");
   const obj = {
     Firstname: req.body.Firstname,
@@ -47,12 +48,13 @@ function validate  (req, res) {
     Phone: req.body.Phone,
     Email: req.body.Email,
     Password: req.body.Password,
-    confirm: req.body.psw-confirmt
+    confirm: req.body.psw_confirmt
   };
 
   if (obj.Firstname.length == 0 || obj.Lastname.length == 0 || obj.Middlename.length == 0
     || obj.Password.length == 0 || obj.confirm.length == 0 || obj.Email.length == 0 || obj.Phone.length == 0) {
     text = 'Please fill out all the form!';
+    pass=false;
     res.render("register", { alert: true, text: text });
 
   }
@@ -64,11 +66,13 @@ function validate  (req, res) {
   let text = '';
 
   if (!validator.isEmail(obj.Email)) {
+    pass=false;
     text = 'Invalid email';
     res.render("register", { alert: true, text: text });
   }
 
   if (!validator.isMobilePhone(obj.Phone)) {
+    pass=false;
     text = 'Invalid phone';
     res.render("register", { alert: true, text: text });
   }
@@ -84,7 +88,7 @@ function validate  (req, res) {
     const hasNumber = /[0-9]/.test(obj.Password);
     const hasSpecialChar = /[!@#$%^&*()]/.test(obj.Password);
     if (!hasUpperCase || !hasLowerCase || !hasNumber || !hasSpecialChar) {
-
+      pass=false;
       text = 'password must contain uppercase, lowercase , number and special character';
       res.render("register", { alert: true, text: text });
 
@@ -92,12 +96,12 @@ function validate  (req, res) {
 
   }
   else {
-
+    pass=false;
     text = 'Passwords are not match';
     res.render("register", { alert: true, text: text });
 
   }
-
+  
 
 }
 
@@ -108,8 +112,8 @@ function validate  (req, res) {
 
 //add new customer to the database 
 const postcustomers = async (req, res) => {
-  validate(req,res);
-  let validatephone
+  await validate(req,res);
+if(pass){
   console.log(req.body.Phone);
   await customers.findOne({ Email: req.body.Email }).then(async (result) => {
     if (result !== null) {
@@ -138,17 +142,13 @@ const postcustomers = async (req, res) => {
         console.log(err);
       }
     }
+  
   })
 
 
 
 
-  // customer.save().then((result)=>{
-  //   console.log("saved successfully ");
-  //   res.send("welcome to auusie ");
-  // }).catch((err)=>{
-  //   res.send(`an error happend : ${err}`);
-  // })
+}
 
 
 
@@ -211,7 +211,13 @@ const customerml = async (req, res) => {
 
 }
 
+const customeraddr= async (req,res)=>{
+  if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
+    res.render("sign-in", { alert: true, text: "you must sign in to access addreses " });
+  } else {
+    res.render("addressinfo", { user: req.session.signed_customer });
+  }
+}
 
 
-
-export { getcustomers, postcustomers, customerpr, customeror, customerml };
+export { getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr };

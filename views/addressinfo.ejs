@@ -6,6 +6,12 @@
 <body>
     <%- include("./partials/nav-profileinfo") %>
 <div class="tables">
+  <%if(user.addreses.length<=0){%>
+    <h1>
+      sorry , you dont have any address click here to add new address
+    </h1>
+    <%}else{%>
+    
     <table class="table table-striped">
         <tr  class="bg-info">
             <th>Location</th>
@@ -16,13 +22,9 @@
             <th><button>Add new Adress</button></th>
         </tr>
         <tbody id="myTable">
-<%if(user.addreses.length<=0){%>
-  <h1>
-    sorry , you dont have any address click here to add new address
-  </h1>
-  <%}%>
 
-         <% user.addreses.forEach(function(item)){%>
+
+         <% user.addreses.forEach(function(item){%>
           <tr>
             <td>${item.location}</td>
             <td>${item.Address}</td>
@@ -35,33 +37,15 @@
                 </td>
 
           </tr>
-          <%}%>
+          <%})%>
         </tbody>
     </table>
+    <%}%>
     </div>
 
   
 
-    var table = document.getElementById('myTable')
-  
-    data.forEach(function(item) {
-      var row = `<tr>
-                      <td>${item.location}</td>
-                      <td>${item.Address}</td>
-                      <td>${item.apt}</td>
-                      <td>${item.floor}</td>
-                      <td>${item.building}</td>
-                      <td>${item.edit}
-                          <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                  <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                          </td>
-  
-                    </tr>`
-  
-      table.innerHTML += row
-  
-  
-    });
+ 
   
   
 
