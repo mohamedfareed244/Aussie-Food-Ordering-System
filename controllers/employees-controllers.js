@@ -89,7 +89,8 @@ if(curr===null||curr===undefined||!curr.verified){
   res.render("admin_signin",{alert:true,text:"invalid Email or Password"})
 }else{
   req.session.employee=curr;
-  console.log("start redirection")
+  console.log("start redirection");
+  
   await addemp(curr);
   res.redirect("/employees/profile");
 }

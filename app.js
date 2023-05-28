@@ -84,8 +84,17 @@ app.use((req,res)=>{
 })
 //
 let onlineemp=new Array();
- async function addemp(emp){
-  const obj ={curr:emp,orders:0,chat:0};
+
+async function chg_sock(emp,new_id){
+  for(let i=0;i<onlineemp.length;i++){
+    if(onlineemp[i].curr.id===emp.id){
+     onlineemp[i].sock=new_id;
+     break;
+    }
+  }
+}
+ async function addemp(emp,sock_id){
+  const obj ={curr:emp,orders:0,chat:0,sock:sock_id};
 onlineemp.push(obj);
 console.log("now "+onlineemp.length+" employees are conected ");
  }
@@ -125,7 +134,7 @@ if(onlineemp[i].orders<min.orders){
   min.orders++;
   return min.curr;
  }
-export {app,addemp,delemp,findforchat,findfororder};
+export {app,addemp,delemp,findforchat,findfororder,chg_sock};
 
 
 
