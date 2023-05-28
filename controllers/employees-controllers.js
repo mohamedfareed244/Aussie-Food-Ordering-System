@@ -3,7 +3,7 @@ import {Emp} from "../models/Employees.js";
  import nodemailer from "nodemailer"
 import ejs from "ejs";
 import {addemp} from "../app.js";
-
+import {set_emp} from "../bin/www.js";
 
 
 
@@ -90,8 +90,8 @@ if(curr===null||curr===undefined||!curr.verified){
 }else{
   req.session.employee=curr;
   console.log("start redirection");
-  
   await addemp(curr);
+  await set_emp(curr);
   res.redirect("/employees/profile");
 }
 

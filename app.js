@@ -1,15 +1,12 @@
 import express from "express";
-import ejs, { compile } from "ejs";
-import mongoose from "mongoose"
+import {Server} from 'socket.io';
 import path from "path";
-import fs from "fs";
 import { fileURLToPath } from "url";
 //import the routes 
 import product_router from "./routes/products.js";
 //ali
 import cust_router from "./routes/customers.js";
 import emp_router from "./routes/employees.js";
-
 // end import routes 
 import { CLIENT_RENEG_LIMIT } from "tls";
 import session from "express-session";
@@ -93,8 +90,8 @@ async function chg_sock(emp,new_id){
     }
   }
 }
- async function addemp(emp,sock_id){
-  const obj ={curr:emp,orders:0,chat:0,sock:sock_id};
+ async function addemp(emp){
+  const obj ={curr:emp,orders:0,chat:0,sock:String};
 onlineemp.push(obj);
 console.log("now "+onlineemp.length+" employees are conected ");
  }

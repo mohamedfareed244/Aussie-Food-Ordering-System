@@ -1,5 +1,5 @@
 import { customers } from "../models/customers.js";
-import mongoose from "../bin/www.js";
+import {mongoose} from "../bin/www.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
 import validator from 'validator';

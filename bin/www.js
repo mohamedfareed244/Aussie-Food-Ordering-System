@@ -4,7 +4,9 @@
 // and listens for connections on the specified port.
 
 // Module dependencies
+import {Server} from 'socket.io';
 import {app} from "../app.js";
+import {chg_sock} from "../app.js";
 import mongoose from "mongoose";
 import { createServer } from "http";
 import dotenv from "dotenv";
@@ -30,7 +32,8 @@ const MURI = process.env.MURI;
 // Create HTTP server.
 const server = createServer(app);
 
-
+//create Socket 
+const io= new Server(server);
 
 
 //aliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
@@ -46,8 +49,22 @@ const server = createServer(app);
 // function onConnected(socket){
 //   console.log(socket.id)
 // }
-
-
+const curr_emp=null;
+function set_emp(emp){
+  curr_emp=emp;
+}
+io.on('connection', (socket) => {
+  
+  console.log('a user connected '+socket.id);
+  chg_sock(curr_emp,socket.id);
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+   io.to(socket.id).emit('rec mess',"hello ya alby ");
+  });
+});
 
 
 
@@ -94,4 +111,4 @@ function onListening() {
   console.log(`Listening on Port ${port}`);
 }
 
-export default mongoose;
+export { mongoose,set_emp};
