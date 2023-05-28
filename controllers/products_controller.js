@@ -132,7 +132,9 @@ const new_order=async (req,res)=>{
   
   const formattedToday = dd + '/' + mm + '/' + yyyy;
 const numbers= await orders.find({customerphone:current_customer.Phone}).then((result)=>{
+  if(result!==null&&result!==undefined){
   return result.length;
+  }
 })
 numbers++;
  const ord=new orders({
