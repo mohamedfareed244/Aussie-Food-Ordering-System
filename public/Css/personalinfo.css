@@ -1,101 +1,81 @@
-.personalinf{
-    margin: 0;
-    padding: 0;
-   
-    position: relative;
-width: 500px;
-
-left: 500px;
-top: -800px;
+.card {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0px;
+  width: 64%;
+  height: 444px;
+  margin-left: 361px;
+  margin-top: -789px;
 }
-*{
-    font-family: 'Montserrat', sans-serif;
+.right {
+  background: rgb(141, 140, 129);
+  flex: 1;
+  max-width: 68%;
+  height: 354px;
+  padding: 8px;
+  margin: 17px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media only screen and (max-width: 700px) {
+  .card
+   {
+   flex-direction: column;
+   margin: 10px;
+   height: auto;
+   width: 100%;
   }
-  body{
-    background: white;
-    padding: 0 10px;
+}
+@media only screen and (max-width: 600px) {
+  .card
+   {
+   flex-direction: column;
+   margin: 10px;
   }
-  .wrapper{
-position: relative;
-top: -50px;
-left: -100px;
- width: 500px;
-    margin: 20px auto;
-    padding: 30px;
-  }
-  
-  .wrapper .title{
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: #fec107;
-    text-transform: uppercase;
-    text-align: center;
-  }
-  
-  .wrapper .form{
-    width: 100%;
-  }
-  
-  .wrapper .form .inputfield{
-    margin-bottom: 21px;
-    align-items: center;
-    display: inline-block;
-  }
-  
-  .wrapper .form .inputfield label{
-     width: 200px;
-     color: #757575;
-     margin-right: 10px;
-    font-size: 14px;
-  }
-  
-  .wrapper .form .inputfield .input{
-    width: 101%;
-    outline: none;
-    border: 2px solid #d5dbd9;
-    font-size: 16px;
-    padding: 0px 4px;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-  }
-  .wrapper .form .inputfield{
-    position: relative;
-    width: 100%;
-    height: 37px;
-  }
-  .wrapper .form .inputfield .input:focus{
-    border: 1px solid #fec107;
-  }
-  .wrapper .form .inputfield .btn{
-    width: 100%;
-     padding: 8px 10px;
-    font-size: 15px; 
-    border: 0px;
-    background:  #2c8ee3;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 3px;
-    outline: none;
-  }
-  
-  .wrapper .form .inputfield .btn:hover{
-    background: #ffd658;
-  }
-  
-  .wrapper .form .inputfield:last-child{
-    margin-bottom: 0;
-  }
-  
-  @media (max-width:420px) {
-    .wrapper .form .inputfield{
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .wrapper .form .inputfield label{
-      margin-bottom: 5px;
-    }
-    .wrapper .form .inputfield.terms{
-      flex-direction: row;
-    }
-  }
+}
+h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: black;
+}
+table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 280px;
+  border-collapse: collapse;
+}
+td { 
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  color:black;
+}
+
+td:first-child {
+  font-weight: bold;
+}
+.passwordch{
+
+  background-color: #004A7F;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 5px ;
+  text-align: center;
+  text-decoration: none;
+}
+.passwordch:hover{
+  background-color: rgb(234, 102, 102);
+}
