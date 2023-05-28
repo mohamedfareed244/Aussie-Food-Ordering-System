@@ -53,18 +53,22 @@ io.use(wrap(sessionMiddleware));
 // function onConnected(socket){
 //   console.log(socket.id)
 // }
-
+let connected_sockets=new Array();
 io.on('connection', (socket) => {
+  connected_sockets.push(socket);
   chg_sock(socket.request.session.employee,socket.id);
   console.log('a user connected '+socket.id);
   //chg_sock(curr_emp,socket.id);
   socket.on('disconnect', () => {
+    for(let i=0;i<connected_sockets.length;i++){
+      if(connected_sockets[i]===socket){
+        connected_sockets.splice(i,1);
+        break;
+      }
+    }
     console.log('user disconnected');
   });
-  socket.on('chat message', (msg) => {
-    console.log('message: ' + msg);
-   io.to(socket.id).emit('rec mess',"hello ya alby ");
-  });
+
 });
 
 
@@ -112,4 +116,22 @@ function onListening() {
   console.log(`Listening on Port ${port}`);
 }
 
-export { mongoose};
+
+//recieve order for employees 
+async function getsoc(id){
+  for (let i=0;i<connected_sockets.length;i++){
+    if(connected_sockets[i].id===id){
+      return i;
+    }
+  }
+  return -1;
+}
+async function rec_order(emp,order){
+let index;
+do{
+  const socid= await find_soc(emp,order);
+index=getsoc(socid);
+}while(index===-1);
+io.to(socid).emit("recieve order",order);
+}
+export { mongoose ,rec_order};

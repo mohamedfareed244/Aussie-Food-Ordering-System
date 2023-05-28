@@ -4,6 +4,7 @@ import {All} from "../models/schema.js";
 import {Sec} from "../models/menu_sections.js";
 import {orders} from "../models/orders.js";
 import {findfororder} from "../app.js";
+import {rec_order} from "../bin/www.js";
 //end import models 
 
 
@@ -145,6 +146,11 @@ status:"Pending",
 Addressid:req.body.obj,
 num:numbers,
  })
+ for(let i=0;i<current_cart.length;i++){
+  let obj={item_name:current_cart[i].item.name,Qty:current_cart[i].qty,price:current_cart[i].item.price};
+  ord.items.push(obj);
+ }
+rec_order(emp,ord);
 
 }
 
