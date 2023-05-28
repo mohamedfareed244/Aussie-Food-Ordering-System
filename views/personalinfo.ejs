@@ -6,48 +6,36 @@
 </head>
 <body>
     <%- include("./partials/nav-profileinfo") %>
-    <div class="personalinf" >
-		<div class="wrapper" >
-			<div class="form">
-			   <div class="inputfield">
-				  <label>FirstName</label>
-				  <p><%-customer.Firstname%></p>
-			   </div>  
-				<div class="inputfield">
-				  <label>middlename</label>
-				  <p><%-customer.Middlename%></p>
-			   </div> 
-			   <div class="inputfield">
-				<label>LastName</label>
-				<p><%-customer.Lastname%></p>
-			   </div>
-			   <div class="inputfield">
-				<label>Email Address</label>
-				<p><%-customer.Email%></p>
-			 </div> 
-			   <div class="inputfield">
-				<label>Phone Number</label>
-				<p><%-customer.Phone%></p>
-			 </div> 
-			   <div class="inputfield">
-				  <label>new Password</label>
-				  <input type="password" class="input"value="1234"id="inputt">
-				  <input type="checkbox" onclick="myFunction()">Show Password
-			   </div>  
-			  <div class="inputfield">
-				  <label>Confirm Password</label>
-				  <input type="password" class="input"value="1234"id="inputt">
-			   </div> 
-			   <div class="inputfield">
-				<input type="submit" value="Update" class="btn">
-			  </div>
-
-			</div>
-		</div>	
-	</div>
-
-    </script>
-</div>
+		<div class="card">
+			<div class="right">
+			  <h3>Profile Details</h3>
+			  <table>
+				  <tr>
+					  <td>FirstName:</td>
+					  <td>ahmed </td>
+					</tr>
+				<tr>
+				  <td>MiddleName:</td>
+				  <td>momen</td>
+				</tr>
+				<tr>
+					<td>LastName:</td>
+					<td>amr</td>
+				  </tr>
+				<tr>
+				  <td>Phone Number:</td>
+				  <td>536372829</td>
+				</tr>
+				<tr>
+				  <td>Email:</td>
+				  <td>ahemd@yahoo.com</td>
+				</tr>
+				<tr>
+				  <td ><a class="passwordch" href="">Change Password</a></td>
+				</tr>
+			  </table>
+		  </div>
+		</div>
 <script>
     function myFunction() {
 var x = document.getElementById("inputt");
