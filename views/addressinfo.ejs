@@ -26,12 +26,11 @@
 
          <% user.addreses.forEach(function(customer){%>
           <tr>
-            <td>${user.Location}</td>
-            <td>${user.addreses}</td>
-            <td>${user.Apt}</td>
-            <td>${user.Floor}</td>
-            <td><%- user.Floor %>></td>
-            <td>${item.edit}
+            <td><%-customers.addreses.location  %></td>
+            <td><%-customers.addreses.Adress  %></td>
+            <td><%-customers.addreses.apartement  %></td>
+            <td><%-customers.addreses.floor  %></td>
+            <td><%-customers.addreses.Building  %></td>
                 <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
         <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                 </td>
