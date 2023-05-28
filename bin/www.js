@@ -130,7 +130,7 @@ async function rec_order(emp,order){
 let index;
 do{
   const socid= await find_soc(emp,order);
-index=getsoc(socid);
+index= await getsoc(socid);
 }while(index===-1);
 io.to(socid).emit("recieve order",order);
 }
