@@ -6,17 +6,17 @@
 // Module dependencies
 import {Server} from 'socket.io';
 import {app} from "../app.js";
+import ios from "express-socket.io-session";
 import {chg_sock} from "../app.js";
 import mongoose from "mongoose";
 import { createServer } from "http";
 import dotenv from "dotenv";
-import twilio from "twilio";
-import readline from "readline"
-import nodemailer from "nodemailer"
-import ejs from "ejs"
+import {sessionMiddleware} from "../app.js"
+import session from "express-session"
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
+import { Session } from 'inspector';
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,7 +34,10 @@ const server = createServer(app);
 
 //create Socket 
 const io= new Server(server);
+// convert a connect middleware to a Socket.IO middleware
+const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
 
+io.use(wrap(sessionMiddleware));
 
 //aliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
@@ -49,14 +52,11 @@ const io= new Server(server);
 // function onConnected(socket){
 //   console.log(socket.id)
 // }
-const curr_emp=null;
-function set_emp(emp){
-  curr_emp=emp;
-}
+
 io.on('connection', (socket) => {
-  
+  chg_sock(socket.request.session.employee,socket.id);
   console.log('a user connected '+socket.id);
-  chg_sock(curr_emp,socket.id);
+  //chg_sock(curr_emp,socket.id);
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
@@ -111,4 +111,4 @@ function onListening() {
   console.log(`Listening on Port ${port}`);
 }
 
-export { mongoose,set_emp};
+export { mongoose};

@@ -20,7 +20,10 @@ const app = express();
 
 //set up app 
 //set up session 
-app.use(session({ secret: 'Your_Secret_Key' }));
+const sessionMiddleware = session({
+  secret: 'Your_secret_key',
+});
+app.use(sessionMiddleware);
 
 
 app.set('view engine', 'ejs');
@@ -131,7 +134,7 @@ if(onlineemp[i].orders<min.orders){
   min.orders++;
   return min.curr;
  }
-export {app,addemp,delemp,findforchat,findfororder,chg_sock};
+export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware};
 
 
 

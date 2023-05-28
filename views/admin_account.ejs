@@ -33,5 +33,26 @@
     </div>
 
 </body>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script>
+  var socket = io();
+  socket.on('connect',()=>{
+    console.log("socket id "+socket.id);
+  })
 
+  var form = document.getElementById("form");
+  var input = document.getElementById("input");
+
+  function a() {
+ 
+    if (input.value) {
+      socket.emit('chat message', input.value);
+      console.log("sent")
+      input.value = '';
+    }
+  }
+  socket.on('rec mess',(msg)=>{
+    console.log("i recieve "+msg);
+  })
+</script>
 </html>
