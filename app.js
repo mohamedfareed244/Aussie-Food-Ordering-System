@@ -134,7 +134,15 @@ if(onlineemp[i].orders<min.orders){
   min.orders++;
   return min.curr;
  }
-export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware};
+ //
+ async function find_soc(emp){
+  for(let i=1;i<onlineemp.length;i++){
+    if(onlineemp[i].id===emp.id){
+      return onlineemp[i].sock;
+    }
+      }
+ }
+export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc};
 
 
 

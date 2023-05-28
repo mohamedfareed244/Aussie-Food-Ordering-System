@@ -6,6 +6,7 @@
 // Module dependencies
 import {Server} from 'socket.io';
 import {app} from "../app.js";
+import {find_soc} from "../app.js";
 import ios from "express-socket.io-session";
 import {chg_sock} from "../app.js";
 import mongoose from "mongoose";
