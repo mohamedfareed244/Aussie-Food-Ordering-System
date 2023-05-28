@@ -76,20 +76,20 @@
         <button id="dropbtn" onclick="">Choose Your Address <img src="/images/arrow-down-sign-to-navigate.png" alt="" width="15px" id ="hide_img"></button>
         <div id="dropdown-content">
         <ul id="adds_list">
-            <%for(let i=0;i<user.addreses.length;i++){%>
+            <!-- <%for(let i=0;i<user.addreses.length;i++){%> -->
             <li>
                 <article class="art2" title="Select This address"> <span class="sp1"> <b><%=user.addreses[i].location%> </b> </span>
                     <br>
                     <span class="sp2"><%=user.addreses[i].Adress%> , apt : <%=user.addreses[i].apartment%> , floor :<%=user.addreses[i].floor%>, building : <%=user.addreses[i].building%> </span></article>
             </li>
-            <%}%>
+            <!-- <%}%> -->
            
         </ul>
         </div>
       </div>
    
       <textarea name="" id="notes" cols="30" rows="10" placeholder="Add delivery notes here "></textarea>
-      <button id ="end">check out now </button>
+      <a href="/products/customer/cart/checout/order"><button id ="end" >check out now </button></a>
 </div>
 
 </body>

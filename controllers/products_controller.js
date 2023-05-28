@@ -131,7 +131,7 @@ const new_order=async (req,res)=>{
   if (mm < 10) mm = '0' + mm;
   
   const formattedToday = dd + '/' + mm + '/' + yyyy;
-const numbers= await orders.find({customerphone:current_customer.Phone}).then((result)=>{
+let numbers= await orders.find({customerphone:current_customer.Phone}).then((result)=>{
   if(result!==null&&result!==undefined){
   return result.length;
   }
@@ -140,7 +140,7 @@ numbers++;
  const ord=new orders({
   customermail:current_customer.Email,
   customerphone:current_customer.Phone,
-items:[{item_name:String,Qty:Number,price:Number}],
+items:new Array(),
 emp_name:emp.Name,
 emp_phone:emp.Phone,
 orderdate:formattedToday,
@@ -148,8 +148,12 @@ status:"Pending",
 Addressid:"req.body.obj",
 num:numbers,
  })
+ console.log("stuck");
  for(let i=0;i<current_cart.length;i++){
-  let obj={item_name:current_cart[i].item.name,Qty:current_cart[i].qty,price:current_cart[i].item.price};
+  console.log(current_cart[i].item.name);
+  console.log(current_cart[i].qty); 
+  console.log(current_cart[i].item.price);
+  let obj={item_name:current_cart[i].item.name,Qty:0,price:current_cart[i].item.price};
   ord.items.push(obj);
  }
  await ord.save();
@@ -162,4 +166,4 @@ rec_order(emp,ord);
 
 
   export {getsection,
-  getitembyid,delitem,check_out};
+  getitembyid,delitem,check_out,new_order};
