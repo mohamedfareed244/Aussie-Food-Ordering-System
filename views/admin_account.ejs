@@ -51,8 +51,15 @@
       input.value = '';
     }
   }
-  socket.on('recieve order',(msg)=>{
-    console.log("i recieve "+msg);
+  socket.on('recieve order',async (msg)=>{
+    console.log("recieve");
+    await sou();
+    await sou();
+    await sou();
   })
+  async function sou(){
+    let audio = new Audio('/sounds/Messagesnotification.m4r');
+audio.play();
+  }
 </script>
 </html>
