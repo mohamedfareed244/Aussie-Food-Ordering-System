@@ -24,13 +24,13 @@
         <tbody id="myTable">
 
 
-         <% user.addreses.forEach(function(item){%>
+         <% user.addreses.forEach(function(customer){%>
           <tr>
-            <td>${item.location}</td>
-            <td>${item.Address}</td>
-            <td>${item.apt}</td>
-            <td>${item.floor}</td>
-            <td>${item.building}</td>
+            <td>${user.Location}</td>
+            <td>${user.addreses}</td>
+            <td>${user.Apt}</td>
+            <td>${user.Floor}</td>
+            <td><%- user.Floor %>></td>
             <td>${item.edit}
                 <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
         <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
