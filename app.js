@@ -147,7 +147,8 @@ if(onlineemp[i].orders<min.orders){
 
   for(let i=0;i<onlineemp.length;i++){
     console.log(onlineemp[i])
-    if(onlineemp[i].curr.id===emp.id){
+    console.log(emp);
+    if(onlineemp[i].curr===JSON.stringify(emp)){
       return onlineemp[i].sock;
     }
       }

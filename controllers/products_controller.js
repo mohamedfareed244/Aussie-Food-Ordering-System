@@ -117,7 +117,11 @@ const check_out=async (req,res)=>{
 const new_order=async (req,res)=>{
   const current_cart=req.session.cart_items;
   const current_customer=req.session.signed_customer;
-  const emp=findfororder();
+  let emp;
+  await findfororder().then((res)=>{
+    
+    emp=res;
+  })
   if(emp===null){
     res.json({done:false});
   }
