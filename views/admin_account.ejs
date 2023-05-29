@@ -51,17 +51,21 @@
       input.value = '';
     }
   }
+  
   socket.on('recieve order',async (msg)=>{
     console.log("recieve");
-sou();
+  sou();
+
   })
   async function sou(){
+
     let audio = document.getElementById("audio");
 audio.play().catch((err)=>{
     console.log(err);
 })
+
   }
-  sou();
+  
 </script>
 
 </html>
