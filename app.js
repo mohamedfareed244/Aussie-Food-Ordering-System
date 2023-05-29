@@ -42,14 +42,12 @@ app.use('/customers',cust_router);
 
 
 //test playing sound for use in the future at orders 
-app.get("/Users/user/Downloads/Messagenotification.m4r",function(req,res){
-    res.sendFile(path.join("/Users/user/Downloads/sound.m4r"));
-})
+// app.get("/Users/user/Downloads/Messagenotification.m4r",function(req,res){
+//     res.sendFile(path.join("/Users/user/Downloads/sound.m4r"));
+// })
 
-app.get("/photos/aussieimage/cc",(req,res)=>{
-  console.log("i recieve request");
-  
-  res.sendFile(__dirname+"/public/images/logo.png");
+app.get("/test",(req,res)=>{
+ res.render("dashboard-orders");
 })
 
 
