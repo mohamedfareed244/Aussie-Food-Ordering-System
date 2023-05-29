@@ -47,19 +47,19 @@
                   <%orders.forEach((item)=>{%>
                    <tr>
                        <td>
-                         orders.
+                         <%=orders.customername%>
                        </td>
                        <td>
-                          120$
+                        <%=orders.customerphone%>
                        </td> <td>
-                          Paid
+                        <%=orders.num%>
                        </td>
                        
                      
                        <td>
                         <span class="delivered">Delivered</span>
                        </td>
-                       <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                       <td><button   class="moree"onclick="togglePopup(<%=orders%>)">Show More</button></td>
                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
                    </tr>
@@ -86,9 +86,9 @@
       
          <div class="overlay"> </div>
             <div class="content">
-               <div class="close-btn" onclick="togglePopup()">
+               <!-- <div class="close-btn" onclick="togglePopup()">
                   &times;
-               </div>
+               </div> -->
                <h1>Details</h1>
                <table >
                   <thead>
@@ -127,7 +127,8 @@
 
 
          <script>
-            function togglePopup(){
+            function togglePopup(o){
+               console.log("the order is ",o);
                // const togel=document.querySelector(".popup")
                document.getElementById("popup-1").classList.toggle("active");
             }
