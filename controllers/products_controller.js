@@ -142,6 +142,7 @@ let numbers= await orders.find({customerphone:current_customer.Phone}).then((res
 })
 numbers++;
  const ord=new orders({
+  cuustomername:current_customer.Firstname,
   customermail:current_customer.Email,
   customerphone:current_customer.Phone,
 items:new Array(),
