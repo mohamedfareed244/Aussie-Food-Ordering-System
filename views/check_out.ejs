@@ -89,9 +89,66 @@
       </div>
    
       <textarea name="" id="notes" cols="30" rows="10" placeholder="Add delivery notes here "></textarea>
-       <a href="/products/customer/cart/checout/order">  <button id ="end" >check out now </button> </a>
+       <a href="/products/customer/cart/checout/order">  <button id ="end"  onclick="togglePopup()">check out now </button> </a>
+
+
+
+
+
+
       
 </div>
+
+
+
+
+
+
+
+<div class="popup" id="popup-1">
+      
+    <div class="overlay"> </div>
+       <div class="content">
+          <div class="close-btn" onclick="togglePopup()">
+             &times;
+          </div>
+          <h1>Details</h1>
+          <table >
+             <thead>
+                 <tr>
+                     <td>
+                         Name
+                     </td>
+                     <td>
+                         Price
+                     </td> <td>
+                         Qty
+                     </td> 
+                   
+                    
+                     <td>Accept</td>
+                 </tr>
+             </thead>
+ 
+             <tbody>
+                 <tr>
+                     <td>
+                        Pizza
+                     </td>
+                     <td>
+                        120$
+                     </td> <td>
+                        4
+                     </td>
+                     
+                     <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                     <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                 </tr>
+       </div>
+   
+    </div>
+
+
 
 </body>
 </html>
