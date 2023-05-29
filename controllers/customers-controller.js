@@ -42,7 +42,7 @@ function validate  (req, res) {
   pass=true;
   let text = '';
 
-  console.log("i entered the function");
+ 
   const obj = {
     Firstname: req.body.Firstname,
     Middlename: req.body.Middlename,
