@@ -143,8 +143,11 @@ if(onlineemp[i].orders<min.orders){
  }
  //
  async function find_soc(emp){
-  for(let i=1;i<onlineemp.length;i++){
-    if(onlineemp[i].id===emp.id){
+  
+
+  for(let i=0;i<onlineemp.length;i++){
+    console.log(onlineemp[i])
+    if(onlineemp[i].curr.id===emp.id){
       return onlineemp[i].sock;
     }
       }

@@ -150,13 +150,12 @@ num:numbers,
  })
  console.log("stuck");
  for(let i=0;i<current_cart.length;i++){
-  console.log(current_cart[i].item.name);
-  console.log(current_cart[i].qty); 
-  console.log(current_cart[i].item.price);
+
   let obj={item_name:current_cart[i].item.name,Qty:0,price:current_cart[i].item.price};
   ord.items.push(obj);
  }
  await ord.save();
+
 rec_order(emp,ord);
 
 }

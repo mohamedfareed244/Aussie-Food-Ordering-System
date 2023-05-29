@@ -132,6 +132,8 @@ async function getsoc(id){
 async function rec_order(emp,order){
 let index;
 let socid;
+console.log("in : ",emp);
+console.log(emp.Password);
 do{
  socid = await find_soc(emp);
  console.log("the id is : "+socid);
