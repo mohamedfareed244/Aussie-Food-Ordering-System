@@ -1,4 +1,5 @@
 import express from "express";
+import {orders} from "./models/orders.js";
 import {Server} from 'socket.io';
 import path from "path";
 import { fileURLToPath } from "url";
@@ -47,9 +48,14 @@ app.use('/customers',cust_router);
 // })
 
 app.get("/test",(req,res)=>{
- res.render("dashboard-orders");
-})
+const emp=req.session.employee;
+orders.find({emp_name:emp.Name,emp_phone:emp.Phone}).then((result)=>{
+  if(result!==null&&result!==undefined){
+    res.render("dashboard-orders",{orders:result});
+  }
 
+})
+})
 
 //ali
 

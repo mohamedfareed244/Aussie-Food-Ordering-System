@@ -47,19 +47,19 @@
                   <%orders.forEach((item)=>{%>
                    <tr>
                        <td>
-                         <%=orders.customername%>
+                         <%=item.customername%>
                        </td>
                        <td>
-                        <%=orders.customerphone%>
+                        <%=item.customerphone%>
                        </td> <td>
-                        <%=orders.num%>
+                        <%=item.num%>
                        </td>
                        
                      
                        <td>
                         <span class="delivered">Delivered</span>
                        </td>
-                       <td><button   class="moree"onclick="togglePopup(<%=orders%>)">Show More</button></td>
+                       <td><button class="moree" onclick=togglePopup("<%=item.id%>") >Show More</button></td>
                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
                    </tr>
@@ -86,9 +86,9 @@
       
          <div class="overlay"> </div>
             <div class="content">
-               <!-- <div class="close-btn" onclick="togglePopup()">
+               <div class="close-btn" onclick="togglePopup(`hello`)">
                   &times;
-               </div> -->
+               </div>
                <h1>Details</h1>
                <table >
                   <thead>
