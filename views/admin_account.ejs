@@ -31,7 +31,7 @@
 
 
     </div>
-
+    <audio id="audio" src="/sounds/sound.m4r"></audio>
 </body>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
@@ -53,13 +53,15 @@
   }
   socket.on('recieve order',async (msg)=>{
     console.log("recieve");
-    await sou();
-    await sou();
-    await sou();
+sou();
   })
   async function sou(){
-    let audio = new Audio('/sounds/Messagesnotification.m4r');
-audio.play();
+    let audio = document.getElementById("audio");
+audio.play().catch((err)=>{
+    console.log(err);
+})
   }
+  sou();
 </script>
+
 </html>

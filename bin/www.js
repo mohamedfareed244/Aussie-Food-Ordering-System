@@ -132,12 +132,17 @@ async function getsoc(id){
 async function rec_order(emp,order){
 let index;
 let socid;
-console.log("in : ",emp);
-console.log(emp.Password);
+
 do{
- socid = await find_soc(emp);
+  console.log("in : ",emp);
+console.log(emp.Password);
+ await find_soc(emp).then((res)=>{
+  socid=res;
+ });
  console.log("the id is : "+socid);
-index= await getsoc(socid);
+ await getsoc(socid).then((res)=>{
+  index =res;
+ });
 console.log("the index is : "+index);
 console.log("in while loop ");
 }while(index==-1);

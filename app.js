@@ -42,8 +42,8 @@ app.use('/customers',cust_router);
 
 
 //test playing sound for use in the future at orders 
-app.get("/Users/user/Downloads/Message%20notification.m4r",function(req,res){
-    res.sendFile(path.join("/Users/user/Downloads/Message notification.m4r"));
+app.get("/Users/user/Downloads/Messagenotification.m4r",function(req,res){
+    res.sendFile(path.join("/Users/user/Downloads/sound.m4r"));
 })
 
 app.get("/photos/aussieimage/cc",(req,res)=>{
@@ -144,11 +144,9 @@ if(onlineemp[i].orders<min.orders){
  //
  async function find_soc(emp){
   
-
+console.log("red : ",emp);
   for(let i=0;i<onlineemp.length;i++){
-    console.log(onlineemp[i])
-    console.log(emp);
-    if(onlineemp[i].curr===JSON.stringify(emp)){
+    if(onlineemp[i].curr.id===emp.id){
       return onlineemp[i].sock;
     }
       }
