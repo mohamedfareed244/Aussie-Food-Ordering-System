@@ -25,7 +25,7 @@
             
             </div>
 
-            <table >
+            <table id="mytable">
                <thead>
                    <tr>
                        <td>
@@ -150,7 +150,36 @@
      }
      
      socket.on('recieve order',async (msg)=>{
-       console.log("recieve",msg);
+      console.log(msg.customername);
+      let table = document.getElementById("mytable");
+  let row = table.insertRow(1);
+  let td1 = row.insertCell(0);
+  let td2 = row.insertCell(1);
+  let td3 = row.insertCell(2);
+  let td4 = row.insertCell(3);
+  let td5 = row.insertCell(4);
+  let td6 = row.insertCell(5);
+  let td7 = row.insertCell(6);
+  let sp=document.createElement("span");
+  sp.className="delivered";
+  sp.innerHTML=msg.status;
+  td1.innerHTML="s"
+  td2.innerHtml=`${msg.customerphone}`;
+  td3.innerHtml=msg.num;
+  td4.appendChild(sp);
+  let btn =document.createElement("button");
+  btn.className="moree";
+  btn.innerHTML="Show More";
+  btn.addEventListener('click',togglePopup(`${msg.id}`));
+  td5.appendChild(btn);
+  let i1=document.createElement("i");
+  i1.id="iconn";
+i1.className="fa-sharp fa-solid fa-circle-check";
+td6.appendChild(i1);
+let i2=document.createElement("i");
+  i2.id="iconn";
+i2.className="fa-solid fa-circle-xmark";
+td7.appendChild(i2);
      sou();
    
      })
