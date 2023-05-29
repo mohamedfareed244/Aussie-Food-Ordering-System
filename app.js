@@ -22,6 +22,8 @@ const app = express();
 //set up session 
 const sessionMiddleware = session({
   secret: 'Your_secret_key',
+  resave: false,
+  saveUninitialized: false
 });
 app.use(sessionMiddleware);
 
@@ -86,15 +88,20 @@ app.use((req,res)=>{
 let onlineemp=new Array();
 
 async function chg_sock(emp,new_id){
+  let f=JSON.stringify(emp);
+
+console.log("the is ",emp._id);
   for(let i=0;i<onlineemp.length;i++){
-    if(onlineemp[i].curr.id===emp.id){
+    console.log(onlineemp[i].curr.id);
+    if(onlineemp[i].curr.id===emp._id){
      onlineemp[i].sock=new_id;
+     console.log("the new id will be :"+new_id);
      break;
     }
   }
 }
  async function addemp(emp){
-  const obj ={curr:emp,orders:0,chat:0,sock:String};
+  const obj ={curr:emp,orders:0,chat:0,sock:"String"};
 onlineemp.push(obj);
 console.log("now "+onlineemp.length+" employees are conected ");
  }

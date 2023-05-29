@@ -54,11 +54,14 @@ io.use(wrap(sessionMiddleware));
 //   console.log(socket.id)
 // }
 let connected_sockets=new Array();
-io.on('connection', (socket) => {
-  connected_sockets.push(socket);
-  chg_sock(socket.request.session.employee,socket.id);
+io.on('connection',async (socket) => {
+  const sess=socket.request.session;
+  await connected_sockets.push(socket);
+
+  await chg_sock(socket.request.session.employee,socket.id);
   console.log('a user connected '+socket.id);
-  //chg_sock(curr_emp,socket.id);
+  console.log("the id in socket is : "+sess);
+
   socket.on('disconnect', () => {
     for(let i=0;i<connected_sockets.length;i++){
       if(connected_sockets[i]===socket){
@@ -128,10 +131,14 @@ async function getsoc(id){
 }
 async function rec_order(emp,order){
 let index;
+let socid;
 do{
-  const socid= await find_soc(emp,order);
+ socid = await find_soc(emp);
+ console.log("the id is : "+socid);
 index= await getsoc(socid);
-}while(index===-1);
+console.log("the index is : "+index);
+console.log("in while loop ");
+}while(index==-1);
 io.to(socid).emit("recieve order",order);
 }
 export { mongoose ,rec_order};
