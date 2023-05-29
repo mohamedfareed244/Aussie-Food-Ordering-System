@@ -163,14 +163,26 @@
   let sp=document.createElement("span");
   sp.className="delivered";
   sp.innerHTML=msg.status;
-  td1.innerHTML="s"
-  td2.innerHtml=`${msg.customerphone}`;
-  td3.innerHtml=msg.num;
+
+  let g1=document.createElement("span");
+  g1.innerHTML=msg.customername;
+td1.appendChild(g1);
+  
+  let g=document.createElement("span");
+  g.innerHTML=msg.customerphone;
+td2.appendChild(g);
+
+let g3=document.createElement("span");
+  g3.innerHTML=msg.num;
+td3.appendChild(g3);
+  
+
   td4.appendChild(sp);
   let btn =document.createElement("button");
   btn.className="moree";
   btn.innerHTML="Show More";
-  btn.addEventListener('click',togglePopup(`${msg.id}`));
+  
+  
   td5.appendChild(btn);
   let i1=document.createElement("i");
   i1.id="iconn";
@@ -181,8 +193,14 @@ let i2=document.createElement("i");
 i2.className="fa-solid fa-circle-xmark";
 td7.appendChild(i2);
      sou();
-   
+     
+     btn.addEventListener('click',(o)=>{
+      console.log("the order is ",o);
+                  // const togel=document.querySelector(".popup")
+                  document.getElementById("popup-1").classList.toggle("active");
      })
+     })
+
      async function sou(){
    
        let audio = document.getElementById("audio");
