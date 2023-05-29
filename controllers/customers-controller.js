@@ -40,6 +40,8 @@ let pass=true;
 //validations
 function validate  (req, res) {
   pass=true;
+  let text = '';
+
   console.log("i entered the function");
   const obj = {
     Firstname: req.body.Firstname,
@@ -51,19 +53,16 @@ function validate  (req, res) {
     confirm: req.body.psw_confirmt
   };
 
-  if (obj.Firstname.length == 0 || obj.Lastname.length == 0 || obj.Middlename.length == 0
-    || obj.Password.length == 0 || obj.confirm.length == 0 || obj.Email.length == 0 || obj.Phone.length == 0) {
+  if (obj.Firstname.trim() === ''|| obj.Lastname.trim() === ''|| obj.Middlename.trim() === ''
+    || obj.Password.trim() === '' || obj.confirm.trim() === '' || obj.Email.trim() === '' ||
+     obj.Phone.trim() === '')
+  { 
+
     text = 'Please fill out all the form!';
     pass=false;
     res.render("register", { alert: true, text: text });
 
   }
-
-
-
-
-
-  let text = '';
 
   if (!validator.isEmail(obj.Email)) {
     pass=false;
@@ -86,7 +85,7 @@ function validate  (req, res) {
     const hasUpperCase = /[A-Z]/.test(obj.Password);
     const hasLowerCase = /[a-z]/.test(obj.Password);
     const hasNumber = /[0-9]/.test(obj.Password);
-    const hasSpecialChar = /[!@#$%^&*()]/.test(obj.Password);
+    const hasSpecialChar = /[!@#$%^&*().]/.test(obj.Password);
     if (!hasUpperCase || !hasLowerCase || !hasNumber || !hasSpecialChar) {
       pass=false;
       text = 'password must contain uppercase, lowercase , number and special character';
