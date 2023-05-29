@@ -18,6 +18,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 
+//ali
+
+
+
+
+
+
+    //  app.get("/",function(req,res){
+    //          res.render("check_out");
+    //   })
+
+
 
 //set up app 
 //set up session 
@@ -59,16 +71,6 @@ await orders.find({emp_name:emp.Name,emp_phone:emp.Phone}).then((result)=>{
 res.render("dashboard-orders",{orders:f});
 })
 
-//ali
-
-
-
-
-
-
-    // app.get("/",function(req,res){
-    //         res.render("add-employee");
-    //    })
 
 
 app.get('/test',(req,res)=>{

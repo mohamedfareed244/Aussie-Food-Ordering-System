@@ -66,8 +66,8 @@ async function playsound(){
       async function get_item(id){
        
         let data;
-        console.log(`the    http://127.0.0.1:3001/${id}`);
-        let item= await fetch(`http://127.0.0.1:3001/products/getitem/${id}`,{method:'GET'}).then( function (response){
+        console.log(`the    http://127.0.0.1:30001/${id}`);
+        let item= await fetch(`http://127.0.0.1:30001/products/getitem/${id}`,{method:'GET'}).then( function (response){
            data=response.json();
          console.log("the data "+data);
           return data;
