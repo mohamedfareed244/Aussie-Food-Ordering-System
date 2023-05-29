@@ -47,14 +47,16 @@ app.use('/customers',cust_router);
 //     res.sendFile(path.join("/Users/user/Downloads/sound.m4r"));
 // })
 
-app.get("/test",(req,res)=>{
+app.get("/test",async (req,res)=>{
 const emp=req.session.employee;
-orders.find({emp_name:emp.Name,emp_phone:emp.Phone}).then((result)=>{
+let f;
+await orders.find({emp_name:emp.Name,emp_phone:emp.Phone}).then((result)=>{
   if(result!==null&&result!==undefined){
-    res.render("dashboard-orders",{orders:result});
+    f=result;
   }
 
 })
+res.render("dashboard-orders",{orders:f});
 })
 
 //ali
