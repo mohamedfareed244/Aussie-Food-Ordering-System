@@ -25,10 +25,6 @@ const app = express();
 
 
 
-      // app.get("/lll",function(req,res){
-      //         res.render("error-page");
-      // })
-
 
 
 //set up app 
@@ -87,6 +83,10 @@ app.get('/',(req,res)=>{
     ,num:number,current_user:req.session.signed_customer==undefined?null:req.session.signed_customer});
 });
 
+
+app.get("/test/menu",function(req,res){
+  res.render("admin-dashboard-menu");
+})
 
 //error handling 
 app.use((req,res)=>{
