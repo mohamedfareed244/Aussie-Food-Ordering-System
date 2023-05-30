@@ -24,7 +24,7 @@ const __dirname = path.dirname(__filename);
 
 
 // Get port from environment variable or default to 8000
-const PORT = process.env.PORT || "30001";
+const PORT = process.env.PORT || "3001";
 const HOST = process.env.HOST || "127.0.0.1";
 
 // Get MongoDB connection URI from environment variable 
