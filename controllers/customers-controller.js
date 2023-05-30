@@ -1,5 +1,5 @@
 import { customers } from "../models/customers.js";
-import {mongoose} from "../bin/www.js";
+import {io} from "../bin/www.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
 import validator from 'validator';
@@ -222,5 +222,7 @@ const customeraddr= async (req,res)=>{
 const customerfav= async (req,res)=>{
 res.render('favoriteinfo');
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//customer sockets connections 
 
 export { getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav };

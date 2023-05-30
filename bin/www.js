@@ -6,9 +6,9 @@
 // Module dependencies
 import {customers} from "../models/customers.js"
 import {Server} from 'socket.io';
-import {app, findforchat} from "../app.js";
-import {find_soc} from "../app.js";
-import {chg_customersock} from "../app.js";
+import {addemp, app, findforchat} from "../app.js";
+import {find_soc,remove_emp} from "../app.js";
+
 import ios from "express-socket.io-session";
 import {chg_sock} from "../app.js";
 import mongoose from "mongoose";
@@ -43,78 +43,30 @@ const wrap = middleware => (socket, next) => middleware(socket.request, {}, next
 io.use(wrap(sessionMiddleware));
 
 let connected_sockets=new Array();
-let connected_customers=new Array();
 io.on('connection',async (socket) => {
   const sess=socket.request.session;
   const from=socket.handshake.headers.referer;
-  io.on('findadmin',async()=>{
-    
-  await connected_customers.push(socket);
-  console.log("customer detected ");
-  
-  sess.connected_emp= await findforchat(sess.signed_customer,socket.id);
-  if(sess.connected_emp===null){
-    io.to(socket.id).emit('cantfind_emp');
-  
-  }else{
-  await chg_customersock(sess.signed_customer,socket.id);
-  
-  io.to(socket.id).emit('connects_emp',sess.connected_emp);
-  
-  }
-  })
- 
-if(from!=="http://128.0.0.1:3001/"&&from!=="http://128.0.0.1:3001"){
+
   await connected_sockets.push(socket);
   await chg_sock(sess.employee,socket.id);
-}
+
   console.log('a user connected '+socket.id);
   console.log("the id in socket is : "+sess);
 
-  socket.on('disconnect', () => {
-    if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
-      for(let i=0;i<connected_customers.length;i++){
-        if(connected_customers[i]===socket){
-          connected_customers.splice(i,1);
-          break;
-        }
-      }
-    }else{
+  socket.on('disconnect', async () => {
+ 
     for(let i=0;i<connected_sockets.length;i++){
       if(connected_sockets[i]===socket){
         connected_sockets.splice(i,1);
         break;
       }
     }
-  }
+  await remove_emp(sess.employee);
     console.log('user disconnected');
 
   });
-socket.on('sendmsgtoemp',async(msg)=>{
-const cust=sess.signed_customer;
-const emp=sess.connected_emp;
-const chats=cust.chat;
-const obj={"msg":msg.text,"issent":true};
-await chats.push(obj);
-await customers.findByIdAndUpdate(cust.id,{chat:chats}).then(async (re)=>{
-  let index;
-let socid;
 
-do{
- await find_soc(emp).then((res)=>{
-  socid=res;
- });
- console.log("the id is : "+socid);
- await getsoc(socid).then((res)=>{
-  index =res;
- });
-console.log("the index is : "+index);
-console.log("in while loop ");
-}while(index==-1);
-io.to(socid).emit("recieve message",{"body":msg.text,"name":cust.Firstname,"phone":cust.Phone});
 
-})
-})
 });
 
 
@@ -193,4 +145,4 @@ console.log("in while loop ");
 io.to(socid).emit("recieve order",order);
 }
 
-export{mongoose,rec_order};
+export{mongoose,rec_order,io};

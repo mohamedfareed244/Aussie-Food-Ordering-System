@@ -119,6 +119,7 @@
 
 
 <section class="rates">
+    <button onclick="call()"> click me pleaseeeeee</button>
     <h1>What Our Customers Says</h1>
 
 
@@ -240,9 +241,10 @@
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
 
-  var socket = io();
+  let socket = io();
   socket.on('connect',()=>{
     console.log("socket id "+socket.id);
+ 
   })
 
   socket.on('cantfind_emp',async ()=>{
@@ -263,7 +265,10 @@ audio.play().catch((err)=>{
 })
 
   }
-function 
+function call(){
+    console.log("in call",socket);
+     socket.broadcast.emit('findadmin');
+}
   
 </script>
 </html>

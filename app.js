@@ -96,19 +96,7 @@ app.use((req,res)=>{
 //
 let onlineemp=new Array();
 
-async function chg_customersock(customer,new_id){
-  let f=JSON.stringify(customer);
 
-  console.log("the is ",f);
-    for(let i=0;i<onlineemp.length;i++){
-      console.log(onlineemp[i].chat_sockets);
-      if(onlineemp[i].chat_sockets.customer.id===f._id){
-       onlineemp[i].chat_sockets.id=new_id;
-       console.log("the new id for the customer will be :"+new_id);
-       break;
-      }
-    }
-}
 async function chg_sock(emp,new_id){
   let f=JSON.stringify(emp);
 
@@ -123,7 +111,7 @@ console.log("the is ",emp._id);
   }
 }
  async function addemp(emp){
-  const obj ={curr:emp,orders:0,chat:0,sock:"String",chat_sockets:new Array()};
+  const obj ={curr:emp,orders:0,chat:0,sock:"String"};
 onlineemp.push(obj);
 
 console.log("now "+onlineemp.length+" employees are conected ");
@@ -186,15 +174,20 @@ console.log("red : ",emp);
       }
  }
  //
-async function removewaiting(customer){
-  for (let i=0;i<waitingcustomers.length;i++){
-    if(waitingcustomers[i].customer.id===customer.id){
-      waitingcustomers.splice(i,1);
-      return;
+async function remove_emp(emp){
+  for(let i=0;i<onlineemp.length;i++){
+    console.log(onlineemp[i].curr.id);
+    if(onlineemp[i].curr.id===emp._id){
+    onlineemp.splice(i,1);
+    console.log("has been removed the new number is : ",onlineemp.length);
+     break;
     }
   }
 }
-export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,chg_customersock};
+
+
+
+export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp};
 
 
 
