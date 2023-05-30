@@ -84,8 +84,8 @@ app.get('/',(req,res)=>{
 });
 
 
-app.get("/test/menu",function(req,res){
-  res.render("admin-dashboard-menu");
+app.get("/test/emppp",function(req,res){
+  res.render("recent-customers");
 })
 
 //error handling 
