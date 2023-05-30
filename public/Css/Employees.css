@@ -1,0 +1,274 @@
+.details{
+   
+    /* margin-left: 0px; */
+    margin-left: -5%;
+    position: relative;
+    width: 100%;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    
+    /* margin-top: 10px; */
+   
+  
+    
+   
+} 
+
+.details .recentOrders{
+    /* background-color: aliceblue; */
+    position: relative;
+    display: grid;
+    min-height: 500px;
+   background-color:antiquewhite;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgb(232, 76, 3);
+    border-radius: 20px;
+    overflow:auto;
+   
+   
+}
+
+.details  .cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+   
+
+}
+
+.cardHeader h2{
+    font-weight: 600;
+   color: coral;
+
+}
+
+.cardHeader .btnv{
+    position: relative;
+    padding: 5px 10px;
+    background-color: rgb(230, 142, 35);
+    text-decoration: none;
+    color: black;
+    border-radius: 6px;
+
+}
+
+.details table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+
+}
+
+.details table thead td{
+    font-weight: 600;
+
+}
+
+.details .recentOrders table tr{
+    color: black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+
+}
+
+.details .recentOrders table tbody tr:hover{
+    background-color: coral;
+    color: antiquewhite;
+
+}
+
+.details .recentOrders table tr:last-child{
+    border-bottom: none;
+}
+
+.details .recentOrders table tr td{
+    padding: 10px;
+
+}
+
+.details .recentOrders table tr td:last-child{
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(2){
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(3){
+    text-align: center;
+}
+.delivered{
+    padding: 2px 4px;
+    background: #8de02c;
+    color: antiquewhite;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 78%;
+    
+}
+
+.pen{
+    padding: 2px 4px;
+    background: #fd1d04;
+    color: antiquewhite;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 78%;
+}
+
+.ret{
+    padding: 2px 4px;
+    background: #f0743a;
+    color: antiquewhite;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 78%;
+}
+
+.in{
+    padding: 2px 4px;
+    background: #3a8ff0;
+    color: antiquewhite;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 78%;
+}
+
+#kconn{
+    padding: 2px 4px;
+   
+    background: #fd1d04;
+    color: antiquewhite;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#iconn:hover{
+    
+        box-shadow: 0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset;
+        cursor: pointer;
+    border-radius: 4px;
+    
+}
+
+.searchid{
+    height: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    width: 200px;
+
+}
+.searchnum{
+    height: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    width: 300px;
+
+}
+.search-btn{
+    height: 30px;
+    width:80px;
+    background-color: #f0743a;
+    border: none;
+    color: black;
+    border-radius: 25px;
+}
+.search-btn:hover{
+    background: #b70707;
+    cursor: pointer;
+}
+
+.popup .overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
+}
+.popup .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    background: #fff;
+    width: 450px;
+    height: 220px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.popup .close-btn{
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+
+
+}
+  .popup.active .overlay {
+  display: block;
+}
+.popup.active .content{
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+
+}  
+
+
+.moree{
+    height: 30px;
+    width:80px;
+    background-color: #9b6043;
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+}
+.moree:hover{
+    background: #b70707;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.right{
+    position: absolute;
+    right: -30px;
+    width: 81vw;
+    height: 100vh;
+    top: 1px;
+    /* background-color:rgba(34, 33, 33, 0.521); */
+   overflow-y: auto;
+   overflow-x: hidden;
+   background: rgba(0, 0, 0, 0.7) url(../photos/food2.webp)  fixed;
+   background-size: cover;
+   background-blend-mode: darken;
+   
+}

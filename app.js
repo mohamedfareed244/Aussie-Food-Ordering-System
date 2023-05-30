@@ -84,9 +84,9 @@ app.get('/',(req,res)=>{
 });
 
 
-app.get("/test/emp",function(req,res){
-  res.render("forget-password");
-})
+// app.get("/test/emp",function(req,res){
+//   res.render("forget-password");
+// })
 
 //error handling 
 app.use((req,res)=>{
