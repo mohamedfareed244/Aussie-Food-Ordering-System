@@ -89,7 +89,7 @@
       </div>
    
       <textarea name="" id="notes" cols="30" rows="10" placeholder="Add delivery notes here "></textarea>
-       <a href="/products/customer/cart/checout/order">  <button id ="end"  onclick="togglePopup()">check out now </button> </a>
+       <a href="/products/customer/cart/checout/order">  <button id ="end"  >check out now </button> </a>
 
 
 
@@ -103,7 +103,7 @@
 
 
 
-
+<%if(ord.confirm){%>
 
 <div class="popup" id="popup-1">
   
@@ -120,19 +120,25 @@
              &times;
           </div>
           <h2>Thank You!</h2>
-          <p>Your order has been succesfully sent</p>
-          <p>order number: 12</p>
+          <p>Your order has been succesfully sent , An email will be sent with order status </p>
+          
+          <p>order number: <%=ord.num%></p>
           <!-- <button type="button" onclick="togglePopup()">OK</button> -->
        </div> 
    
     </div>
-
-    <script>
-    
+<%}%>
+    <script data-data="<%= JSON.stringify(ord) %>">
+     const data = JSON.parse(document.currentScript.dataset.data);
+     console.log(data);
+     if(data.confirm){
+        togglePopup();
+ 
+     }
         function togglePopup(){
-                     
                       // const togel=document.querySelector(".popup")
                       document.getElementById("popup-1").classList.toggle("active");
+
                    }
     </script>
     

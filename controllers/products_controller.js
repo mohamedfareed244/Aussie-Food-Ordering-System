@@ -111,7 +111,15 @@ const check_out=async (req,res)=>{
   if(req.session.signed_customer===undefined||req.session.signed_customer===null){
     res.redirect("/customers/signin");
   }
-    res.render("check_out",{cart:req.session.cart_items,user:req.session.signed_customer});
+  if(req.session.cart_items===null||req.session.cart_items===undefined){
+    res.redirect("/products/All");
+  }else{
+    if(req.session.cart_items.length==0){
+      res.redirect("/products/All");
+    }
+  }
+  const obj={num:0,confirm:false};
+    res.render("check_out",{cart:req.session.cart_items,user:req.session.signed_customer,ord:obj});
 }
 //make order 
 const new_order=async (req,res)=>{
@@ -161,8 +169,9 @@ num:numbers,
  }
  await ord.save();
 
-rec_order(emp,ord);
-
+await rec_order(emp,ord);
+const obj={num:ord.num,confirm:true};
+res.render("check_out",{cart:req.session.cart_items,user:req.session.signed_customer,ord:obj});
 }
 
 
