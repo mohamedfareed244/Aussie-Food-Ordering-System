@@ -177,8 +177,10 @@
      <div class="badge"><iframe src="https://giphy.com/embed/xTkcEQACH24SMPxIQg" width="50" height="50" frameBorder="0" class="giphy-embed" allowFullScreen style="border-radius: 30px;"></iframe></div>
       <div class="chat-area">
        <div class="income-msg">
-           <img src="/images/ex1.jpeg" class="avatar" alt="">
-           <span class="msg"> Hi, How can I help you?</span>
+        
+            <p class="msg"> Hi, How can I help you?</p>
+       
+         
            <p id="tx"></p>
        </div>   
       </div>
@@ -244,7 +246,7 @@
   })
 
   socket.on('cantfind_emp',async ()=>{
-document.getElementById("tx").innerHTML=" wait while finding and agent ";
+document.getElementById("tx").innerHTML=" wait while finding an agent ";
   })
   async function sou(){
 

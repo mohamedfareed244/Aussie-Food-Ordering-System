@@ -95,7 +95,7 @@ app.use((req,res)=>{
 })
 //
 let onlineemp=new Array();
-
+let waitingcustomers=new Array();
 async function chg_customersock(customer,new_id){
   let f=JSON.stringify(customer);
 
@@ -125,6 +125,12 @@ console.log("the is ",emp._id);
  async function addemp(emp){
   const obj ={curr:emp,orders:0,chat:0,sock:"String",chat_sockets:{customer:Object,id:String}};
 onlineemp.push(obj);
+if(waitingcustomers.length>0){
+  for(let i=0;i<waitingcustomers.length;i++){
+    const emp= await findforchat(waitingcustomers.customer,waitingcustomers.socket);
+    await removewaiting(waitingcustomers.customer);
+  }
+}
 console.log("now "+onlineemp.length+" employees are conected ");
  }
  async function delemp(emp){
@@ -136,8 +142,10 @@ for(let i=0;i<onlineemp.length;i++){
 }
  }
  //
- async function findforchat(customer){
+ async function findforchat(customer,id){
   if(onlineemp.length===0){
+    const obj={"customer":customer,"socket":id};
+    await waitingcustomers.push(obj);
     return null;
   }
   let min=onlineemp[0];
@@ -146,7 +154,7 @@ if(onlineemp[i].chat<min.chat){
   min=onlineemp[i];
 }
   }
-  const obj={"customer":customer,id:""};
+  const obj={"customer":customer,"id":id};
   min.chat_sockets.push(obj);
   min.chat++;
   return min.curr;
@@ -183,6 +191,15 @@ console.log("red : ",emp);
     }
       }
  }
+ //
+async function removewaiting(customer){
+  for (let i=0;i<waitingcustomers.length;i++){
+    if(waitingcustomers[i].customer.id===customer.id){
+      waitingcustomers.splice(i,1);
+      return;
+    }
+  }
+}
 export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,chg_customersock};
 
 

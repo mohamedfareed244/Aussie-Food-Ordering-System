@@ -4,6 +4,7 @@
 // and listens for connections on the specified port.
 
 // Module dependencies
+import {customers} from "../models/customers.js"
 import {Server} from 'socket.io';
 import {app, findforchat} from "../app.js";
 import {find_soc} from "../app.js";
@@ -49,11 +50,13 @@ io.on('connection',async (socket) => {
 if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
 await connected_customers.push(socket);
 console.log("customer detected ");
-sess.connected_emp= await findforchat(sess.signed_customer);
+sess.connected_emp= await findforchat(sess.signed_customer,socket.id);
 if(sess.connected_emp===null){
   io.to(socket.id).emit('cantfind_emp');
+
 }else{
 await chg_customersock(sess.signed_customer,socket.id);
+
 io.to(socket.id).emit('connects_emp',sess.connected_emp);
 }
 }else{
@@ -82,9 +85,33 @@ io.to(socket.id).emit('connects_emp',sess.connected_emp);
     console.log('user disconnected');
 
   });
+socket.on('sendmsgtoemp',async(msg)=>{
+const cust=sess.signed_customer;
+const emp=sess.connected_emp;
+const chats=cust.chat;
+const obj={"msg":msg.text,"issent":true};
+await chats.push(obj);
+await customers.findByIdAndUpdate(cust.id,{chat:chats}).then(async (re)=>{
+  let index;
+let socid;
 
+do{
+ await find_soc(emp).then((res)=>{
+  socid=res;
+ });
+ console.log("the id is : "+socid);
+ await getsoc(socid).then((res)=>{
+  index =res;
+ });
+console.log("the index is : "+index);
+console.log("in while loop ");
+}while(index==-1);
+io.to(socid).emit("recieve message",{"body":msg.text,"name":cust.Firstname,"phone":cust.Phone});
 
+})
+})
 });
+
 
 
 
@@ -160,4 +187,5 @@ console.log("in while loop ");
 }while(index==-1);
 io.to(socid).emit("recieve order",order);
 }
-export { mongoose ,rec_order};
+
+export{mongoose,rec_order};
