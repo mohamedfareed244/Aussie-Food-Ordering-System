@@ -25,9 +25,9 @@ const app = express();
 
 
 
-    //  app.get("/",function(req,res){
-    //          res.render("check_out");
-    //   })
+      // app.get("/lll",function(req,res){
+      //         res.render("error-page");
+      // })
 
 
 
@@ -90,7 +90,7 @@ app.get('/',(req,res)=>{
 
 //error handling 
 app.use((req,res)=>{
-    res.send("OOPS! it seems that there are an error try again with a valid URL ");
+   res.render("error-page")
 })
 //
 let onlineemp=new Array();
