@@ -171,6 +171,7 @@ num:numbers,
 
 await rec_order(emp,ord);
 const obj={num:ord.num,confirm:true};
+req.session.cart_items=new Array();
 res.render("check_out",{cart:req.session.cart_items,user:req.session.signed_customer,ord:obj});
 }
 

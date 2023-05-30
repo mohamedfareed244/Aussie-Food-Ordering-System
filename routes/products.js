@@ -20,5 +20,5 @@ router.get('/cartdel/:id',delitem);
 router.get('/cart/end/checkout',check_out);
 //
 //router.post('/customer/order/address',)
-router.get('/customer/cart/checout/order',new_order);
+router.get('/customer/cart/checkout/order',new_order);
 export default router;
