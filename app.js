@@ -56,15 +56,15 @@ app.use('/customers',cust_router);
 // })
 
 app.get("/test",async (req,res)=>{
-const emp=req.session.employee;
-let f;
-await orders.find({emp_name:emp.Name,emp_phone:emp.Phone}).then((result)=>{
-  if(result!==null&&result!==undefined){
-    f=result;
-  }
+// const emp=req.session.employee;
+// let f;
+// await orders.find({emp_name:emp.Name,emp_phone:emp.Phone}).then((result)=>{
+//   if(result!==null&&result!==undefined){
+//     f=result;
+//   }
 
-})
-res.render("dashboard-orders",{orders:f});
+// })
+res.render("admin_chat");
 })
 
 
