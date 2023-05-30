@@ -5,8 +5,9 @@
 
 // Module dependencies
 import {Server} from 'socket.io';
-import {app} from "../app.js";
+import {app, findforchat} from "../app.js";
 import {find_soc} from "../app.js";
+import {chg_customersock} from "../app.js";
 import ios from "express-socket.io-session";
 import {chg_sock} from "../app.js";
 import mongoose from "mongoose";
@@ -40,37 +41,43 @@ const wrap = middleware => (socket, next) => middleware(socket.request, {}, next
 
 io.use(wrap(sessionMiddleware));
 
-//aliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-
-// import {Server} from 'socket.io';
-// const io =new Server(server);
-// // import io from 'socket.io-client';
-// app.set('io', io);
-// // let socketConnected=new set()
-
-
-// io.on('connection',onConnected)
-// function onConnected(socket){
-//   console.log(socket.id)
-// }
 let connected_sockets=new Array();
+let connected_customers=new Array();
 io.on('connection',async (socket) => {
+  const from=socket.handshake.headers.referer;
   const sess=socket.request.session;
+if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
+await connected_customers.push(socket);
+sess.connected_emp= await findforchat(sess.signed_customer);
+await chg_customersock(sess.signed_customer,socket.id);
+io.to(socket.id).emit('connects_emp',sess.connected_emp);
+}else{
   await connected_sockets.push(socket);
-
-  await chg_sock(socket.request.session.employee,socket.id);
+  await chg_sock(sess.employee,socket.id);
+}
   console.log('a user connected '+socket.id);
   console.log("the id in socket is : "+sess);
 
   socket.on('disconnect', () => {
+    if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
+      for(let i=0;i<connected_customers.length;i++){
+        if(connected_customers[i]===socket){
+          connected_customers.splice(i,1);
+          break;
+        }
+      }
+    }else{
     for(let i=0;i<connected_sockets.length;i++){
       if(connected_sockets[i]===socket){
         connected_sockets.splice(i,1);
         break;
       }
     }
+  }
     console.log('user disconnected');
+
   });
+
 
 });
 

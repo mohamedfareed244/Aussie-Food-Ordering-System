@@ -11,6 +11,7 @@ import emp_router from "./routes/employees.js";
 // end import routes 
 import { CLIENT_RENEG_LIMIT } from "tls";
 import session from "express-session";
+import cors from "cors"
 // import cors from "cors"
 // import { Server } from "http";
 //Read the current directory name
@@ -20,7 +21,7 @@ const app = express();
 
 //ali
 
-
+app.use(cors());
 
 
 
@@ -95,6 +96,19 @@ app.use((req,res)=>{
 //
 let onlineemp=new Array();
 
+async function chg_customersock(customer,new_id){
+  let f=JSON.stringify(customer);
+
+  console.log("the is ",customer);
+    for(let i=0;i<onlineemp.length;i++){
+      
+      if(onlineemp[i].chat_sockets.customer.id===customer._id){
+       onlineemp[i].chat_sockets.id=new_id;
+       console.log("the new id for the customer will be :"+new_id);
+       break;
+      }
+    }
+}
 async function chg_sock(emp,new_id){
   let f=JSON.stringify(emp);
 
@@ -109,7 +123,7 @@ console.log("the is ",emp._id);
   }
 }
  async function addemp(emp){
-  const obj ={curr:emp,orders:0,chat:0,sock:"String"};
+  const obj ={curr:emp,orders:0,chat:0,sock:"String",chat_sockets:{customer:Object,id:String}};
 onlineemp.push(obj);
 console.log("now "+onlineemp.length+" employees are conected ");
  }
@@ -122,7 +136,7 @@ for(let i=0;i<onlineemp.length;i++){
 }
  }
  //
- async function findforchat(){
+ async function findforchat(customer){
   if(onlineemp.length===0){
     return null;
   }
@@ -132,6 +146,8 @@ if(onlineemp[i].chat<min.chat){
   min=onlineemp[i];
 }
   }
+  const obj={"customer":customer,id:""};
+  min.chat_sockets.push(obj);
   min.chat++;
   return min.curr;
  }
@@ -159,7 +175,15 @@ console.log("red : ",emp);
     }
       }
  }
-export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc};
+ //
+ async function find_customer_socket(customer){
+  for(let i=0;i<onlineemp.length;i++){
+    if(onlineemp[i].chat_sockets.customer.id===customer.id){
+      return onlineemp[i].chat_sockets.id;
+    }
+      }
+ }
+export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,chg_customersock};
 
 
 
