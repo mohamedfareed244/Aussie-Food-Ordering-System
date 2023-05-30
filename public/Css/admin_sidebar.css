@@ -1,11 +1,4 @@
-body,html{
-    height: 100%;
-    width: 100%;
-    /* background: rgba(0, 0, 0, 0.7) url(../photos/qqqq3.webp)  fixed; */
-    background-repeat: no-repeat;
-    background-size: 100%;
-    overflow-x: hidden;
-}
+
 
 
 #side_panel{
@@ -21,6 +14,7 @@ body,html{
     position: relative;
     margin-left: -2%;
    background-color: #f0743a;
+   border: 3px solid black;
 }
 #side_panel ul{
    
