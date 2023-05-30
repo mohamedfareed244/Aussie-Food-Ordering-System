@@ -219,4 +219,8 @@ const customeraddr= async (req,res)=>{
 }
 
 
-export { getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr };
+const customerfav= async (req,res)=>{
+res.render('favoriteinfo');
+}
+
+export { getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav };
