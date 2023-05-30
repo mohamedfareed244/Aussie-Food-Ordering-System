@@ -598,7 +598,7 @@ footer{
         display: flex;
     }
     
-   /* .chat-area{
+   .chat-area{
         height: 80%;
         overflow-y: auto;
         overflow-x: hidden;
@@ -699,7 +699,7 @@ footer{
             right:10%;
             width: 80vw;
         }
-    }*/
+    }
 
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
     .chat-main {
