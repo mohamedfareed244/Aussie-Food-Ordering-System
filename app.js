@@ -84,8 +84,8 @@ app.get('/',(req,res)=>{
 });
 
 
-app.get("/test/emppp",function(req,res){
-  res.render("recent-customers");
+app.get("/test/emp",function(req,res){
+  res.render("add-employee");
 })
 
 //error handling 
