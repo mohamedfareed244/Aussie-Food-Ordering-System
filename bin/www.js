@@ -45,21 +45,26 @@ io.use(wrap(sessionMiddleware));
 let connected_sockets=new Array();
 let connected_customers=new Array();
 io.on('connection',async (socket) => {
-  const from=socket.handshake.headers.referer;
   const sess=socket.request.session;
-if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
-await connected_customers.push(socket);
-console.log("customer detected ");
-sess.connected_emp= await findforchat(sess.signed_customer,socket.id);
-if(sess.connected_emp===null){
-  io.to(socket.id).emit('cantfind_emp');
-
-}else{
-await chg_customersock(sess.signed_customer,socket.id);
-
-io.to(socket.id).emit('connects_emp',sess.connected_emp);
-}
-}else{
+  const from=socket.handshake.headers.referer;
+  io.on('findadmin',async()=>{
+    
+  await connected_customers.push(socket);
+  console.log("customer detected ");
+  
+  sess.connected_emp= await findforchat(sess.signed_customer,socket.id);
+  if(sess.connected_emp===null){
+    io.to(socket.id).emit('cantfind_emp');
+  
+  }else{
+  await chg_customersock(sess.signed_customer,socket.id);
+  
+  io.to(socket.id).emit('connects_emp',sess.connected_emp);
+  
+  }
+  })
+ 
+if(from!=="http://128.0.0.1:3001/"&&from!=="http://128.0.0.1:3001"){
   await connected_sockets.push(socket);
   await chg_sock(sess.employee,socket.id);
 }

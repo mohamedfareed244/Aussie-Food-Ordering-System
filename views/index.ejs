@@ -231,7 +231,7 @@
   </div> -->
 </div> 
 
-
+<audio id="audio" src="/sounds/sound.m4r"></audio>
 </section>
 
 <script src="/js/chatbox.js"></script>
@@ -248,6 +248,13 @@
   socket.on('cantfind_emp',async ()=>{
 document.getElementById("tx").innerHTML=" wait while finding an agent ";
   })
+  socket.on('connects_emp',(emp)=>{
+    sou();
+console.log("i connected to ",emp);
+console.log("i will check now send to him ");
+socket.emit('sendmsgtoemp',{"text":"hello this a test mr "});
+  })
+ 
   async function sou(){
 
     let audio = document.getElementById("audio");
@@ -256,7 +263,7 @@ audio.play().catch((err)=>{
 })
 
   }
-
+function 
   
 </script>
 </html>

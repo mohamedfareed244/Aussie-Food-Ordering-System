@@ -95,14 +95,14 @@ app.use((req,res)=>{
 })
 //
 let onlineemp=new Array();
-let waitingcustomers=new Array();
+
 async function chg_customersock(customer,new_id){
   let f=JSON.stringify(customer);
 
-  console.log("the is ",customer);
+  console.log("the is ",f);
     for(let i=0;i<onlineemp.length;i++){
-      
-      if(onlineemp[i].chat_sockets.customer.id===customer._id){
+      console.log(onlineemp[i].chat_sockets);
+      if(onlineemp[i].chat_sockets.customer.id===f._id){
        onlineemp[i].chat_sockets.id=new_id;
        console.log("the new id for the customer will be :"+new_id);
        break;
@@ -123,14 +123,9 @@ console.log("the is ",emp._id);
   }
 }
  async function addemp(emp){
-  const obj ={curr:emp,orders:0,chat:0,sock:"String",chat_sockets:{customer:Object,id:String}};
+  const obj ={curr:emp,orders:0,chat:0,sock:"String",chat_sockets:new Array()};
 onlineemp.push(obj);
-if(waitingcustomers.length>0){
-  for(let i=0;i<waitingcustomers.length;i++){
-    const emp= await findforchat(waitingcustomers.customer,waitingcustomers.socket);
-    await removewaiting(waitingcustomers.customer);
-  }
-}
+
 console.log("now "+onlineemp.length+" employees are conected ");
  }
  async function delemp(emp){
@@ -144,10 +139,9 @@ for(let i=0;i<onlineemp.length;i++){
  //
  async function findforchat(customer,id){
   if(onlineemp.length===0){
-    const obj={"customer":customer,"socket":id};
-    await waitingcustomers.push(obj);
     return null;
   }
+  console.log("in find for chat the object is ",customer);
   let min=onlineemp[0];
   for(let i=1;i<onlineemp.length;i++){
 if(onlineemp[i].chat<min.chat){
