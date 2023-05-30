@@ -85,7 +85,7 @@ app.get('/',(req,res)=>{
 
 
 app.get("/test/emp",function(req,res){
-  res.render("dashboard-employees");
+  res.render("forget-password");
 })
 
 //error handling 
