@@ -31,6 +31,7 @@
 
 
     </div> -->
+   
     <div class="wrapper">
     <div class="right">
       <div class="info">
@@ -38,23 +39,23 @@
           <div class="info_data">
                <div class="data">
                   <h4>Email</h4>
-                  <p>alex@gmail.com</p>
+                  <p><%=user.Email%></p>
                </div>
                <div class="data">
                  <h4>Phone</h4>
-                  <p>0001-213-998761</p>
+                  <p><%=user.Phone%></p>
             </div>
 
             <div class="data">
               <h4>Name</h4>
-               <p>mohamed ali</p>
+               <p> <%=user.Name%></p>
          </div>
           </div>
       </div>
     
     <div class="projects">
           <h3>change password</h3>
-            <form action='/employees/profile/password/change' method='post' >
+          <form action='/employees/profile/password/change' method='post' >
             <input type="password" name="psw" id="inputpass" placeholder="Enter new Password">
             <div id='password' class='err'></div>
             <input type="password" name="psw-confirmt" id="inputcpass" placeholder="confirm Password">
@@ -66,6 +67,8 @@
 
 </div>
 </div>
+
+
     <audio id="audio" src="/sounds/sound.m4r"></audio>
 </body>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
