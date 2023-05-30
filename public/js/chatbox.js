@@ -39,4 +39,3 @@ submitBtn.addEventListener('click', ()=>{
 
 })
 
-const socket=io()
