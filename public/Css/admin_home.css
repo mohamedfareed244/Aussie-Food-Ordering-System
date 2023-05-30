@@ -678,3 +678,55 @@ button.registerbtn {
     font-size: 14px;
     color: black;
 }
+
+
+
+
+
+.wrapper .right{
+    width: 65%;
+    background: #fff;
+    padding: 30px 25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .wrapper .right .info,
+  .wrapper .right .projects{
+    margin-bottom: 25px;
+  }
+  
+  .wrapper .right .info h3,
+  .wrapper .right .projects h3{
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #353c4e;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+  
+  .wrapper .right .info_data,
+  .wrapper .right .projects_data{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .wrapper .right .info_data .data,
+  .wrapper .right .projects_data .data{
+    width: 45%;
+  }
+  
+  .wrapper .right .info_data .data h4,
+  .wrapper .right .projects_data .data h4{
+      color: #353c4e;
+      margin-bottom: 5px;
+  }
+  
+  .wrapper .right .info_data .data p,
+  .wrapper .right .projects_data .data p{
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #919aa3;
+  }
+  

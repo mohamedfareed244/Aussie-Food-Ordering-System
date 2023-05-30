@@ -13,7 +13,7 @@
 
 <body>
     <%- include("partials/admin_sidebar") %>
-    <div id="Account"
+    <!-- <div id="Account"
         style="margin:auto; width: 300px ; padding-left: 120px; height: 450px;
          background-color: rgb(203, 224, 243);">
         <h1>  name: <%=user.Name%></h1>
@@ -30,7 +30,42 @@
         </form>
 
 
-    </div>
+    </div> -->
+    <div class="wrapper">
+    <div class="right">
+      <div class="info">
+          <h3> Personal Information</h3>
+          <div class="info_data">
+               <div class="data">
+                  <h4>Email</h4>
+                  <p>alex@gmail.com</p>
+               </div>
+               <div class="data">
+                 <h4>Phone</h4>
+                  <p>0001-213-998761</p>
+            </div>
+
+            <div class="data">
+              <h4>Name</h4>
+               <p>mohamed ali</p>
+         </div>
+          </div>
+      </div>
+    
+    <div class="projects">
+          <h3>change password</h3>
+            <form action='/employees/profile/password/change' method='post' >
+            <input type="password" name="psw" id="inputpass" placeholder="Enter new Password">
+            <div id='password' class='err'></div>
+            <input type="password" name="psw-confirmt" id="inputcpass" placeholder="confirm Password">
+            <div id='cpassword' class='err'></div>
+
+            <button type="submit" class="registerbtn" style="margin-left: 3%; ">Update password</button>
+        </form>
+      </div>
+
+</div>
+</div>
     <audio id="audio" src="/sounds/sound.m4r"></audio>
 </body>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
