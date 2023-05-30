@@ -120,8 +120,9 @@
              &times;
           </div>
           <h2>Thank You!</h2>
-          <p>Your order has been succesfully sent , An email will be sent with order status </p>
           
+          <p>Your order has been succesfully sent , An email will be sent to you with order status </p>
+          <p>Thanks for shopping with Aussie . </p>
           <p>order number: <%=ord.num%></p>
           <!-- <button type="button" onclick="togglePopup()">OK</button> -->
        </div> 
@@ -131,15 +132,21 @@
     <script data-data="<%= JSON.stringify(ord) %>">
      const data = JSON.parse(document.currentScript.dataset.data);
      console.log(data);
-     if(data.confirm){
-        togglePopup();
- 
-     }
+
         function togglePopup(){
                       // const togel=document.querySelector(".popup")
                       document.getElementById("popup-1").classList.toggle("active");
 
+ 
                    }
+                   if(data.confirm){
+        togglePopup();
+   setTimeout(togglePopup,5000);
+   setTimeout(red,5000);
+     }
+     function red(){
+        document.location.href="/products/All";
+     }
     </script>
     
 
