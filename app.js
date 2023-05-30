@@ -85,7 +85,7 @@ app.get('/',(req,res)=>{
 
 
 app.get("/test/emp",function(req,res){
-  res.render("add-employee");
+  res.render("add-section");
 })
 
 //error handling 
