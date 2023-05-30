@@ -12,23 +12,23 @@
 			  <table>
 				  <tr>
 					  <td>FirstName:</td>
-					  <td><%- customers.FirstName %> </td>
+					  <td><%=customer.FirstName %> </td>
 					</tr>
 				<tr>
 				  <td>MiddleName:</td>
-				  <td><%-customers.MiddleName %></td>
+				  <td><%=customer.MiddleName %></td>
 				</tr>
 				<tr>
 					<td>LastName:</td>
-					<td><%-%-customers.LastName%></td>
+					<td><%=customer.LastName%></td>
 				  </tr>
 				<tr>
 				  <td>Phone Number:</td>
-				  <td><%- customers.Phone%></td>
+				  <td><%= customer.Phone%></td>
 				</tr>
 				<tr>
 				  <td>Email:</td>
-				  <td><%-customers.Email%></td>
+				  <td><%=customer.Email%></td>
 				</tr>
 				<tr>
 				  <td ><a class="passwordch" href="">Change Password</a></td>
