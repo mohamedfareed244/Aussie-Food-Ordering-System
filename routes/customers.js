@@ -20,7 +20,7 @@ router.post('/signup', postcustomers );
   router.get('/profile/login',customerpr);
 
   router.get('/profile/orders',customeror);
-
+router.get('/profile/favs');
   router.get('/mail/validation/:id',customerml);
   router.get('/profile/addr',customeraddr)
   export default router;
