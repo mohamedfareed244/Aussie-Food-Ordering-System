@@ -70,6 +70,7 @@
 
 
     <audio id="audio" src="/sounds/sound.m4r"></audio>
+    <audio id="audio1" src="/sounds/Messagenotification.m4r"></audio>
 </body>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
@@ -82,14 +83,10 @@
   var form = document.getElementById("form");
   var input = document.getElementById("input");
 
-  function a() {
- 
-    if (input.value) {
-      socket.emit('chat message', input.value);
-      console.log("sent")
-      input.value = '';
-    }
-  }
+socket.on('recieve message',async (msg)=>{
+  console.log("i recived message with ",msg);
+  sou1();
+})
   
   socket.on('recieve order',async (msg)=>{
     console.log("recieve",msg);
@@ -104,6 +101,14 @@ audio.play().catch((err)=>{
 })
 
   }
+  async function sou1(){
+
+let audio = document.getElementById("audio1");
+audio.play().catch((err)=>{
+console.log(err);
+})
+
+}
 
   
 </script>
