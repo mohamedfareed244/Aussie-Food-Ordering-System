@@ -152,6 +152,22 @@ const getchats= async (req,res)=>{
 res.render("admin_chat",{"connected":connected,"selected":obj});
         }
 }
-
+const getallchats= async (req,res)=>{
+  if(req.session.employee===undefined||req.session.employee===null){
+    res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
+        }
+        else{
+        const curr=req.session.employee;
+      const connected= await get_customers(curr);
+      let obj;
+      for(let i=0;i<connected.length;i++){
+        if(connected[i].id===requested){
+          obj=connected[i];
+          break;
+        }
+      }
+res.render("admin_chat",{"connected":connected,"selected":connected.length==0?null:connected[0]});
+        }
+}
 
   export {getemployees,postemployees,confirmmail,empprof,changepass};

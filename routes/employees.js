@@ -20,6 +20,7 @@ router.get("/signin",(req,res)=>{
   res.render("admin_signin",{alert:false});
 })
 router.get("/profile/chat/details/:id")
+router.get("/profile/chat/details")
 // app.get('/', (req, res) => 
 // {
 //   res.render('index')
