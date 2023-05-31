@@ -73,14 +73,10 @@
 		  </div>
 		
 <script>
-    function myFunction() {
-var x = document.getElementById("inputt");
-if (x.type === "password") {
-x.type = "text";
-} else {
-x.type = "password";
-}
-}
+			document.getElementById("passwordch").addEventListener("click", function() {
+			  document.getElementById("changepasswordinfo").style.display = "block";
+			  document.getElementById('passwordch').style.display="none";
+			});
 </script>
 </body>
 </html>
