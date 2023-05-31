@@ -93,9 +93,9 @@ app.get('/',(req,res)=>{
 });
 
 
-//  app.get("/test/emp",function(req,res){
-//    res.render("./partials/footer");
-// })
+  app.get("/addsection",function(req,res){
+    res.render("add-section");
+})
 
 //error handling 
 app.use((req,res)=>{
@@ -121,8 +121,12 @@ console.log("the is ",emp._id);
 async function add_customer(cust){
   const ind=online_cus.length;
 const emp_index= await findforchat(cust,ind);
+if(emp_index===null){
+  return false;
+}
   const obj ={"customer":cust,"to":emp_index,"soc":"s"};
   await online_cus.push(obj);
+  return true;
 }
 
 async function chg_custsock(cust,new_id){
@@ -230,7 +234,8 @@ console.log("red : ",emp);
 
 
 
-export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers};
+export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
+};
 
 
 

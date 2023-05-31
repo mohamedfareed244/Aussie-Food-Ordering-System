@@ -179,5 +179,27 @@ res.render("check_out",{cart:req.session.cart_items,user:req.session.signed_cust
 
 
 
+
+//add section to menu
+
+const postsection = async (req, res)=> {
+   
+  const obj={Name:req.body.Name
+ 
+  }
+      const section=new Sec(obj);
+  
+  try{
+  await section.save();
+  console.log("saved successfully");
+  }catch(err){
+  console.log(err);
+  }
+
+}
+
+
+
+
   export {getsection,
-  getitembyid,delitem,check_out,new_order};
+  getitembyid,delitem,check_out,new_order,postsection};

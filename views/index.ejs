@@ -174,7 +174,8 @@
   </button>
 
    <div class="chat-popup">
-     <div class="badge"><iframe src="https://giphy.com/embed/xTkcEQACH24SMPxIQg" width="50" height="50" frameBorder="0" class="giphy-embed" allowFullScreen style="border-radius: 30px;"></iframe></div>
+     <div class="badge" style="display: none;"><iframe src="https://giphy.com/embed/xTkcEQACH24SMPxIQg" width="50" height="50" frameBorder="0" class="giphy-embed" allowFullScreen style="border-radius: 30px;"></iframe>
+    <span id="spin">you will</span></div>
       <!-- <div class="chat-area">
        <div class="income-msg">
         
@@ -189,27 +190,52 @@
 
    
 
-<div class="conversation">
-    <div class="talk left">
-        <img src="ressources/avatar2.jpg">
+<div class="conversation" style="overflow-y: auto;">
+    <div class="talkleft" >
+        <!-- <img src="/images/user.png"> -->
         <p>Lorem ipsum dolor sit amet.</p>
     </div>
-    <div class="talk right">
+    <div class="talkright" >
         <p>Lorem ipsum dolor sit amet.</p>
-        <img src="ressources/avatar1.jpg">
+        <!-- <img src="/images/user.png"> -->
     </div>
-    <div class="talk left">
-        <img src="ressources/avatar2.jpg">
+    <div class="talkleft">
+        <!-- <img src="/images/user.png"> -->
         <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
     </div>
-    <div class="talk right">
+    <div class="talkright">
         <p>Lorem ipsum dolor sit amet.</p>
-        <img src="ressources/avatar1.jpg">
-    </div>
+        <!-- <img src="/images/user.png" -->
 </div>
-
-
-
+<div class="talkright">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <!-- <img src="/images/user.png" -->
+</div>
+<div class="talkright">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <!-- <img src="/images/user.png" -->
+</div>
+<div class="talkright">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <!-- <img src="/images/user.png" -->
+</div>
+<div class="talkright">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <!-- <img src="/images/user.png" -->
+</div>
+<div class="talkleft" >
+    <!-- <img src="/images/user.png"> -->
+    <p>Lorem ipsum dolor sit amet.</p>
+</div>
+<div class="talkleft" >
+    <!-- <img src="/images/user.png"> -->
+    <p>Lorem ipsum dolor sit amet.</p>
+</div>
+<div class="talkleft" >
+    <!-- <img src="/images/user.png"> -->
+    <p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div> 
 
 
       <div class="input-area">
@@ -256,7 +282,7 @@
     </form>
 
   </div> -->
-</div> 
+
 
 <audio id="audio" src="/sounds/sound.m4r"></audio>
 </section>
@@ -264,18 +290,24 @@
 <script src="/js/chatbox.js"></script>
 
 </body>
-<%if(current_user!==null){%>
+
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
-
-  let socket = io();
-  socket.on('connect',()=>{
+    
+   
+function connectme(){
+    let socket  =io();
+socket.on('connect',()=>{
     console.log("socket id "+socket.id);
  
   })
-
-  socket.on('cantfind_emp',async ()=>{
-document.getElementById("tx").innerHTML=" wait while finding an agent ";
+socket.on("require signin",()=>{
+location.href='/customers/signin';
+})
+  socket.on("cantfind", ()=>{
+    console.log("cant find")
+document.getElementById("spin").innerHTML="wait while we connecting you to agent ";
+document.getElementsByClassName("badge")[0].style.display="block";
   })
   socket.on('connects_emp',(emp)=>{
     sou();
@@ -283,6 +315,9 @@ console.log("i connected to ",emp);
 console.log("i will check now send to him ");
 socket.emit('sendmsgtoemp',{"text":"hello this a test mr "});
   })
+}
+  
+  
  
   async function sou(){
 
@@ -292,8 +327,8 @@ audio.play().catch((err)=>{
 })
 
   }
-
+  connectme();
   
 </script>
-<%}%>
+
 </html>

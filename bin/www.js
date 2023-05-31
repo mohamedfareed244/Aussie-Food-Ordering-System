@@ -6,7 +6,7 @@
 // Module dependencies
 import {customers} from "../models/customers.js"
 import {Server} from 'socket.io';
-import {addemp, app, findforchat} from "../app.js";
+import {addemp, app, findforchat,add_customer} from "../app.js";
 import {find_soc,remove_emp} from "../app.js";
 
 import ios from "express-socket.io-session";
@@ -43,13 +43,32 @@ const wrap = middleware => (socket, next) => middleware(socket.request, {}, next
 io.use(wrap(sessionMiddleware));
 
 let connected_sockets=new Array();
+let connected_customers=new Array();
 io.on('connection',async (socket) => {
   const sess=socket.request.session;
   const from=socket.handshake.headers.referer;
+  console.log("from ",from);
+if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
+  console.log("customer detected ",socket.request.session.signed_customer);
+  if(socket.request.session.signed_customer!==null&&socket.request.session.signed_customer!==undefined){
+    console.log("not null")
+  await connected_customers.push(socket);
+  let finded;
+ await add_customer(sess.signed_customer).then((res)=>{
+    finded=res;
+  })
+if(!finded){
+  io.to(socket.id).emit("cantfind",{});
+}
 
+  }else{
+    console.log("not sogned in")
+    io.to(socket.id).emit("require signin",{});
+  }
+}else{
   await connected_sockets.push(socket);
   await chg_sock(sess.employee,socket.id);
-
+}
   console.log('a user connected '+socket.id);
   console.log("the id in socket is : "+sess);
 
