@@ -14,33 +14,29 @@
     <div id ="msg-area"  >
         <div id ="customers-msgs">
 <ul id ="chat-list">
-<li>
-<img src="photos/user-chat.png" alt="" id="user-chat">
-<span id="Name"><strong>Mohamed Fareed</strong></span>
-<span id="time">11:30 AM</span>
-<p id ="phone"><strong>0123456789</strong></p>
+    <%connected.forEach((item)=>{%>
+        <%if(selected.id===item.id){%>
+            <li onclick="location.href='/employees/profile/chat/<%=item.id%>'" style="background-color: rgb(90, 84, 84);">
+                <img src="/images/user-chat.png" alt="" id="user-chat">
+                <span id="Name"><strong><%=item.Firstname%> <%=item.Middlename%></strong></span>
+                
+                <p id ="phone"><strong><%=item.Phone%></strong></p>
+                </li>
+            <%}else{%>
+<li onclick="location.href='/employees/profile/addr/<%=item.id%>'">
+<img src="/images/user-chat.png" alt="" id="user-chat">
+<span id="Name"><strong><%=item.Firstname%> <%=item.Middlename%></strong></span>
+
+<p id ="phone"><strong><%=item.Phone%></strong></p>
 </li>
 
-<li>
-<img src="photos/user-chat.png" alt="" id="user-chat">
-<span id="Name"><strong>Ahmed Sherif  </strong></span>
-<span id="time">11:35 AM</span>
-<p id ="phone"><strong>0123456789</strong></p>
-</li>
+<%}
+})%>
 
-<li>
-<img src="photos/user-chat.png" alt="" id="user-chat">
-<span id="Name"><strong>Yassin Ahmed</strong></span>
-<span id="time">11:40 AM</span>
-<p id ="phone"><strong>0123456789</strong></p>
-</li>
 
-<li>
-<img src="photos/user-chat.png" alt="" id="user-chat">
-<span id="Name"><strong>Mohamed Ali</strong></span>
-<span id="time">11:45 AM</span>
-<p id ="phone"><strong>0123456789</strong></p>
-</li>
+
+
+
 </ul>
 
         </div>
@@ -49,13 +45,18 @@
                 <button id="end-btn">End Chat</button>
             </div>
             <div id="message-body">
+<%selected.chats.forEach((item)=>{%>
+    <%if(item.issent){%>
+    
                 <div id="msg1">
-<p id ="msg-body">Hello I have an Order with number 12345 </p>
+<p id ="msg-body"><%=item.body%> </p>
                 </div>
-               
+               <%}else{%>
                 <div id="msg2">
-<p id ="msg-body">Hello , I'm Mohamed How can I help You .</p>
+<p id ="msg-body"><%=item.body%></p>
                 </div>
+                
+<%}})%>
                 <div id ="msg-box">
                     <textarea name="" id="msg-text" cols="33" rows="4" placeholder="Enter Message Here " wrap="physical"></textarea>
                     <button id="send">Send</button>

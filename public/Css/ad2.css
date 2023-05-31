@@ -77,14 +77,14 @@ overflow-y: auto;
     font-family: sans-serif;
    position: relative;
    left: 70px;
-   top: 10px;
+   top: -12px;
    font-size: 13px;
 }
 #Name {
     font-size: 13px;
     font-family: sans-serif;
  position: relative;
- top: 5px;
+ top: -12px;
  left: 15px;
 }
 #time{

@@ -65,7 +65,13 @@ app.get("/test",async (req,res)=>{
 //   }
 
 // })
-res.render("admin_chat");
+let obj=[{"id":"123","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509"},
+{"id":"124","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509"},
+{"id":"125","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509"}]
+let sele={"id":"123","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509","chats":[{"body":"ana khlas gbt akhry ","issent":true},
+{"body":"ana khlas gbt akhry ","issent":false},
+{"body":"ana khlas gbt akhry ","issent":true}]}
+res.render("admin_chat",{connected:obj,selected:sele});
 })
 
 
