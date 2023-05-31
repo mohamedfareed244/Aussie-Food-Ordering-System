@@ -93,6 +93,10 @@ socket.on('recieve message',async (msg)=>{
   sou();
 
   })
+  socket.on("newcustomer",async (msg)=>{
+    sou1();
+    console.log("i recieve ",msg.Firstname);
+  })
   async function sou(){
 
     let audio = document.getElementById("audio");

@@ -6,7 +6,8 @@
 // Module dependencies
 import {customers} from "../models/customers.js"
 import {Server} from 'socket.io';
-import {addemp, app, findforchat,add_customer} from "../app.js";
+import {addemp, app, findforchat,add_customer,chg_custsock,getmyemp
+,remove_customer} from "../app.js";
 import {find_soc,remove_emp} from "../app.js";
 
 import ios from "express-socket.io-session";
@@ -56,9 +57,18 @@ if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
   let finded;
  await add_customer(sess.signed_customer).then((res)=>{
     finded=res;
+    console.log("finded = ",finded);
   })
 if(!finded){
   io.to(socket.id).emit("cantfind",{});
+}else{
+  chg_custsock(sess.signed_customer,socket.id);
+  await getmyemp(sess.signed_customer).then( (o)=>{
+    console.log("get my emp returned with ",o);
+io.to(o).emit("newcustomer",{"customer":sess.signed_customer});
+io.to(socket.id).emit("connects_emp",{"kk":"ss"});
+  })
+  
 }
 
   }else{
@@ -73,7 +83,17 @@ if(!finded){
   console.log("the id in socket is : "+sess);
 
   socket.on('disconnect', async () => {
- 
+ if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
+  for(let i=0;i<connected_customers.length;i++){
+    if(connected_customers[i]===socket){
+      connected_customers.splice(i,1);
+      break;
+    }
+  }
+await remove_customer(sess.signed_customer);
+ }
+else{
+
     for(let i=0;i<connected_sockets.length;i++){
       if(connected_sockets[i]===socket){
         connected_sockets.splice(i,1);
@@ -81,6 +101,7 @@ if(!finded){
       }
     }
   await remove_emp(sess.employee);
+}
     console.log('user disconnected');
 
   });

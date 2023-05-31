@@ -93,9 +93,9 @@ app.get('/',(req,res)=>{
 });
 
 
-  app.get("/addsection",function(req,res){
-    res.render("add-section");
-})
+//   app.get("/addsection",function(req,res){
+//     res.render("add-section");
+// })
 
 //error handling 
 app.use((req,res)=>{
@@ -105,6 +105,23 @@ app.use((req,res)=>{
 let onlineemp=new Array();
 let online_cus=new Array();
 
+
+
+async function getmyemp(customer){
+  let ob=null;
+ for(let i=0;i<online_cus.length;i++){
+  if(online_cus[i].customer.id===customer.id){
+    console.log("the customer is : ",customer);
+    console.log("the index is : ",online_cus[i].to);
+    await find_soc(onlineemp[online_cus[i].to].curr).then((res)=>{
+      console.log("the returned socket is ",res);
+      ob=res;
+      
+    })
+  }
+ }
+ return ob;
+}
 async function chg_sock(emp,new_id){
   let f=JSON.stringify(emp);
 
@@ -119,14 +136,27 @@ console.log("the is ",emp._id);
   }
 }
 async function add_customer(cust){
-  const ind=online_cus.length;
-const emp_index= await findforchat(cust,ind);
-if(emp_index===null){
-  return false;
+  let emp_index;
+  let founded=true;
+  for(let i=0;i<online_cus.length;i++){
+if(online_cus[i].customer.id===cust.id){
+  founded=false;
 }
+  }
+  if(founded){
+  const ind=online_cus.length;
+ emp_index= await findforchat(cust,ind);
+
   const obj ={"customer":cust,"to":emp_index,"soc":"s"};
   await online_cus.push(obj);
+  
+  }
+  if(emp_index===null){
+    console.log("no employee founded ");
+    return false;
+  }else{
   return true;
+  }
 }
 
 async function chg_custsock(cust,new_id){
@@ -167,25 +197,25 @@ for(let i=0;i<onlineemp.length;i++){
  //
  async function findforchat(customer,ind){
   if(onlineemp.length===0){
+    console.log("the lenght is ",onlineemp.length);
     return null;
   }
   
   console.log("in find for chat the object is ",customer);
   let min=onlineemp[0];
   let index=0;
-  for(let i=1;i<onlineemp.length;i++){
+  for(let i=0;i<onlineemp.length;i++){
 if(onlineemp[i].chat<min.chat){
   min=onlineemp[i];
   index=i;
 }
-let obj={"index":ind};
+
+  }
+  let obj={"index":ind};
+  min.chat++;
 min.customers.push(obj);
 return index;
-  }
-  const obj={"customer":customer,"id":id};
-  min.chat_sockets.push(obj);
-  min.chat++;
-  return min.curr;
+ 
  }
  //
  async function findfororder(){
@@ -223,19 +253,30 @@ console.log("red : ",emp);
 }
  //
  async function find_customer_socket(customer){
-  for(let i=0;i<onlineemp.length;i++){
-    if(onlineemp[i].chat_sockets.customer.id===customer.id){
-      return onlineemp[i].chat_sockets.id;
-    }
-      }
+for(let)
  }
  //
+async function remove_customer(cust){
+  for(let i=0;i<online_cus.length;i++){
+    if(online_cus[i].customer.id===cust.id){
+      for(let j=0;j<onlineemp[online_cus[i].to].customers.length;j++){
+        if(onlineemp[online_cus[i].to].customers[j].index===i){
+          onlineemp[online_cus[i].to].chat--;
+          onlineemp[online_cus[i].to].customers.splice(j,1);
+          online_cus.splice(i,1);
+          console.log("removed from both employees and customers");
 
+          return;
+        }
+      }
+    }
+  }
+}
 
 
 
 export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
-};
+,chg_custsock,getmyemp,remove_customer};
 
 
 

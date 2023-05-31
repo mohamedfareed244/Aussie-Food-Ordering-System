@@ -284,7 +284,7 @@
   </div> -->
 
 
-<audio id="audio" src="/sounds/sound.m4r"></audio>
+<audio id="audio" src="/sounds/Messagenotification.m4r"></audio>
 </section>
 
 <script src="/js/chatbox.js"></script>
@@ -294,7 +294,7 @@
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
     
-   
+   let interv;
 function connectme(){
     let socket  =io();
 socket.on('connect',()=>{
@@ -305,15 +305,19 @@ socket.on("require signin",()=>{
 location.href='/customers/signin';
 })
   socket.on("cantfind", ()=>{
+    
     console.log("cant find")
 document.getElementById("spin").innerHTML="wait while we connecting you to agent ";
 document.getElementsByClassName("badge")[0].style.display="block";
+interv=setInterval(connectme,10000);
+socket.disconnect();
   })
   socket.on('connects_emp',(emp)=>{
+    if(interv!==undefined){
+    clearInterval(interv);
+    }
     sou();
-console.log("i connected to ",emp);
-console.log("i will check now send to him ");
-socket.emit('sendmsgtoemp',{"text":"hello this a test mr "});
+
   })
 }
   
@@ -327,6 +331,7 @@ audio.play().catch((err)=>{
 })
 
   }
+  
   connectme();
   
 </script>

@@ -199,7 +199,29 @@ const postsection = async (req, res)=> {
 }
 
 
+//add product to menu
+const postproduct = async (req, res)=> {
+   
+  const obj={name:req.body.Name,
+ path:req.body.path,
+  price:req.body.price,
+ description:req.body.description,
+ section:req.body.section
+
+  }
+      const product=new All(obj);
+  
+  try{
+  await product.save();
+  console.log("saved successfully");
+  }catch(err){
+  console.log(err);
+  }
+
+}
+
+
 
 
   export {getsection,
-  getitembyid,delitem,check_out,new_order,postsection};
+  getitembyid,delitem,check_out,new_order,postsection,postproduct};
