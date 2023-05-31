@@ -14,7 +14,7 @@
 <body>
   <div class="alert" style="display: none;">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-    <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+    <strong>Attenion</strong><span id="inalert"></span> 
   </div>
     <%- include("partials/admin_sidebar") %>
 
@@ -76,6 +76,7 @@ socket.on('recieve message',async (msg)=>{
 })
   
   socket.on('recieve order',async (msg)=>{
+    displayalert("You have recieved a new order");
     console.log("recieve",msg);
   sou();
 
@@ -84,14 +85,17 @@ socket.on('recieve message',async (msg)=>{
     location.href='/employees/signin';
   })
   socket.on("newcustomer",async (msg)=>{
+    displayalert("New customer connected to chat ");
     sou1();
     console.log("i recieve ",msg.customer.Firstname);
   })
   socket.on("getmessage",async (msg)=>{
+    displayalert(`New message from ${msg.from}`);
 sou1();
   })
   async function displayalert(text){
-
+    document.getElementById("inalert").innerHTML=text;
+document.getElementById("inalert").style.display="block";
   }
   async function sou(){
 
