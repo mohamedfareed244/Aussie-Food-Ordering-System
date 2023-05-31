@@ -62,7 +62,7 @@
 </body>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
-
+let func;
   var socket = io();
   socket.on('connect',()=>{
     console.log("socket id "+socket.id);
@@ -91,13 +91,16 @@ socket.on('recieve message',async (msg)=>{
     console.log("i recieve ",msg.customer.Firstname);
   })
   socket.on("getmessage",async (msg)=>{
+    console.log("msg from ",msg.from);
     displayalert(`New message from ${msg.from}`);
 sou1();
   })
   async function displayalert(text){
     document.getElementById("inalert").innerHTML=text;
 document.getElementsByClassName("alert")[0].style.display="block";
+
   }
+  
   async function sou(){
 
     let audio = document.getElementById("audio");
