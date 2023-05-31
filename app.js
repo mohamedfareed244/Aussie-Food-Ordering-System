@@ -94,7 +94,7 @@ app.get('/',(req,res)=>{
 
 
    app.get("/emp",function(req,res){
-     res.render("add-product");
+     res.render("admin-dashboard-menu");
 })
 
 //error handling 
