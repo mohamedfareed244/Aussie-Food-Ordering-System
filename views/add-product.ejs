@@ -22,16 +22,16 @@
       
             <h1>Aussie</h1>
             <h3>Add new product</h3>
-            <form>
+            <form  action='/addproduct' method='post'>
             <div class="display"></div>
-            <input type="file"  id="upload">
+            <input type="file"  id="upload" name="path">
             <label for="upload">
                 <i class="fa-solid fa-cloud-arrow-up"></i>
                 choose your photo
             </label><br>
-        <input type="text" id="name" placeholder="Enter Title" >
-        <input type="text" id="name" placeholder="Enter Price" >
-        <input type="text" id="name" placeholder="Enter description" >
+        <input type="text" id="name" name="name" placeholder="Enter Title" >
+        <input type="text" id="name" name="price" placeholder="Enter Price" >
+        <input type="text" id="name" name="description" placeholder="Enter description" >
 
 
         <button type="submit" class="registerbtn">Submit</button> 
