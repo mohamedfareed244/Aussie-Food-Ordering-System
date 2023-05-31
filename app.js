@@ -253,12 +253,18 @@ console.log("red : ",emp);
 }
  //
  async function find_customer_socket(customer){
-for(let)
+for(let i=0;i<online_cus.length;i++){
+  if(online_cus[i].customer.id===customer.id){
+    return online_cus[i].soc;
+  }
+}
+
  }
  //
 async function remove_customer(cust){
   for(let i=0;i<online_cus.length;i++){
     if(online_cus[i].customer.id===cust.id){
+if(onlineemp.length!=0){
       for(let j=0;j<onlineemp[online_cus[i].to].customers.length;j++){
         if(onlineemp[online_cus[i].to].customers[j].index===i){
           onlineemp[online_cus[i].to].chat--;
@@ -269,6 +275,10 @@ async function remove_customer(cust){
           return;
         }
       }
+    }else{
+      online_cus.splice(i,1);
+    }
+
     }
   }
 }

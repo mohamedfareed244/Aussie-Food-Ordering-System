@@ -239,49 +239,11 @@
 
 
       <div class="input-area">
-          <input type="text">
+          <input type="text" id ="msgbody">
           <button id="emoji-btn"> &#127773;</button>
-          <button class="submit"> <i class="material-icons"> send</i></button>
+          <button class="submit" onclick="sendmessage()"> <i class="material-icons"> send</i></button>
       </div>
-<!--   
-  <div class="chat-main">
-    <div class="chat-name">
-      <span><i class="far fa-user"></i></span>
-      <input type="text" id="name-input" class="name-input" value="anonymous" maxlength="20">
-    </div>
-    <ul class="message-container" id="message-container">
-      <li class="message-left">
-        <p class="message">
-          lorem impsum
-          <span>bluebird 26 july 10:40</span>
-        </p>
-      </li>
 
-
-
-      <li class="message-right">
-        <p class="message">
-          lorem impsum
-          <span>bluebird 26 july 10:40</span>
-        </p>
-      </li>
-
-      <li class="message-feedback">
-        <p class="feedback" id="feedback"></p>
-      </li>
-
-    </ul>
-
-    <form  class="message-form"  id="message-form">
-      <input type="text" name="message" id="message-input" class="message-input">
-  <div class="v-divider"></div>
-  <button type="submit" class="send-button">
-    send <span><i class="fas fa-paper-plane"></i></span>
-  </button>
-  
-    </form>
-
-  </div> -->
 
 
 <audio id="audio" src="/sounds/Messagenotification.m4r"></audio>
@@ -295,8 +257,9 @@
 <script>
     
    let interv;
+   let socket;
 function connectme(){
-    let socket  =io();
+     socket =io();
 socket.on('connect',()=>{
     console.log("socket id "+socket.id);
  
@@ -313,12 +276,17 @@ interv=setInterval(connectme,10000);
 socket.disconnect();
   })
   socket.on('connects_emp',(emp)=>{
-    if(interv!==undefined){
+    if(interv!==undefined||interv!==null){
     clearInterval(interv);
     }
+    document.getElementById("spin").innerHTML=emp.name;
     sou();
 
   })
+}
+function sendmessage(){
+    let msg=document.getElementById("msgbody").value;
+    console.log("the value us ",msg);
 }
   
   
