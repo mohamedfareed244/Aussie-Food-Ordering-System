@@ -104,7 +104,7 @@ else{
         break;
       }
     }
-  await remove_emp(sess.employee);
+  
 }
     console.log('user disconnected');
 

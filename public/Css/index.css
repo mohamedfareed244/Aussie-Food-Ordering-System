@@ -1034,6 +1034,7 @@ float: left;
 /* alert  */
 
     .alert {
+       
         padding: 20px;
         background-color: #00e604;
         color: white;

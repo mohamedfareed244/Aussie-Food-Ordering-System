@@ -191,9 +191,9 @@
    
 
 <div class="conversation" style="overflow-y: auto;">
-    <%if(current_user!==null%%current_user!==undefined){%>
-        <%for(let i=0;i<current_user.chat.length;i++){%>
-            <%if(!current_user.chat[i].issent){%>
+    <%if(current_user!==null&&current_user!==undefined){%>
+        <%for(let i=0;i<current_user.chat.length;i++){ if(!current_user.chat[i].issent){%>
+            
     <div class="talkleft" >
         <!-- <img src="/images/user.png"> -->
         <p><%=current_user.chat[i].msg%></p>
@@ -203,9 +203,9 @@
         <p><%=current_user.chat[i].msg%></p>
         <!-- <img src="/images/user.png"> -->
     </div>
-    <%}%>
-    <%}%>
-<%}%>
+   
+   
+<%}}}%>
 
 
 </div> 

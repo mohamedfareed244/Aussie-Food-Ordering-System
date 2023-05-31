@@ -9,13 +9,14 @@
     <script src="/js/register.js"></script>
 
     <title>Document</title>
+    <div class="alert" >
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Attenion</strong><span id="inalert"></span> 
+    </div>
 </head>
 
 <body>
-  <div class="alert" style="display: none;">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-    <strong>Attenion</strong><span id="inalert"></span> 
-  </div>
+
     <%- include("partials/admin_sidebar") %>
 
    
@@ -95,7 +96,7 @@ sou1();
   })
   async function displayalert(text){
     document.getElementById("inalert").innerHTML=text;
-document.getElementById("inalert").style.display="block";
+document.getElementsByClassName("alert")[0].style.display="block";
   }
   async function sou(){
 
