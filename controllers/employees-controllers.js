@@ -2,7 +2,7 @@
 import {Emp} from "../models/Employees.js";
  import nodemailer from "nodemailer"
 import ejs from "ejs";
-import {addemp} from "../app.js";
+import {addemp,get_customers} from "../app.js";
 
 
 
@@ -132,7 +132,26 @@ res.render("admin_account",{user:req.session.employee});
         }
 }
 
+///// chat //////
 
+const getchats= async (req,res)=>{
+  if(req.session.employee===undefined||req.session.employee===null){
+    res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
+        }
+        else{
+        const curr=req.session.employee;
+      const connected= await get_customers(curr);
+      const requested=req.params.id;
+      let obj;
+      for(let i=0;i<connected.length;i++){
+        if(connected[i].id===requested){
+          obj=connected[i];
+          break;
+        }
+      }
+res.render("admin_chat",{"connected":connected,"selected":obj});
+        }
+}
 
 
   export {getemployees,postemployees,confirmmail,empprof,changepass};

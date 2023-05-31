@@ -19,7 +19,7 @@ router.post("/profile/password/change",changepass);
 router.get("/signin",(req,res)=>{
   res.render("admin_signin",{alert:false});
 })
-
+router.get("/profile/chat/details/:id")
 // app.get('/', (req, res) => 
 // {
 //   res.render('index')

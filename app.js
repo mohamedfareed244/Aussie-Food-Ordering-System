@@ -65,7 +65,9 @@ app.get("/test",async (req,res)=>{
 //   }
 
 // })
-let obj=[{"id":"123","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509"},
+let obj=[{"id":"123","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509","chats":[{"body":"ana khlas gbt akhry ","issent":true},
+{"body":"ana khlas gbt akhry ","issent":false},
+{"body":"ana khlas gbt akhry ","issent":true}]},
 {"id":"124","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509"},
 {"id":"125","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509"}]
 let sele={"id":"123","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509","chats":[{"body":"ana khlas gbt akhry ","issent":true},
@@ -101,7 +103,7 @@ app.use((req,res)=>{
 })
 //
 let onlineemp=new Array();
-
+let online_cus=new Array();
 
 async function chg_sock(emp,new_id){
   let f=JSON.stringify(emp);
@@ -116,8 +118,36 @@ console.log("the is ",emp._id);
     }
   }
 }
+async function add_customer(cust){
+  const ind=online_cus.length;
+const emp_index= await findforchat(cust,ind);
+  const obj ={"customer":cust,"to":emp_index,"soc":"s"};
+  await online_cus.push(obj);
+}
+
+async function chg_custsock(cust,new_id){
+  for(let i=0;i<online_cus.length;i++){
+    if(online_cus[i].id===cust.id){
+online_cus[i].soc=new_id;
+break;
+    }
+  }
+}
+async function get_customers(emp){
+let index;
+const obj=new Array();
+for(let i=0;i<onlineemp;i++){
+  if(onlineemp[i].curr.id===emp.id){
+    for(let j=0;j<onlineemp[i].customer.length;j++){
+obj.push(online_cus[j].customer);
+    }
+    return obj;
+  }
+}
+return obj;
+}
  async function addemp(emp){
-  const obj ={curr:emp,orders:0,chat:0,sock:"String"};
+  const obj ={curr:emp,orders:0,chat:0,sock:"String","customers":new Array()};
 onlineemp.push(obj);
 
 console.log("now "+onlineemp.length+" employees are conected ");
@@ -131,16 +161,22 @@ for(let i=0;i<onlineemp.length;i++){
 }
  }
  //
- async function findforchat(customer,id){
+ async function findforchat(customer,ind){
   if(onlineemp.length===0){
     return null;
   }
+  
   console.log("in find for chat the object is ",customer);
   let min=onlineemp[0];
+  let index=0;
   for(let i=1;i<onlineemp.length;i++){
 if(onlineemp[i].chat<min.chat){
   min=onlineemp[i];
+  index=i;
 }
+let obj={"index":ind};
+min.customers.push(obj);
+return index;
   }
   const obj={"customer":customer,"id":id};
   min.chat_sockets.push(obj);
@@ -171,16 +207,7 @@ console.log("red : ",emp);
     }
       }
  }
- //
- async function find_customer_socket(customer){
-  for(let i=0;i<onlineemp.length;i++){
-    if(onlineemp[i].chat_sockets.customer.id===customer.id){
-      return onlineemp[i].chat_sockets.id;
-    }
-      }
- }
- //
-async function remove_emp(emp){
+ async function remove_emp(emp){
   for(let i=0;i<onlineemp.length;i++){
     console.log(onlineemp[i].curr.id);
     if(onlineemp[i].curr.id===emp._id){
@@ -190,10 +217,20 @@ async function remove_emp(emp){
     }
   }
 }
+ //
+ async function find_customer_socket(customer){
+  for(let i=0;i<onlineemp.length;i++){
+    if(onlineemp[i].chat_sockets.customer.id===customer.id){
+      return onlineemp[i].chat_sockets.id;
+    }
+      }
+ }
+ //
 
 
 
-export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp};
+
+export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers};
 
 
 
