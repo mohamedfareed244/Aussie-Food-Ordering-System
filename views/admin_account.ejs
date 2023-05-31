@@ -95,7 +95,7 @@ socket.on('recieve message',async (msg)=>{
   })
   socket.on("newcustomer",async (msg)=>{
     sou1();
-    console.log("i recieve ",msg.Firstname);
+    console.log("i recieve ",msg.customer.Firstname);
   })
   async function sou(){
 

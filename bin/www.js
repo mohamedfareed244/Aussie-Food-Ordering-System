@@ -66,7 +66,7 @@ if(!finded){
   await getmyemp(sess.signed_customer).then( (o)=>{
     console.log("get my emp returned with ",o);
 io.to(o).emit("newcustomer",{"customer":sess.signed_customer});
-io.to(socket.id).emit("connects_emp",{"kk":"ss"});
+io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
   })
   
 }
