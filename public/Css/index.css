@@ -894,7 +894,14 @@ footer{
     .badge{
         
         background-color: rgb(155, 165, 155);
-        border-radius: 12px;
+        border-radius: 8px;
+        width: 100%;
+        margin: 0 auto;
+      
+       height: 20%;
+       margin-bottom: 10px;
+       
+     
     }
     .conversation {
         width: 100%;
