@@ -25,17 +25,5 @@ chatBtn.addEventListener('click', ()=>{
     popup.classList.toggle('show');
 })
 
-// send msg 
-submitBtn.addEventListener('click', ()=>{
-    let userInput = inputElm.value;
 
-    let temp = `<div class="out-msg">
-    <span class="my-msg">${userInput}</span>
-    <img src="img/me.jpg" class="avatar">
-    </div>`;
-
-    chatArea.insertAdjacentHTML("beforeend", temp);
-    inputElm.value = '';
-
-})
 

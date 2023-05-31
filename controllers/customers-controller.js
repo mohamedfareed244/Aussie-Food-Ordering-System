@@ -224,5 +224,10 @@ res.render('favoriteinfo');
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //customer sockets connections 
-
-export { getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav };
+const addmsg= async (customer,msg)=>{
+const obj={"msg":msg,issent:true};
+await customer.chat.push(obj);
+const newobj=await customer.chat;
+await customers.findByIdAndUpdate(customer.id,{"chat":newobj});
+}
+export { addmsg,getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav };

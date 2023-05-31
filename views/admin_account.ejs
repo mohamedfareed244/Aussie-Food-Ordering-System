@@ -93,6 +93,9 @@ socket.on('recieve message',async (msg)=>{
   sou();
 
   })
+  socket.on("require signin",()=>{
+    location.href='/employees/signin';
+  })
   socket.on("newcustomer",async (msg)=>{
     sou1();
     console.log("i recieve ",msg.customer.Firstname);

@@ -4,7 +4,7 @@
 // and listens for connections on the specified port.
 
 // Module dependencies
-import {customers} from "../models/customers.js"
+import {addmsg} from "../controllers/customers-controller.js"
 import {Server} from 'socket.io';
 import {addemp, app, findforchat,add_customer,chg_custsock,getmyemp
 ,remove_customer} from "../app.js";
@@ -76,8 +76,12 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
     io.to(socket.id).emit("require signin",{});
   }
 }else{
+  if(sess.employee===null||sess.employee===undefined){
+    io.to(socket.id).emit("require signin",{});
+  }else{
   await connected_sockets.push(socket);
   await chg_sock(sess.employee,socket.id);
+  }
 }
   console.log('a user connected '+socket.id);
   console.log("the id in socket is : "+sess);
@@ -106,7 +110,12 @@ else{
 
   });
 
-
+socket.on("sendtoadmin", async (msg)=>{
+  await addmsg(sess.signed_customer,msg.body);
+  await getmyemp(sess.signed_customer).then(async (o)=>{
+io.to(o).emit("getmessage",)
+  })
+})
 });
 
 
