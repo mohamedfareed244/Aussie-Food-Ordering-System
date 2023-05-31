@@ -1,93 +1,95 @@
 .tables {
-    box-sizing: border-box;
-    font-family: sans-serif;
-    min-height: 89vh;
-    color: #555;
-    max-width: 500px;
-    margin-left: 285px;
-    margin-top: -780px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  min-height: 89vh;
+  color: #555;
+  margin-left: 285px;
+  margin-top: -780px;
 }
 table td {
-        margin: 19px;
-        padding: 0.75rem;
-        border-top: 1px solid gray;
-        font-weight: 500;
-        font-family: sans-serif;
-        text-align: center;
+  margin: 19px;
+  padding: 0.75rem;
+  border-top: 1px solid gray;
+  font-weight: 500;
+  font-family: sans-serif;
+  text-align: center;
 }
 table th{ 
-    width: 10%;
-    padding: 0.75rem 1.75rem;
-    border-top: 9px solid rgb(113, 113, 234);
-    background-color: rgb(113, 113, 234);
-    color: #fff;
-    font-size: 18px;
-    text-align: center;
+  width: 10%;
+  padding: 0.75rem 1.75rem;
+  border-top: 9px solid rgb(113, 113, 234);
+  background-color: rgb(113, 113, 234);
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
 }
 .table tr{
-    border-radius: 10px;
+  border-radius: 10px;
 
 }
 
 .table.table-striped {
-    margin-left: 74px;
+  margin-left: 74px;
 }
 
-  tr:nth-child(even) {background-color: #f2f2f2;}
-  
+tr:nth-child(even) {background-color: #f2f2f2;}
+
 .delete{
-	color: red;
-    align-items: center;
+color: red;
+  align-items: center;
 }
 .delete:hover{
-	color: brown;
+color: brown;
 }
 button {
-    color: white;
-    padding: 0px 0px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 22px;
-    cursor: pointer;
-    background-color: rgb(7, 147, 45);
-    color: #f2f2f2;
-    width: 81px;
+  color: white;
+  padding: 0px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 22px;
+  cursor: pointer;
+  background-color: rgb(7, 147, 45);
+  color: #f2f2f2;
+  width: 81px;
 }
-  
- 
+
+
 button:hover {
-    background-color: rgb(242, 242, 242);
-    color: rgb(0, 0, 0);
-  }
-  @media only screen and (max-width: 768px) {
-    .tables {
-        width: 100%;
-        margin-left: -86px;
-        margin-top: 3px;
-        padding: 0px;
-    }
-  
-    table {
-      width: 100%;
-    }
-  
-    table th,
-    table td {
-      width: 100%;
-     padding: 10px 8px
-    }
-  
-    table img {
-      width: 53%;
-    }
-  }
-@media only screen and (max-width: 480px) {
+  background-color: rgb(242, 242, 242);
+  color: rgb(0, 0, 0);
+}
+
+@media only screen   
+and (min-width: 1030px)   
+and (max-width: 1366px)  {
+
   .tables {
-    width: 100%;
-    margin-left: -82px;
-    margin-top: -1px;
+    width: 70%;
+    margin-left: 18%;
+    margin-top: -54%;
+}
+
+table {
+  width: 100%;
+}
+
+table th,
+table td {
+  width: 100%;
+ padding: 10px 8px
+}
+}
+
+
+@media only screen   
+and (min-device-width : 700px)   
+and (max-device-width : 1030px) {
+  .tables {
+    width: 70%;
+    margin-left: 17%;
+    margin-top: -55%;
   }
 
   table {
@@ -97,10 +99,44 @@ button:hover {
   table th,
   table td {
     width: 100%;
-    padding: 10px 6px;
+   padding: 10px 8px
+  }
+}
+@media only screen   
+and (min-device-width : 360px)   
+and (max-device-width : 700px) {
+  .tables {
+    width: 100%;
+    margin-left: -19%;
+    margin-top: 0;
   }
 
-  table img {
-    width: 62%;
+  table {
+    width: 100%;
   }
+
+  table th,
+  table td {
+    width: 100%;
+   padding: 10px 8px
+  }
+}
+@media only screen   
+and (min-device-width : 320px)   
+and (max-device-width : 480px)   {
+.tables {
+  width: 70%;
+  margin-left: -89px;
+  margin-top: 2px;
+}
+
+table {
+  width: 100%;
+}
+
+table th,
+table td {
+  width: 100%;
+  padding: 10px 6px;
+}
 }
