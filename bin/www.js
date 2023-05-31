@@ -53,9 +53,14 @@ if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
   if(socket.request.session.signed_customer!==null&&socket.request.session.signed_customer!==undefined){
     console.log("not null")
   await connected_customers.push(socket);
-  if(!add_customer(sess.signed_customer)){
-io.to(socket.id).emit("cantfind",{});
-  }
+  let finded;
+ await add_customer(sess.signed_customer).then((res)=>{
+    finded=res;
+  })
+if(!finded){
+  io.to(socket.id).emit("cantfind",{});
+}
+
   }else{
     console.log("not sogned in")
     io.to(socket.id).emit("require signin",{});
