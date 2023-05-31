@@ -180,15 +180,18 @@ break;
 }
 async function get_customers(emp){
 let index;
+console.log("the mep is ",emp);
 const obj=new Array();
-for(let i=0;i<onlineemp;i++){
-  if(onlineemp[i].curr.id===emp.id){
+for(let i=0;i<onlineemp.length;i++){
+  console.log(onlineemp[i]);
+  if(onlineemp[i].curr._id===emp._id){
     for(let j=0;j<onlineemp[i].customer.length;j++){
 obj.push(online_cus[j].customer);
     }
-    return obj;
+    
   }
 }
+console.log("i will return with ",obj);
 return obj;
 }
  async function addemp(emp){

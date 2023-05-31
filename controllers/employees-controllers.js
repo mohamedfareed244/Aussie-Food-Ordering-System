@@ -159,6 +159,7 @@ const getallchats= async (req,res)=>{
         else{
         const curr=req.session.employee;
       const connected= await get_customers(curr);
+      console.log("all the connected is ",connected);
       let obj;
       for(let i=0;i<connected.length;i++){
         if(connected[i].id===requested){
@@ -170,4 +171,4 @@ res.render("admin_chat",{"connected":connected,"selected":connected.length==0?nu
         }
 }
 
-  export {getemployees,postemployees,confirmmail,empprof,changepass};
+  export {getemployees,postemployees,confirmmail,empprof,changepass,getallchats};
