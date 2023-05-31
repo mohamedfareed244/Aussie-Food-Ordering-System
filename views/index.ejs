@@ -167,7 +167,7 @@
 
 <%- include("partials/footer") %>
 
-
+<%if(current_user!==null){%>
 <section>
    
   <button class="chat-btn"> 
@@ -234,10 +234,11 @@
 
 <audio id="audio" src="/sounds/sound.m4r"></audio>
 </section>
-
+<%}%>
 <script src="/js/chatbox.js"></script>
 
 </body>
+<%if(current_user!==null){%>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
 
@@ -265,10 +266,8 @@ audio.play().catch((err)=>{
 })
 
   }
-function call(){
-    console.log("in call",socket);
-     socket.broadcast.emit('findadmin');
-}
+
   
 </script>
+<%}%>
 </html>
