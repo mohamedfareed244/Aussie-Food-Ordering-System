@@ -12,25 +12,12 @@
 </head>
 
 <body>
+  <div class="alert" style="display: none;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+  </div>
     <%- include("partials/admin_sidebar") %>
-    <!-- <div id="Account"
-        style="margin:auto; width: 300px ; padding-left: 120px; height: 450px;
-         background-color: rgb(203, 224, 243);">
-        <h1>  name: <%=user.Name%></h1>
-        <h1>Phone:<%=user.Phone%></h1>
-        <h2>Email:<%=user.Email%></h2>
-        <h2>change password</h2>
-        <form action='/employees/profile/password/change' method='post' >
-            <input type="password" name="psw" id="inputpass" placeholder="Enter new Password">
-            <div id='password' class='err'></div>
-            <input type="password" name="psw-confirmt" id="inputcpass" placeholder="confirm Password">
-            <div id='cpassword' class='err'></div>
 
-            <button type="submit" class="registerbtn" style="margin-left: 3%; ">Update password</button>
-        </form>
-
-
-    </div> -->
    
     <div class="wrapper">
     <div class="right">
@@ -100,6 +87,12 @@ socket.on('recieve message',async (msg)=>{
     sou1();
     console.log("i recieve ",msg.customer.Firstname);
   })
+  socket.on("getmessage",async (msg)=>{
+sou1();
+  })
+  async function displayalert(text){
+
+  }
   async function sou(){
 
     let audio = document.getElementById("audio");
