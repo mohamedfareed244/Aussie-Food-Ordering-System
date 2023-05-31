@@ -167,7 +167,6 @@
 
 <%- include("partials/footer") %>
 
-<%if(current_user!==null){%>
 <section>
    
   <button class="chat-btn"> 
@@ -176,15 +175,42 @@
 
    <div class="chat-popup">
      <div class="badge"><iframe src="https://giphy.com/embed/xTkcEQACH24SMPxIQg" width="50" height="50" frameBorder="0" class="giphy-embed" allowFullScreen style="border-radius: 30px;"></iframe></div>
-      <div class="chat-area">
+      <!-- <div class="chat-area">
        <div class="income-msg">
         
             <p class="msg"> Hi, How can I help you?</p>
-       
+          
+            
          
-           <p id="tx"></p>
+           <p id="tx">asvqa</p>
        </div>   
-      </div>
+      </div> -->
+
+
+   
+
+<div class="conversation">
+    <div class="talk left">
+        <img src="ressources/avatar2.jpg">
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="talk right">
+        <p>Lorem ipsum dolor sit amet.</p>
+        <img src="ressources/avatar1.jpg">
+    </div>
+    <div class="talk left">
+        <img src="ressources/avatar2.jpg">
+        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="talk right">
+        <p>Lorem ipsum dolor sit amet.</p>
+        <img src="ressources/avatar1.jpg">
+    </div>
+</div>
+
+
+
+
 
       <div class="input-area">
           <input type="text">
@@ -234,7 +260,7 @@
 
 <audio id="audio" src="/sounds/sound.m4r"></audio>
 </section>
-<%}%>
+
 <script src="/js/chatbox.js"></script>
 
 </body>
