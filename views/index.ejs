@@ -294,7 +294,7 @@
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
     
-   
+   let interv;
 function connectme(){
     let socket  =io();
 socket.on('connect',()=>{
@@ -309,9 +309,13 @@ location.href='/customers/signin';
     console.log("cant find")
 document.getElementById("spin").innerHTML="wait while we connecting you to agent ";
 document.getElementsByClassName("badge")[0].style.display="block";
-setInterval(connectme,10000);
+interv=setInterval(connectme,10000);
+socket.disconnect();
   })
   socket.on('connects_emp',(emp)=>{
+    if(interv!==undefined){
+    clearInterval(interv);
+    }
     sou();
 
   })

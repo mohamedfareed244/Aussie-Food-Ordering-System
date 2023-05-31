@@ -6,7 +6,8 @@
 // Module dependencies
 import {customers} from "../models/customers.js"
 import {Server} from 'socket.io';
-import {addemp, app, findforchat,add_customer,chg_custsock,getmyemp} from "../app.js";
+import {addemp, app, findforchat,add_customer,chg_custsock,getmyemp
+,remove_customer} from "../app.js";
 import {find_soc,remove_emp} from "../app.js";
 
 import ios from "express-socket.io-session";
@@ -63,7 +64,9 @@ if(!finded){
   chg_custsock(sess.signed_customer,socket.id);
   await getmyemp(sess.signed_customer).then(async (res)=>{
 io.to(res).emit("newcustomer",{"customer":sess.signed_customer});
+io.to(socket.id).emit("connects_emp",{"kk":"ss"});
   })
+  
 }
 
   }else{
@@ -85,9 +88,9 @@ io.to(res).emit("newcustomer",{"customer":sess.signed_customer});
       break;
     }
   }
-await remove_emp(sess.employee);
+await remove_customer(sess.signed_customer);
  }
-
+else{
 
     for(let i=0;i<connected_sockets.length;i++){
       if(connected_sockets[i]===socket){
@@ -96,6 +99,7 @@ await remove_emp(sess.employee);
       }
     }
   await remove_emp(sess.employee);
+}
     console.log('user disconnected');
 
   });

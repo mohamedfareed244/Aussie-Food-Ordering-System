@@ -110,7 +110,10 @@ let online_cus=new Array();
 async function getmyemp(customer){
  for(let i=0;i<online_cus.length;i++){
   if(online_cus[i].customer.id===customer.id){
-    await find_soc(onlineemp[online_cus[i].emp_index]).then((res)=>{
+    console.log("the customer is : ",customer);
+    console.log("the index is : ",online_cus[i].to);
+    await find_soc(onlineemp[online_cus[i].to]).then((res)=>{
+      console.log("the returned socket is ",res);
       return res;
     })
   }
@@ -133,6 +136,7 @@ async function add_customer(cust){
   const ind=online_cus.length;
 const emp_index= await findforchat(cust,ind);
 if(emp_index===null){
+  console.log("no employee founded ");
   return false;
 }
   const obj ={"customer":cust,"to":emp_index,"soc":"s"};
@@ -178,25 +182,25 @@ for(let i=0;i<onlineemp.length;i++){
  //
  async function findforchat(customer,ind){
   if(onlineemp.length===0){
+    console.log("the lenght is ",onlineemp.length);
     return null;
   }
   
   console.log("in find for chat the object is ",customer);
   let min=onlineemp[0];
   let index=0;
-  for(let i=1;i<onlineemp.length;i++){
+  for(let i=0;i<onlineemp.length;i++){
 if(onlineemp[i].chat<min.chat){
   min=onlineemp[i];
   index=i;
 }
-let obj={"index":ind};
+
+  }
+  let obj={"index":ind};
+  min.chat++;
 min.customers.push(obj);
 return index;
-  }
-  const obj={"customer":customer,"id":id};
-  min.chat_sockets.push(obj);
-  min.chat++;
-  return min.curr;
+ 
  }
  //
  async function findfororder(){
@@ -241,12 +245,27 @@ console.log("red : ",emp);
       }
  }
  //
+async function remove_customer(cust){
+  for(let i=0;i<online_cus.length;i++){
+    if(online_cus[i].customer.id===cust.id){
+      for(let j=0;j<onlineemp[online_cus[i].to].customers.length;j++){
+        if(onlineemp[online_cus[i].to].customers[j].index===i){
+          onlineemp[online_cus[i].to].chat--;
+          onlineemp[online_cus[i].to].customers.splice(j,1);
+          online_cus.splice(i,1);
+          console.log("removed from both employees and customers");
 
+          return;
+        }
+      }
+    }
+  }
+}
 
 
 
 export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
-,chg_custsock,getmyemp};
+,chg_custsock,getmyemp,remove_customer};
 
 
 
