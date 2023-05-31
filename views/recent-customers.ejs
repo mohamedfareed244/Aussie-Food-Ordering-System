@@ -5,73 +5,234 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  <link rel="stylesheet" href="/Css/recent-customers.css">
+    <link rel="stylesheet" href="dashboard-orders.css">
+    <script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <%- include("partials/admin_sidebar") %>
-    <div class="right">
-        <div class="recentCustomers">
+      <!-- orders -->
+      <div class="details" style="width: 100%;" >
+        <div class="recentOrders"  id="ordd" style="width: 1100px; height: 700px; top: -30px; left: 5px;">
             <div class="cardHeader">
-                <h2>Recent Customers</h2>
+                <h2>Recent Orders</h2>
                 <div class="formbox">
-                    <input type="text" class="searchid" placeholder="Enter customers ID">
-                    <input type="text" class="searchnum" placeholder="Enter customers number">
-                    <button class="search-btn" type="button">Search</button>
+                  <input type="text" class="searchid" placeholder="Enter order ID">
+                  <input type="text" class="searchnum" placeholder="Enter order name">
+                  <button class="search-btn" type="button">Search</button>
 
-                </div>
-                <a href="#" class="btnv">Add Customer</a>
+              </div>
+                <a href="#" class="btnv">View All</a>
+            
             </div>
-            <table>
-                <tr>
-                    <td width="60px"><div class="imgBx">
-                        <img src="/photos/ex1.jpeg" alt="">
-                    </div></td>
-                    <td><h4>David <br><span>Italy</span></h4>
-                        <a href="#" class="btnvv">Delete Customer</a></td>
-                </tr>
 
-                <tr>
-                    <td width="60px"><div class="imgBx">
-                        <img src="/photos/ex1.jpeg" alt="">
-                    </div></td>
-                    <td><h4>fareed <br><span>Egypt</span></h4>
-                        <a href="#" class="btnvv">Delete Customer</a></td>
-                </tr>
+            <table >
+                <thead>
+                    <tr>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            Price
+                        </td> <td>
+                            Payment
+                        </td> <td>
+                          Status
+                        </td>
+                        <td>Action</td>
+                        <td>Accept</td>
+                    </tr>
+                </thead>
 
-                <tr>
-                    <td width="60px"><div class="imgBx">
-                        <img src="/photos/ex1.jpeg" alt="">
-                    </div></td>
-                    <td><h4>Yassin <br><span>India</span></h4>
-                        <a href="#" class="btnvv">Delete Customer</a></td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                           Pizza
+                        </td>
+                        <td>
+                           120$
+                        </td> <td>
+                           Paid
+                        </td>
+                        
+                      
+                        <td>
+                         <span class="delivered">Delivered</span>
+                        </td>
+                        <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                    </tr>
 
-                <tr>
-                    <td width="60px"><div class="imgBx">
-                        <img src="/photos/ex1.jpeg" alt="">
-                    </div></td>
-                    <td><h4>Ahmed <br><span>Kuwait</span></h4>
-                        <a href="#" class="btnvv">Delete Customer</a></td>
-                </tr>
+                    <tr>
+                        <td>
+                           Pizza
+                        </td>
+                        <td>
+                           120$
+                        </td> <td>
+                           Paid
+                        </td> <td>
+                         <span class="pen">Pending</span>
+                         <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                    </tr>
 
-                <tr>
-                    <td width="60px"><div class="imgBx">
-                        <img src="/photos/model1.jpeg" alt="">
-                    </div></td>
-                    <td><h4>Ali <br><span>Egypt</span></h4>
-                        <a href="#" class="btnvv">Delete Customer</a></td>
-                </tr>
+                    <tr>
+                        <td>
+                           Pizza
+                        </td>
+                        <td>
+                           120$
+                        </td> <td>
+                           Paid
+                        </td> <td>
+                         <span class="ret">Return</span>
+                        </td>
+                        <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                    </tr>
 
-                <tr>
-                    <td width="60px"><div class="imgBx">
-                        <img src="/photos/OIP.jpeg" alt="">
-                    </div></td>
-                    <td><h4>David <br><span>Italy</span></h4>
-                        <a href="#" class="btnvv">Delete Customer</a> </td>
-                </tr>
+                    <tr>
+                        <td>
+                           Pizza
+                        </td>
+                        <td>
+                           120$
+                        </td> <td>
+                           Paid
+                        </td> <td>
+                         <span class="in">progress</span>
+                        </td>
+                        <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                    </tr>
+                    <tr>
+                        <td>
+                           Pizza
+                        </td>
+                        <td>
+                           120$
+                        </td> <td>
+                           Paid
+                        </td> <td>
+                         <span class="delivered">Delivered</span>
+                        </td>
+                        <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                           Pizza
+                        </td>
+                        <td>
+                           120$
+                        </td> <td>
+                           Paid
+                        </td> <td>
+                         <span class="pen">Pending</span>
+                        </td>
+                        <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                           Pizza
+                        </td>
+                        <td>
+                           120$
+                        </td> <td>
+                           Paid
+                        </td> <td>
+                         <span class="ret">Return</span>
+                        </td>
+                        <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                           Pizza
+                        </td>
+                        <td>
+                           120$
+                        </td> <td>
+                           Paid
+                        </td> <td>
+                         <span class="in">progress</span>
+                        </td>
+                        <td><button   class="moree"onclick="togglePopup()">Show More</button></td>
+                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
+      
+        </div>
 
-</div>
+
+    <div class="popup" id="popup-1">
+      
+   <div class="overlay"> </div>
+      <div class="content">
+         <div class="close-btn" onclick="togglePopup()">
+            &times;
+         </div>
+         <h1>Details</h1>
+         <table >
+            <thead>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Price
+                    </td> <td>
+                        Payment
+                    </td> <td>
+                      Status
+                    </td>
+                    <td>Action</td>
+                    <td>Accept</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                       Pizza
+                    </td>
+                    <td>
+                       120$
+                    </td> <td>
+                       Paid
+                    </td>
+                    
+                  
+                    <td>
+                     <span class="delivered">Delivered</span>
+                    </td>
+                    <td><button   class="search-btn"onclick="togglePopup()">Show More</button></td>
+                    <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                    <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                </tr>
+      </div>
+  
+   </div>
+   <script>
+      function togglePopup(){
+         // const togel=document.querySelector(".popup")
+         document.getElementById("popup-1").classList.toggle("active");
+      }
+   </script>
+
+    <!-- orders -->
 </body>
 </html>
