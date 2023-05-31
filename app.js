@@ -105,6 +105,17 @@ app.use((req,res)=>{
 let onlineemp=new Array();
 let online_cus=new Array();
 
+
+
+async function getmyemp(customer){
+ for(let i=0;i<online_cus.length;i++){
+  if(online_cus[i].customer.id===customer.id){
+    await find_soc(onlineemp[online_cus[i].emp_index]).then((res)=>{
+      return res;
+    })
+  }
+ }
+}
 async function chg_sock(emp,new_id){
   let f=JSON.stringify(emp);
 
@@ -235,7 +246,7 @@ console.log("red : ",emp);
 
 
 export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
-};
+,chg_custsock,getmyemp};
 
 
 
