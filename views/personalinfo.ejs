@@ -1,84 +1,108 @@
 <html>
+
 <head>
 
 	<html lang="en">
-    <link rel="stylesheet" href="/Css/personalinfo.css">
+	<link rel="stylesheet" href="/Css/personalinfo.css">
+
 </head>
+
 <body>
-    <%- include("./partials/nav-profileinfo") %>
+	<%- include("./partials/nav-profileinfo") %>
 		<div class="card">
 			<div class="right">
-			  <h3>Profile Details</h3>
-			  <table>
-				  <tr>
-					  <td>FirstName:</td>
-					  <td><%=customer.FirstName %> </td>
+				<h3>Profile Details</h3>
+				<table>
+					<tr>
+						<td>Name :</td>
+						<td>{{name}}</td>
 					</tr>
-				<tr>
-				  <td>MiddleName:</td>
-				  <td><%=customer.MiddleName %></td>
-				</tr>
-				<tr>
-					<td>LastName:</td>
-					<td><%=customer.LastName%></td>
-				  </tr>
-				<tr>
-				  <td>Phone Number:</td>
-				  <td><%= customer.Phone%></td>
-				</tr>
-				<tr>
-				  <td>Email:</td>
-				  <td><%=customer.Email%></td>
-				</tr>
-				<tr>
-				  <td ><a class="passwordch" href="">Change Password</a></td>
-				</tr>
-			  </table>
-		  </div>
+					<tr>
+						<td>Age :</td>
+						<td>{{age}}</td>
+					</tr>
+					<tr>
+						<td>Mobile :</td>
+						<td>{{mobile}}</td>
+					</tr>
+					<tr>
+						<td>Email :</td>
+						<td>{{email}}</td>
+					</tr>
+					<tr>
+						<td>Address :</td>
+						<td>{{address}}</td>
+					</tr>
+
+					<tr>
+						<td><a id="passwordch" href="#changepasswordinfo">Change Password</a></td>
+
+					</tr>
+				</table>
+			</div>
 		</div>
 
-		
-		<div class="mainDiv" >
+		<div class="mainDiv">
 			<div class="cardStyle">
-			  <form action="" method="post" name="changepasswordinfo" id="changepasswordinfo" style="display: none;" >
-				
-				<h2 class="formTitle">
-				Change Password
-				</h2>
-		
-				<div class="inputDiv">
-				  <label class="inputLabel" for="currentpassword">Current Password</label>
-				  <input type="password" id="currentpassword" name="currentpassword" >
-				</div>
-				
-			  <div class="inputDiv">
-				<label class="inputLabel" for="newpassword">New Password</label>
-				<input type="password" id="newpassword" name="newpassword" required>
-			  </div>
-				
-			  <div class="inputDiv">
-				<label class="inputLabel" for="confirmPassword">Confirm Password</label>
-				<input type="password" id="confirmPassword" name="confirmPassword" >
-			  </div>
-			  
-			  <div class="buttonWrapper">
-				<button type="submit" id="submitButton" onclick="validatechangepass()" class="submitButton pure-button pure-button-primary">
-					<span>Change</span>
-				  <span id="loader"></span>
-				</button>
-			  </div>
-				
-			</form>
+				<form action="" method="post" name="changepasswordinfo" id="changepasswordinfo" style="display: none;">
+
+					<h2 class="formTitle">
+						Change Password
+					</h2>
+
+					<div class="inputDiv">
+						<label class="inputLabel" for="currentpassword">Current Password</label>
+						<input type="password" id="currentpassword" name="currentpassword">
+					</div>
+
+					<div class="inputDiv">
+						<label class="inputLabel" for="newpassword">New Password</label>
+						<input type="password" id="newpassword" name="newpassword" required>
+					</div>
+
+					<div class="inputDiv">
+						<label class="inputLabel" for="confirmPassword">Confirm Password</label>
+						<input type="password" id="confirmPassword" name="confirmPassword">
+					</div>
+
+					<div class="buttonWrapper">
+						<button type="submit" id="submitButton" onclick="validatechangepass()" class="submitButton pure-button pure-button-primary">
+							<span>Change</span>
+							<span id="loader"></span>
+						</button>
+					</div>
+
+				</form>
 			</div>
-		  </div>
-		
-<script>
-			document.getElementById("passwordch").addEventListener("click", function() {
-			  document.getElementById("changepasswordinfo").style.display = "block";
-			  document.getElementById('passwordch').style.display="none";
+		</div>
+
+		<script>
+			document.getElementById("passwordch").addEventListener("click", function () {
+				document.getElementById("changepasswordinfo").style.display = "block";
+				document.getElementById('passwordch').style.display = "none";
+				enableSubmitButton();
 			});
-			
-			enableSubmitButton();
+			let new_password = document.getElementById("password")
+				, confirm_password = document.getElementById("confirmPassword"),
+				current_password = document.getElementById("currentpassword");
+
+			function validatePassword() {
+				if (new_password.value != confirm_password.value) {
+					confirm_password.setCustomValidity("Confirm Passwords Don't Match");
+					return false;
+				} else if (new_password.value === current_password.value) {
+					confirm_password.setCustomValidity("New password cannot be the same as current password");
+					return false;
+				} else {
+					confirm_password.setCustomValidity('');
+					return true;
+				}
+			}
+
+			new_password.onchange = validatePassword;
+			confirm_password.onkeyup = validatePassword;
+			current_password.onkeyup = validatePassword;
+
 			function enableSubmitButton() {
 				document.getElementById('submitButton').disabled = false;
 				document.getElementById('loader').style.display = 'none';
@@ -89,7 +113,12 @@
 				document.getElementById('loader').style.display = 'unset';
 			}
 
-			function validatechangepass() {
+			document.getElementById("passwordch").addEventListener("click", function () {
+				document.getElementById("changepasswordinfo").style.display = "block";
+				document.getElementById('passwordch').style.display = "none";
+			});
+
+	function validatechangepass() {
   var form = document.getElementById('changepasswordinfo');
   
   for(var i=0; i < form.elements.length; i++){
@@ -105,6 +134,7 @@
   
   onSignup();
 }
+
 function onSignup() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -127,6 +157,10 @@ function onSignup() {
   xhttp.send();
 }
 
+
+
+
 </script>
 </body>
+
 </html>
