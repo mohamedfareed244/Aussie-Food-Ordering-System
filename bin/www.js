@@ -76,8 +76,12 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
     io.to(socket.id).emit("require signin",{});
   }
 }else{
+  if(sess.employee===null||sess.employee===undefined){
+    io.to(socket.id).emit("require signin",{});
+  }else{
   await connected_sockets.push(socket);
   await chg_sock(sess.employee,socket.id);
+  }
 }
   console.log('a user connected '+socket.id);
   console.log("the id in socket is : "+sess);

@@ -137,26 +137,37 @@ console.log("the is ",emp._id);
 }
 async function add_customer(cust){
   let emp_index;
-  let founded=true;
+  let founded=false;
+  let index;
   for(let i=0;i<online_cus.length;i++){
 if(online_cus[i].customer.id===cust.id){
-  founded=false;
+  founded=true;
+  index=i;
+  break;
 }
   }
-  if(founded){
+  if(!founded){
   const ind=online_cus.length;
  emp_index= await findforchat(cust,ind);
 
   const obj ={"customer":cust,"to":emp_index,"soc":"s"};
   await online_cus.push(obj);
   
+  if(emp_index===null||emp_index===undefined){
+    console.log("no employee founded ");
+    return false;
+  }else{
+    return true;
   }
-  if(emp_index===null){
+  }else{
+
+  if(online_cus[index].emp_index===null||online_cus[index].emp_index===undefined){
     console.log("no employee founded ");
     return false;
   }else{
   return true;
   }
+}
 }
 
 async function chg_custsock(cust,new_id){
