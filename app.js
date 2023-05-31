@@ -94,7 +94,7 @@ app.get('/',(req,res)=>{
 
 
    app.get("/emp",function(req,res){
-     res.render("recent-customers");
+     res.render("add-product");
 })
 
 //error handling 
