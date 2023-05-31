@@ -57,13 +57,15 @@ if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
   let finded;
  await add_customer(sess.signed_customer).then((res)=>{
     finded=res;
+    console.log("finded = ",finded);
   })
 if(!finded){
   io.to(socket.id).emit("cantfind",{});
 }else{
   chg_custsock(sess.signed_customer,socket.id);
-  await getmyemp(sess.signed_customer).then(async (res)=>{
-io.to(res).emit("newcustomer",{"customer":sess.signed_customer});
+  await getmyemp(sess.signed_customer).then( (o)=>{
+    console.log("get my emp returned with ",o);
+io.to(o).emit("newcustomer",{"customer":sess.signed_customer});
 io.to(socket.id).emit("connects_emp",{"kk":"ss"});
   })
   

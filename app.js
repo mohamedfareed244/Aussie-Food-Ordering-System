@@ -108,16 +108,19 @@ let online_cus=new Array();
 
 
 async function getmyemp(customer){
+  let ob=null;
  for(let i=0;i<online_cus.length;i++){
   if(online_cus[i].customer.id===customer.id){
     console.log("the customer is : ",customer);
     console.log("the index is : ",online_cus[i].to);
-    await find_soc(onlineemp[online_cus[i].to]).then((res)=>{
+    await find_soc(onlineemp[online_cus[i].to].curr).then((res)=>{
       console.log("the returned socket is ",res);
-      return res;
+      ob=res;
+      
     })
   }
  }
+ return ob;
 }
 async function chg_sock(emp,new_id){
   let f=JSON.stringify(emp);
@@ -133,15 +136,27 @@ console.log("the is ",emp._id);
   }
 }
 async function add_customer(cust){
-  const ind=online_cus.length;
-const emp_index= await findforchat(cust,ind);
-if(emp_index===null){
-  console.log("no employee founded ");
-  return false;
+  let emp_index;
+  let founded=true;
+  for(let i=0;i<online_cus.length;i++){
+if(online_cus[i].customer.id===cust.id){
+  founded=false;
 }
+  }
+  if(founded){
+  const ind=online_cus.length;
+ emp_index= await findforchat(cust,ind);
+
   const obj ={"customer":cust,"to":emp_index,"soc":"s"};
   await online_cus.push(obj);
+  
+  }
+  if(emp_index===null){
+    console.log("no employee founded ");
+    return false;
+  }else{
   return true;
+  }
 }
 
 async function chg_custsock(cust,new_id){
@@ -238,11 +253,7 @@ console.log("red : ",emp);
 }
  //
  async function find_customer_socket(customer){
-  for(let i=0;i<onlineemp.length;i++){
-    if(onlineemp[i].chat_sockets.customer.id===customer.id){
-      return onlineemp[i].chat_sockets.id;
-    }
-      }
+for(let)
  }
  //
 async function remove_customer(cust){
