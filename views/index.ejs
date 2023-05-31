@@ -290,7 +290,7 @@
 <script src="/js/chatbox.js"></script>
 
 </body>
-<%if(current_user!==null){%>
+
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
     
@@ -301,8 +301,10 @@ socket.on('connect',()=>{
     console.log("socket id "+socket.id);
  
   })
-
-  socket.on('cantfind_emp',async ()=>{
+socket.on("require signin",()=>{
+location.href='/customers/signin';
+})
+  socket.on('cantfind',async ()=>{
 document.getElementById("tx").innerHTML=" wait while finding an agent ";
   })
   socket.on('connects_emp',(emp)=>{
@@ -326,5 +328,5 @@ audio.play().catch((err)=>{
   connectme();
   
 </script>
-<%}%>
+
 </html>
