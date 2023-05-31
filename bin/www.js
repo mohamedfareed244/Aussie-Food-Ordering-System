@@ -43,13 +43,18 @@ const wrap = middleware => (socket, next) => middleware(socket.request, {}, next
 io.use(wrap(sessionMiddleware));
 
 let connected_sockets=new Array();
+let connected_customers=new Array();
 io.on('connection',async (socket) => {
   const sess=socket.request.session;
   const from=socket.handshake.headers.referer;
-
+  console.log("from ",from);
+if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
+  console.log("customer detected ");
+  
+}else{
   await connected_sockets.push(socket);
   await chg_sock(sess.employee,socket.id);
-
+}
   console.log('a user connected '+socket.id);
   console.log("the id in socket is : "+sess);
 

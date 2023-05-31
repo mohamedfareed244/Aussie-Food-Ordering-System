@@ -293,9 +293,11 @@
 <%if(current_user!==null){%>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
-
-  let socket = io();
-  socket.on('connect',()=>{
+    
+   
+function connectme(){
+    let socket  =io();
+socket.on('connect',()=>{
     console.log("socket id "+socket.id);
  
   })
@@ -309,6 +311,9 @@ console.log("i connected to ",emp);
 console.log("i will check now send to him ");
 socket.emit('sendmsgtoemp',{"text":"hello this a test mr "});
   })
+}
+  
+  
  
   async function sou(){
 
@@ -318,7 +323,7 @@ audio.play().catch((err)=>{
 })
 
   }
-
+  connectme();
   
 </script>
 <%}%>
