@@ -77,6 +77,17 @@
 			  document.getElementById("changepasswordinfo").style.display = "block";
 			  document.getElementById('passwordch').style.display="none";
 			});
+			
+			enableSubmitButton();
+			function enableSubmitButton() {
+				document.getElementById('submitButton').disabled = false;
+				document.getElementById('loader').style.display = 'none';
+			}
+
+			function disableSubmitButton() {
+				document.getElementById('submitButton').disabled = true;
+				document.getElementById('loader').style.display = 'unset';
+			}
 </script>
 </body>
 </html>
