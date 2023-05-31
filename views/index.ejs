@@ -286,6 +286,7 @@ socket.disconnect();
 function sendmessage(){
     let msg=document.getElementById("msgbody").value;
     console.log("the value us ",msg);
+    socket.broadcast.emit("sendtoadmin",({"body":msg}));
 }
   
   

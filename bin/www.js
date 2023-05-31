@@ -110,7 +110,11 @@ else{
 
   });
 
+socket.on("sendtoadmin", async (msg)=>{
+  await getmyemp(sess.signed_customer).then(async (o)=>{
 
+  })
+})
 });
 
 
