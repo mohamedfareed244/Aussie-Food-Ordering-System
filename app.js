@@ -93,9 +93,9 @@ app.get('/',(req,res)=>{
 });
 
 
-//  app.get("/test/emp",function(req,res){
-//    res.render("./partials/footer");
-// })
+  app.get("/addsection",function(req,res){
+    res.render("add-section");
+})
 
 //error handling 
 app.use((req,res)=>{
