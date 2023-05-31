@@ -18,7 +18,7 @@
         </table>
         </div>
         <script>
-            var myArray = [
+            let myArray = [
               {"image":"images/aaa3.jpeg","name":'fried', "price":'30','edit':''},
               {"image":"images/burger.webp","name":'burger', "price":'30','edit':''},
               {"image":"images/dish2.jpeg","name":'dish', "price":'30','edit':''},
@@ -28,10 +28,10 @@
             ];
             
             function buildTable(data){
-              var table = document.getElementById('myTable')
+              let table = document.getElementById('myTable')
             
               data.forEach(function(item) {
-                var row = `<tr>
+                let row = `<tr>
                   <td> <img src='${item.image}'> </td>
                   <td>${item.name}</td>
                   <td>${item.price}</td>
