@@ -4,7 +4,7 @@
 // and listens for connections on the specified port.
 
 // Module dependencies
-import {customers} from "../models/customers.js"
+import {addmsg} from "../controllers/customers-controller.js"
 import {Server} from 'socket.io';
 import {addemp, app, findforchat,add_customer,chg_custsock,getmyemp
 ,remove_customer} from "../app.js";
@@ -111,8 +111,9 @@ else{
   });
 
 socket.on("sendtoadmin", async (msg)=>{
+  await addmsg(sess.signed_customer,msg.body);
   await getmyemp(sess.signed_customer).then(async (o)=>{
-
+io.to(o).emit("getmessage",)
   })
 })
 });
