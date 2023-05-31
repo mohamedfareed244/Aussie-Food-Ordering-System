@@ -88,6 +88,24 @@
 				document.getElementById('submitButton').disabled = true;
 				document.getElementById('loader').style.display = 'unset';
 			}
+
+			function validatechangepass() {
+  var form = document.getElementById('changepasswordinfo');
+  
+  for(var i=0; i < form.elements.length; i++){
+      if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
+        console.log('There are some required fields!');
+        return false;
+      }
+    }
+  
+  if (!validatePassword()) {
+    return false;
+  }
+  
+  onSignup();
+}
+
 </script>
 </body>
 </html>
