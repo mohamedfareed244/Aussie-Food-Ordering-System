@@ -232,7 +232,7 @@ console.log("the new object will be ",newobj)
 console.log("in adding ");
 customer.chat=newobj;
 await customers.findOneAndReplace({Email:customer.Email},customer).then(()=>{
-  console.log("updated ");
+return customer;
 })
 
 }
