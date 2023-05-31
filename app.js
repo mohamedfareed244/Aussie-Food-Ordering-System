@@ -93,9 +93,9 @@ app.get('/',(req,res)=>{
 });
 
 
-//   app.get("/addsection",function(req,res){
-//     res.render("add-section");
-// })
+   app.get("/emp",function(req,res){
+     res.render("admin-dashboard-menu");
+})
 
 //error handling 
 app.use((req,res)=>{

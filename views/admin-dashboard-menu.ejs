@@ -25,7 +25,9 @@
                 <li data-color=".featured">Individual meet</li>
                 <li data-color=".Special">Ready to eat</li>
                 <li data-color=".Arrivals">Desserts</li>
-                <li><a  class="sign" href="user_profile.html">Add Section</a></li>
+                <li><a  class="sign"  href="user_profile.html">Add Section</a></li>
+                <li><a  class="sign"  href="#" onclick="togglePopup()">Delete Section</a></li>
+                
                 <li><a  class="sign" href="user_profile.html">Add Meal</a></li>
                
             </div>
@@ -412,6 +414,33 @@
 
 </div>
 
+<div class="popup" id="popup-1">
+      
+    <div class="overlay"> </div>
+       <div class="content">
+          <div class="close-btn" onclick="togglePopup()">
+             &times;
+          </div>
+          <h1>choose section</h1>
+          <select Name="choose section" Size="Number_of_options">  
+            <option> ind meals </option>  
+            <option> healthy food </option>  
+            <option> ind meals </option>  
+            <option> healthy food </option>  
+          </select>
+
+
+        <button type="submit" class="registerbtn">Submit</button> 
+       </div>
+   
+    </div>
+
+    <script>
+       function togglePopup(){
+          // const togel=document.querySelector(".popup")
+          document.getElementById("popup-1").classList.toggle("active");
+       }
+    </script>
 
 
     <script src="../public/js/menu.js"></script>

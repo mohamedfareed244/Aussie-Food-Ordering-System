@@ -191,50 +191,23 @@
    
 
 <div class="conversation" style="overflow-y: auto;">
+    <%if(current_user!==null&&current_user!==undefined){%>
+        <%for(let i=0;i<current_user.chat.length;i++){ if(!current_user.chat[i].issent){%>
+            
     <div class="talkleft" >
         <!-- <img src="/images/user.png"> -->
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p><%=current_user.chat[i].msg%></p>
     </div>
+    <%}else{%>
     <div class="talkright" >
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p><%=current_user.chat[i].msg%></p>
         <!-- <img src="/images/user.png"> -->
     </div>
-    <div class="talkleft">
-        <!-- <img src="/images/user.png"> -->
-        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-    </div>
-    <div class="talkright">
-        <p>Lorem ipsum dolor sit amet.</p>
-        <!-- <img src="/images/user.png" -->
-</div>
-<div class="talkright">
-    <p>Lorem ipsum dolor sit amet.</p>
-    <!-- <img src="/images/user.png" -->
-</div>
-<div class="talkright">
-    <p>Lorem ipsum dolor sit amet.</p>
-    <!-- <img src="/images/user.png" -->
-</div>
-<div class="talkright">
-    <p>Lorem ipsum dolor sit amet.</p>
-    <!-- <img src="/images/user.png" -->
-</div>
-<div class="talkright">
-    <p>Lorem ipsum dolor sit amet.</p>
-    <!-- <img src="/images/user.png" -->
-</div>
-<div class="talkleft" >
-    <!-- <img src="/images/user.png"> -->
-    <p>Lorem ipsum dolor sit amet.</p>
-</div>
-<div class="talkleft" >
-    <!-- <img src="/images/user.png"> -->
-    <p>Lorem ipsum dolor sit amet.</p>
-</div>
-<div class="talkleft" >
-    <!-- <img src="/images/user.png"> -->
-    <p>Lorem ipsum dolor sit amet.</p>
-</div>
+   
+   
+<%}}}%>
+
+
 </div> 
 
 
@@ -285,6 +258,13 @@ socket.disconnect();
 }
 function sendmessage(){
     let msg=document.getElementById("msgbody").value;
+    document.getElementById("msgbody").value="";
+    let node=document.createElement("div");
+    node.className="talkright";
+    let node1=document.createElement("p");
+    node1.innerHTML=msg;
+    node.appendChild(node1);
+    document.getElementsByClassName("conversation")[0].appendChild(node);
     console.log("the value us ",msg);
     socket.broadcast.emit("sendtoadmin",({"body":msg}));
 }

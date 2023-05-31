@@ -104,7 +104,7 @@ else{
         break;
       }
     }
-  await remove_emp(sess.employee);
+  
 }
     console.log('user disconnected');
 
@@ -113,7 +113,8 @@ else{
 socket.on("sendtoadmin", async (msg)=>{
   await addmsg(sess.signed_customer,msg.body);
   await getmyemp(sess.signed_customer).then(async (o)=>{
-io.to(o).emit("getmessage",)
+    const ff=sess.signed_customer.Firstname+sess.signed_customer.Middlename;
+io.to(o).emit("getmessage",{"from":ff,"body":msg.body});
   })
 })
 });
