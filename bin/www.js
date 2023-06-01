@@ -116,6 +116,7 @@ await find_customer_socket(msg.id).then(async (o)=>{
 user=o;
 sess.signed_customer=o;
 await addmsgfromadmin(o.customer,msg.body).then((b)=>{
+  console.log("i will emit to socket ",o.soc);
   io.to(o.soc).emit("newmessage",{"msg":msg.body});
 })
 })

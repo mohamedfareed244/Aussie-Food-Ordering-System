@@ -250,9 +250,9 @@ document.getElementsByClassName("badge")[0].style.display="block";
   })
   socket.on("newmessage",(msg)=>{
     sou();
-    let text=msg.body;
+    let text=msg["msg"];
     let node =document.createElement("div");
-    node.id="talkright";
+    node.className="talkleft";
     let node1=document.createElement("p");
     node1.innerHTML=`${text}`;
     node.appendChild(node1);

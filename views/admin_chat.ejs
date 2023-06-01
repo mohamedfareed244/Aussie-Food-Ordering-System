@@ -162,9 +162,10 @@ async function sendmessage(id){
     let msg=document.getElementById("msg-text").value;
     document.getElementById("msg-text").value="";
     let node=document.createElement("div");
-    node.className="msg2";
+    node.id="msg2";
     let node1=document.createElement("p");
     node1.innerHTML=msg;
+    node1.id="msg-body";
     node.appendChild(node1);
     document.getElementById("message-body").appendChild(node);
     console.log("the value us ",msg);
