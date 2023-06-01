@@ -85,7 +85,7 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
   }
 }
   console.log('a user connected '+socket.id);
-  console.log("the id in socket is : "+sess);
+  
 
   socket.on('disconnect', async () => {
  if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
@@ -95,7 +95,10 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
       break;
     }
   }
-
+await remove_customer(sess.signed_customer);
+getmyemp(sess.signed_customer).then((o)=>{
+  io.to(o).emit("cust_disconnect",{"user":sess.signed_customer})
+})
  }
 else{
 

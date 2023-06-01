@@ -131,7 +131,9 @@ console.log("the is ",emp._id);
   for(let i=0;i<onlineemp.length;i++){
     console.log(onlineemp[i].curr.id);
     if(onlineemp[i].curr.id===emp._id){
+      console.log("the old emp is ",onlineemp[i]);
      onlineemp[i].sock=new_id;
+     console.log("the new emp is ",onlineemp[i]);
      console.log("the new id will be :"+new_id);
      break;
     }
@@ -296,7 +298,7 @@ for(let i=0;i<online_cus.length;i++){
  //
 async function remove_customer(cust){
   for(let i=0;i<online_cus.length;i++){
-    if(online_cus[i].customer.id===cust.id){
+    if(online_cus[i].customer._id===cust._id){
 if(onlineemp.length!=0){
       for(let j=0;j<onlineemp[online_cus[i].to].customers.length;j++){
         if(onlineemp[online_cus[i].to].customers[j].index===i){
@@ -305,11 +307,13 @@ if(onlineemp.length!=0){
           online_cus.splice(i,1);
           console.log("removed from both employees and customers");
 
-          return;
+          return cust;
         }
       }
     }else{
       online_cus.splice(i,1);
+      console.log("removed from customers only ");
+      return cust;
     }
 
     }
