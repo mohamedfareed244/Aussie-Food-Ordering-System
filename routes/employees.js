@@ -8,6 +8,7 @@ import {changepass} from "../controllers/employees-controllers.js";
 import {getallchats} from "../controllers/employees-controllers.js";
 import {getallchatssel} from "../controllers/employees-controllers.js";
 const router=Router();
+console.log(postemployees);
 //employees sign up 
  router.post("/", postemployees)
 //employees sign in 

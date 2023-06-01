@@ -192,7 +192,7 @@ for(let i=0;i<onlineemp.length;i++){
   console.log(onlineemp[i]);
   if(onlineemp[i].curr._id.valueOf()===emp._id){
     for(let j=0;j<onlineemp[i].customers.length;j++){
-obj.push(online_cus[j].customer);
+obj.push(online_cus[onlineemp[i].customers[j].index].customer);
     }
     
   }
@@ -317,7 +317,7 @@ if(onlineemp.length!=0){
   }
 }
 
-async function replacecust(cust){
+async function repcust(cust){
   for(let i=0;i<online_cus.length;i++){
     if(online_cus[i].customer._id===cust._id){
       online_cus[i].customer=cust;
@@ -326,7 +326,7 @@ async function replacecust(cust){
   }
 }
 
-export {replacecust,app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
+export {repcust,app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
 ,chg_custsock,getmyemp,remove_customer};
 
 

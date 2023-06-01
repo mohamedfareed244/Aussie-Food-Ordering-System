@@ -11,16 +11,18 @@
 <body>
     <%- include("partials/admin_sidebar") %>
     <div class="right">
+      
     <div id ="msg-area"  >
+      
         <div id ="customers-msgs">
 <ul id ="chat-list">
     <%connected.forEach((item)=>{%>
         <% if(selected._id===item._id){%>
             <li  onclick="location.href='/employees/profile/chat/details/<%=selected._id%>'" style="background-color: rgb(90, 84, 84);">
                 <img src="/images/user-chat.png" alt="" id="user-chat">
-                <span id="Name"><strong ><%=item.Firstname%> <%=item.Middlename%></strong></span>
+                <span id="Name" ><strong class="ss"><%=item.Firstname%> <%=item.Middlename%></strong></span>
                 
-                <p id ="phone" ><strong><%=item.Phone%></strong></p>
+                <p id ="phone" ><strong class="ss"><%=item.Phone%></strong></p>
                 </li>
             <%}else{%>
 <li onclick="location.href='/employees/profile/chat/details/<%=item._id%>'">
@@ -44,6 +46,7 @@
             <div id="top-chat">
                 <button id="end-btn">End Chat</button>
             </div>
+            
             <div id="message-body">
 <%for(let i=0;i<selected.chat.length;i++){if(selected.chat[i].issent){%>
     
@@ -122,6 +125,9 @@ node.appendChild(node4);
 
   })
   socket.on("getmessage",async (msg)=>{
+const tx1=document.getElementsByClassName("ss")[0].innerHTML;
+const tx2=document.getElementsByClassName("ss")[1].innerHTML;
+if(msg.from.name===tx1&&msg.from.phone===tx2){
     console.log("msg from ",msg.from);
     let node=document.createElement("div");
     node.id="msg1";
@@ -129,6 +135,7 @@ node.appendChild(node4);
     node.innerHTML=msg.body;
     node.appendChild(node1);
     document.getElementById("message-body").appendChild(node);
+}
 sou1();
   })
 

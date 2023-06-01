@@ -3,7 +3,7 @@ import {io} from "../bin/www.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
 import validator from 'validator';
-import { replacecust } from "../app.js";
+
 async function sendsms(User) {
 
   const trans = nodemailer.createTransport({
@@ -235,7 +235,6 @@ customer.chat=newobj;
 console.log("the email i wil search by sis ",customer.Email)
  await customers.findOneAndReplace({Email:customer.Email},customer);
   console.log("i willlll ",customer);
-  await replacecust(customer);
 return customer;
 
 
