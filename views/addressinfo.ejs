@@ -19,7 +19,7 @@
             <th>Apt</th>
             <th>Floor</th>
             <th>Building</th>
-            <th><button>Add new Adress</button></th>
+            <th><button  onclick="togglePopup()">Add new Adress</button></th>
         </tr>
         <tbody id="myTable">
 
@@ -44,6 +44,46 @@
 
   
 
+    <div class="popup" id="popup-1">
+      
+      <div class="overlay"> </div>
+         <div class="content">
+            <div class="close-btn" onclick="togglePopup()">
+               &times;
+            </div>
+            <h1>Orders</h1>
+            <table >
+               <thead>
+                   <tr>
+                       <td>
+                          Order ID
+                       </td>
+                       <td>
+                          Order Date
+                       </td> <td>
+                          total price
+                       </td> 
+                   </tr>
+               </thead>
+   
+               <tbody>
+                   <tr>
+                       <td>
+                          Pizza
+                       </td>
+                       <td>
+                         27-5-2012
+                       </td> <td>
+                         120$
+                       </td>
+                   </tr>
+         </div>
+     
+      </div>
+   
+   </div>
+    
+   
  
   
   
