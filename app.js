@@ -102,6 +102,7 @@ app.use((req,res)=>{
    res.render("error-page")
 })
 //
+
 let onlineemp=new Array();
 let online_cus=new Array();
 
@@ -141,7 +142,8 @@ async function add_customer(cust){
   let founded=false;
   let index;
   for(let i=0;i<online_cus.length;i++){
-if(online_cus[i].customer.id===cust.id){
+if(online_cus[i].customer._id===cust._id){
+  console.log("the online customer founded is ",online_cus[i]);
   founded=true;
   index=i;
   break;
@@ -149,11 +151,13 @@ if(online_cus[i].customer.id===cust.id){
   }
   if(!founded){
   const ind=online_cus.length;
+  console.log("the index in customer is ",ind);
  emp_index= await findforchat(cust,ind);
 
   const obj ={"customer":cust,"to":emp_index,"soc":"s"};
   await online_cus.push(obj);
-  
+  console.log("the onlone now is ",online_cus);
+  console.log("the customers size is io",online_cus.length);
   if(emp_index===null||emp_index===undefined){
     console.log("no employee founded ");
     return false;
@@ -237,6 +241,9 @@ if(onlineemp[i].chat<min.chat){
   }
   let obj={"index":ind};
   min.chat++;
+  console.log("now the emp has : ",min.chat);
+  console.log("the suggested place for the nre is ",ind);
+  console.log("the customers size is ",online_cus.length);
 min.customers.push(obj);
 return index;
  

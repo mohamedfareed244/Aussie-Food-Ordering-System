@@ -75,6 +75,7 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
     console.log("not sogned in")
     io.to(socket.id).emit("require signin",{});
   }
+
 }else{
   if(sess.employee===null||sess.employee===undefined){
     io.to(socket.id).emit("require signin",{});
@@ -94,9 +95,7 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
       break;
     }
   }
-  if(sess.signed_customer!==null||sess.signed_customer!==undefined){
-await remove_customer(sess.signed_customer);
-  }
+
  }
 else{
 
