@@ -22,9 +22,9 @@
         <h1>Sign In</h1>
         <h3>Aussie food to be enjoyed</h3>
         <form action='/customers/signin' method='post''>
-        <input type="text" id="idmail" name="phone" placeholder=" Email " >
+        <input type="text" id="idmail" name="phone" placeholder=" Email " required >
         <div id='mail' class='err'></div>
-        <input type="password"  name="password" id="idpass" placeholder=" Password" >
+        <input type="password"  name="password" id="idpass" placeholder=" Password" required >
         <div id='password' class='err'></div>
         <button type="submit" class="registerbtn" onclick="validate()">Sign In</button> 
     </form>
