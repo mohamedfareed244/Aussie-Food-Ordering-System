@@ -103,6 +103,7 @@ socket.on('recieve message',async (msg)=>{
     sou1();
 console.log("the recieved one is ",msg.from);
     let node=document.createElement("li");
+    node.id=`${msg.customer._id}`;
     node.addEventListener('click',()=>{
         location.href=`/employees/profile/chat/details/${msg.customer._id}`;
     })
@@ -124,6 +125,7 @@ node.appendChild(node1);
 node.appendChild(node2);
 node.appendChild(node4);
 let par=document.getElementById("chat-list");
+
 par.appendChild(node);
   })
   socket.on("getmessage",async (msg)=>{
@@ -143,7 +145,8 @@ sou1();
 
   socket.on("cust_disconnect",((o)=>{
 const eleme=document.getElementById(o.user._id);
-eleme.parentElement.remove();
+const par=document.getElementById("chat-list");
+par.removeChild(eleme);
   }))
   async function sou(){
 
