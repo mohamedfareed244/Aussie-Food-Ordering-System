@@ -7,7 +7,7 @@
 import {addmsg} from "../controllers/customers-controller.js"
 import {Server} from 'socket.io';
 import {addemp, app, findforchat,add_customer,chg_custsock,getmyemp
-,remove_customer} from "../app.js";
+,remove_customer,repcust} from "../app.js";
 import {find_soc,remove_emp} from "../app.js";
 
 import ios from "express-socket.io-session";
@@ -117,6 +117,7 @@ socket.on("sendtoadmin", async (msg)=>{
     console.log("add msg : ",c);
     sess.signed_customer=c;
     await getmyemp(sess.signed_customer).then(async (o)=>{
+      await repcust(sess.signed_customer);
       const ff=sess.signed_customer.Firstname+" "+sess.signed_customer.Middlename;
   io.to(o).emit("getmessage",{"from":{"name":ff,"phone":sess.signed_customer.Phone,"id":sess.signed_customer.id},"body":msg.body});
     })
