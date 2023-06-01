@@ -15,8 +15,8 @@
         <div id ="customers-msgs">
 <ul id ="chat-list">
     <%connected.forEach((item)=>{%>
-        <%if(selected.id===item.id){%>
-            <li onclick="location.href='/employees/profile/chat/details/<%=item.id%>'" style="background-color: rgb(90, 84, 84);">
+        <%if(selected._id===item._id){%>
+            <li onclick="location.href='/employees/profile/chat/details/<%=selected._id%>'" style="background-color: rgb(90, 84, 84);">
                 <img src="/images/user-chat.png" alt="" id="user-chat">
                 <span id="Name"><strong><%=item.Firstname%> <%=item.Middlename%></strong></span>
                 

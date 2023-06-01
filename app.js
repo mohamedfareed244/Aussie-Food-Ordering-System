@@ -202,7 +202,9 @@ return obj;
  async function addemp(emp){
   let founded=false;
   for(let i=0;i<onlineemp.length;i++){
-    if(onlineemp[i].curr.id===emp._id){
+    console.log("ind add emp 1",onlineemp[i].curr.id);
+    console.log("ind add emp 2",emp.id);
+    if(onlineemp[i].curr.id===emp.id){
 founded=true;
 break;
     }
