@@ -317,9 +317,16 @@ if(onlineemp.length!=0){
   }
 }
 
+async function replacecust(cust){
+  for(let i=0;i<online_cus.length;i++){
+    if(online_cus[i].customer._id===cust._id){
+      online_cus[i].customer=cust;
+      return;
+    }
+  }
+}
 
-
-export {app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
+export {replacecust,app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
 ,chg_custsock,getmyemp,remove_customer};
 
 

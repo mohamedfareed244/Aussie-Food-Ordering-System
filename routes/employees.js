@@ -6,6 +6,7 @@ import {confirmmail} from "../controllers/employees-controllers.js";
 import {empprof} from "../controllers/employees-controllers.js";
 import {changepass} from "../controllers/employees-controllers.js";
 import {getallchats} from "../controllers/employees-controllers.js";
+import {getallchatssel} from "../controllers/employees-controllers.js";
 const router=Router();
 //employees sign up 
  router.post("/", postemployees)
@@ -20,7 +21,7 @@ router.post("/profile/password/change",changepass);
 router.get("/signin",(req,res)=>{
   res.render("admin_signin",{alert:false});
 })
-router.get("/profile/chat/details/:id")
+router.get("/profile/chat/details/:id",getallchatssel);
 router.get("/profile/chat/details",getallchats);
 // app.get('/', (req, res) => 
 // {

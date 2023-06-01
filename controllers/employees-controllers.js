@@ -177,7 +177,7 @@ const getallchatssel= async (req,res)=>{
       console.log("all the connected is ",connected);
       let sel;
     for(let i=0;i<connected.length;i++){
-      if(connected[i].id===req.params.id){
+      if(connected[i]._id===req.params.id){
 sel=connected[i];
 break;
       }
