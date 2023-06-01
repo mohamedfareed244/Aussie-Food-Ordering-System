@@ -109,8 +109,9 @@ let online_cus=new Array();
 
 async function getmyemp(customer){
   let ob=null;
+  console.log("the cus is in ini ",customer);
  for(let i=0;i<online_cus.length;i++){
-  if(online_cus[i].customer.id===customer.id){
+  if(online_cus[i].customer._id===customer._id){
     console.log("the customer is : ",customer);
     console.log("the index is : ",online_cus[i].to);
     await find_soc(onlineemp[online_cus[i].to].curr).then((res)=>{
@@ -195,10 +196,19 @@ console.log("i will return with ",obj);
 return obj;
 }
  async function addemp(emp){
+  let founded=false;
+  for(let i=0;i<onlineemp.length;i++){
+    if(onlineemp[i].curr.id===emp._id){
+founded=true;
+break;
+    }
+  }
+  if(!founded){
   const obj ={curr:emp,orders:0,chat:0,sock:"String","customers":new Array()};
 onlineemp.push(obj);
 
 console.log("now "+onlineemp.length+" employees are conected ");
+ }
  }
  async function delemp(emp){
 for(let i=0;i<onlineemp.length;i++){

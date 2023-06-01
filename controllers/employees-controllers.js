@@ -164,7 +164,7 @@ const getallchats= async (req,res)=>{
       const connected= await get_customers(curr);
       console.log("all the connected is ",connected);
     console.log(connected[0].chat);
-res.render("admin_chat",{"connected":connected,"selected":connected.length==0?null:connected[0]});
+res.render("admin_chat",{"connected":connected,"selected":connected[0]});
         }
 }
 

@@ -94,7 +94,9 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
       break;
     }
   }
+  if(sess.signed_customer!==null||sess.signed_customer!==undefined){
 await remove_customer(sess.signed_customer);
+  }
  }
 else{
 
@@ -113,6 +115,7 @@ else{
 socket.on("sendtoadmin", async (msg)=>{
   console.log("now i will add")
   await addmsg(sess.signed_customer,msg.body).then(async(c)=>{
+    console.log("add msg : ",c);
     sess.signed_customer=c;
     await getmyemp(sess.signed_customer).then(async (o)=>{
       const ff=sess.signed_customer.Firstname+sess.signed_customer.Middlename;

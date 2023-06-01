@@ -65,7 +65,7 @@ overflow-y: auto;
     overflow: hidden;
     height: 60px;
     background-color: rgb(224, 220, 220);
-   border-top: 6px solid rgba(34, 33, 33, 0.521);;
+  
     transition: .5s;
 }
 #chat-list li:hover{
@@ -132,8 +132,8 @@ transition: .2s;
     position: relative;
     margin-top: 10px;
     float: left;
-    width: 50%;
-    
+    width: 52%;
+    padding: 5px;
     background-color: rgb(84, 209, 34);
     color: white;
    border-radius: 12px;

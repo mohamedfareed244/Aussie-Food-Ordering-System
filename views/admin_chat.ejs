@@ -45,18 +45,17 @@
                 <button id="end-btn">End Chat</button>
             </div>
             <div id="message-body">
-<%selected.chat.forEach((item)=>{%>
-    <%if(item.issent){%>
+<%for(let i=0;i<selected.chat.length;i++){if(selected.chat[i].issent){%>
     
                 <div id="msg1">
-<p id ="msg-body"><%=item.body%> </p>
+<p id ="msg-body"><%=selected.chat[i].msg%></p>
                 </div>
-               <%}else{%>
+              <%}else{%>
                 <div id="msg2">
-<p id ="msg-body"><%=item.body%></p>
+<p id ="msg-body"><%=selected.chat[i].msg%></p>
                 </div>
-                
-<%}})%>
+                <%}}%>
+
                 <div id ="msg-box">
                     <textarea name="" id="msg-text" cols="33" rows="4" placeholder="Enter Message Here " wrap="physical"></textarea>
                     <button id="send">Send</button>
