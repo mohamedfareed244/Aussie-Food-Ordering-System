@@ -95,10 +95,12 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
       break;
     }
   }
-await remove_customer(sess.signed_customer);
-getmyemp(sess.signed_customer).then((o)=>{
-  io.to(o).emit("cust_disconnect",{"user":sess.signed_customer})
-})
+  if(sess.signed_customer!==null&&sess.signed_customer!==undefined){
+let v=await remove_customer(sess.signed_customer);
+if(v!==null){
+  io.to(v).emit("cust_disconnect",{"user":sess.signed_customer});
+}
+  }
  }
 else{
 

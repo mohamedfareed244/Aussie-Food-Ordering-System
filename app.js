@@ -300,20 +300,23 @@ async function remove_customer(cust){
   for(let i=0;i<online_cus.length;i++){
     if(online_cus[i].customer._id===cust._id){
 if(onlineemp.length!=0){
+  console.log(online_cus[i]);
       for(let j=0;j<onlineemp[online_cus[i].to].customers.length;j++){
         if(onlineemp[online_cus[i].to].customers[j].index===i){
+         const h= await getmyemp(cust).then((o)=>{
           onlineemp[online_cus[i].to].chat--;
           onlineemp[online_cus[i].to].customers.splice(j,1);
           online_cus.splice(i,1);
           console.log("removed from both employees and customers");
-
-          return cust;
+ return o;
+})
+     return h;    
         }
       }
     }else{
       online_cus.splice(i,1);
       console.log("removed from customers only ");
-      return cust;
+      return null;
     }
 
     }

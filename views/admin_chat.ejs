@@ -18,18 +18,19 @@
 <ul id ="chat-list">
     <%connected.forEach((item)=>{%>
         <% if(selected._id===item._id){%>
-            <li  onclick="location.href='/employees/profile/chat/details/<%=selected._id%>'" style="background-color: rgb(90, 84, 84);">
+            <li  onclick="location.href='/employees/profile/chat/details/<%=selected._id%>'" style="background-color: rgb(90, 84, 84);"
+              id="<%=selected._id%>">
                 <img src="/images/user-chat.png" alt="" id="user-chat">
                 <span id="Name" ><strong class="ss"><%=item.Firstname%> <%=item.Middlename%></strong></span>
                 
-                <p id ="phone" ><strong class="ss"><%=item.Phone%></strong></p>
+                <p id ="phone" ><strong class="ss" class="ph"><%=item.Phone%></strong></p>
                 </li>
             <%}else{%>
-<li onclick="location.href='/employees/profile/chat/details/<%=item._id%>'">
+<li onclick="location.href='/employees/profile/chat/details/<%=item._id%>'" id="<%=item._id%>">
 <img src="/images/user-chat.png" alt="" id="user-chat">
 <span id="Name"><strong><%=item.Firstname%> <%=item.Middlename%></strong></span>
 
-<p id ="phone"><strong><%=item.Phone%></strong></p>
+<p id ="phone"><strong class="ph"><%=item.Phone%></strong></p>
 </li>
 
 <%}
@@ -140,7 +141,10 @@ if(msg.from.name===tx1&&msg.from.phone===tx2){
 sou1();
   })
 
-  
+  socket.on("cust_disconnect",((o)=>{
+const eleme=document.getElementById(o.user._id);
+eleme.parentElement.remove();
+  }))
   async function sou(){
 
     let audio = document.getElementById("audio");
