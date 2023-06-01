@@ -192,7 +192,18 @@ const customeror = async (req, res) => {
   res.render("customer_orders");
 }
 
-
+const customerchnagepass= async (req,res)=>{
+  if(req.session.signed_customer===undefined||req.session.signed_customer===null){
+    res.render("sign-in",{alert:true,text:"You must login first to access this section !"});
+        }
+        else{
+        const curr=req.session.signed_customer;
+        curr.Password=req.body.psw;
+        await customers.findOneAndReplace({Email:curr.Email},curr);
+        
+res.render("personalinfo",{user:req.session.signed_customer});
+        }
+}
 
 
 
