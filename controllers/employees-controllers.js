@@ -82,7 +82,10 @@ Password:""
   const getemployees= async (req, res) => {
  console.log(req.body.Email)
  console.log(req.body.password)
-const curr=await Emp.findOne({Email:req.body.Email,Password:req.body.password});
+let curr;
+await Emp.findOne({Email:req.body.Email,Password:req.body.password}).then((res)=>{
+  curr=res;
+})
 
 console.log(curr);
 if(curr===null||curr===undefined||!curr.verified){
@@ -160,13 +163,7 @@ const getallchats= async (req,res)=>{
         const curr=req.session.employee;
       const connected= await get_customers(curr);
       console.log("all the connected is ",connected);
-      let obj;
-      for(let i=0;i<connected.length;i++){
-        if(connected[i].id===requested){
-          obj=connected[i];
-          break;
-        }
-      }
+    console.log(connected[0].chat);
 res.render("admin_chat",{"connected":connected,"selected":connected.length==0?null:connected[0]});
         }
 }

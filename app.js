@@ -184,8 +184,8 @@ console.log("the mep is ",emp);
 const obj=new Array();
 for(let i=0;i<onlineemp.length;i++){
   console.log(onlineemp[i]);
-  if(onlineemp[i].curr._id===emp._id){
-    for(let j=0;j<onlineemp[i].customer.length;j++){
+  if(onlineemp[i].curr._id.valueOf()===emp._id){
+    for(let j=0;j<onlineemp[i].customers.length;j++){
 obj.push(online_cus[j].customer);
     }
     
