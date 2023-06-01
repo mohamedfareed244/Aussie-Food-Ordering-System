@@ -4,12 +4,12 @@
 // and listens for connections on the specified port.
 
 // Module dependencies
-import {addmsg} from "../controllers/customers-controller.js"
+import {addmsg,addmsgfromadmin} from "../controllers/customers-controller.js"
 import {Server} from 'socket.io';
 import {addemp, app, findforchat,add_customer,chg_custsock,getmyemp
-,remove_customer,repcust} from "../app.js";
+,remove_customer,repcust,find_customer_socket} from "../app.js";
 import {find_soc,remove_emp} from "../app.js";
-
+import {customers} from "../models/customers.js"
 import ios from "express-socket.io-session";
 import {chg_sock} from "../app.js";
 import mongoose from "mongoose";
@@ -50,7 +50,7 @@ io.on('connection',async (socket) => {
   const from=socket.handshake.headers.referer;
   console.log("from ",from);
 if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
-  console.log("customer detected ",socket.request.session.signed_customer);
+  console.log("customer detected ");
   if(socket.request.session.signed_customer!==null&&socket.request.session.signed_customer!==undefined){
     console.log("not null")
   await connected_customers.push(socket);
@@ -62,13 +62,13 @@ if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
 if(!finded){
   io.to(socket.id).emit("cantfind",{});
 }else{
-  chg_custsock(sess.signed_customer,socket.id);
+  await chg_custsock(sess.signed_customer,socket.id).then(async ()=>{
   await getmyemp(sess.signed_customer).then( (o)=>{
     console.log("get my emp returned with ",o);
 io.to(o).emit("newcustomer",{"customer":sess.signed_customer});
 io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
   })
-  
+})
 }
 
   }else{
@@ -85,7 +85,7 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
   }
 }
   console.log('a user connected '+socket.id);
-  console.log("the id in socket is : "+sess);
+  
 
   socket.on('disconnect', async () => {
  if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
@@ -95,7 +95,12 @@ io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
       break;
     }
   }
-
+  if(sess.signed_customer!==null&&sess.signed_customer!==undefined){
+let v=await remove_customer(sess.signed_customer);
+if(v!==null){
+  io.to(v).emit("cust_disconnect",{"user":sess.signed_customer});
+}
+  }
  }
 else{
 
@@ -108,8 +113,22 @@ else{
   
 }
     console.log('user disconnected');
-
   });
+  socket.on('sendtocustomer',async (msg)=>{
+    console.log("the admin emitted done ",msg.id)
+let user;
+await find_customer_socket(msg.id).then(async (o)=>{
+  console.log("the user returned is ",o);
+user=o.customer;
+sess.signed_customer=o.customer;
+await addmsgfromadmin(o.customer,msg.body).then((b)=>{
+  console.log("i will emit to socket ",o.soc);
+  io.to(o.soc).emit("newmessage",{"msg":msg.body});
+})
+})
+
+
+  })
 
 socket.on("sendtoadmin", async (msg)=>{
   console.log("now i will add")

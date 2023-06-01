@@ -248,6 +248,16 @@ document.getElementsByClassName("badge")[0].style.display="block";
 
 
   })
+  socket.on("newmessage",(msg)=>{
+    sou();
+    let text=msg["msg"];
+    let node =document.createElement("div");
+    node.className="talkleft";
+    let node1=document.createElement("p");
+    node1.innerHTML=`${text}`;
+    node.appendChild(node1);
+    document.getElementsByClassName("conversation")[0].appendChild(node);
+  })
   socket.on('connects_emp',(emp)=>{
    document.getElementById("waiting").style.display="none";
     clearInterval(interv);

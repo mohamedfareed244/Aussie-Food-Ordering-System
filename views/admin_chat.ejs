@@ -18,18 +18,19 @@
 <ul id ="chat-list">
     <%connected.forEach((item)=>{%>
         <% if(selected._id===item._id){%>
-            <li  onclick="location.href='/employees/profile/chat/details/<%=selected._id%>'" style="background-color: rgb(90, 84, 84);">
+            <li  onclick="location.href='/employees/profile/chat/details/<%=selected._id%>'" style="background-color: rgb(90, 84, 84);"
+              id="<%=selected._id%>">
                 <img src="/images/user-chat.png" alt="" id="user-chat">
                 <span id="Name" ><strong class="ss"><%=item.Firstname%> <%=item.Middlename%></strong></span>
                 
-                <p id ="phone" ><strong class="ss"><%=item.Phone%></strong></p>
+                <p id ="phone" ><strong class="ss" class="ph"><%=item.Phone%></strong></p>
                 </li>
             <%}else{%>
-<li onclick="location.href='/employees/profile/chat/details/<%=item._id%>'">
+<li onclick="location.href='/employees/profile/chat/details/<%=item._id%>'" id="<%=item._id%>">
 <img src="/images/user-chat.png" alt="" id="user-chat">
 <span id="Name"><strong><%=item.Firstname%> <%=item.Middlename%></strong></span>
 
-<p id ="phone"><strong><%=item.Phone%></strong></p>
+<p id ="phone"><strong class="ph"><%=item.Phone%></strong></p>
 </li>
 
 <%}
@@ -62,8 +63,8 @@
                
             </div>
             <div id ="msg-box">
-                <textarea name="" id="msg-text" cols="33" rows="4" placeholder="Enter Message Here " wrap="physical"></textarea>
-                <button id="send">Send</button>
+                <textarea name="msgcontent" id="msg-text" cols="33" rows="4" placeholder="Enter Message Here " wrap="physical"></textarea>
+                <button id="send" onclick="sendmessage('<%=selected._id%>')">Send</button>
             </div>
         </div>
     </div>
@@ -100,10 +101,11 @@ socket.on('recieve message',async (msg)=>{
   socket.on("newcustomer",async (msg)=>{
   
     sou1();
-console.log("the recieved one is ",msg.from);
+console.log("the recieved one is ",msg.customer);
     let node=document.createElement("li");
+    node.id=`${msg.customer._id}`;
     node.addEventListener('click',()=>{
-        location.href=`/employees/profile/chat/details/${msg.from.id}`;
+        location.href=`/employees/profile/chat/details/${msg.customer._id}`;
     })
 let node1=document.createElement("img");
 node1.src="/images/user-chat.png";
@@ -111,18 +113,20 @@ node1.id="user-chat";
 let node2=document.createElement("span");
 node2.id="Name";
 let node3=document.createElement("strong");
-node3.innerHTML=msg.from.name;
+let tex=msg.customer.Firstname+" "+msg.customer.Middlename;
+node3.innerHTML=`${tex}`;
 let node4 =document.createElement("p");
 node4.id="phone";
 let node5 =document.createElement("strong");
-node4.innerHTML=msg.from.phone;
+node4.innerHTML=msg.customer.Phone;
 node2.appendChild(node3);
 node4.appendChild(node5);
 node.appendChild(node1);
 node.appendChild(node2);
 node.appendChild(node4);
+let par=document.getElementById("chat-list");
 
-
+par.appendChild(node);
   })
   socket.on("getmessage",async (msg)=>{
 const tx1=document.getElementsByClassName("ss")[0].innerHTML;
@@ -139,7 +143,11 @@ if(msg.from.name===tx1&&msg.from.phone===tx2){
 sou1();
   })
 
-  
+  socket.on("cust_disconnect",((o)=>{
+const eleme=document.getElementById(o.user._id);
+const par=document.getElementById("chat-list");
+par.removeChild(eleme);
+  }))
   async function sou(){
 
     let audio = document.getElementById("audio");
@@ -156,7 +164,20 @@ console.log(err);
 })
 
 }
-
+async function sendmessage(id){
+    console.log("socket must be = ",socket);
+    let msg=document.getElementById("msg-text").value;
+    document.getElementById("msg-text").value="";
+    let node=document.createElement("div");
+    node.id="msg2";
+    let node1=document.createElement("p");
+    node1.innerHTML=msg;
+    node1.id="msg-body";
+    node.appendChild(node1);
+    document.getElementById("message-body").appendChild(node);
+    console.log("the value us ",msg);
+    socket.emit("sendtocustomer",({"body":msg,"id":id}));
+}
   
 </script>
 </html>

@@ -7,6 +7,8 @@ import {customeror} from "../controllers/customers-controller.js";
 import {customerml} from "../controllers/customers-controller.js";
 import {customeraddr} from "../controllers/customers-controller.js";
 import {customerfav} from "../controllers/customers-controller.js";
+import {customerchnagepass} from "../controllers/customers-controller.js";
+
 const router=Router();
 
 router.post('/signup', postcustomers );
@@ -19,7 +21,7 @@ router.post('/signup', postcustomers );
     res.render("sign-in",{alert:false});
   });
   router.get('/profile/login',customerpr);
-
+  router.post('/profile/login/changepass',customerchnagepass);
   router.get('/profile/orders',customeror);
 router.get('/profile/favs',customerfav);
   router.get('/mail/validation/:id',customerml);

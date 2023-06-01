@@ -110,11 +110,11 @@ let online_cus=new Array();
 
 async function getmyemp(customer){
   let ob=null;
-  console.log("the cus is in ini ",customer);
+  
  for(let i=0;i<online_cus.length;i++){
   if(online_cus[i].customer._id===customer._id){
-    console.log("the customer is : ",customer);
-    console.log("the index is : ",online_cus[i].to);
+   
+    
     await find_soc(onlineemp[online_cus[i].to].curr).then((res)=>{
       console.log("the returned socket is ",res);
       ob=res;
@@ -131,7 +131,9 @@ console.log("the is ",emp._id);
   for(let i=0;i<onlineemp.length;i++){
     console.log(onlineemp[i].curr.id);
     if(onlineemp[i].curr.id===emp._id){
+      console.log("the old emp is ",onlineemp[i]);
      onlineemp[i].sock=new_id;
+     console.log("the new emp is ",onlineemp[i]);
      console.log("the new id will be :"+new_id);
      break;
     }
@@ -177,8 +179,11 @@ if(online_cus[i].customer._id===cust._id){
 }
 
 async function chg_custsock(cust,new_id){
+  console.log("in chg cus")
   for(let i=0;i<online_cus.length;i++){
-    if(online_cus[i].id===cust.id){
+    if(online_cus[i].customer._id===cust._id){
+      console.log("i will change ",cust._id);
+      console.log("to ",new_id);
 online_cus[i].soc=new_id;
 break;
     }
@@ -186,7 +191,7 @@ break;
 }
 async function get_customers(emp){
 let index;
-console.log("the mep is ",emp);
+
 const obj=new Array();
 for(let i=0;i<onlineemp.length;i++){
   console.log(onlineemp[i]);
@@ -197,14 +202,13 @@ obj.push(online_cus[onlineemp[i].customers[j].index].customer);
     
   }
 }
-console.log("i will return with ",obj);
+
 return obj;
 }
  async function addemp(emp){
   let founded=false;
   for(let i=0;i<onlineemp.length;i++){
-    console.log("ind add emp 1",onlineemp[i].curr.id);
-    console.log("ind add emp 2",emp.id);
+    
     if(onlineemp[i].curr.id===emp.id){
 founded=true;
 break;
@@ -232,7 +236,7 @@ for(let i=0;i<onlineemp.length;i++){
     return null;
   }
   
-  console.log("in find for chat the object is ",customer);
+  console.log("in find for chat the object is ");
   let min=onlineemp[0];
   let index=0;
   for(let i=0;i<onlineemp.length;i++){
@@ -268,7 +272,7 @@ if(onlineemp[i].orders<min.orders){
  //
  async function find_soc(emp){
   
-console.log("red : ",emp);
+
   for(let i=0;i<onlineemp.length;i++){
     if(onlineemp[i].curr.id===emp.id){
       return onlineemp[i].sock;
@@ -286,10 +290,10 @@ console.log("red : ",emp);
   }
 }
  //
- async function find_customer_socket(customer){
+ async function find_customer_socket(id){
 for(let i=0;i<online_cus.length;i++){
-  if(online_cus[i].customer.id===customer.id){
-    return online_cus[i].soc;
+  if(online_cus[i].customer._id===id){
+    return online_cus[i];
   }
 }
 
@@ -297,20 +301,25 @@ for(let i=0;i<online_cus.length;i++){
  //
 async function remove_customer(cust){
   for(let i=0;i<online_cus.length;i++){
-    if(online_cus[i].customer.id===cust.id){
+    if(online_cus[i].customer._id===cust._id){
 if(onlineemp.length!=0){
+  console.log(online_cus[i]);
       for(let j=0;j<onlineemp[online_cus[i].to].customers.length;j++){
         if(onlineemp[online_cus[i].to].customers[j].index===i){
+         const h= await getmyemp(cust).then((o)=>{
           onlineemp[online_cus[i].to].chat--;
           onlineemp[online_cus[i].to].customers.splice(j,1);
           online_cus.splice(i,1);
           console.log("removed from both employees and customers");
-
-          return;
+ return o;
+})
+     return h;    
         }
       }
     }else{
       online_cus.splice(i,1);
+      console.log("removed from customers only ");
+      return null;
     }
 
     }
@@ -327,7 +336,7 @@ async function repcust(cust){
 }
 
 export {repcust,app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
-,chg_custsock,getmyemp,remove_customer};
+,chg_custsock,getmyemp,remove_customer,find_customer_socket};
 
 
 

@@ -192,7 +192,18 @@ const customeror = async (req, res) => {
   res.render("customer_orders");
 }
 
-
+const customerchnagepass= async (req,res)=>{
+  if(req.session.signed_customer===undefined||req.session.signed_customer===null){
+    res.render("sign-in",{alert:true,text:"You must login first to access this section !"});
+        }
+        else{
+        const curr=req.session.signed_customer;
+        curr.Password=req.body.psw;
+        await customers.findOneAndReplace({Email:curr.Email},curr);
+        
+res.render("personalinfo",{customer:req.session.signed_customer});
+        }
+}
 
 
 
@@ -229,14 +240,26 @@ const addmsg= async (customer,msg)=>{
 const obj={"msg":msg,issent:true};
 await customer.chat.push(obj);
 const newobj=await customer.chat;
-console.log("the new object will be ",newobj)
+
 console.log("in adding ");
 customer.chat=newobj;
-console.log("the email i wil search by sis ",customer.Email)
+
  await customers.findOneAndReplace({Email:customer.Email},customer);
-  console.log("i willlll ",customer);
+ 
 return customer;
-
-
 }
-export { addmsg,getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav };
+
+
+const addmsgfromadmin= async (customer,msg)=>{
+  const obj={"msg":msg,issent:false};
+  await customer.chat.push(obj);
+  const newobj=await customer.chat;
+ 
+  console.log("in adding ");
+  customer.chat=newobj;
+ 
+   await customers.findOneAndReplace({Email:customer.Email},customer);
+   
+  return customer;
+  }
+export { addmsg,getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav ,addmsgfromadmin,customerchnagepass};
