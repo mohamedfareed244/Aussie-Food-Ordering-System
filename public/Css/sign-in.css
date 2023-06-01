@@ -3,7 +3,7 @@ body{
     background-size: cover;
     background-blend-mode: darken;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
- 
+ overflow: hidden;
  }
  
 .container{
@@ -152,3 +152,12 @@ div.err
   }
  
 /* alert */
+#waitsign{
+  display: none;
+position: relative;
+top: -640px;
+left: -10px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(7, 7, 7, 0.218);
+}

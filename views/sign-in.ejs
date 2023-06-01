@@ -26,12 +26,12 @@
 
         <h1>Sign In</h1>
         <h3>Aussie food to be enjoyed</h3>
-        <form action='/customers/signin' method='post' onsubmit='return validate(this)'>
+        <form action='/customers/signin' method='post' onsubmit='validate()'>
         <input type="text" id="idmail" name="phone" placeholder=" Email " >
         <div id='mail' class='err'></div>
         <input type="password"  name="password" id="idpass" placeholder=" Password" >
         <div id='password' class='err'></div>
-        <button type="submit" class="registerbtn">Sign In</button> 
+        <button type="submit" class="registerbtn" onclick="validate()">Sign In</button> 
     </form>
 
     <div class="icon">
@@ -52,6 +52,10 @@
             <p style="text-align: left; margin-top: 10%; margin-left: 10px; color: black;"> <a href="register.html" style="color: crimson;">Register?</a></p>       
 
     </div>
+ 
 
 </body>
+<div id="waitsign">
+   <img src="/images/1amw.gif" alt="" style="margin-top: 17%; width: 300px; height: 300px;">
+</div>
 </html>

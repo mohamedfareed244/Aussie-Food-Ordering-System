@@ -27,18 +27,10 @@ function validatepassword(field)
         return true;
     }
 }
-function validate(form)
+function validate()
 {
-    let fail='';
-    fail&=validateemail(form.idmail.value);
-    fail&=validatepassword(form.idpass.value);
-    
-
-    if(fail)
-        return true;
-    else{
-        return false;
-    }
+    document.getElementById("waitsign").style.display="block";
+ 
 }
 
 
