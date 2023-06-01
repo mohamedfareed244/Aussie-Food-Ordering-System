@@ -117,8 +117,8 @@ socket.on("sendtoadmin", async (msg)=>{
     console.log("add msg : ",c);
     sess.signed_customer=c;
     await getmyemp(sess.signed_customer).then(async (o)=>{
-      const ff=sess.signed_customer.Firstname+sess.signed_customer.Middlename;
-  io.to(o).emit("getmessage",{"from":ff,"body":msg.body});
+      const ff=sess.signed_customer.Firstname+" "+sess.signed_customer.Middlename;
+  io.to(o).emit("getmessage",{"from":{"name":ff,"phone":sess.signed_customer.Phone,"id":sess.signed_customer.id},"body":msg.body});
     })
   })
   })

@@ -9,6 +9,7 @@
     <script src="/js/register.js"></script>
 
     <title>Document</title>
+   
     <div class="alert" >
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
       <strong>Attenion</strong><span id="inalert"></span> 
@@ -16,9 +17,9 @@
 </head>
 
 <body>
-
+  
     <%- include("partials/admin_sidebar") %>
-
+    
    
     <div class="wrapper">
     <div class="right">
@@ -62,7 +63,7 @@
 </body>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
-let func;
+
   var socket = io();
   socket.on('connect',()=>{
     console.log("socket id "+socket.id);
