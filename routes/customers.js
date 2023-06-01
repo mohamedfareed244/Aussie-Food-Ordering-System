@@ -7,6 +7,8 @@ import {customeror} from "../controllers/customers-controller.js";
 import {customerml} from "../controllers/customers-controller.js";
 import {customeraddr} from "../controllers/customers-controller.js";
 import {customerfav} from "../controllers/customers-controller.js";
+import {customerchnagepass} from "../controllers/customers-controller.js";
+
 const router=Router();
 
 router.post('/signup', postcustomers );
