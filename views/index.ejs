@@ -246,7 +246,7 @@ location.href='/customers/signin';
 document.getElementById("spin").innerHTML="wait while we connecting you to agent ";
 document.getElementsByClassName("badge")[0].style.display="block";
 
-socket.disconnect();
+
   })
   socket.on('connects_emp',(emp)=>{
    document.getElementById("waiting").style.display="none";

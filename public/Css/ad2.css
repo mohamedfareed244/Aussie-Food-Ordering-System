@@ -126,7 +126,7 @@ transition: .2s;
     width: 100%;
     height: 95.5%;
    
-    overflow: hidden;
+    overflow: auto;
 }
 #msg1{
     position: relative;
