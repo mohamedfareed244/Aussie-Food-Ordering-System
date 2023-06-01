@@ -4,12 +4,12 @@
 // and listens for connections on the specified port.
 
 // Module dependencies
-import {addmsg} from "../controllers/customers-controller.js"
+import {addmsg,addmsgfromadmin} from "../controllers/customers-controller.js"
 import {Server} from 'socket.io';
 import {addemp, app, findforchat,add_customer,chg_custsock,getmyemp
-,remove_customer,repcust} from "../app.js";
+,remove_customer,repcust,find_customer_socket} from "../app.js";
 import {find_soc,remove_emp} from "../app.js";
-
+import {customers} from "../models/customers.js"
 import ios from "express-socket.io-session";
 import {chg_sock} from "../app.js";
 import mongoose from "mongoose";
@@ -109,6 +109,19 @@ else{
 }
     console.log('user disconnected');
   });
+  socket.on('sendtocustomer',async (msg)=>{
+    console.log("the admin emitted done ")
+let user;
+await find_customer_socket(msg.id).then(async (o)=>{
+user=o;
+sess.signed_customer=o;
+await addmsgfromadmin(o.customer,msg.body).then((b)=>{
+  io.to(o.soc).emit("newmessage",{"msg":msg.body});
+})
+})
+
+
+  })
 
 socket.on("sendtoadmin", async (msg)=>{
   console.log("now i will add")

@@ -62,8 +62,8 @@
                
             </div>
             <div id ="msg-box">
-                <textarea name="" id="msg-text" cols="33" rows="4" placeholder="Enter Message Here " wrap="physical"></textarea>
-                <button id="send">Send</button>
+                <textarea name="msgcontent" id="msg-text" cols="33" rows="4" placeholder="Enter Message Here " wrap="physical"></textarea>
+                <button id="send" onclick="sendmessage('<%=selected._id%>')">Send</button>
             </div>
         </div>
     </div>
@@ -157,7 +157,19 @@ console.log(err);
 })
 
 }
-
+async function sendmessage(id){
+    console.log("socket must be = ",socket);
+    let msg=document.getElementById("msg-text").value;
+    document.getElementById("msg-text").value="";
+    let node=document.createElement("div");
+    node.className="msg2";
+    let node1=document.createElement("p");
+    node1.innerHTML=msg;
+    node.appendChild(node1);
+    document.getElementById("message-body").appendChild(node);
+    console.log("the value us ",msg);
+    socket.emit("sendtocustomer",({"body":msg,"id":id}));
+}
   
 </script>
 </html>

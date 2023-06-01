@@ -286,10 +286,10 @@ console.log("red : ",emp);
   }
 }
  //
- async function find_customer_socket(customer){
+ async function find_customer_socket(id){
 for(let i=0;i<online_cus.length;i++){
-  if(online_cus[i].customer.id===customer.id){
-    return online_cus[i].soc;
+  if(online_cus[i].customer._id===id){
+    return online_cus[i];
   }
 }
 
@@ -327,7 +327,7 @@ async function repcust(cust){
 }
 
 export {repcust,app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
-,chg_custsock,getmyemp,remove_customer};
+,chg_custsock,getmyemp,remove_customer,find_customer_socket};
 
 
 
