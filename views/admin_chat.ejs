@@ -103,7 +103,7 @@ socket.on('recieve message',async (msg)=>{
 console.log("the recieved one is ",msg.from);
     let node=document.createElement("li");
     node.addEventListener('click',()=>{
-        location.href=`/employees/profile/chat/details/${msg.from.id}`;
+        location.href=`/employees/profile/chat/details/${msg.customer._id}`;
     })
 let node1=document.createElement("img");
 node1.src="/images/user-chat.png";
@@ -111,18 +111,19 @@ node1.id="user-chat";
 let node2=document.createElement("span");
 node2.id="Name";
 let node3=document.createElement("strong");
-node3.innerHTML=msg.from.name;
+let tex=msg.customer.Firstname+" "+msg.customer.Middlename;
+node3.innerHTML=`${tex}`;
 let node4 =document.createElement("p");
 node4.id="phone";
 let node5 =document.createElement("strong");
-node4.innerHTML=msg.from.phone;
+node4.innerHTML=msg.customer.Phone;
 node2.appendChild(node3);
 node4.appendChild(node5);
 node.appendChild(node1);
 node.appendChild(node2);
 node.appendChild(node4);
-
-
+let par=document.getElementById("chat-list");
+par.appendChild(node);
   })
   socket.on("getmessage",async (msg)=>{
 const tx1=document.getElementsByClassName("ss")[0].innerHTML;
