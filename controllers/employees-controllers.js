@@ -167,5 +167,23 @@ const getallchats= async (req,res)=>{
 res.render("admin_chat",{"connected":connected,"selected":connected[0]});
         }
 }
+const getallchatssel= async (req,res)=>{
+  if(req.session.employee===undefined||req.session.employee===null){
+    res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
+        }
+        else{
+        const curr=req.session.employee;
+      const connected= await get_customers(curr);
+      console.log("all the connected is ",connected);
+      let sel;
+    for(let i=0;i<connected.length;i++){
+      if(connected[i].id===req.params.id){
+sel=connected[i];
+break;
+      }
+    }
+res.render("admin_chat",{"connected":connected,"selected":sel});
+        }
+}
 
-  export {getemployees,postemployees,confirmmail,empprof,changepass,getallchats};
+  export {getallchatssel,getemployees,postemployees,confirmmail,empprof,changepass,getallchats};

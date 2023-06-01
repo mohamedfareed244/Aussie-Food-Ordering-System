@@ -95,12 +95,12 @@ socket.on('recieve message',async (msg)=>{
     location.href='/employees/signin';
   })
   socket.on("newcustomer",async (msg)=>{
-    displayalert("New customer connected to chat ");
+  
     sou1();
-
+console.log("the recieved one is ",msg.from);
     let node=document.createElement("li");
     node.addEventListener('click',()=>{
-        location.href=`/employees/profile/chat/detaisl/${msg.from.id}`;
+        location.href=`/employees/profile/chat/details/${msg.from.id}`;
     })
 let node1=document.createElement("img");
 node1.src="/images/user-chat.png";
@@ -131,11 +131,7 @@ node.appendChild(node4);
     document.getElementById("message-body").appendChild(node);
 sou1();
   })
-  async function displayalert(text){
-    document.getElementById("inalert").innerHTML=text;
-document.getElementsByClassName("alert")[0].style.display="block";
 
-  }
   
   async function sou(){
 

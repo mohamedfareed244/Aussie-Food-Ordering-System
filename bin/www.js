@@ -134,7 +134,7 @@ async function startServer() {
     console.log(MURI)
     await mongoose.connect(`${MURI}`);
     console.log("Connected to MongoDB");
-    server.listen(PORT);
+    server.listen(PORT,"0.0.0.0");
     server.on("error", onError);
     server.on("listening", onListening);
     console.log(`Server running at http://${HOST}:${PORT}/`);

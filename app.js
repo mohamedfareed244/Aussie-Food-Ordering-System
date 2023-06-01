@@ -165,11 +165,12 @@ if(online_cus[i].customer._id===cust._id){
     return true;
   }
   }else{
-
-  if(online_cus[index].emp_index===null||online_cus[index].emp_index===undefined){
+    online_cus[index].to= await findforchat(online_cus[index],index);
+  if(online_cus[index].to===null||online_cus[index].to===undefined){
     console.log("no employee founded ");
     return false;
   }else{
+    
   return true;
   }
 }
