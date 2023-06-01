@@ -115,7 +115,7 @@ else{
     console.log('user disconnected');
   });
   socket.on('sendtocustomer',async (msg)=>{
-    console.log("the admin emitted done ")
+    console.log("the admin emitted done ",msg.id)
 let user;
 await find_customer_socket(msg.id).then(async (o)=>{
 user=o;

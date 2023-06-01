@@ -101,7 +101,7 @@ socket.on('recieve message',async (msg)=>{
   socket.on("newcustomer",async (msg)=>{
   
     sou1();
-console.log("the recieved one is ",msg.from);
+console.log("the recieved one is ",msg.customer);
     let node=document.createElement("li");
     node.id=`${msg.customer._id}`;
     node.addEventListener('click',()=>{

@@ -146,6 +146,9 @@ const getchats= async (req,res)=>{
       const connected= await get_customers(curr);
       const requested=req.params.id;
       let obj;
+      if(connected.length==0){
+        res.redirect("/employees/profile");
+      }
       for(let i=0;i<connected.length;i++){
         if(connected[i].id===requested){
           obj=connected[i];
@@ -162,9 +165,15 @@ const getallchats= async (req,res)=>{
         else{
         const curr=req.session.employee;
       const connected= await get_customers(curr);
+    console.log("the number is ",connected.length)
+      if(connected.length==0){
+        console.log("yesssss")
+        res.redirect("/employees/profile");
+      }else{
       console.log("all the connected is ",connected);
     console.log(connected[0].chat);
 res.render("admin_chat",{"connected":connected,"selected":connected[0]});
+      }
         }
 }
 const getallchatssel= async (req,res)=>{
