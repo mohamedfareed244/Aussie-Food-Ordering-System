@@ -199,9 +199,9 @@ const customerchnagepass= async (req,res)=>{
         else{
         const curr=req.session.signed_customer;
         curr.Password=req.body.psw;
-        await customers.findOneAndReplace({Email:curr.Email},curr);
+        await customers.findOneAndReplace({Email:customer.Email},customer);
         
-res.render("personalinfo",{user:req.session.signed_customer});
+res.render("personalinfo",{customer:req.session.signed_customer});
         }
 }
 
