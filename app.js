@@ -186,7 +186,7 @@ break;
 }
 async function get_customers(emp){
 let index;
-console.log("the mep is ",emp);
+
 const obj=new Array();
 for(let i=0;i<onlineemp.length;i++){
   console.log(onlineemp[i]);
@@ -197,14 +197,13 @@ obj.push(online_cus[onlineemp[i].customers[j].index].customer);
     
   }
 }
-console.log("i will return with ",obj);
+
 return obj;
 }
  async function addemp(emp){
   let founded=false;
   for(let i=0;i<onlineemp.length;i++){
-    console.log("ind add emp 1",onlineemp[i].curr.id);
-    console.log("ind add emp 2",emp.id);
+    
     if(onlineemp[i].curr.id===emp.id){
 founded=true;
 break;
@@ -232,7 +231,7 @@ for(let i=0;i<onlineemp.length;i++){
     return null;
   }
   
-  console.log("in find for chat the object is ",customer);
+  console.log("in find for chat the object is ");
   let min=onlineemp[0];
   let index=0;
   for(let i=0;i<onlineemp.length;i++){
@@ -268,7 +267,7 @@ if(onlineemp[i].orders<min.orders){
  //
  async function find_soc(emp){
   
-console.log("red : ",emp);
+
   for(let i=0;i<onlineemp.length;i++){
     if(onlineemp[i].curr.id===emp.id){
       return onlineemp[i].sock;
