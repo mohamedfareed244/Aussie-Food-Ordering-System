@@ -110,11 +110,11 @@ let online_cus=new Array();
 
 async function getmyemp(customer){
   let ob=null;
-  console.log("the cus is in ini ",customer);
+  
  for(let i=0;i<online_cus.length;i++){
   if(online_cus[i].customer._id===customer._id){
-    console.log("the customer is : ",customer);
-    console.log("the index is : ",online_cus[i].to);
+   
+    
     await find_soc(onlineemp[online_cus[i].to].curr).then((res)=>{
       console.log("the returned socket is ",res);
       ob=res;
@@ -179,8 +179,11 @@ if(online_cus[i].customer._id===cust._id){
 }
 
 async function chg_custsock(cust,new_id){
+  console.log("in chg cus")
   for(let i=0;i<online_cus.length;i++){
-    if(online_cus[i].id===cust.id){
+    if(online_cus[i].customer._id===cust._id){
+      console.log("i will change ",cust._id);
+      console.log("to ",new_id);
 online_cus[i].soc=new_id;
 break;
     }

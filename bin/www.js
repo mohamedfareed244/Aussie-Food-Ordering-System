@@ -50,7 +50,7 @@ io.on('connection',async (socket) => {
   const from=socket.handshake.headers.referer;
   console.log("from ",from);
 if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
-  console.log("customer detected ",socket.request.session.signed_customer);
+  console.log("customer detected ");
   if(socket.request.session.signed_customer!==null&&socket.request.session.signed_customer!==undefined){
     console.log("not null")
   await connected_customers.push(socket);
@@ -62,13 +62,13 @@ if(from==="http://127.0.0.1:3001/"||from==="http://127.0.0.1:3001"){
 if(!finded){
   io.to(socket.id).emit("cantfind",{});
 }else{
-  chg_custsock(sess.signed_customer,socket.id);
+  await chg_custsock(sess.signed_customer,socket.id).then(async ()=>{
   await getmyemp(sess.signed_customer).then( (o)=>{
     console.log("get my emp returned with ",o);
 io.to(o).emit("newcustomer",{"customer":sess.signed_customer});
 io.to(socket.id).emit("connects_emp",{"name":"mohamed fareed"});
   })
-  
+})
 }
 
   }else{
@@ -118,8 +118,9 @@ else{
     console.log("the admin emitted done ",msg.id)
 let user;
 await find_customer_socket(msg.id).then(async (o)=>{
-user=o;
-sess.signed_customer=o;
+  console.log("the user returned is ",o);
+user=o.customer;
+sess.signed_customer=o.customer;
 await addmsgfromadmin(o.customer,msg.body).then((b)=>{
   console.log("i will emit to socket ",o.soc);
   io.to(o.soc).emit("newmessage",{"msg":msg.body});

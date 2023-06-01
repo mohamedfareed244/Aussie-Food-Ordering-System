@@ -240,12 +240,12 @@ const addmsg= async (customer,msg)=>{
 const obj={"msg":msg,issent:true};
 await customer.chat.push(obj);
 const newobj=await customer.chat;
-console.log("the new object will be ",newobj)
+
 console.log("in adding ");
 customer.chat=newobj;
-console.log("the email i wil search by sis ",customer.Email)
+
  await customers.findOneAndReplace({Email:customer.Email},customer);
-  console.log("i willlll ",customer);
+ 
 return customer;
 }
 
@@ -254,12 +254,12 @@ const addmsgfromadmin= async (customer,msg)=>{
   const obj={"msg":msg,issent:false};
   await customer.chat.push(obj);
   const newobj=await customer.chat;
-  console.log("the new object will be ",newobj)
+ 
   console.log("in adding ");
   customer.chat=newobj;
-  console.log("the email i wil search by sis ",customer.Email)
+ 
    await customers.findOneAndReplace({Email:customer.Email},customer);
-    console.log("i willlll ",customer);
+   
   return customer;
   }
 export { addmsg,getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav ,addmsgfromadmin,customerchnagepass};
