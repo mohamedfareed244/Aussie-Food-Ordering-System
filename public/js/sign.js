@@ -1,19 +1,11 @@
 function validateemail(field)
 {
     if(field==''){
-        document.getElementById('mail').innerHTML='Please enter your phone number';
+        document.getElementById('mail').innerHTML='Please enter your email adress';
         document.getElementById('idmail').style.borderColor = "red";
         return false;
     }
-    else if(field.length!==11){
-        document.getElementById('mail').innerHTML=' invalid phone number ';
-        document.getElementById('idmail').style.borderColor = "red";
-        return false;
-    }
-    else{
-        document.getElementById('mail').innerHTML='';
-        return true;
-    }
+    
 }
 function validatepassword(field)
 {
@@ -22,15 +14,22 @@ function validatepassword(field)
         document.getElementById('idpass').style.borderColor = "red";
         return false;
     }
-    else{
-        document.getElementById('password').innerHTML='';
+    
+}
+function validate(form)
+{
+    let fail='';
+    fail&=validateemail(form.idmail.value);
+    fail&=validateMName(form.idpass.value);
+    if(fail)
+    {
         return true;
     }
-}
-function validate()
-{
-    console.log("i join ")
-    document.getElementById("waitsign").style.display="block";
+        
+    else
+    {
+        return false;
+    }
  
 }
 
