@@ -250,4 +250,4 @@ return customer;
 
 
 }
-export { addmsg,getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav };
+export { addmsg,getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav,customerchnagepass };
