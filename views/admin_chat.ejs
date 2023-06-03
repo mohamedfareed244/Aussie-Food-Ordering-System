@@ -168,7 +168,7 @@ child.ClassName="ss";
           }
         }
 let newchat;
-await fetch(`http://127.0.0.1:3001/customers/admin/chat/changeuser/${id}`,{method:'GET'})
+await fetch(`http://127.0.0.1:3001/customers/admin/chat/changeuser/${collection[i].id}`,{method:'GET'})
 .then((obj)=>{
 const e=document.getElementById("message-body");
 while(e.firstChild){
