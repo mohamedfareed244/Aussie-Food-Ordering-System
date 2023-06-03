@@ -229,7 +229,7 @@
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
      
-   const interv=setInterval(connectme,1000);
+   let interv=null;
    let socket;
 function connectme(){
      socket =io();
@@ -245,8 +245,8 @@ location.href='/customers/signin';
     console.log("cant find")
 document.getElementById("spin").innerHTML="wait while we connecting you to agent ";
 document.getElementsByClassName("badge")[0].style.display="block";
-
-
+interv=setTimeout(connectme,10000);
+console.log(interv);
   })
   socket.on("newmessage",(msg)=>{
     sou();
@@ -263,7 +263,7 @@ document.getElementsByClassName("badge")[0].style.display="block";
     clearInterval(interv);
     document.getElementById("spin").innerHTML=emp.name;
     sou();
-
+clearInterval(interv);
   })
 }
 function sendmessage(){
@@ -291,7 +291,7 @@ audio.play().catch((err)=>{
 
   }
   
- 
+  connectme();
   
 </script>
 
