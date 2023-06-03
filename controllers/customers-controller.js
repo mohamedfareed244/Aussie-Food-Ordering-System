@@ -202,9 +202,10 @@ const customerchnagepass = async (req, res) => {
     {
       if (req.body.newpassword == req.body.confirmPassword)
        {
-        curr.password = req.body.newpassword;
+        curr.Password = req.body.newpassword;
 
         await customers.findOneAndReplace({ Email: curr.Email }, curr);
+        console.log("password changed ");
 
         res.render("personalinfo", { customer: req.session.signed_customer });
       }
@@ -214,7 +215,7 @@ const customerchnagepass = async (req, res) => {
     }
 
     else {
-      res.render("sign-in", { alert: true, text: "you must enter valid information" });
+      res.render("personalinfo", { customer: req.session.signed_customer });
     }
   }
 

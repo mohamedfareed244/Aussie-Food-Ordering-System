@@ -21,7 +21,7 @@ router.post('/signup', postcustomers );
     res.render("sign-in",{alert:false});
   });
   router.get('/profile/login',customerpr);
-  router.post('/profile/login/changepass',customerchnagepass);
+  router.post('/profile/login/account/changepass',customerchnagepass);
   router.get('/profile/orders',customeror);
 router.get('/profile/favs',customerfav);
   router.get('/mail/validation/:id',customerml);
