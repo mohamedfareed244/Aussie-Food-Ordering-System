@@ -74,19 +74,22 @@
 
 		<script>
 			document.getElementById("passwordch").addEventListener("click", function () {
-				document.getElementById("changepasswordinfo").style.display = "block";
+				document.getElementById("downbox").style.display = "block";
 				document.getElementById('passwordch').style.display = "none";
-				enableSubmitButton();
+
 			});
-			let new_password = document.getElementById("password")
+
+			let password = document.getElementById("password")
 				, confirm_password = document.getElementById("confirmPassword"),
-				current_password = document.getElementById("currentpassword");
+				current_password= document.getElementById("currentpassword");
+
+			enableSubmitButton();
 
 			function validatePassword() {
-				if (new_password.value != confirm_password.value) {
+				if (password.value != confirm_password.value) {
 					confirm_password.setCustomValidity("Confirm Passwords Don't Match");
 					return false;
-				} else if (new_password.value === current_password.value) {
+				} else if (password.value === current_password.value) {
 					confirm_password.setCustomValidity("New password cannot be the same as current password");
 					return false;
 				} else {
@@ -95,9 +98,9 @@
 				}
 			}
 
-			new_password.onchange = validatePassword;
+			password.onchange = validatePassword;
 			confirm_password.onkeyup = validatePassword;
-			current_password.onkeyup = validatePassword;
+			current_password.onkeyup= validatePassword;
 
 			function enableSubmitButton() {
 				document.getElementById('submitButton').disabled = false;
@@ -109,31 +112,21 @@
 				document.getElementById('loader').style.display = 'unset';
 			}
 
-			document.getElementById("passwordch").addEventListener("click", function () {
-				document.getElementById("changepasswordinfo").style.display = "block";
-				document.getElementById('passwordch').style.display = "none";
-			});
+			function validatechangepasswordinfo() {
+				var form = document.getElementById('changepasswordinfo');
 
-	function validatechangepass() {
-  var form = document.getElementById('changepasswordinfo');
-  
-  for(var i=0; i < form.elements.length; i++){
-      if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
-        console.log('There are some required fields!');
-        return false;
-      }
-    }
-  
-  if (!validatePassword()) {
-    return false;
-  }
-  
-}
+				for (var i = 0; i < form.elements.length; i++) {
+					if (form.elements[i].value === '' && form.elements[i].hasAttribute('required')) {
+						console.log('There are some required fields!');
+						return false;
+					}
+				}
 
+				if (!validatePassword()) {
+					return false;
+				}
 
-
-
-
+			}
 </script>
 </body>
 
