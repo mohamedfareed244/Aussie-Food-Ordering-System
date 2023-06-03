@@ -11,7 +11,7 @@
 <body>
     <%- include("partials/admin_sidebar") %>
     <div class="right">
-      
+      <%- include("partials/alert") %>
     <div id ="msg-area"  >
       
         <div id ="customers-msgs">
@@ -143,20 +143,61 @@ if(msg.from.name===tx1&&msg.from.phone===tx2){
 sou1();
   })
 
-  socket.on("cust_disconnect",((o)=>{
+  socket.on("cust_disconnect",( async (o)=>{
 const eleme=document.getElementById(o.user._id);
 const par=document.getElementById("chat-list");
 if(document.getElementById("chat-list").childElementCount===1){
-  location.href='/employees/profile';
+  document.getElementById("msg-box").style.display="none";
+displayalert("the customer has end the chat this page will automatically change now ");
+setTimeout(chgloc,3000);
 }else{
+ 
   const tx1=document.getElementsByClassName("ss")[0].innerHTML;
 const tx2=document.getElementsByClassName("ss")[1].innerHTML;
   if(o.from.name===tx1&&o.from.phone===tx2){
+    const collection = document.body.children;
+    for(let i=0;i<collection.length;i++){
+      if(collection[i].id!==o.user._id){
+        collection[i].style="background-color: rgb(90, 84, 84);";
+        const search =collection[i].children;
+        for(let j=0;j<search.length;j++){
+          if(search[i].tagName==="Span"){
+const child=search[i].firstChild;
+child.ClassName="ss";
+          }
+        }
+let newchat;
+await fetch(`http://127.0.0.1:3001/customers/admin/chat/changeuser/${id}`,{method:'GET'})
+.then((obj)=>{
+const e=document.getElementById("message-body");
+while(e.firstChild){
+  e.removeChild(e.lastChild);
+}
+for(let i=0;i<obj.length;i++){
+  if(!obj.issent){
+    const t=`<div id="msg2">
+<p id ="msg-body">${obj.msg}</p>
+                </div>`
+                e.innerHTML+=t;
+  }else{
+    const t=`<div id="msg1">
+<p id ="msg-body">${obj.msg}</p>
+                </div>`
+                e.innerHTML+=t;
+  }
+}
+})
 
+      }
+    }
+    displayalert("the previous customer has end the chat .");
   }
 par.removeChild(eleme);
 }
   }))
+  function chgloc(){
+    location.href='/employees/profile';
+  }
   async function sou(){
 
     let audio = document.getElementById("audio");
@@ -187,6 +228,10 @@ async function sendmessage(id){
     console.log("the value us ",msg);
     socket.emit("sendtocustomer",({"body":msg,"id":id}));
 }
+async function displayalert(text){
+document.getElementById("almsg").innerHTML=`${text}`
+
+  }
   
 </script>
 </html>
