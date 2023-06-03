@@ -279,4 +279,12 @@ const addmsgfromadmin = async (customer, msg) => {
 
   return customer;
 }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass };
+const getmsgs = async (req,res) => {
+ const ch=await customers.findById(req.params.id)
+ .then(async (o)=>{
+  return o.chat;
+ })
+
+ res.json(ch);
+}
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass , getmsgs};

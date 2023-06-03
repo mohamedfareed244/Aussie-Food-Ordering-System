@@ -8,7 +8,7 @@ import {customerml} from "../controllers/customers-controller.js";
 import {customeraddr} from "../controllers/customers-controller.js";
 import {customerfav} from "../controllers/customers-controller.js";
 import {customerchnagepass} from "../controllers/customers-controller.js";
-
+import {getmsgs} from "../controllers/customers-controller.js";
 const router=Router();
 
 router.post('/signup', postcustomers );
@@ -26,5 +26,5 @@ router.post('/signup', postcustomers );
 router.get('/profile/favs',customerfav);
   router.get('/mail/validation/:id',customerml);
   router.get('/profile/addr',customeraddr);
-  router.get
+  router.get('/customers/admin/chat/changeuser/:id',getmsgs);
   export default router;
