@@ -88,44 +88,63 @@ td:first-child {
 }
 @media only screen   
 and (min-width: 1030px)   
-and (max-width: 1100px)  {
-  .card
+and (max-width: 1400px)  {
+  .card, .downbox
    {
-    margin: -63%;
+    width: 87%;
+    margin: -616px;
     margin-left: 23%;
-    width: 100%;
+  }
+  .downbox{
+    margin: 220px;
+    margin-left: 28%;
+    width: 54%;
   }
 }
 
 @media only screen   
 and (min-device-width : 700px)   
 and (max-device-width : 1030px) {
-  .card
+  .card, .downbox
    {
     width: 90%;
-    margin-top: -57%;
-    margin-left: 22%;
+    margin: -633px;
+    margin-left: 24%;
+  }
+  .downbox{
+    margin: 238px;
+    margin-left: 30%;
+    width: 54%;
   }
 }
 @media only screen   
 and (min-device-width : 480px)   
 and (max-device-width : 700px)  
  {
-  .card
+  .card, .downbox
    {
     margin: -31px;
-    width: 95%;
+    width: 93%;
     margin-left: -3%;
+  }
+  .downbox{
+    margin: -394px;
+    margin-left: 3%;
+    width: 60%;
   }
 }
 @media only screen   
 and (min-device-width : 320px)   
 and (max-device-width : 480px){
-  .card
+  .card , .downbox
    {
     margin: -33px;
     width: 100%;
     margin-left: 7%;
   }
-
+  .downbox{
+    margin: -394px;
+    margin-left: 14%;
+    width: 63%;
+  }
 }
