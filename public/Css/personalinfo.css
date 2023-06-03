@@ -107,6 +107,7 @@ and (min-device-width : 700px)
 and (max-device-width : 1030px) {
   .card, .downbox
    {
+
     width: 90%;
     margin: -633px;
     margin-left: 24%;
@@ -123,6 +124,7 @@ and (max-device-width : 700px)
  {
   .card, .downbox
    {
+
     margin: -31px;
     width: 93%;
     margin-left: -3%;
@@ -138,6 +140,7 @@ and (min-device-width : 320px)
 and (max-device-width : 480px){
   .card , .downbox
    {
+    
     margin: -33px;
     width: 100%;
     margin-left: 7%;
