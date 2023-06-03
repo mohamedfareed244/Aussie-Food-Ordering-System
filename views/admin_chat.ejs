@@ -146,6 +146,9 @@ sou1();
   socket.on("cust_disconnect",((o)=>{
 const eleme=document.getElementById(o.user._id);
 const par=document.getElementById("chat-list");
+if(document.getElementById("chat-list").childElementCount===1){
+  location.href='/employees/profile'
+}
 par.removeChild(eleme);
   }))
   async function sou(){
