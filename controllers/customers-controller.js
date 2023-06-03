@@ -1,5 +1,5 @@
 import { customers } from "../models/customers.js";
-import {io} from "../bin/www.js";
+import { io } from "../bin/www.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
 import validator from 'validator';
@@ -37,13 +37,13 @@ async function sendsms(User) {
 
 
 
-let pass=true;
+let pass = true;
 //validations
-function validate  (req, res) {
-  pass=true;
+function validate(req, res) {
+  pass = true;
   let text = '';
 
- 
+
   const obj = {
     Firstname: req.body.Firstname,
     Middlename: req.body.Middlename,
@@ -54,25 +54,24 @@ function validate  (req, res) {
     confirm: req.body.psw_confirmt
   };
 
-  if (obj.Firstname.trim() === ''|| obj.Lastname.trim() === ''|| obj.Middlename.trim() === ''
+  if (obj.Firstname.trim() === '' || obj.Lastname.trim() === '' || obj.Middlename.trim() === ''
     || obj.Password.trim() === '' || obj.confirm.trim() === '' || obj.Email.trim() === '' ||
-     obj.Phone.trim() === '')
-  { 
+    obj.Phone.trim() === '') {
 
     text = 'Please fill out all the form!';
-    pass=false;
+    pass = false;
     res.render("register", { alert: true, text: text });
 
   }
 
   if (!validator.isEmail(obj.Email)) {
-    pass=false;
+    pass = false;
     text = 'Invalid email';
     res.render("register", { alert: true, text: text });
   }
 
   if (!validator.isMobilePhone(obj.Phone)) {
-    pass=false;
+    pass = false;
     text = 'Invalid phone';
     res.render("register", { alert: true, text: text });
   }
@@ -88,7 +87,7 @@ function validate  (req, res) {
     const hasNumber = /[0-9]/.test(obj.Password);
     const hasSpecialChar = /[!@#$%^&*().]/.test(obj.Password);
     if (!hasUpperCase || !hasLowerCase || !hasNumber || !hasSpecialChar) {
-      pass=false;
+      pass = false;
       text = 'password must contain uppercase, lowercase , number and special character';
       res.render("register", { alert: true, text: text });
 
@@ -96,12 +95,12 @@ function validate  (req, res) {
 
   }
   else {
-    pass=false;
+    pass = false;
     text = 'Passwords are not match';
     res.render("register", { alert: true, text: text });
 
   }
-  
+
 
 }
 
@@ -112,43 +111,43 @@ function validate  (req, res) {
 
 //add new customer to the database 
 const postcustomers = async (req, res) => {
-  await validate(req,res);
-if(pass){
-  console.log(req.body.Phone);
-  await customers.findOne({ Email: req.body.Email }).then(async (result) => {
-    if (result !== null) {
-      res.render("register", { alert: true, text: "this email already exists ! " });
-    } else {
-      const obj = {
-        Firstname: req.body.Firstname,
-        Middlename: req.body.Middlename,
-        Lastname: req.body.Lastname,
-        Phone: req.body.Phone,
-        "Orders": new Array(),
-        Email: req.body.Email,
-        Password: req.body.Password,
-        "chat": new Array(),
-        verified: false,
-        favorites:new Array(),
-        addreses:new Array()
+  await validate(req, res);
+  if (pass) {
+    console.log(req.body.Phone);
+    await customers.findOne({ Email: req.body.Email }).then(async (result) => {
+      if (result !== null) {
+        res.render("register", { alert: true, text: "this email already exists ! " });
+      } else {
+        const obj = {
+          Firstname: req.body.Firstname,
+          Middlename: req.body.Middlename,
+          Lastname: req.body.Lastname,
+          Phone: req.body.Phone,
+          "Orders": new Array(),
+          Email: req.body.Email,
+          Password: req.body.Password,
+          "chat": new Array(),
+          verified: false,
+          favorites: new Array(),
+          addreses: new Array()
+        }
+        const customer = new customers(obj);
+
+        try {
+          await customer.save();
+          sendsms(customer);
+          res.redirect("/products/All");
+        } catch (err) {
+          console.log(err);
+        }
       }
-      const customer = new customers(obj);
 
-      try {
-        await customer.save();
-        sendsms(customer);
-        res.redirect("/products/All");
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  
-  })
+    })
 
 
 
 
-}
+  }
 
 
 
@@ -192,18 +191,35 @@ const customeror = async (req, res) => {
   res.render("customer_orders");
 }
 
-const customerchnagepass= async (req,res)=>{
-  if(req.session.signed_customer===undefined||req.session.signed_customer===null){
-    res.render("sign-in",{alert:true,text:"You must login first to access this section !"});
-        }
-        else{
-        const curr=req.session.signed_customer;
-        curr.Password=req.body.psw;
-        await customers.findOneAndReplace({Email:curr.Email},curr);
-        
-res.render("personalinfo",{customer:req.session.signed_customer});
-        }
+const customerchnagepass = async (req, res) => {
+
+  if (req.session.signed_customer === undefined || req.session.signed_customer === null) {
+    res.render("sign-in", { alert: true, text: "You must login first to access this section !" });
+  }
+  else {
+    const curr = req.session.signed_customer;
+    if (curr.Password == req.body.currentpassword) 
+    {
+      if (req.body.newpassword == req.body.confirmPassword)
+       {
+        curr.password = req.body.newpassword;
+
+        await customers.findOneAndReplace({ Email: curr.Email }, curr);
+
+        res.render("personalinfo", { customer: req.session.signed_customer });
+      }
+      else {
+        console.log(req.body.newpassword,req.body.confirmPassword);
+      }
+    }
+
+    else {
+      res.render("sign-in", { alert: true, text: "you must enter valid information" });
+    }
+  }
+
 }
+
 
 
 
@@ -222,7 +238,7 @@ const customerml = async (req, res) => {
 
 }
 
-const customeraddr= async (req,res)=>{
+const customeraddr = async (req, res) => {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access addreses " });
   } else {
@@ -231,35 +247,35 @@ const customeraddr= async (req,res)=>{
 }
 
 
-const customerfav= async (req,res)=>{
-res.render('favoriteinfo');
+const customerfav = async (req, res) => {
+  res.render('favoriteinfo');
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //customer sockets connections 
-const addmsg= async (customer,msg)=>{
-const obj={"msg":msg,issent:true};
-await customer.chat.push(obj);
-const newobj=await customer.chat;
+const addmsg = async (customer, msg) => {
+  const obj = { "msg": msg, issent: true };
+  await customer.chat.push(obj);
+  const newobj = await customer.chat;
 
-console.log("in adding ");
-customer.chat=newobj;
+  console.log("in adding ");
+  customer.chat = newobj;
 
- await customers.findOneAndReplace({Email:customer.Email},customer);
- 
-return customer;
+  await customers.findOneAndReplace({ Email: customer.Email }, customer);
+
+  return customer;
 }
 
 
-const addmsgfromadmin= async (customer,msg)=>{
-  const obj={"msg":msg,issent:false};
+const addmsgfromadmin = async (customer, msg) => {
+  const obj = { "msg": msg, issent: false };
   await customer.chat.push(obj);
-  const newobj=await customer.chat;
- 
+  const newobj = await customer.chat;
+
   console.log("in adding ");
-  customer.chat=newobj;
- 
-   await customers.findOneAndReplace({Email:customer.Email},customer);
-   
+  customer.chat = newobj;
+
+  await customers.findOneAndReplace({ Email: customer.Email }, customer);
+
   return customer;
-  }
-export { addmsg,getcustomers, postcustomers, customerpr, customeror, customerml,customeraddr,customerfav ,addmsgfromadmin,customerchnagepass};
+}
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass };
