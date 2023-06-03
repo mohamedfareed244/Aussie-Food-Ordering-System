@@ -63,6 +63,29 @@ td:first-child {
 .passwordch:hover{
   background-color: rgb(234, 102, 102);
 }
+.downbox {
+  background-color: #e6e6e6;
+  margin-left: 408px;
+  margin-top: -389px;
+  width: 40%;
+  backdrop-filter: blur(276px);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.downbox li {
+  padding: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 7px;
+}
+.downbox .action_btn {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
 @media only screen   
 and (min-width: 1030px)   
 and (max-width: 1100px)  {
