@@ -170,20 +170,23 @@ child.ClassName="ss";
 let newchat;
 await fetch(`http://127.0.0.1:3001/customers/admin/chat/changeuser/${collection[i].id}`,{method:'GET'})
 .then((obj)=>{
-const e=document.getElementById("message-body");
+return obj.json();
+})
+.then((obj)=>{
+  const e=document.getElementById("message-body");
 while(e.firstChild){
   e.removeChild(e.lastChild);
 }
-console.log("the response i have r")
+console.log("the response i have recieve is ",obj );
 for(let i=0;i<obj.length;i++){
-  if(!obj.issent){
+  if(!obj[i].issent){
     const t=`<div id="msg2">
-<p id ="msg-body">${obj.msg}</p>
+<p id ="msg-body">${obj[i].msg}</p>
                 </div>`
                 e.innerHTML+=t;
   }else{
     const t=`<div id="msg1">
-<p id ="msg-body">${obj.msg}</p>
+<p id ="msg-body">${obj[i].msg}</p>
                 </div>`
                 e.innerHTML+=t;
   }

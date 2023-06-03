@@ -280,11 +280,12 @@ const addmsgfromadmin = async (customer, msg) => {
   return customer;
 }
 const getmsgs = async (req,res) => {
+  console.log("now fetching the messages ");
  const ch=await customers.findById(req.params.id)
  .then(async (o)=>{
   return o.chat;
  })
-
+console.log(" the message will be json to the custojer is ",ch);
  res.json(ch);
 }
 export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass , getmsgs};

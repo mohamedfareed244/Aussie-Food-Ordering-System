@@ -26,5 +26,5 @@ router.post('/signup', postcustomers );
 router.get('/profile/favs',customerfav);
   router.get('/mail/validation/:id',customerml);
   router.get('/profile/addr',customeraddr);
-  router.get('/customers/admin/chat/changeuser/:id',getmsgs);
+  router.get('/admin/chat/changeuser/:id',getmsgs);
   export default router;
