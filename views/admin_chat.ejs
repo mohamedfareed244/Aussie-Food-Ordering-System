@@ -154,8 +154,9 @@ setTimeout(chgloc,3000);
  
   const tx1=document.getElementsByClassName("ss")[0].innerHTML;
 const tx2=document.getElementsByClassName("ss")[1].innerHTML;
-  if(o.from.name===tx1&&o.from.phone===tx2){
-    const collection = document.body.children;
+const n =o.user.Firstname+" "+o.user.Middlename;
+  if(n===tx1&&o.user.Phone===tx2){
+    const collection = document.getElementById("chat-list").children;
     for(let i=0;i<collection.length;i++){
       if(collection[i].id!==o.user._id){
         collection[i].style="background-color: rgb(90, 84, 84);";
