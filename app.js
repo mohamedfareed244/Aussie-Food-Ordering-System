@@ -307,9 +307,17 @@ if(onlineemp.length!=0){
       for(let j=0;j<onlineemp[online_cus[i].to].customers.length;j++){
         if(onlineemp[online_cus[i].to].customers[j].index===i){
          const h= await getmyemp(cust).then((o)=>{
+          //shifting in the index array as the online cus shifts . 
+          for(let k=0;k<onlineemp[online_cus[i].to].customers.length;k++){
+            if(onlineemp[online_cus[i].to].customers[k].index>i){
+              onlineemp[online_cus[i].to].customers[k].index--;
+            }
+          }
           onlineemp[online_cus[i].to].chat--;
           onlineemp[online_cus[i].to].customers.splice(j,1);
+          
           online_cus.splice(i,1);
+          
           console.log("removed from both employees and customers");
  return o;
 })

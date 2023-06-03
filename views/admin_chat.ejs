@@ -162,20 +162,8 @@ const n =o.user.Firstname+" "+o.user.Middlename;
         //event listener 
 
         
-        document.getElementById("send").addEventListener('click',async ()=>{
-        
-    let msg=document.getElementById("msg-text").value;
-    document.getElementById("msg-text").value="";
-    let node=document.createElement("div");
-    node.id="msg2";
-    let node1=document.createElement("p");
-    node1.innerHTML=msg;
-    node1.id="msg-body";
-    node.appendChild(node1);
-    document.getElementById("message-body").appendChild(node);
-    console.log("the value us ",msg);
-    socket.emit("sendtocustomer",({"body":msg,"id":collection[i].id}));
-        })
+        document.getElementById("send").onclick= () => { sendmessage(collection[i].id); };
+
 
 
         //event listener 
