@@ -1,10 +1,33 @@
+
+body{
+
+  overflow-x: hidden;
+  
+  
+  
+  }
+
+  
+
+
+
+
 .tables {
   box-sizing: border-box;
   font-family: sans-serif;
   min-height: 89vh;
   color: #555;
   margin-left: 285px;
-  margin-top: -780px;
+  /* margin-top: -500px; */
+
+
+  box-sizing: border-box;
+  font-family: sans-serif;
+  min-height: 89vh;
+  color: #555;
+  margin-left: 300px;
+  margin-top: -500px;
+  width: fit-content;
 }
 table td {
   margin: 19px;
