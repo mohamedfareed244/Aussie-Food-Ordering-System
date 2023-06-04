@@ -56,7 +56,7 @@ async function connectme() {
 
 
     socket.on('connects_emp', (emp) => {
-        document.getElementsByClassName("input-area")[0].style.display="inline";
+        document.getElementsByClassName("input-area")[0].style.display="flex";
         document.getElementById("waiting").style.display = "none";
         clearInterval(interv);
         document.getElementById("spin").innerHTML = emp.name;
