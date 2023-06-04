@@ -39,10 +39,10 @@
                                 <li data-color=".Arrivals">Desserts</li>
                             </div>
 
-                            <li><a class="sign" href="user_profile.html">Add Section</a></li>
+                            <li><a class="sign" href="#" onclick="togglePopup4()">Add Section</a></li>
                             <li><a class="sign" href="#" onclick="togglePopup()">Delete Section</a></li>
 
-                            <li><a class="sign" href="user_profile.html">Add Meal</a></li>
+                            <li><a class="sign" href="#" onclick="togglePopup3()">Add Meal</a></li>
 
                         </div>
 
@@ -428,6 +428,13 @@
 
         </div>
 
+
+
+
+
+
+        <!-- //for delete section button -->
+
         <div class="popup" id="popup-1">
 
             <div class="overlay"> </div>
@@ -450,6 +457,9 @@
         </div>
 
         <script>
+            //for delete section button
+
+
             function togglePopup() {
                 // const togel=document.querySelector(".popup")
                 document.getElementById("popup-1").classList.toggle("active");
@@ -465,7 +475,7 @@
 
 
 
-
+        <!-- //for edit item button -->
         <div class="popup" id="popup-2">
 
             <div class="overlay"> </div>
@@ -497,9 +507,114 @@
 
 
 
+
+        <!-- //for add meal button -->
+        <div class="popup" id="popup-3">
+
+            <div class="overlay"> </div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup3()">
+                    &times;
+                </div>
+                <h1>Add Meal</h1>
+                <form action="">
+
+                    <input type="text" id="name" placeholder="Enter Item Name">
+                    <input type="text" id="name" placeholder="Enter Item Price">
+                    <input type="text" id="name" placeholder="Enter Item Description">
+                    <input type="file" id="upload" name="path">
+                    <label for="upload">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Enter item photo
+                    </label><br>
+
+
+
+                    <button type="submit" class="registerbtn">Add Meal</button>
+                </form>
+            </div>
+
+        </div>
+
+        </div>
+
+
+
+
+
+<script>
+    //for add meal button
+    function togglePopup3() {
+        // const togel=document.querySelector(".popup")
+        document.getElementById("popup-3").classList.toggle("active");
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+     <!-- //for add section button -->
+     <div class="popup" id="popup-4">
+
+        <div class="overlay"> </div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup4()">
+                &times;
+            </div>
+            <h1>Add Meal</h1>
+            <form action="">
+
+                <input type="text" id="name" placeholder="Enter Section Name">
+                
+
+
+
+                <button type="submit" class="registerbtn">Add Add Section</button>
+            </form>
+        </div>
+
+    </div>
+
+    </div> -->
+
+
+
+
+
+<script>
+//for add meal button
+function togglePopup4() {
+    // const togel=document.querySelector(".popup")
+    document.getElementById("popup-4").classList.toggle("active");
+}
+</script>
+
+
+
+
 </body>
 
 <script>
+
+
+    //for edit item button
     function togglePopup2() {
         // const togel=document.querySelector(".popup")
         document.getElementById("popup-2").classList.toggle("active");
