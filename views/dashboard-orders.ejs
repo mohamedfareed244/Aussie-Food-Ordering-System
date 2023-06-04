@@ -63,8 +63,10 @@
                         <span class="delivered"><%=item.status%></span>
                        </td>
                        <td><button class="moree" onclick=togglePopup("<%=item.id%>") >Show More</button></td>
+                       <%if(item.status==="Pending"){%>
                        <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                       <%}%>
                    </tr>
                  <%})%>
              
@@ -199,10 +201,8 @@ i2.className="fa-solid fa-circle-xmark";
 td7.appendChild(i2);
      sou();
      
-     btn.addEventListener('click',(o)=>{
-      console.log("the order is ",o);
-                  // const togel=document.querySelector(".popup")
-                  document.getElementById("popup-1").classList.toggle("active");
+     btn.addEventListener('click',()=>{
+ togglePopup(msg._id);
      })
      })
 
@@ -215,9 +215,8 @@ td7.appendChild(i2);
      }
    
    
-               function togglePopup(o){
-                  console.log("the order is ",o);
-                  // const togel=document.querySelector(".popup")
+               function togglePopup(id){
+           await fetch(`http://127.0.0.1:3001/products/ordrers/get/details/admin/`)
                   document.getElementById("popup-1").classList.toggle("active");
                }
             </script>
