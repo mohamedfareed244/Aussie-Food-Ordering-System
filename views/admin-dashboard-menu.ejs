@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,455 +8,456 @@
     <title>Restaurant</title>
     <link rel="shortcut icon" href="/images/barbecue.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-   <link rel="stylesheet" href="/Css/admin-dashboard-menu.css">
+    <link rel="stylesheet" href="/Css/admin-dashboard-menu.css">
 
 </head>
+
 <body>
     <%- include("partials/admin_sidebar") %>
-    <div class="right">
+        <div class="right">
 
-      
-          
 
-    <div class="container">
-        <%- include("partials/alert") %>
-        <div class="title">
-            <h2>Aussie Menu</h2>
-            <p>
-               Healthy and natural food           
-             </p>
-        </div>
-        <div class="content">
-            <div class="list">
-                <div style="display: flex; overflow: auto; max-width: 500px;">
-                <li data-color=".All">All</li>
-                <li data-color=".featured">Individual meet</li>
-                <li data-color=".Special">Ready to eat</li>
-                <li data-color=".Arrivals">Desserts</li>
-                <li data-color=".Arrivals">Desserts</li>
-                <li data-color=".Arrivals">Desserts</li>
-                <li data-color=".Arrivals">Desserts</li>
+
+
+            <div class="container">
+                <%- include("partials/alert") %>
+                    <div class="title">
+                        <h2>Aussie Menu</h2>
+                        <p>
+                            Healthy and natural food
+                        </p>
+                    </div>
+                    <div class="content">
+                        <div class="list">
+                            <div style="display: flex; overflow: auto; max-width: 500px;">
+                                <li data-color=".All">All</li>
+                                <li data-color=".featured">Individual meet</li>
+                                <li data-color=".Special">Ready to eat</li>
+                                <li data-color=".Arrivals">Desserts</li>
+                                <li data-color=".Arrivals">Desserts</li>
+                                <li data-color=".Arrivals">Desserts</li>
+                                <li data-color=".Arrivals">Desserts</li>
+                            </div>
+
+                            <li><a class="sign" href="user_profile.html">Add Section</a></li>
+                            <li><a class="sign" href="#" onclick="togglePopup()">Delete Section</a></li>
+
+                            <li><a class="sign" href="user_profile.html">Add Meal</a></li>
+
+                        </div>
+
+                        <div class="box_flex">
+
+                            <div class="box All featured">
+                                <div class="box_img">
+                                    <img src="photos/dish1.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Frozen food</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All featured">
+                                <div class="box_img">
+                                    <img src="photos/dish2.jpeg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Frozen food</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All featured">
+                                <div class="box_img">
+                                    <img src="photos/dish2.jpeg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Frozen food</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All featured">
+                                <div class="box_img">
+                                    <img src="images/image4.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Frozen food</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All featured">
+                                <div class="box_img">
+                                    <img src="images/image5.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Frozen food</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All featured">
+                                <div class="box_img">
+                                    <img src="images/image6.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Individual meals</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+                            <div class="box All Special">
+                                <div class="box_img">
+                                    <img src="images/image7.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Individual meals</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+                            <div class="box All Special">
+                                <div class="box_img">
+                                    <img src="images/image8.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Individual meals</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+                            <div class="box All Special">
+                                <div class="box_img">
+                                    <img src="images/image9.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Individual meals</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+                            <div class="box All Special">
+                                <div class="box_img">
+                                    <img src="images/image10.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Individual meals</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All Special">
+                                <div class="box_img">
+                                    <img src="images/image11.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Individual meals</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All Special">
+                                <div class="box_img">
+                                    <img src="images/image12.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Individual meals</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+                            <div class="box All Arrivals">
+                                <div class="box_img">
+                                    <img src="images/image13.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Ready to eat</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All Arrivals">
+                                <div class="box_img">
+                                    <img src="images/image14.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Ready to eat</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                            <div class="box All Arrivals">
+                                <div class="box_img">
+                                    <img src="images/image15.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Ready to eat</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+                            <div class="box All Arrivals">
+                                <div class="box_img">
+                                    <img src="images/image16.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Ready to eat</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+                            <div class="box All Arrivals">
+                                <div class="box_img">
+                                    <img src="images/image17.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category:Ready to eat</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+                            <div class="box All Arrivals">
+                                <div class="box_img">
+                                    <img src="images/image18.jpg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Ready to eat</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
             </div>
-                
-                <li><a  class="sign"  href="user_profile.html">Add Section</a></li>
-                <li><a  class="sign"  href="#" onclick="togglePopup()">Delete Section</a></li>
-                
-                <li><a  class="sign" href="user_profile.html">Add Meal</a></li>
-               
-            </div>
 
-            <div class="box_flex">
 
-                <div class="box All featured">
-                    <div class="box_img">
-                        <img src="photos/dish1.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Frozen food</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
 
-                <div class="box All featured">
-                    <div class="box_img">
-                        <img src="photos/dish2.jpeg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Frozen food</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
+        </div>
 
-                <div class="box All featured">
-                    <div class="box_img">
-                        <img src="photos/dish2.jpeg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Frozen food</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
+        <div class="popup" id="popup-1">
 
-                <div class="box All featured">
-                    <div class="box_img">
-                        <img src="images/image4.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Frozen food</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
+            <div class="overlay"> </div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup()">
+                    &times;
                 </div>
+                <h1>choose section</h1>
+                <select Name="choose section" Size="Number_of_options">
+                    <option> ind meals </option>
+                    <option> healthy food </option>
+                    <option> ind meals </option>
+                    <option> healthy food </option>
+                </select>
 
-                <div class="box All featured">
-                    <div class="box_img">
-                        <img src="images/image5.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Frozen food</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
 
-                <div class="box All featured">
-                    <div class="box_img">
-                        <img src="images/image6.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Individual meals</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-                <div class="box All Special">
-                    <div class="box_img">
-                        <img src="images/image7.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Individual meals</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-                <div class="box All Special">
-                    <div class="box_img">
-                        <img src="images/image8.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Individual meals</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-                <div class="box All Special">
-                    <div class="box_img">
-                        <img src="images/image9.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Individual meals</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-                <div class="box All Special">
-                    <div class="box_img">
-                        <img src="images/image10.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Individual meals</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-
-                <div class="box All Special">
-                    <div class="box_img">
-                        <img src="images/image11.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Individual meals</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-
-                <div class="box All Special">
-                    <div class="box_img">
-                        <img src="images/image12.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Individual meals</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-                <div class="box All Arrivals">
-                    <div class="box_img">
-                        <img src="images/image13.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Ready to eat</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-
-                <div class="box All Arrivals">
-                    <div class="box_img">
-                        <img src="images/image14.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Ready to eat</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-
-                <div class="box All Arrivals">
-                    <div class="box_img">
-                        <img src="images/image15.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Ready to eat</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-                <div class="box All Arrivals">
-                    <div class="box_img">
-                        <img src="images/image16.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Ready to eat</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-                <div class="box All Arrivals">
-                    <div class="box_img">
-                        <img src="images/image17.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category:Ready to eat</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-                <div class="box All Arrivals">
-                    <div class="box_img">
-                        <img src="images/image18.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>French fries</h3>
-                        <hr>
-                        <section>$28.00</section>
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <article>Category: Ready to eat</article>
-                        <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                        <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
-                    </div>
-                </div>
-
+                <button type="submit" class="registerbtn">Submit</button>
             </div>
 
         </div>
 
-    </div>
+        <script>
+            function togglePopup() {
+                // const togel=document.querySelector(".popup")
+                document.getElementById("popup-1").classList.toggle("active");
+            }
+        </script>
 
 
-
-</div>
-
-<div class="popup" id="popup-1">
-      
-    <div class="overlay"> </div>
-       <div class="content">
-          <div class="close-btn" onclick="togglePopup()">
-             &times;
-          </div>
-          <h1>choose section</h1>
-          <select Name="choose section" Size="Number_of_options">  
-            <option> ind meals </option>  
-            <option> healthy food </option>  
-            <option> ind meals </option>  
-            <option> healthy food </option>  
-          </select>
-
-
-        <button type="submit" class="registerbtn">Submit</button> 
-       </div>
-   
-    </div>
-
-    <script>
-       function togglePopup(){
-          // const togel=document.querySelector(".popup")
-          document.getElementById("popup-1").classList.toggle("active");
-       }
-    </script>
-
-
-    <script src="../public/js/menu.js"></script>
+        <script src="../public/js/menu.js"></script>
 
 
 
@@ -464,43 +466,45 @@
 
 
 
-    <div class="popup" id="popup-2">
-      
-        <div class="overlay"> </div>
-           <div class="content">
-              <div class="close-btn" onclick="togglePopup2()">
-                 &times;
-              </div>
-              <h1>Edit Item</h1>
-              <form action="">
-            
-              <input type="text" id="name"  placeholder="Change Item Name" >
-              <input type="text" id="name"  placeholder="Change Item Price" >
-              <input type="text" id="name"  placeholder="Change Item Description" >
-              <input type="file"  id="upload" name="path">
-              <label for="upload">
-                  <i class="fa-solid fa-cloud-arrow-up"></i>
-                  change item photo
-              </label><br>
-             
-      
-      
-              <button type="submit" class="registerbtn">Change</button> 
-           </form>
-           </div>
-       
+        <div class="popup" id="popup-2">
+
+            <div class="overlay"> </div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup2()">
+                    &times;
+                </div>
+                <h1>Edit Item</h1>
+                <form action="">
+
+                    <input type="text" id="name" placeholder="Change Item Name">
+                    <input type="text" id="name" placeholder="Change Item Price">
+                    <input type="text" id="name" placeholder="Change Item Description">
+                    <input type="file" id="upload" name="path">
+                    <label for="upload">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        change item photo
+                    </label><br>
+
+
+
+                    <button type="submit" class="registerbtn">Change</button>
+                </form>
+            </div>
+
         </div>
-     
-     </div>
-      
-   
-   
+
+        </div>
+
+
+
 </body>
 
 <script>
-    function togglePopup2(){
-       // const togel=document.querySelector(".popup")
-       document.getElementById("popup-2").classList.toggle("active");
+    function togglePopup2() {
+        // const togel=document.querySelector(".popup")
+        document.getElementById("popup-2").classList.toggle("active");
     }
- </script>
+</script>
+
 </html>
+<!-- formated -->
