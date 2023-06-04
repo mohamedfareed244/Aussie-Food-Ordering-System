@@ -11,15 +11,23 @@ const inputElm = document.querySelector('input');
 
 let interv=null;
 let socket;
-function connectme(){
+
+async function connectme(){
+
   socket =io();
+
+
 socket.on('connect',()=>{
  console.log("socket id "+socket.id);
  document.getElementsByClassName("conversation")[0].scrollTo(0,document.getElementsByClassName("conversation")[0].scrollHeight);
 })
+
+
 socket.on("require signin",()=>{
 location.href='/customers/signin';
 })
+
+
 socket.on("cantfind", ()=>{
  
  console.log("cant find")
@@ -28,6 +36,10 @@ document.getElementsByClassName("badge")[0].style.display="block";
 interv=setTimeout(connectme,10000);
 console.log(interv);
 })
+
+
+
+
 socket.on("newmessage",(msg)=>{
  sou();
  let text=msg["msg"];
@@ -39,13 +51,18 @@ socket.on("newmessage",(msg)=>{
  document.getElementsByClassName("conversation")[0].appendChild(node);
  document.getElementsByClassName("conversation")[0].scrollTo(0,document.getElementsByClassName("conversation")[0].scrollHeight);
 })
+
+
+
 socket.on('connects_emp',(emp)=>{
 document.getElementById("waiting").style.display="none";
  clearInterval(interv);
  document.getElementById("spin").innerHTML=emp.name;
  sou();
 clearInterval(interv);
+
 })
+
 }
 function sendmessage(){
  console.log("socket must be = ",socket);
@@ -73,11 +90,22 @@ audio.play().catch((err)=>{
 
 }
 
+
+
+async function  disconnectme(){
+    socket.emit("diconnme",{});
+}
+
 chatBtn.addEventListener('click', ()=>{
     popup.classList.toggle('show');
+    if(socket!==undefined){
+    if(socket.connected){
+   clearTimeout(interv);
+   socket.emit("diconnme",{});
+    }else{
+        connectme();
+    }
+}else{
     connectme();
+}
 })
-
-
-
-
