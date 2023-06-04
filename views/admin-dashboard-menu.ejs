@@ -62,7 +62,7 @@
                             <i class="fa-regular fa-star"></i>
                         </div>
                         <article>Category: Frozen food</article>
-                        <li><a  class="sign2" href="user_profile.html">Edit item</a></li>
+                        <li><a onclick="togglePopup2()" class="sign2" href="user_profile.html">Edit item</a></li>
                         <li><a  class="sign3" href="user_profile.html">Delete item</a></li>
                     </div>
                 </div>
@@ -456,5 +456,45 @@
 
 
     <script src="../public/js/menu.js"></script>
+
+
+
+
+
+
+
+
+    <div class="popup" id="popup-2">
+      
+        <div class="overlay"> </div>
+           <div class="content">
+              <div class="close-btn" onclick="togglePopup2()">
+                 &times;
+              </div>
+              <h1>Add Address</h1>
+              <form action="">
+            
+              <input type="text" id="name"  placeholder="Enter floor" >
+              <input type="text" id="name"  placeholder="Enter street" >
+              <input type="text" id="name"  placeholder="Enter region" >
+              <input type="text" id="name"  placeholder="Enter building" >
+             
+      
+      
+              <button type="submit" class="registerbtn">Add</button> 
+           </form>
+           </div>
+       
+        </div>
+     
+     </div>
+      
+     <script>
+      function togglePopup2(){
+         // const togel=document.querySelector(".popup")
+         document.getElementById("popup-2").classList.toggle("active");
+      }
+   </script>
+   
 </body>
 </html>
