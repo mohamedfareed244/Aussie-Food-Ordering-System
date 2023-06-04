@@ -7,9 +7,6 @@ const inputElm = document.querySelector('input');
 document.getElementsByClassName("input-area")[0].style.display="none";
 
 
-
-
-
 let interv = null;
 let socket;
 
