@@ -31,6 +31,7 @@ width:  700px;
                      <th>Apt</th>
                      <th>Floor</th>
                      <th>Building</th>
+                     <th>Action</th>
                      <th><button onclick="togglePopup()">Add new Adress</button></th>
                   </tr>
                   <tbody id="myTable">
@@ -43,6 +44,7 @@ width:  700px;
                            <td><%=customer.apartement %></td>
                            <td><%=customer.floor %></td>
                            <td><%=customer.Building %></td>
+                           <td>
                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
                               <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                            </td>
@@ -64,7 +66,7 @@ width:  700px;
                &times;
             </div>
             <h1>Add Address</h1>
-            <form action="/customers/profile/address/add/new">
+            <form action="/customers/profile/address/add/new" method="post">
 
                <input type="text" id="name" name="floor" placeholder="Enter floor">
                <input type="text" id="name" name="Adress" placeholder="Enter street">
