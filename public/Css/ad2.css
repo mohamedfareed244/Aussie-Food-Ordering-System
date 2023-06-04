@@ -1,10 +1,11 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
 
-body,html{
+body,
+html {
     height: 100%;
     width: 100%;
     /* background: rgba(0, 0, 0, 0.7) url(../photos/qqqq3.webp)  fixed; */
@@ -16,119 +17,134 @@ body,html{
 
 
 
-.right{
+.right {
     position: absolute;
     right: -30px;
     width: 81vw;
     height: 100vh;
     top: 1px;
     /* background-color:rgba(34, 33, 33, 0.521); */
-   overflow-y: auto;
-   overflow-x: hidden;
-   background: rgba(0, 0, 0, 0.7) url(/images/food2.webp)  fixed;
-   background-size: cover;
-   background-blend-mode: darken;
-   
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(0, 0, 0, 0.7) url(/images/food2.webp) fixed;
+    background-size: cover;
+    background-blend-mode: darken;
+
 }
 
-#msg-area{
+#msg-area {
     position: relative;
     left: 0;
     width: 90%;
     height: 90%;
     border: 3px soild green;
 }
-#customers-msgs{
-height: 100%;
-width: 30%;
-border: 2px solid  rgb(224, 220, 220);
-overflow-x: hidden;
-overflow-y: auto;
+
+#customers-msgs {
+    height: 100%;
+    width: 30%;
+    border: 2px solid rgb(224, 220, 220);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
-#user-chat{
+
+#user-chat {
     position: relative;
     width: 35px;
     top: 10px;
     left: 5px;
 }
-#chat-list{
+
+#chat-list {
 
     position: relative;
     list-style: none;
     width: 100%;
     left: 2px;
-   top: 5px;
+    top: 5px;
 }
-#chat-list li{
+
+#chat-list li {
     border-radius: 12px;
     width: 99%;
     overflow: hidden;
     height: 60px;
     background-color: rgb(224, 220, 220);
-  
+
     transition: .5s;
 }
-#chat-list li:hover{
+
+#chat-list li:hover {
     cursor: pointer;
     transform: scale(1.02);
-    background-color: rgb(207, 203, 203);;
+    background-color: rgb(207, 203, 203);
+    ;
 }
-#phone{
+
+#phone {
     font-family: sans-serif;
-   position: relative;
-   left: 70px;
-   top: -12px;
-   font-size: 13px;
+    position: relative;
+    left: 70px;
+    top: -12px;
+    font-size: 13px;
 }
+
 #Name {
     font-size: 13px;
     font-family: sans-serif;
- position: relative;
- top: -12px;
- left: 15px;
+    position: relative;
+    top: -12px;
+    left: 15px;
 }
-#time{
+
+#time {
     position: relative;
     left: 40px;
 }
-#chat-form{
+
+#chat-form {
     position: relative;
     height: 100%;
     width: 80%;
-    
-    top:-100%;
+
+    top: -100%;
     left: 30.4%;
 }
-#top-chat{
+
+#top-chat {
     width: 100%;
-    height:30px;
-    
+    height: 30px;
+
     border-radius: 7px;
 }
-#end-btn{
+
+#end-btn {
     border: none;
     border-radius: 10px;
     float: right;
     margin-top: 4px;
     font-size: 14px;
     margin-right: 6px;
-    background-color:red;
+    background-color: red;
     color: white;
     width: 100px;
     height: 30px;
-transition: .2s;
+    transition: .2s;
 }
-#end-btn:hover{
-    cursor:pointer;
+
+#end-btn:hover {
+    cursor: pointer;
     background-color: rgb(192, 12, 12);
 }
-#message-body{
+
+#message-body {
     width: 100%;
     height: 95.5%;
-   
+
     overflow: auto;
 }
-#msg1{
+
+#msg1 {
     position: relative;
     margin-top: 10px;
     float: left;
@@ -136,9 +152,10 @@ transition: .2s;
     padding: 5px;
     background-color: rgb(84, 209, 34);
     color: white;
-   border-radius: 12px;
+    border-radius: 12px;
 }
-#msg2{
+
+#msg2 {
     position: relative;
     float: right;
     width: 52%;
@@ -146,44 +163,48 @@ transition: .2s;
     border-radius: 12px;
     margin-top: 20px;
 }
-#msg-body{
+
+#msg-body {
     position: relative;
     left: 5px;
 }
-#msg-box{
+
+#msg-box {
     position: sticky;
     width: 100%;
     height: 50px;
     top: 100%;
-    
+
     border-radius: 12px;
     overflow: auto;
 }
-#msg-text{
+
+#msg-text {
     background-color: whitesmoke;
     resize: none;
     outline: none;
-    width:80%;
+    width: 80%;
     height: 25px;
     max-height: 40px;
     position: relative;
-  left: 4px;
+    left: 4px;
     border-radius: 12px;
-   top: 5px;
-   font-size: 16px;
-  padding: 6px 10px;
-  text-align: justify;
-  text-justify: inter-word;
+    top: 5px;
+    font-size: 16px;
+    padding: 6px 10px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
-#msg-text::placeholder{
+#msg-text::placeholder {
     color: rgb(13, 13, 13);
     position: relative;
     left: 10px;
     top: 5px;
     font-size: 13px;
 }
-#send{
+
+#send {
     position: relative;
     left: 20px;
     bottom: 10px;
@@ -196,9 +217,9 @@ transition: .2s;
     transition: .4s;
     height: 30px;
 }
-#send:hover{
+
+#send:hover {
     cursor: pointer;
     font-size: 17px;
 }
-
-
+/* formated */
