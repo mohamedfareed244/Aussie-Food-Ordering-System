@@ -897,11 +897,42 @@ footer{
         border-radius: 8px;
         width: 100%;
         margin: 0 auto;
-      
-       height: 20%;
        margin-bottom: 10px;
+
+
+
+      
+       border-radius: 10px;
+      
+       text-align: center;
+       
+       
+       cursor: pointer;
+       display: flex;
+
+       
+
+       
        
      
+    }
+
+
+    
+
+  #waiting{
+      
+        opacity: 100%;
+        
+        background-color: rgb(155, 165, 155);
+        border-radius: 8px;
+        width: 100%;
+        margin: 0 auto;
+       margin-bottom: 10px;
+       
+      
+
+    
     }
     .conversation {
         width: 100%;
@@ -911,6 +942,9 @@ footer{
        
        overflow-y: auto;
        overflow-x: hidden;
+
+       
+    
     }
     .talk {
         
