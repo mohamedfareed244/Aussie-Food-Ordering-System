@@ -210,7 +210,6 @@ and (min-device-width : 700px)
 and (max-device-width : 1030px) {
   .card, .downbox
    {
-
     width: 90%;
     margin: -633px;
     margin-left: 24%;
@@ -227,7 +226,6 @@ and (max-device-width : 700px)
  {
   .card, .downbox
    {
-
     margin: -31px;
     width: 93%;
     margin-left: -3%;
@@ -243,7 +241,6 @@ and (min-device-width : 320px)
 and (max-device-width : 480px){
   .card , .downbox
    {
-    
     margin: -33px;
     width: 100%;
     margin-left: 7%;
@@ -253,4 +250,33 @@ and (max-device-width : 480px){
     margin-left: 14%;
     width: 63%;
   }
+}
+@media only screen
+and (min-width: 1030px)   
+and (max-width: 1400px)  {
+  .navbar-burger{
+    margin: 1px -20px;
+  }
+}
+@media only screen
+and (min-device-width : 700px)   
+and (max-device-width : 1030px){
+  .navbar-burger{
+    margin: 0px -4px;
+  }
+}
+@media only screen   
+and (min-device-width : 480px)   
+and (max-device-width : 700px) {
+.navbar-burger{
+  margin: 0px -4px;
+}
+}
+
+@media only screen   
+and (min-device-width : 320px)   
+and (max-device-width : 480px){
+.navbar-burger{
+  margin: 0px 1px;
+}
 }
