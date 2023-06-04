@@ -110,20 +110,15 @@
                       </tr>
                   </thead>
       
-                  <tbody>
-                      <tr>
-                          <td>
-                             Pizza
-                          </td>
-                          <td>
-                             120$
-                          </td> <td>
-                             4
-                          </td>
-                          
-                          <!-- <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
-                          <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td> -->
-                      </tr>
+                  <tbody id="tabledeatails">
+               <tr>
+                <td colspan="2">Total price : </td>
+                <td>${sum}</td>
+               </tr>
+               <tr>
+                <td colspan="2">Discount : </td>
+                <td>${obj.discount}</td>
+               </tr>
             </div>
         
          </div>
@@ -218,7 +213,26 @@ td7.appendChild(i2);
            .then(async(o)=>{
 return o.json();
            }).then(async (obj)=>{
-
+            let sum=0;
+for(let i=0;i<obj.length;i++){
+  const str=`  <tr>
+                          <td>
+                             ${obj[i].item_name}
+                          </td>
+                          <td>
+                             ${obj[i].price}
+                          </td> <td>
+                            ${obj[i].Qty}
+                          </td>
+                          
+                          <!-- <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                          <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td> -->
+                      </tr>`
+                  
+                      document.getElementById("tabledeatails").innerHTML+=str;
+                      sum+=obj[i].price;
+}
+const finals =``
            })
                   document.getElementById("popup-1").classList.toggle("active");
                }

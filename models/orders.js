@@ -11,8 +11,9 @@ const Items = new Schema({
     emp_phone: String,
     orderdate: String,
     status: String,
-    Addressid: String,
-    num: Number
+    Address: {},
+    num: Number,
+    discount:String,
 
 });
 const orders = mongoose.model('orders', Items);
