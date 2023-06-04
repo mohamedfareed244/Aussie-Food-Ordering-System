@@ -78,6 +78,7 @@
 
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
+  document.getElementById("message-body").scrollTo(0,document.getElementById("message-body").scrollHeight);
 const h=document.getElementById("custId").value;
 const l=document.getElementById(h);
 const s=l.children;
@@ -148,7 +149,9 @@ if(msg.from.name===tx1&&msg.from.phone===tx2){
     node.innerHTML=msg.body;
     node.appendChild(node1);
     document.getElementById("message-body").appendChild(node);
+    document.getElementById("message-body").scrollTo(0,document.getElementById("message-body").scrollHeight);
 }
+
 sou1();
   })
 
