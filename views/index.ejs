@@ -228,7 +228,7 @@
 
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
-     
+     document.getElementsByClassName("conversation")[0].scrollTo(0,document.getElementsByClassName("conversation")[0].scrollHeight);
    let interv=null;
    let socket;
 function connectme(){
@@ -257,6 +257,7 @@ console.log(interv);
     node1.innerHTML=`${text}`;
     node.appendChild(node1);
     document.getElementsByClassName("conversation")[0].appendChild(node);
+    document.getElementsByClassName("conversation")[0].scrollTo(0,document.getElementsByClassName("conversation")[0].scrollHeight);
   })
   socket.on('connects_emp',(emp)=>{
    document.getElementById("waiting").style.display="none";
@@ -278,6 +279,7 @@ function sendmessage(){
     document.getElementsByClassName("conversation")[0].appendChild(node);
     console.log("the value us ",msg);
     socket.emit("sendtoadmin",({"body":msg}));
+    document.getElementsByClassName("conversation")[0].scrollTo(0,document.getElementsByClassName("conversation")[0].scrollHeight);
 }
   
   

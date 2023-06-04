@@ -259,6 +259,7 @@ async function sendmessage(){
     console.log("the value us ",msg);
     let x=document.getElementById("custId").value;
     socket.emit("sendtocustomer",({"body":msg,"id":x}));
+    document.getElementById("message-body").scrollTo(0,document.getElementById("message-body").scrollHeight);
 }
 async function displayalert(text){
 document.getElementById("almsg").innerHTML=`${text}`
