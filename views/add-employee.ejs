@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,33 +12,36 @@
 
 
 </head>
+
 <body>
     <%- include("partials/admin_sidebar") %>
-    <div class="right">
+        <div class="right">
 
-    <div class="container">
-
-        
-
-       
-        <form action='/employees' method='post'>
-            <h1>Aussie</h1>
-            <h3>Add new Employee</h3>
-        <input type="text" id="name" name="Name" placeholder="Enter  Name" >
-        <input type="text" id="name" name="Email" placeholder="Enter  Email" >
-        <input type="text" id="name" name="Address"  placeholder="Enter  Address" >
-        <input type="text" id="name" name="Phone" placeholder="Enter  Phone" >
-        <input type="radio" value="val1" name="admin" >
-        <input type="radio" value="val2" name="emp">
-       
+            <div class="container">
 
 
-        <button type="submit" class="registerbtn">Submit</button> 
-    </form>
 
 
-    </div>
-</div>
+                <form action='/employees' method='post'>
+                    <h1>Aussie</h1>
+                    <h3>Add new Employee</h3>
+                    <input type="text" id="name" name="Name" placeholder="Enter  Name">
+                    <input type="text" id="name" name="Email" placeholder="Enter  Email">
+                    <input type="text" id="name" name="Address" placeholder="Enter  Address">
+                    <input type="text" id="name" name="Phone" placeholder="Enter  Phone">
+                    <input type="radio" value="val1" name="admin">
+                    <input type="radio" value="val2" name="emp">
+
+
+
+                    <button type="submit" class="registerbtn">Submit</button>
+                </form>
+
+
+            </div>
+        </div>
 
 </body>
+
 </html>
+<!-- formated -->
