@@ -11,6 +11,7 @@
   margin-left: 361px;
   margin-top: -789px;
 }
+
 .right {
   background: rgb(141, 140, 129);
   flex: 1;
@@ -28,6 +29,7 @@ h3 {
   margin-bottom: 5px;
   color: black;
 }
+
 table {
   display: flex;
   flex-direction: column;
@@ -37,17 +39,19 @@ table {
   height: 280px;
   border-collapse: collapse;
 }
-td { 
+
+td {
   padding: 10px;
   border: none;
   border-radius: 20px;
-  color:black;
+  color: black;
 }
 
 td:first-child {
   font-weight: bold;
 }
-.passwordch{
+
+.passwordch {
 
   background-color: #004A7F;
   border-radius: 10px;
@@ -57,13 +61,15 @@ td:first-child {
   display: inline-block;
   font-family: Arial;
   font-size: 15px;
-  padding: 5px ;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
 }
-.passwordch:hover{
+
+.passwordch:hover {
   background-color: rgb(234, 102, 102);
 }
+
 .downbox {
   background-color: #e6e6e6;
   margin-left: 408px;
@@ -74,6 +80,7 @@ td:first-child {
   overflow: hidden;
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .downbox li {
   padding: 9px;
   display: flex;
@@ -81,12 +88,14 @@ td:first-child {
   justify-content: center;
   margin: 7px;
 }
+
 .downbox .action_btn {
   width: 45%;
   display: flex;
   justify-content: center;
   margin: auto;
 }
+
 #loader {
   position: absolute;
   z-index: 1;
@@ -99,18 +108,21 @@ td:first-child {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+
 .inputLabel {
   font-size: 12px;
   color: #555;
   margin-bottom: 6px;
   margin-top: 24px;
 }
-  .inputDiv {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-  }
+
+.inputDiv {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
 input {
   height: 40px;
   font-size: 16px;
@@ -119,37 +131,48 @@ input {
   border: solid 1px #ccc;
   padding: 0 11px;
 }
+
 input:disabled {
   cursor: not-allowed;
   border: solid 1px #eee;
 }
+
 .buttonWrapper {
   margin-top: 40px;
 }
-  #submitButton {
-    width: 70%;
-    height: 40px;
-    margin: auto;
-    display: block;
-    color: #fff;
-    background-color: #065492;
-    border-color: #065492;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.035);
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-  }
+
+#submitButton {
+  width: 70%;
+  height: 40px;
+  margin: auto;
+  display: block;
+  color: #fff;
+  background-color: #065492;
+  border-color: #065492;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.035);
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 .submitButton:disabled,
 button[disabled] {
   border: 1px solid #cccccc;
   background-color: #cccccc;
   color: #666666;
 }
+
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
+
 .navbar-burger {
   cursor: pointer;
   display: block;
@@ -157,6 +180,7 @@ button[disabled] {
   position: relative;
   width: 50%;
 }
+
 .navbar-burger span {
   background-color: currentColor;
   display: block;
@@ -165,118 +189,122 @@ button[disabled] {
   position: absolute;
   transform-origin: center;
   transition-duration: 86ms;
-  transition-property: background-color,opacity,transform;
+  transition-property: background-color, opacity, transform;
   transition-timing-function: ease-out;
   width: 16px;
 }
+
 .navbar-burger span:nth-child(1) {
   top: calc(50% - 6px);
 }
+
 .navbar-burger span:nth-child(2) {
   top: calc(50% - 1px);
   display: none;
 }
+
 .navbar-burger span:nth-child(3) {
   top: calc(50% + 4px);
 }
+
 .navbar-burger span:nth-child(1) {
   transform: translateY(5px) rotate(45deg);
 }
+
 .navbar-burger span:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
 }
-.exitbutton{
+
+.exitbutton {
   width: 33%;
   height: 2px;
 }
-@media only screen   
-and (min-width: 1030px)   
-and (max-width: 1400px)  {
-  .card, .downbox
-   {
+
+@media only screen and (min-width: 1030px) and (max-width: 1400px) {
+
+  .card,
+  .downbox {
     width: 87%;
     margin: -616px;
     margin-left: 23%;
   }
-  .downbox{
+
+  .downbox {
     margin: 220px;
     margin-left: 28%;
     width: 54%;
   }
 }
 
-@media only screen   
-and (min-device-width : 700px)   
-and (max-device-width : 1030px) {
-  .card, .downbox
-   {
+@media only screen and (min-device-width : 700px) and (max-device-width : 1030px) {
+
+  .card,
+  .downbox {
     width: 90%;
     margin: -633px;
     margin-left: 24%;
   }
-  .downbox{
+
+  .downbox {
     margin: 238px;
     margin-left: 30%;
     width: 54%;
   }
 }
-@media only screen   
-and (min-device-width : 480px)   
-and (max-device-width : 700px)  
- {
-  .card, .downbox
-   {
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 700px) {
+
+  .card,
+  .downbox {
     margin: -31px;
     width: 93%;
     margin-left: -3%;
   }
-  .downbox{
+
+  .downbox {
     margin: -394px;
     margin-left: 3%;
     width: 60%;
   }
 }
-@media only screen   
-and (min-device-width : 320px)   
-and (max-device-width : 480px){
-  .card , .downbox
-   {
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+  .card,
+  .downbox {
     margin: -33px;
     width: 100%;
     margin-left: 7%;
   }
-  .downbox{
+
+  .downbox {
     margin: -394px;
     margin-left: 14%;
     width: 63%;
   }
 }
-@media only screen
-and (min-width: 1030px)   
-and (max-width: 1400px)  {
-  .navbar-burger{
+
+@media only screen and (min-width: 1030px) and (max-width: 1400px) {
+  .navbar-burger {
     margin: 1px -20px;
   }
 }
-@media only screen
-and (min-device-width : 700px)   
-and (max-device-width : 1030px){
-  .navbar-burger{
+
+@media only screen and (min-device-width : 700px) and (max-device-width : 1030px) {
+  .navbar-burger {
     margin: 0px -4px;
   }
 }
-@media only screen   
-and (min-device-width : 480px)   
-and (max-device-width : 700px) {
-.navbar-burger{
-  margin: 0px -4px;
-}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 700px) {
+  .navbar-burger {
+    margin: 0px -4px;
+  }
 }
 
-@media only screen   
-and (min-device-width : 320px)   
-and (max-device-width : 480px){
-.navbar-burger{
-  margin: 0px 1px;
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .navbar-burger {
+    margin: 0px 1px;
+  }
 }
-}
+/* formated */
