@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,10 +15,10 @@
 </head>
 
 <body>
-   
-   
+
+
     <div class="container">
-        
+
         <!-- <div class="imgg">
             <img src="signlogo.png" alt="">
         </div> -->
@@ -25,26 +26,28 @@
         <div class="navbar">
             <i class="fa-sharp fa-solid fa-xmark" id="fx" onclick="hidemenu()"></i>
             <h1>Aussie</h1>
-      
+
             <ul>
-                
+
                 <li>
                     <input class="search" type="text" placeholder="Search Food">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                  </li>
+                </li>
 
-                <li class ="part2"><a href="/">Home</a></li>
-                <li class ="part2"><a href="/products/All">Menu</a></li>
-                <li class ="part2" id="cart" onclick="dis()">
-                       
-                          <span id ="notification" ><%= num %></span> 
-                         <!-- <span style="position: relative; top: -20px;">0</span> -->
-                        <i class="fa-solid fa-cart-shopping"  >
-                            </i>
-                    
-                   
+                <li class="part2"><a href="/">Home</a></li>
+                <li class="part2"><a href="/products/All">Menu</a></li>
+                <li class="part2" id="cart" onclick="dis()">
+
+                    <span id="notification">
+                        <%= num %>
+                    </span>
+                    <!-- <span style="position: relative; top: -20px;">0</span> -->
+                    <i class="fa-solid fa-cart-shopping">
+                    </i>
+
+
                     <!-- onclick="check_out(event.target)" -->
-                     <!-- <div class="kk" >
+                    <!-- <div class="kk" >
                         <div style="width: 98%;height: 78.5%;  overflow: auto; border: 1px solid rgb(23, 28, 100);" class="cc">
                             
                         <%if(s.length>0){%>
@@ -65,27 +68,30 @@
     <a href="/products/cart/end/checkout" ><button id ="check_now" >CheckOut Now </button></a></div>
 
                      </div> -->
-                     
-                     <!-- <div style="height: 90%; width: 80%; border: 1px solid black;"></div> -->
-                    </li>
-                    
-                    <%if(current_user!==null){%> 
-                        <li class ="part2"><a  class="sign" href="/customers/profile/login"><%=current_user.Firstname%></a></li>
-                        <%}else{%>
-                <li class ="part2"><a  class="sign" href="/customers/signin">Profile</a></li>
-                <%}%>
-                <li class ="part2"><a class="sign" href="/customers/signup">Register</a></li>
+
+                    <!-- <div style="height: 90%; width: 80%; border: 1px solid black;"></div> -->
+                </li>
+
+                <%if(current_user!==null){%>
+                    <li class="part2"><a class="sign" href="/customers/profile/login">
+                            <%=current_user.Firstname%>
+                        </a></li>
+                    <%}else{%>
+                        <li class="part2"><a class="sign" href="/customers/signin">Profile</a></li>
+                        <%}%>
+                            <li class="part2"><a class="sign" href="/customers/signup">Register</a></li>
             </ul>
         </div>
     </div>
-    
+
 
     </div>
 
 
-    <script> if(document.title==="Aussie"){
-        document.getElementsByClassName("search")[0].style.display="none";
-       
-        document.getElementsByClassName(" fa-solid fa-magnifying-glass")[0].style.display="none";
-    } </script>
+    <script> if (document.title === "Aussie") {
+            document.getElementsByClassName("search")[0].style.display = "none";
+
+            document.getElementsByClassName(" fa-solid fa-magnifying-glass")[0].style.display = "none";
+        } </script>
 </body>
+// formated
