@@ -221,21 +221,21 @@
 
 <audio id="audio" src="/sounds/Messagenotification.m4r"></audio>
 </section>
-
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script src="/js/chatbox.js"></script>
 
 </body>
 
-<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
 <script>
-     document.getElementsByClassName("conversation")[0].scrollTo(0,document.getElementsByClassName("conversation")[0].scrollHeight);
+
    let interv=null;
    let socket;
 function connectme(){
      socket =io();
 socket.on('connect',()=>{
     console.log("socket id "+socket.id);
- 
+    document.getElementsByClassName("conversation")[0].scrollTo(0,document.getElementsByClassName("conversation")[0].scrollHeight);
   })
 socket.on("require signin",()=>{
 location.href='/customers/signin';
