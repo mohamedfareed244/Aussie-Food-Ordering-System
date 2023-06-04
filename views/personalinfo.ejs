@@ -48,7 +48,7 @@
 						<span aria-hidden="true"></span>
 					  </a>
 				</div>
-				
+
 				<div class="inputDiv">
 					<label class="inputLabel" for="password">Current Password</label>
 					<input type="password" id="currentpassword" name="currentpassword" required>
@@ -80,6 +80,11 @@
 			document.getElementById("passwordch").addEventListener("click", function () {
 				document.getElementById("downbox").style.display = "block";
 				document.getElementById('passwordch').style.display = "none";
+
+			});
+			document.getElementById("navbar-burger").addEventListener("click", function () {
+				document.getElementById("downbox").style.display = "none";
+				document.getElementById('passwordch').style.display = "block";
 
 			});
 
