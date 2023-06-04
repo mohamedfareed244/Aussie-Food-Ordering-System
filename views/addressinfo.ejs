@@ -1,11 +1,12 @@
 <html lang="en">
-    <link rel="stylesheet" href="/Css/addressinfo.css">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
-    
+<link rel="stylesheet" href="/Css/addressinfo.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
 </head>
+
 <body>
-    <%- include("./partials/nav-profileinfo") %>
-<div class="tables" style="border: 2px solid green; 
+   <%- include("./partials/nav-profileinfo") %>
+      <div class="tables" style="border: 2px solid green; 
 box-sizing: border-box;
 font-family: sans-serif;
 min-height: 89vh;
@@ -16,78 +17,79 @@ width: fit-content;
 width:  700px;
   margin-right: 10px;
   padding-left: 20px;">
-  <%if(user.addreses.length<=0){%>
-    <h1>
-      sorry , you dont have any address click here to add new address
-    </h1>
-    <button  onclick="togglePopup()">Add new Adress</button>
-    <%}else{%>
-    
-    <table class="table table-striped">
-        <tr  class="bg-info">
-            <th>Location</th>
-            <th>Address</th>
-            <th>Apt</th>
-            <th>Floor</th>
-            <th>Building</th>
-            <th><button  onclick="togglePopup()">Add new Adress</button></th>
-        </tr>
-        <tbody id="myTable">
+         <%if(user.addreses.length<=0){%>
+            <h1>
+               sorry , you dont have any address click here to add new address
+            </h1>
+            <button onclick="togglePopup()">Add new Adress</button>
+            <%}else{%>
+
+               <table class="table table-striped">
+                  <tr class="bg-info">
+                     <th>Location</th>
+                     <th>Address</th>
+                     <th>Apt</th>
+                     <th>Floor</th>
+                     <th>Building</th>
+                     <th><button onclick="togglePopup()">Add new Adress</button></th>
+                  </tr>
+                  <tbody id="myTable">
 
 
-         <% user.addreses.forEach(function(customer){%>
-          <tr>
-            <td><%-customers.addreses.location  %></td>
-            <td><%-customers.addreses.Adress  %></td>
-            <td><%-customers.addreses.apartement  %></td>
-            <td><%-customers.addreses.floor  %></td>
-            <td><%-customers.addreses.Building  %></td>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                </td>
+                     <% user.addreses.forEach(function(customer){%>
+                        <tr>
+                           <td><%-customers.addreses.location %></td>
+                           <td><%-customers.addreses.Adress %></td>
+                           <td><%-customers.addreses.apartement %></td>
+                           <td><%-customers.addreses.floor %></td>
+                           <td><%-customers.addreses.Building %></td>
+                           <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+                              <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                           </td>
 
-          </tr>
-          <%})%>
-        </tbody>
-    </table>
-    <%}%>
-    </div>
+                        </tr>
+                        <%})%>
+                  </tbody>
+               </table>
+               <%}%>
+      </div>
 
-  
 
-    <div class="popup" id="popup-1">
-      
-      <div class="overlay"> </div>
+
+      <div class="popup" id="popup-1">
+
+         <div class="overlay"> </div>
          <div class="content">
             <div class="close-btn" onclick="togglePopup()">
                &times;
             </div>
             <h1>Add Address</h1>
             <form action="">
-          
-            <input type="text" id="name"  placeholder="Enter floor" >
-            <input type="text" id="name"  placeholder="Enter street" >
-            <input type="text" id="name"  placeholder="Enter region" >
-            <input type="text" id="name"  placeholder="Enter building" >
-           
-    
-    
-            <button type="submit" class="registerbtn">Add</button> 
-         </form>
-         </div>
-     
-      </div>
-   
-   </div>
-    
-   <script>
-    function togglePopup(){
-       // const togel=document.querySelector(".popup")
-       document.getElementById("popup-1").classList.toggle("active");
-    }
- </script>
- 
-  
-  
 
-    </body>
+               <input type="text" id="name" placeholder="Enter floor">
+               <input type="text" id="name" placeholder="Enter street">
+               <input type="text" id="name" placeholder="Enter region">
+               <input type="text" id="name" placeholder="Enter building">
+
+
+
+               <button type="submit" class="registerbtn">Add</button>
+            </form>
+         </div>
+
+      </div>
+
+      </div>
+
+      <script>
+         function togglePopup() {
+            // const togel=document.querySelector(".popup")
+            document.getElementById("popup-1").classList.toggle("active");
+         }
+      </script>
+
+
+
+
+</body>
+<!-- formated -->
