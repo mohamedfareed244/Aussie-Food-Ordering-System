@@ -1,14 +1,13 @@
+body {
 
-body{
-
-overflow-x: hidden;
+  overflow-x: hidden;
 
 
 
 }
 
 
-.tablesfav{
+.tablesfav {
   box-sizing: border-box;
   font-family: sans-serif;
   min-height: 89vh;
@@ -18,34 +17,41 @@ overflow-x: hidden;
   width: fit-content;
 
 }
-table{
-	width:  950px;
+
+table {
+  width: 950px;
   margin-right: 10px;
 }
-table th{
-	padding: 10px 0;
-	background-color: #f4f4f4;
-	border:  thin solid #d4d4d4;
+
+table th {
+  padding: 10px 0;
+  background-color: #f4f4f4;
+  border: thin solid #d4d4d4;
 }
-table td{
-	padding: 14px;
-    border: thin solid #d4d4d4;
-    width: 37%;
-    text-align: center;
-    background-color: #fff;
+
+table td {
+  padding: 14px;
+  border: thin solid #d4d4d4;
+  width: 37%;
+  text-align: center;
+  background-color: #fff;
 }
-table img{
-	width:  70%;
+
+table img {
+  width: 70%;
 }
-.delete{
-	color: red;
+
+.delete {
+  color: red;
 }
-.delete:hover{
-	color: brown;
+
+.delete:hover {
+  color: brown;
 }
-table img{
-	width:  60%;
-} 
+
+table img {
+  width: 60%;
+}
 
 
 @media only screen and (max-width: 1080px) {
@@ -62,7 +68,7 @@ table img{
   table th,
   table td {
     width: 50%;
-   padding: 10px 8px
+    padding: 10px 8px
   }
 
   table img {
@@ -72,26 +78,27 @@ table img{
 
 
 @media only screen and (max-width: 700px) {
-    .tablesfav {
-      width: 100%;
-      margin-left: 0;
-      margin-top: 0;
-    }
-  
-    table {
-      width: 100%;
-    }
-  
-    table th,
-    table td {
-      width: 50%;
-     padding: 10px 8px
-    }
-  
-    table img {
-      width: 50%;
-    }
+  .tablesfav {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
   }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 50%;
+    padding: 10px 8px
+  }
+
+  table img {
+    width: 50%;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   .tablesfav {
     width: 100%;
@@ -113,3 +120,4 @@ table img{
     width: 50%;
   }
 }
+/* formated */
