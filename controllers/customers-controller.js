@@ -311,8 +311,10 @@ const deladr = async (req, res) => {
   if(req.session.signed_customer===null||req.session.signed_customer===undefined){
     res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
   }else{
-await customers.findByIdAndRemove(req.params.id);
-res.redirect("/customers/profile/addr");
+  await customers.updateOne({_id:req.session.signed_customer._id},{ $pull: { addreses: { _id: req.params.id } } });
+  req.session.signed_customer=await customers.findById(req.session.signed_customer._id);
+  res.redirect("/customers/profile/addr");
+
   }
   }
 export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr};
