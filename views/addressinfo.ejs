@@ -5,11 +5,22 @@
 </head>
 <body>
     <%- include("./partials/nav-profileinfo") %>
-<div class="tables" style="border: 2px solid green;">
+<div class="tables" style="border: 2px solid green; 
+box-sizing: border-box;
+font-family: sans-serif;
+min-height: 89vh;
+color: #555;
+margin-left: 300px;
+margin-top: -550px;
+width: fit-content;
+width:  700px;
+  margin-right: 10px;
+  padding-left: 20px;">
   <%if(user.addreses.length<=0){%>
     <h1>
       sorry , you dont have any address click here to add new address
     </h1>
+    <button  onclick="togglePopup()">Add new Adress</button>
     <%}else{%>
     
     <table class="table table-striped">
@@ -51,14 +62,18 @@
             <div class="close-btn" onclick="togglePopup()">
                &times;
             </div>
-            <h1>Orders</h1>
+            <h1>Add Address</h1>
+            <form action="">
+          
             <input type="text" id="name"  placeholder="Enter floor" >
             <input type="text" id="name"  placeholder="Enter street" >
             <input type="text" id="name"  placeholder="Enter region" >
+            <input type="text" id="name"  placeholder="Enter building" >
            
     
     
             <button type="submit" class="registerbtn">Add</button> 
+         </form>
          </div>
      
       </div>

@@ -51,37 +51,12 @@ app.use('/employees',emp_router);
 app.use('/customers',cust_router);
 
 
-//test playing sound for use in the future at orders 
-// app.get("/Users/user/Downloads/Messagenotification.m4r",function(req,res){
-//     res.sendFile(path.join("/Users/user/Downloads/sound.m4r"));
-// })
 
-app.get("/test",async (req,res)=>{
-// const emp=req.session.employee;
-// let f;
-// await orders.find({emp_name:emp.Name,emp_phone:emp.Phone}).then((result)=>{
-//   if(result!==null&&result!==undefined){
-//     f=result;
-//   }
-
-// })
-let obj=[{"id":"123","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509","chats":[{"body":"ana khlas gbt akhry ","issent":true},
-{"body":"ana khlas gbt akhry ","issent":false},
-{"body":"ana khlas gbt akhry ","issent":true}]},
-{"id":"124","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509"},
-{"id":"125","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509"}]
-let sele={"id":"123","Firstname":"mohamed","Middlename":"fareed","Phone":"01210847509","chats":[{"body":"ana khlas gbt akhry ","issent":true},
-{"body":"ana khlas gbt akhry ","issent":false},
-{"body":"ana khlas gbt akhry ","issent":true}]}
-res.render("admin_chat",{connected:obj,selected:sele});
-})
 
 
 
 app.get('/test',(req,res)=>{
-  console.log(req.baseUrl);
-  console.log("start")
-res.render("add-employee");
+res.render("admin-dashboard-menu");
 });
 app.get('/',(req,res)=>{
   let number=0;
@@ -93,13 +68,22 @@ app.get('/',(req,res)=>{
 });
 
 
+
+
+
+
+//ali
+
+app.get("/employees/profile/customers",function(req,res){
+  res.render("recent-customers");
+})
    app.get("/emp",function(req,res){
-     res.render("dashboard-employees");
+     res.render("admin-dashboard-menu");
 })
 
 //error handling 
 app.use((req,res)=>{
-   res.render("error-page")
+  res.render("error-page")
 })
 //
 

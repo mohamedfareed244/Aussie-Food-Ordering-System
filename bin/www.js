@@ -130,6 +130,9 @@ await addmsgfromadmin(o.customer,msg.body).then((b)=>{
 
   })
 
+  socket.on("diconnme",async ()=>{
+socket.disconnect();
+  })
 socket.on("sendtoadmin", async (msg)=>{
   console.log("now i will add")
   await addmsg(sess.signed_customer,msg.body).then(async(c)=>{
