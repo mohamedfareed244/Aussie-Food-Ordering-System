@@ -2,15 +2,16 @@ import { Double } from 'mongodb';
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const employees= new Schema({
- Name:String,
- Email:String,
- Address:String,
- Phone:String,
- Password:String,
-isadmin:Boolean,
-verified:Boolean
+const employees = new Schema({
+    Name: String,
+    Email: String,
+    Address: String,
+    Phone: String,
+    Password: String,
+    isadmin: Boolean,
+    verified: Boolean
 });
-const Emp=mongoose.model('Reg',employees);
+const Emp = mongoose.model('Reg', employees);
 
-export {Emp};
+export { Emp };
+//formated
