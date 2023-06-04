@@ -78,7 +78,7 @@ app.get("/employees/profile/customers",function(req,res){
   res.render("recent-customers");
 })
    app.get("/emp",function(req,res){
-     res.render("admin-dashboard-menu");
+     res.render("dashboard-orders");
 })
 
 //error handling 
