@@ -99,7 +99,7 @@
                   <thead>
                       <tr>
                           <td>
-                              Name
+                             Item Name
                           </td>
                           <td>
                               Price
@@ -107,8 +107,6 @@
                               Qty
                           </td> 
                         
-                         
-                          <td>Accept</td>
                       </tr>
                   </thead>
       
@@ -123,8 +121,8 @@
                              4
                           </td>
                           
-                          <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
-                          <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                          <!-- <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                          <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td> -->
                       </tr>
             </div>
         
@@ -216,7 +214,12 @@ td7.appendChild(i2);
    
    
                function togglePopup(id){
-           await fetch(`http://127.0.0.1:3001/products/ordrers/get/details/admin/`)
+           await fetch(`http://127.0.0.1:3001/products/ordrers/get/details/admin/${id}`,{method:'Get'})
+           .then(async(o)=>{
+return o.json();
+           }).then(async (obj)=>{
+
+           })
                   document.getElementById("popup-1").classList.toggle("active");
                }
             </script>
