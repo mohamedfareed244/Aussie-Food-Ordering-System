@@ -1,60 +1,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Css/user.css">
-    <link rel="stylesheet" href="/Css/admin_home.css">
-    <script src="/js/register.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Css/user.css">
+  <link rel="stylesheet" href="/Css/admin_home.css">
+  <script src="/js/register.js"></script>
 
-    <title>Document</title>
-   
-   
+  <title>Document</title>
+
+
 </head>
 
 <body>
-  
-    <%- include("partials/admin_sidebar") %>
-    
-   
+
+  <%- include("partials/admin_sidebar") %>
+
+
     <div class="wrapper">
-    <div class="right">
-      <%- include("partials/alert") %>
+      <div class="right">
+        <%- include("partials/alert") %>
 
-      <div class="info">
-          <h3> Personal Information</h3>
-          <div class="info_data">
-               <div class="data">
-                  <h4>Email</h4>
-                  <p><%=user.Email%></p>
-               </div>
-               <div class="data">
-                 <h4>Phone</h4>
-                  <p><%=user.Phone%></p>
+          <div class="info">
+            <h3> Personal Information</h3>
+            <div class="info_data">
+              <div class="data">
+                <h4>Email</h4>
+                <p>
+                  <%=user.Email%>
+                </p>
+              </div>
+              <div class="data">
+                <h4>Phone</h4>
+                <p>
+                  <%=user.Phone%>
+                </p>
+              </div>
+
+              <div class="data">
+                <h4>Name</h4>
+                <p>
+                  <%=user.Name%>
+                </p>
+              </div>
             </div>
-
-            <div class="data">
-              <h4>Name</h4>
-               <p> <%=user.Name%></p>
-         </div>
           </div>
-      </div>
-    
-    <div class="projects">
-          <h3>change password</h3>
-          <form action='/employees/profile/password/change' method='post' >
-            <input type="password" name="psw" id="inputpass" placeholder="Enter new Password">
-            <div id='password' class='err'></div>
-            <input type="password" name="psw-confirmt" id="inputcpass" placeholder="confirm Password">
-            <div id='cpassword' class='err'></div>
 
-            <button type="submit" class="registerbtn" style="margin-left: 3%; ">Update password</button>
-        </form>
-      </div>
+          <div class="projects">
+            <h3>change password</h3>
+            <form action='/employees/profile/password/change' method='post'>
+              <input type="password" name="psw" id="inputpass" placeholder="Enter new Password">
+              <div id='password' class='err'></div>
+              <input type="password" name="psw-confirmt" id="inputcpass" placeholder="confirm Password">
+              <div id='cpassword' class='err'></div>
 
-</div>
-</div>
+              <button type="submit" class="registerbtn" style="margin-left: 3%; ">Update password</button>
+            </form>
+          </div>
+
+      </div>
+    </div>
 
 
     <audio id="audio" src="/sounds/sound.m4r"></audio>
@@ -64,60 +70,61 @@
 <script>
 
   var socket = io();
-  socket.on('connect',()=>{
-    console.log("socket id "+socket.id);
+  socket.on('connect', () => {
+    console.log("socket id " + socket.id);
   })
 
   var form = document.getElementById("form");
   var input = document.getElementById("input");
 
-socket.on('recieve message',async (msg)=>{
-  console.log("i recived message with ",msg);
-  sou1();
-})
-  
-  socket.on('recieve order',async (msg)=>{
+  socket.on('recieve message', async (msg) => {
+    console.log("i recived message with ", msg);
+    sou1();
+  })
+
+  socket.on('recieve order', async (msg) => {
     displayalert("You have recieved a new order");
-    console.log("recieve",msg);
-  sou();
+    console.log("recieve", msg);
+    sou();
 
   })
-  socket.on("require signin",()=>{
-    location.href='/employees/signin';
+  socket.on("require signin", () => {
+    location.href = '/employees/signin';
   })
-  socket.on("newcustomer",async (msg)=>{
+  socket.on("newcustomer", async (msg) => {
     displayalert("New customer connected to chat ");
     sou1();
-    console.log("i recieve ",msg.customer.Firstname);
+    console.log("i recieve ", msg.customer.Firstname);
   })
-  socket.on("getmessage",async (msg)=>{
-    console.log("msg from ",msg.from);
+  socket.on("getmessage", async (msg) => {
+    console.log("msg from ", msg.from);
     displayalert(`New message from ${msg.from}`);
-sou1();
+    sou1();
   })
-  async function displayalert(text){
-document.getElementById("almsg").innerHTML=`${text}`
+  async function displayalert(text) {
+    document.getElementById("almsg").innerHTML = `${text}`
 
   }
-  
-  async function sou(){
+
+  async function sou() {
 
     let audio = document.getElementById("audio");
-audio.play().catch((err)=>{
-    console.log(err);
-})
+    audio.play().catch((err) => {
+      console.log(err);
+    })
 
   }
-  async function sou1(){
+  async function sou1() {
 
-let audio = document.getElementById("audio1");
-audio.play().catch((err)=>{
-console.log(err);
-})
+    let audio = document.getElementById("audio1");
+    audio.play().catch((err) => {
+      console.log(err);
+    })
 
-}
+  }
 
-  
+
 </script>
 
 </html>
+<!-- formated -->
