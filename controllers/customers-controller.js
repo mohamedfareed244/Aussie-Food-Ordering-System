@@ -302,8 +302,9 @@ if(req.session.signed_customer===null||req.session.signed_customer===undefined){
   const newobj=curr.addreses;
   newobj.push(addr);
   curr.addreses=newobj;
-  await customers.findOneAndReplace({Email:curr.Email},curr);
-  req.session.signed_customer=curr;
+  await customers.findOneAndUpdate({_id:curr._id},{$push:{addreses:addr}});
+  req.session.signed_customer= await customers.findById(curr._id);
+ 
   res.redirect("/customers/profile/addr");
 }
 }
