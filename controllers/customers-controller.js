@@ -286,5 +286,23 @@ const getmsgs = async (req, res) => {
   console.log(" the message will be json to the custojer is ", ch);
   res.json(ch);
 }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs };
+const addadr = async (req, res) => {
+if(req.session.signed_customer===null||req.session.signed_customer===undefined){
+  res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
+}else{
+  const addr={
+    location:req.body.location,
+    Adress:req.body.Adress,
+    apartment:req.body.apartment,
+    floor:req.body.floor,
+    Building:req.body.Building
+  }
+  const curr=req.session.signed_customer;
+  curr.chat.push(addr);
+  await customers.findOneAndReplace({Email:curr.Email},curr);
+  req.session.signed_customer=curr;
+  res.redirect("/customers/profile/addr");
+}
+}
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr};
 //formated
