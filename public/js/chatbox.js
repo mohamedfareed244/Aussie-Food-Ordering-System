@@ -5,9 +5,7 @@ const chatArea = document.querySelector('.chat-area');
 const inputElm = document.querySelector('input');
 
 
-chatBtn.addEventListener('click', ()=>{
-    popup.classList.toggle('show');
-})
+
 
 
 
@@ -75,7 +73,10 @@ audio.play().catch((err)=>{
 
 }
 
-connectme();
+chatBtn.addEventListener('click', ()=>{
+    popup.classList.toggle('show');
+    connectme();
+})
 
 
 
