@@ -25,5 +25,7 @@ router.get('/add section', postsection);
 router.get('/add section', postproduct);
 //router.post('/customer/order/address',)
 router.get('/customer/cart/checkout/order', new_order);
+
+router.get('/ordrers/get/details/admin/:id',getorderdet)
 export default router;
 //formated

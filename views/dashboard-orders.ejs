@@ -119,6 +119,10 @@
                 <td colspan="2">Discount : </td>
                 <td>${obj.discount}</td>
                </tr>
+               <tr>
+                <td>Shipping Address : </td>
+                <td colspan="2">`${obj}.Address.location  ${obj}.Address.Adress ${obj}.Address.apartment ${obj}.Address.floor ${obj}.Address.Building `</td>
+               </tr>
             </div>
         
          </div>
@@ -232,8 +236,21 @@ for(let i=0;i<obj.length;i++){
                       document.getElementById("tabledeatails").innerHTML+=str;
                       sum+=obj[i].price;
 }
-const finals =``
+const finals =`   <tr>
+                <td colspan="2">Total price : </td>
+                <td>${sum}</td>
+               </tr>
+               <tr>
+                <td colspan="2">Discount : </td>
+                <td>${obj.discount}</td>
+               </tr>
+               <tr>
+                <td>Shipping Address : </td>
+                <td colspan="2">${obj.Address.location}  ${obj.Address.Adress} ${obj.Address.apartment} ${obj.Address.floor} ${obj.Address.Building} </td>
+               </tr> `
+
            })
+           document.getElementById("tabledeatails").innerHTML+=finals;
                   document.getElementById("popup-1").classList.toggle("active");
                }
             </script>

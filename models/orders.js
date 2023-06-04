@@ -11,7 +11,7 @@ const Items = new Schema({
     emp_phone: String,
     orderdate: String,
     status: String,
-    Address: {},
+    Address: [{location:String,Adress:String,apartment:String,floor:String,Building:String}],
     num: Number,
     discount:String,
 
