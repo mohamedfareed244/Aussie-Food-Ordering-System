@@ -198,10 +198,8 @@ const customerchnagepass = async (req, res) => {
   }
   else {
     const curr = req.session.signed_customer;
-    if (curr.Password == req.body.currentpassword) 
-    {
-      if (req.body.newpassword == req.body.confirmPassword)
-       {
+    if (curr.Password == req.body.currentpassword) {
+      if (req.body.newpassword == req.body.confirmPassword) {
         curr.Password = req.body.newpassword;
 
         await customers.findOneAndReplace({ Email: curr.Email }, curr);
@@ -210,7 +208,7 @@ const customerchnagepass = async (req, res) => {
         res.render("personalinfo", { customer: req.session.signed_customer });
       }
       else {
-        console.log(req.body.newpassword,req.body.confirmPassword);
+        console.log(req.body.newpassword, req.body.confirmPassword);
       }
     }
 
@@ -279,13 +277,14 @@ const addmsgfromadmin = async (customer, msg) => {
 
   return customer;
 }
-const getmsgs = async (req,res) => {
+const getmsgs = async (req, res) => {
   console.log("now fetching the messages ");
- const ch=await customers.findById(req.params.id)
- .then(async (o)=>{
-  return o.chat;
- })
-console.log(" the message will be json to the custojer is ",ch);
- res.json(ch);
+  const ch = await customers.findById(req.params.id)
+    .then(async (o) => {
+      return o.chat;
+    })
+  console.log(" the message will be json to the custojer is ", ch);
+  res.json(ch);
 }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass , getmsgs};
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs };
+//formated
