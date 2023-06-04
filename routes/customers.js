@@ -27,6 +27,6 @@ router.get('/profile/favs', customerfav);
 router.get('/mail/validation/:id', customerml);
 router.get('/profile/addr', customeraddr);
 router.get('/admin/chat/changeuser/:id', getmsgs);
-router.get('/profile/address/add/new',addadr);
+router.post('/profile/address/add/new',addadr);
 export default router;
 //formated
