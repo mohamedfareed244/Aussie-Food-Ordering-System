@@ -24,19 +24,10 @@ router.get("/signin", (req, res) => {
 })
 router.get("/profile/chat/details/:id", getallchatssel);
 router.get("/profile/chat/details", getallchats);
-// app.get('/', (req, res) => 
-// {
-//   res.render('index')
-// })
+router.get("/profile/orders", emporder)
 
-
-// router.get('/', (req, res) => 
-//   {
-
-//     res.render('dashboard-employees')
-//  })
 
 
 
 export default router;
-//formated
+

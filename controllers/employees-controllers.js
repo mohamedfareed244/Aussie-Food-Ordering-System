@@ -195,6 +195,14 @@ const getallchatssel = async (req, res) => {
     res.render("admin_chat", { "connected": connected, "selected": sel });
   }
 }
+/////////////
+const emporder= async(req,res)=>{
+const curr=req.session.employee;
+if(curr===null||curr===undefined){
+  res.render("admin_signin",{alert:true,text:"You have to sign in first to access orders section "});
+}else[
 
+]
+}
 export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats };
 //formated
