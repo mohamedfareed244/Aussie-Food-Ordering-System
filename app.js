@@ -92,8 +92,15 @@ app.get('/',(req,res)=>{
     ,num:number,current_user:req.session.signed_customer==undefined?null:req.session.signed_customer});
 });
 
-app.get("/empmenu",function(req,res){
-  res.render("admin-dashboard-menu");
+
+
+
+
+
+//ali
+
+app.get("/employees/profile/customers",function(req,res){
+  res.render("recent-customers");
 })
    app.get("/emp",function(req,res){
      res.render("dashboard-employees");

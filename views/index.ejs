@@ -19,12 +19,53 @@
 
   <%- include("partials/navbar") %>
 
+  
+
+<div  id="shows">
+    <div id ="cc">
+        <div id="cart_body">
+
+            <%if(s.length>0){%>
+                <% s.forEach( function(itemss) { %> 
+                   
+                    <div class ="art"><img src="<%-itemss.item.path%>"alt="" class="item_img" >
+                        
+                    <span class="s1"> <b>item name :</b> <%- itemss.item.name %></span>
+                    <br>
+                    <span class="s2"><b>Price : <%-itemss.item.price%> $ Qty : </b> <b class="qty1"><%-itemss.qty%></b> </span>
+                    
+                </div>  
+                <% }); %>  
+           
+            
+ <%}%>
+</div>
+
+ <button id="chout" onclick="location.href = '/products/cart/end/checkout';">Proceed to checkout</button>
+        </div>
+
+        
+</div>
+<!-- end shows -->
+
+
+
+
+<script>document.getElementById("shows").style.display="none";</script>
+
+  
+
     <div class="content">
         <h3>Welcome To Aussie</h3>
         <h1>Healthy and Natural Food</h1>
         <p>HeaFoodHealthyHealthy HealthyHealth and Natural FoodHealthyHealthy and Natural FoodHealthyHeHealthy and Natural FoodHealthy and Natural FoodHealthy and Natural Food</p>
       <button onclick="location.href = '/products/All';">ORDER NOW</button>
+
+      
+
     </div>
+
+    
     
 
    <section class="alifood">
@@ -223,6 +264,9 @@
 </section>
 
 <script src="/js/chatbox.js"></script>
+
+
+
 
 </body>
 
