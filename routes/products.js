@@ -4,7 +4,7 @@ import { getsection, postproduct, postsection } from "../controllers/products_co
 import { getitembyid } from "../controllers/products_controller.js";
 import { delitem } from "../controllers/products_controller.js";
 import { check_out } from "../controllers/products_controller.js";
-import { new_order } from "../controllers/products_controller.js";
+import { new_order ,getorderdet} from "../controllers/products_controller.js";
 // import {postsection} from "../controllers/products_controller.js";
 //import the products database controllers 
 

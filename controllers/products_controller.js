@@ -224,11 +224,25 @@ const postproduct = async (req, res) => {
 
 }
 
+const getorderdet= async (req, res) => {
+
+ const ord =await orders.findById(req.params.id);
+ res.json(ord);
+
+}
+// const orderappr=async (req, res) => {
 
 
+ 
+//  }
+// const orderdec=async (req, res) => {
+
+ 
+ 
+//  }
 
 export {
   getsection,
-  getitembyid, delitem, check_out, new_order, postsection, postproduct
+  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet
 };
 //formatedv
