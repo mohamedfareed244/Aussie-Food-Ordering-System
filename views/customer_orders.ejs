@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,118 +8,126 @@
     <link rel="stylesheet" href="/Css/b.css">
     <title>Document</title>
 </head>
+
 <body>
     <%- include("./partials/nav-profileinfo") %>
-    <table id="t">
-        <thead>
-            <td>order_number</td>
-             <td>items_number</td>
-              <td>price</td>
-              <td>status</td>
-        </thead>
-        <tbody>
-      <tr class="order_summ" onclick="show(0)">
-        <td>12345</td>
-     <td>10</td>
-      <td>300 $ </td>
-      <td>delivered</td>
-     </tr>
-      <tr class ="yy" >
-     <td id ="uu" style="text-align: center; " colspan="4">
-        <table  id="table_inside" style="width:100%; display: table;">
-            <thead >
-                <td>item name </td>
-                <td>item price </td>
-                <td>qty </td>
-               
+        <table id="t">
+            <thead>
+                <td>order_number</td>
+                <td>items_number</td>
+                <td>price</td>
+                <td>status</td>
             </thead>
-            <tbody >
-                <tr style="text-align: center;">
-                    <td style="border-bottom: 2px solid rgb(82, 110, 185);">burger 150 gm </td>
-                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 20 $</td>
-                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 3</td>
+            <tbody>
+                <tr class="order_summ" onclick="show(0)">
+                    <td>12345</td>
+                    <td>10</td>
+                    <td>300 $ </td>
+                    <td>delivered</td>
                 </tr>
-                
-                <tr style=" border-top: 2px solid black;">
-                    <td>price : </td>
-                    <td>20$</td>
-                    
-    
+                <tr class="yy">
+                    <td id="uu" style="text-align: center; " colspan="4">
+                        <table id="table_inside" style="width:100%; display: table;">
+                            <thead>
+                                <td>item name </td>
+                                <td>item price </td>
+                                <td>qty </td>
+
+                            </thead>
+                            <tbody>
+                                <tr style="text-align: center;">
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);">burger 150 gm </td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 20 $</td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 3</td>
+                                </tr>
+
+                                <tr style=" border-top: 2px solid black;">
+                                    <td>price : </td>
+                                    <td>20$</td>
+
+
+                                </tr>
+                                <tr style="text-align: center; border-bottom: 2px solid black;">
+                                    <td>Address : </td>
+                                    <td style="max-width: 50px;  word-wrap: break-word;">new cairo (north 90)</td>
+
+
+                                </tr>
+                                <tr style="text-align: center;">
+                                    <td>delivery comments : </td>
+                                    <td style="max-width: 50px;  word-wrap: break-word;">please add more ketchup with my
+                                        order because the last order was so bad thank you </td>
+
+
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </td>
+                <tr class="order_summ" onclick="show(1)">
+                    <td>12345</td>
+                    <td>10</td>
+                    <td>300 $ </td>
+                    <td>delivered</td>
                 </tr>
-                <tr style="text-align: center; border-bottom: 2px solid black;">
-                    <td>Address : </td>
-                    <td style="max-width: 50px;  word-wrap: break-word;">new cairo (north 90)</td>
-                    
-    
+                <tr class="yy">
+                    <td id="uu" style="text-align: center; " colspan="4">
+                        <table id="table_inside" style="width: 100%; display: table;">
+                            <thead>
+                                <td>item name </td>
+                                <td>item price </td>
+                                <td>qty </td>
+
+                            </thead>
+                            <tbody>
+                                <tr style="text-align: center;">
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);">burger 150 gm </td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 20 $</td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 3</td>
+                                </tr>
+
+                                <tr style=" border-top: 2px solid black;">
+                                    <td>price : </td>
+                                    <td>20$</td>
+
+
+                                </tr>
+                                <tr style="text-align: center; border-bottom: 2px solid black;">
+                                    <td>Address : </td>
+                                    <td style="max-width: 50px;  word-wrap: break-word;">new cairo (north 90)</td>
+
+
+                                </tr>
+                                <tr style="text-align: center;">
+                                    <td>delivery comments : </td>
+                                    <td style="max-width: 50px;  word-wrap: break-word;">please add more ketchup with my
+                                        order because the last order was so bad thank you </td>
+
+
+                                </tr>
+
                 </tr>
-                <tr style="text-align: center;">
-                    <td>delivery comments  : </td>
-                    <td style="max-width: 50px;  word-wrap: break-word;">please add more ketchup with my order because the last order was so bad thank you </td>
-                    
-    
-                </tr>
-                
-              
+
+
             </tbody>
-        </table></td> <tr class="order_summ" onclick="show(1)">
-            <td>12345</td>
-         <td>10</td>
-          <td>300 $ </td>
-          <td>delivered</td>
-         </tr>
-          <tr class ="yy" >
-         <td id ="uu" style="text-align: center; " colspan="4">
-            <table  id="table_inside" style="width: 100%; display: table;">
-                <thead >
-                    <td>item name </td>
-                    <td>item price </td>
-                    <td >qty </td>
-                
-                </thead>
-                <tbody >
-                    <tr style="text-align: center;">
-                        <td style="border-bottom: 2px solid rgb(82, 110, 185);">burger 150 gm </td>
-                        <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 20 $</td>
-                        <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 3</td>
-                    </tr>
-                    
-                    <tr style=" border-top: 2px solid black;">
-                        <td>price : </td>
-                        <td>20$</td>
-                        
-        
-                    </tr>
-                    <tr style="text-align: center; border-bottom: 2px solid black;">
-                        <td>Address : </td>
-                        <td style="max-width: 50px;  word-wrap: break-word;">new cairo (north 90)</td>
-                        
-        
-                    </tr>
-                    <tr style="text-align: center;">
-                        <td>delivery comments  : </td>
-                        <td style="max-width: 50px;  word-wrap: break-word;">please add more ketchup with my order because the last order was so bad thank you </td>
-                        
-        
-                    </tr>
-        
-                    </tr>
-                    
-                  
-                </tbody>
-            </table></td>
-   
-   
+        </table>
+        </td>
+
+
 </body>
 <script>
 
-    function show(index){
-const ele=document.getElementsByClassName("yy")[index];
-if(ele.style.display==="table-row"){
-    ele.style.display="none";
-}else{
-    ele.style.display="table-row";
-}
+    function show(index) {
+        const ele = document.getElementsByClassName("yy")[index];
+        if (ele.style.display === "table-row") {
+            ele.style.display = "none";
+        } else {
+            ele.style.display = "table-row";
+        }
 
     }
 </script>
+
 </html>
+<!-- formated -->
