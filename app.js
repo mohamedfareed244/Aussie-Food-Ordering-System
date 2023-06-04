@@ -83,7 +83,7 @@ app.get("/employees/profile/customers",function(req,res){
 
 //error handling 
 app.use((req,res)=>{
-   res.render("error-page")
+  res.render("error-page")
 })
 //
 
