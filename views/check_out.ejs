@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,146 +10,172 @@
     <link rel="icon" href="/images/12345.jpeg">
     <script src="/js/script.js"></script>
 </head>
+
 <body>
-    <% let nu =0;for(let i=0;i<cart.length;i++){nu+=(cart[i].qty)} %>
-        <% let sum =0;for(let i=0;i<cart.length;i++){sum+=(cart[i].item.price*cart[i].qty)} %>
-    <div id="container">
-<ul id ="list_of_items">
-<% cart.forEach(function (items){ %>
+    <% let nu=0;for(let i=0;i<cart.length;i++){nu+=(cart[i].qty)} %>
+        <% let sum=0;for(let i=0;i<cart.length;i++){sum+=(cart[i].item.price*cart[i].qty)} %>
+            <div id="container">
+                <ul id="list_of_items">
+                    <% cart.forEach(function (items){ %>
 
-    <li>
-        <%console.log(items.path+"  "+"items.name")%>
-        <article class ="art"><img src="<%=items.item.path%>" alt="" id="item_img" >
-            <span class="s1"> <b>item name :</b> <%=items.item.name%></span>
-            <br>
-            <span class="s2"><b>Price : <%=items.item.price%>$</b></span>
-            <ul class ="cart_items">
-                <li> <img src="/images/minus.png" alt="" class ="im" onclick=dec_qty("<%=items.item._id%>",<%=items.item.price%>,<%=nu%>,<%=sum%>)> </li>
-                 
-                <li><span class ="in_span"><%=items.qty%></span></li>
-                <li> <img src="/images/plus2.png" alt="" class="im" onclick=inc_qty("<%=items.item._id%>",<%=items.item.price%>)> </li>
-            </ul>
-        </article>
-    </li>
+                        <li>
+                            <%console.log(items.path+" "+" items.name")%>
+                                <article class="art"><img src="<%=items.item.path%>" alt="" id="item_img">
+                                    <span class="s1"> <b>item name :</b>
+                                        <%=items.item.name%>
+                                    </span>
+                                    <br>
+                                    <span class="s2"><b>Price : <%=items.item.price%>$</b></span>
+                                    <ul class="cart_items">
+                                        <li> <img src="/images/minus.png" alt="" class="im"
+                                                onclick=dec_qty("<%=items.item._id%>",<%=items.item.price%>,<%=nu%>,
+                                                    <%=sum%>)> </li>
 
-<%});%>
+                                        <li><span class="in_span">
+                                                <%=items.qty%>
+                                            </span></li>
+                                        <li> <img src="/images/plus2.png" alt="" class="im"
+                                                onclick=inc_qty("<%=items.item._id%>",<%=items.item.price%>)> </li>
+                                    </ul>
+                                </article>
+                        </li>
 
-
-
-  
-</ul>
- 
-
-
-
-    </div>
-    <table id ="prices">
-       
-        <tr>
-            <td><b>Total Items : </b></td>
-            
-            <td class="data"><span > <span id="table_item_number"><%=nu%></span> Items </span></td>
-        </tr>
-        <tr>
-            <td><b>price (exc .vat) : </b></td>
-          
-            <td class="data"><span > <span id="table_price"><%=sum%></span> $ </span></td>
-        </tr>
-        <tr>
-            <td><b>vat 14% : </b></td>
-            <td class ="data"><span > <span id="table_tax"><%=Math.round(((sum/100)*14))%></span> $ </span></td>
-        </tr>
-        <tr>
-            <td><b>Total Price : </b></td>
-            <td class ="data"><span > <span id="table_total"><%=Math.round(((sum/100)*14))+sum%></span> $ </span></td>
-        </tr>
-
-    </table>
-<div id ="voucher_area">
-
-    <div id ="v1">
-        <input type="text" placeholder="Voucher Code " id="voucher">
-        <button id = "app_vouch_btn">Apply </button>
-    </div>
-
-
-    <div id="drop_addr">
-        <button id="dropbtn" onclick="">Choose Your Address <img src="/images/arrow-down-sign-to-navigate.png" alt="" width="15px" id ="hide_img"></button>
-        <div id="dropdown-content">
-        <ul id="adds_list">
-            <!-- <%for(let i=0;i<user.addreses.length;i++){%> -->
-            <li>
-                <article class="art2" title="Select This address"> <span class="sp1"> <b><%=user.addreses[i].location%> </b> </span>
-                    <br>
-                    <span class="sp2"><%=user.addreses[i].Adress%> , apt : <%=user.addreses[i].apartment%> , floor :<%=user.addreses[i].floor%>, building : <%=user.addreses[i].building%> </span></article>
-            </li>
-            <!-- <%}%> -->
-           
-        </ul>
-        </div>
-      </div>
-   
-      <textarea name="" id="notes" cols="30" rows="10" placeholder="Add delivery notes here "></textarea>
-       <a href="/products/customer/cart/checkout/order">  <button id ="end"  >check out now </button> </a>
+                        <%});%>
 
 
 
 
-
-
-      
-</div>
+                </ul>
 
 
 
 
+            </div>
+            <table id="prices">
 
-<%if(ord.confirm){%>
+                <tr>
+                    <td><b>Total Items : </b></td>
 
-<div class="popup" id="popup-1">
-  
-   
-   
-   
-    
+                    <td class="data"><span> <span id="table_item_number">
+                                <%=nu%>
+                            </span> Items </span></td>
+                </tr>
+                <tr>
+                    <td><b>price (exc .vat) : </b></td>
 
-      
-     <div class="overlay"> </div>
-       <div class="content">
-        <img src="/images/404-tick.png" alt="">
-          <div class="close-btn" onclick="togglePopup()">
-             &times;
-          </div>
-          <h2>Thank You!</h2>
-          
-          <p>Your order has been succesfully sent , An email will be sent to you with order status </p>
-          <p>Thanks for shopping with Aussie . </p>
-          <p>order number: <%=ord.num%></p>
-          <!-- <button type="button" onclick="togglePopup()">OK</button> -->
-       </div> 
-   
-    </div>
-<%}%>
-    <script data-data="<%= JSON.stringify(ord) %>">
-     const data = JSON.parse(document.currentScript.dataset.data);
-     console.log(data);
+                    <td class="data"><span> <span id="table_price">
+                                <%=sum%>
+                            </span> $ </span></td>
+                </tr>
+                <tr>
+                    <td><b>vat 14% : </b></td>
+                    <td class="data"><span> <span id="table_tax">
+                                <%=Math.round(((sum /100)*14))%>
+                            </span> $ </span></td>
+                </tr>
+                <tr>
+                    <td><b>Total Price : </b></td>
+                    <td class="data"><span> <span id="table_total">
+                                <%=Math.round(((sum /100)*14))+sum%>
+                            </span> $ </span></td>
+                </tr>
 
-        function togglePopup(){
-                      // const togel=document.querySelector(".popup")
-                      document.getElementById("popup-1").classList.toggle("active");
+            </table>
+            <div id="voucher_area">
 
- 
-                   }
-                   if(data.confirm){
-        togglePopup();
-   setTimeout(togglePopup,5000);
-   setTimeout(red,5000);
-     }
-     function red(){
-        document.location.href="/products/All";
-     }
-    </script>
-    
+                <div id="v1">
+                    <input type="text" placeholder="Voucher Code " id="voucher">
+                    <button id="app_vouch_btn">Apply </button>
+                </div>
+
+
+                <div id="drop_addr">
+                    <button id="dropbtn" onclick="">Choose Your Address <img
+                            src="/images/arrow-down-sign-to-navigate.png" alt="" width="15px" id="hide_img"></button>
+                    <div id="dropdown-content">
+                        <ul id="adds_list">
+                            <!-- <%for(let i=0;i<user.addreses.length;i++){%> -->
+                            <li>
+                                <article class="art2" title="Select This address"> <span class="sp1"> <b>
+                                            <%=user.addreses[i].location%>
+                                        </b> </span>
+                                    <br>
+                                    <span class="sp2">
+                                        <%=user.addreses[i].Adress%> , apt : <%=user.addreses[i].apartment%> , floor :
+                                                <%=user.addreses[i].floor%>, building : <%=user.addreses[i].building%>
+                                    </span>
+                                </article>
+                            </li>
+                            <!-- <%}%> -->
+
+                        </ul>
+                    </div>
+                </div>
+
+                <textarea name="" id="notes" cols="30" rows="10" placeholder="Add delivery notes here "></textarea>
+                <a href="/products/customer/cart/checkout/order"> <button id="end">check out now </button> </a>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+            <%if(ord.confirm){%>
+
+                <div class="popup" id="popup-1">
+
+
+
+
+
+
+
+                    <div class="overlay"> </div>
+                    <div class="content">
+                        <img src="/images/404-tick.png" alt="">
+                        <div class="close-btn" onclick="togglePopup()">
+                            &times;
+                        </div>
+                        <h2>Thank You!</h2>
+
+                        <p>Your order has been succesfully sent , An email will be sent to you with order status </p>
+                        <p>Thanks for shopping with Aussie . </p>
+                        <p>order number: <%=ord.num%>
+                        </p>
+                        <!-- <button type="button" onclick="togglePopup()">OK</button> -->
+                    </div>
+
+                </div>
+                <%}%>
+                    <script data-data="<%= JSON.stringify(ord) %>">
+                        const data = JSON.parse(document.currentScript.dataset.data);
+                        console.log(data);
+
+                        function togglePopup() {
+                            // const togel=document.querySelector(".popup")
+                            document.getElementById("popup-1").classList.toggle("active");
+
+
+                        }
+                        if (data.confirm) {
+                            togglePopup();
+                            setTimeout(togglePopup, 5000);
+                            setTimeout(red, 5000);
+                        }
+                        function red() {
+                            document.location.href = "/products/All";
+                        }
+                    </script>
+
 
 </body>
+
 </html>
+<!-- formated -->
