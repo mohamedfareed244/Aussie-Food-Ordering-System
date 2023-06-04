@@ -286,6 +286,7 @@ const getmsgs = async (req, res) => {
   console.log(" the message will be json to the custojer is ", ch);
   res.json(ch);
 }
+//////////////////////////////////////////////////////////
 const addadr = async (req, res) => {
 if(req.session.signed_customer===null||req.session.signed_customer===undefined){
   res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
@@ -306,5 +307,13 @@ if(req.session.signed_customer===null||req.session.signed_customer===undefined){
   res.redirect("/customers/profile/addr");
 }
 }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr};
-//formated
+const deladr = async (req, res) => {
+  if(req.session.signed_customer===null||req.session.signed_customer===undefined){
+    res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
+  }else{
+await customers.findByIdAndRemove(req.params.id);
+res.redirect("/customers/profile/addr");
+  }
+  }
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr};
+
