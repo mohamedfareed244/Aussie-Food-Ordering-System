@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,42 +12,41 @@
 
 
 </head>
+
 <body>
     <%- include("partials/admin_sidebar") %>
-    <div class="right">
-    <div class="container">
+        <div class="right">
+            <div class="container">
 
-        
-
-       
-      
-            <h1>Aussie</h1>
-            <h3>Add new product</h3>
-            <form  action='/addproduct' method='post'>
-            <div class="display"></div>
-            <input type="file"  id="upload" name="path">
-            <label for="upload">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-                choose your photo
-            </label><br>
-        <input type="text" id="name" name="name" placeholder="Enter Title" >
-        <input type="text" id="name" name="price" placeholder="Enter Price" >
-        <input type="text" id="name" name="description" placeholder="Enter description" >
-        <select Name="choose section" Size="Number_of_options">  
-            <option> ind meals </option>  
-            <option> healthy food </option>  
-            <option> ind meals </option>  
-            <option> healthy food </option>  
-          </select>
+                <h1>Aussie</h1>
+                <h3>Add new product</h3>
+                <form action='/addproduct' method='post'>
+                    <div class="display"></div>
+                    <input type="file" id="upload" name="path">
+                    <label for="upload">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        choose your photo
+                    </label><br>
+                    <input type="text" id="name" name="name" placeholder="Enter Title">
+                    <input type="text" id="name" name="price" placeholder="Enter Price">
+                    <input type="text" id="name" name="description" placeholder="Enter description">
+                    <select Name="choose section" Size="Number_of_options">
+                        <option> ind meals </option>
+                        <option> healthy food </option>
+                        <option> ind meals </option>
+                        <option> healthy food </option>
+                    </select>
 
 
-        <button type="submit" class="registerbtn">Submit</button> 
-    </form>
+                    <button type="submit" class="registerbtn">Submit</button>
+                </form>
 
 
-    </div>
-    
-</div>
+            </div>
+
+        </div>
 
 </body>
+
 </html>
+<!-- formated -->
