@@ -4,6 +4,7 @@ const submitBtn = document.querySelector('.submit');
 const chatArea = document.querySelector('.chat-area');
 const inputElm = document.querySelector('input');
 
+document.getElementsByClassName("input-area")[0].style.display="none";
 
 
 
@@ -29,7 +30,7 @@ async function connectme() {
 
 
     socket.on("cantfind", () => {
-
+        document.getElementsByClassName("input-area")[0].style.display="none";
         console.log("cant find")
         document.getElementById("spin").innerHTML = "wait while we connecting you to agent ";
         document.getElementsByClassName("badge")[0].style.display = "block";
@@ -55,6 +56,7 @@ async function connectme() {
 
 
     socket.on('connects_emp', (emp) => {
+        document.getElementsByClassName("input-area")[0].style.display="flex";
         document.getElementById("waiting").style.display = "none";
         clearInterval(interv);
         document.getElementById("spin").innerHTML = emp.name;
@@ -93,6 +95,7 @@ async function sou() {
 
 
 async function disconnectme() {
+    document.getElementsByClassName("input-area")[0].style.display="none";
     socket.emit("diconnme", {});
 }
 
