@@ -1,8 +1,8 @@
 
-import {Emp} from "../models/Employees.js";
- import nodemailer from "nodemailer"
+import { Emp } from "../models/Employees.js";
+import nodemailer from "nodemailer"
 import ejs from "ejs";
-import {addemp,get_customers} from "../app.js";
+import { addemp, get_customers } from "../app.js";
 
 
 
@@ -10,7 +10,7 @@ import {addemp,get_customers} from "../app.js";
 
 
 
-function sendmail(User){
+function sendmail(User) {
   const trans = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -21,7 +21,7 @@ function sendmail(User){
   let data;
   ejs.renderFile("/Users/user/Desktop/web_back2 /views/emp_mail.ejs", { user: User }, (err, d) => {
     data = d;
-   
+
   });
   console.log(User.id);
   const options = {
@@ -41,7 +41,7 @@ function sendmail(User){
 }
 
 // const postemployees=(req, res)=> {
-  
+
 //     const employee=new Emp(req.body);
 //     employee
 //     .save( )
@@ -55,144 +55,146 @@ function sendmail(User){
 
 
 
-  const postemployees = async (req, res)=> {
-   
-    const obj={Name:req.body.Name,
-   Email:req.body.Email,
-    Address:req.body.Address,
-    Phone:req.body.Phone,
-    isadmin:req.body.admin===undefined?false:true,
-verified:false,
-Password:""
-    }
-        const employee=new Emp(obj);
-    
-    try{
+const postemployees = async (req, res) => {
+
+  const obj = {
+    Name: req.body.Name,
+    Email: req.body.Email,
+    Address: req.body.Address,
+    Phone: req.body.Phone,
+    isadmin: req.body.admin === undefined ? false : true,
+    verified: false,
+    Password: ""
+  }
+  const employee = new Emp(obj);
+
+  try {
     await employee.save();
     await sendmail(employee);
     console.log("saved successfully");
-    }catch(err){
+  } catch (err) {
     console.log(err);
-    }
-
   }
 
-
-
-  const getemployees= async (req, res) => {
- console.log(req.body.Email)
- console.log(req.body.password)
-let curr;
-await Emp.findOne({Email:req.body.Email,Password:req.body.password}).then((res)=>{
-  curr=res;
-})
-
-console.log(curr);
-if(curr===null||curr===undefined||!curr.verified){
-  res.render("admin_signin",{alert:true,text:"invalid Email or Password"})
-}else{
-  req.session.employee=curr;
-  console.log("start redirection");
-  await addemp(curr);
- 
-  res.redirect("/employees/profile");
 }
 
+
+
+const getemployees = async (req, res) => {
+  console.log(req.body.Email)
+  console.log(req.body.password)
+  let curr;
+  await Emp.findOne({ Email: req.body.Email, Password: req.body.password }).then((res) => {
+    curr = res;
+  })
+
+  console.log(curr);
+  if (curr === null || curr === undefined || !curr.verified) {
+    res.render("admin_signin", { alert: true, text: "invalid Email or Password" })
+  } else {
+    req.session.employee = curr;
+    console.log("start redirection");
+    await addemp(curr);
+
+    res.redirect("/employees/profile");
   }
 
-  const confirmmail=async (req,res)=>{
-    const User = await Emp.findById(req.params.id);
-    if(!User.verified){
-      req.session.employee=User;
-      User.verified=true;
-      await User.save();
-      await addemp(User);
-      res.render("admin_account",{user:User});
-    }else{
-      res.redirect("/employees/profile")
-    }
-  }
+}
 
-  const empprof=async (req,res)=>{
-    if(req.session.employee===undefined||req.session.employee===null){
-res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
-    }else{
-     
-      res.render("admin_account",{user:req.session.employee});
-    }
+const confirmmail = async (req, res) => {
+  const User = await Emp.findById(req.params.id);
+  if (!User.verified) {
+    req.session.employee = User;
+    User.verified = true;
+    await User.save();
+    await addemp(User);
+    res.render("admin_account", { user: User });
+  } else {
+    res.redirect("/employees/profile")
   }
+}
 
-const changepass= async (req,res)=>{
-  if(req.session.employee===undefined||req.session.employee===null){
-    res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
-        }
-        else{
-        const curr=req.session.employee;
-        curr.Password=req.body.psw;
-        await Emp.findOneAndReplace({Email:curr.Email},curr);
-        
-res.render("admin_account",{user:req.session.employee});
-        }
+const empprof = async (req, res) => {
+  if (req.session.employee === undefined || req.session.employee === null) {
+    res.render("admin_signin", { alert: true, text: "You must login first to access this section !" });
+  } else {
+
+    res.render("admin_account", { user: req.session.employee });
+  }
+}
+
+const changepass = async (req, res) => {
+  if (req.session.employee === undefined || req.session.employee === null) {
+    res.render("admin_signin", { alert: true, text: "You must login first to access this section !" });
+  }
+  else {
+    const curr = req.session.employee;
+    curr.Password = req.body.psw;
+    await Emp.findOneAndReplace({ Email: curr.Email }, curr);
+
+    res.render("admin_account", { user: req.session.employee });
+  }
 }
 
 ///// chat //////
 
-const getchats= async (req,res)=>{
-  if(req.session.employee===undefined||req.session.employee===null){
-    res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
-        }
-        else{
-        const curr=req.session.employee;
-      const connected= await get_customers(curr);
-      const requested=req.params.id;
-      let obj;
-      if(connected.length==0){
-        res.redirect("/employees/profile");
-      }
-      for(let i=0;i<connected.length;i++){
-        if(connected[i].id===requested){
-          obj=connected[i];
-          break;
-        }
-      }
-res.render("admin_chat",{"connected":connected,"selected":obj});
-        }
-}
-const getallchats= async (req,res)=>{
-  if(req.session.employee===undefined||req.session.employee===null){
-    res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
-        }
-        else{
-        const curr=req.session.employee;
-      const connected= await get_customers(curr);
-    console.log("the number is ",connected.length)
-      if(connected.length==0){
-        console.log("yesssss")
-        res.redirect("/employees/profile");
-      }else{
-      console.log("all the connected is ",connected);
-    console.log(connected[0].chat);
-res.render("admin_chat",{"connected":connected,"selected":connected[0]});
-      }
-        }
-}
-const getallchatssel= async (req,res)=>{
-  if(req.session.employee===undefined||req.session.employee===null){
-    res.render("admin_signin",{alert:true,text:"You must login first to access this section !"});
-        }
-        else{
-        const curr=req.session.employee;
-      const connected= await get_customers(curr);
-      console.log("all the connected is ",connected);
-      let sel;
-    for(let i=0;i<connected.length;i++){
-      if(connected[i]._id===req.params.id){
-sel=connected[i];
-break;
+const getchats = async (req, res) => {
+  if (req.session.employee === undefined || req.session.employee === null) {
+    res.render("admin_signin", { alert: true, text: "You must login first to access this section !" });
+  }
+  else {
+    const curr = req.session.employee;
+    const connected = await get_customers(curr);
+    const requested = req.params.id;
+    let obj;
+    if (connected.length == 0) {
+      res.redirect("/employees/profile");
+    }
+    for (let i = 0; i < connected.length; i++) {
+      if (connected[i].id === requested) {
+        obj = connected[i];
+        break;
       }
     }
-res.render("admin_chat",{"connected":connected,"selected":sel});
-        }
+    res.render("admin_chat", { "connected": connected, "selected": obj });
+  }
+}
+const getallchats = async (req, res) => {
+  if (req.session.employee === undefined || req.session.employee === null) {
+    res.render("admin_signin", { alert: true, text: "You must login first to access this section !" });
+  }
+  else {
+    const curr = req.session.employee;
+    const connected = await get_customers(curr);
+    console.log("the number is ", connected.length)
+    if (connected.length == 0) {
+      console.log("yesssss")
+      res.redirect("/employees/profile");
+    } else {
+      console.log("all the connected is ", connected);
+      console.log(connected[0].chat);
+      res.render("admin_chat", { "connected": connected, "selected": connected[0] });
+    }
+  }
+}
+const getallchatssel = async (req, res) => {
+  if (req.session.employee === undefined || req.session.employee === null) {
+    res.render("admin_signin", { alert: true, text: "You must login first to access this section !" });
+  }
+  else {
+    const curr = req.session.employee;
+    const connected = await get_customers(curr);
+    console.log("all the connected is ", connected);
+    let sel;
+    for (let i = 0; i < connected.length; i++) {
+      if (connected[i]._id === req.params.id) {
+        sel = connected[i];
+        break;
+      }
+    }
+    res.render("admin_chat", { "connected": connected, "selected": sel });
+  }
 }
 
-  export {getallchatssel,getemployees,postemployees,confirmmail,empprof,changepass,getallchats};
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats };
+//formated
