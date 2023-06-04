@@ -298,7 +298,7 @@ if(req.session.signed_customer===null||req.session.signed_customer===undefined){
     Building:req.body.Building
   }
   const curr=req.session.signed_customer;
-  curr.chat.push(addr);
+  curr.addreses.push(addr);
   await customers.findOneAndReplace({Email:curr.Email},curr);
   req.session.signed_customer=curr;
   res.redirect("/customers/profile/addr");

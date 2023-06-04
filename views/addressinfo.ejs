@@ -38,11 +38,11 @@ width:  700px;
 
                      <% user.addreses.forEach(function(customer){%>
                         <tr>
-                           <td><%-customers.addreses.location %></td>
-                           <td><%-customers.addreses.Adress %></td>
-                           <td><%-customers.addreses.apartement %></td>
-                           <td><%-customers.addreses.floor %></td>
-                           <td><%-customers.addreses.Building %></td>
+                           <td><%=customer.location %></td>
+                           <td><%=customer.Adress %></td>
+                           <td><%=customer.apartement %></td>
+                           <td><%=customer.floor %></td>
+                           <td><%=customer.Building %></td>
                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
                               <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                            </td>
