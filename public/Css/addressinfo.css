@@ -1,13 +1,12 @@
-
-body{
+body {
 
   overflow-x: hidden;
-  
-  
-  
-  }
 
-  
+
+
+}
+
+
 
 
 
@@ -29,6 +28,7 @@ body{
   margin-top: -500px;
   width: fit-content;
 }
+
 table td {
   margin: 19px;
   padding: 0.75rem;
@@ -37,7 +37,8 @@ table td {
   font-family: sans-serif;
   text-align: center;
 }
-table th{ 
+
+table th {
   width: 10%;
   padding: 0.75rem 1.75rem;
   border-top: 9px solid rgb(113, 113, 234);
@@ -46,7 +47,8 @@ table th{
   font-size: 18px;
   text-align: center;
 }
-.table tr{
+
+.table tr {
   border-radius: 10px;
 
 }
@@ -55,15 +57,19 @@ table th{
   margin-left: 74px;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-.delete{
-color: red;
+.delete {
+  color: red;
   align-items: center;
 }
-.delete:hover{
-color: brown;
+
+.delete:hover {
+  color: brown;
 }
+
 button {
   color: white;
   padding: 0px 0px;
@@ -84,31 +90,27 @@ button:hover {
   color: rgb(0, 0, 0);
 }
 
-@media only screen   
-and (min-width: 1030px)   
-and (max-width: 1366px)  {
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
 
   .tables {
     width: 70%;
     margin-left: 18%;
     margin-top: -54%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 100%;
+    padding: 10px 8px
+  }
 }
 
-table {
-  width: 100%;
-}
 
-table th,
-table td {
-  width: 100%;
- padding: 10px 8px
-}
-}
-
-
-@media only screen   
-and (min-device-width : 700px)   
-and (max-device-width : 1030px) {
+@media only screen and (min-device-width : 700px) and (max-device-width : 1030px) {
   .tables {
     width: 70%;
     margin-left: 17%;
@@ -122,12 +124,11 @@ and (max-device-width : 1030px) {
   table th,
   table td {
     width: 100%;
-   padding: 10px 8px
+    padding: 10px 8px
   }
 }
-@media only screen   
-and (min-device-width : 360px)   
-and (max-device-width : 700px) {
+
+@media only screen and (min-device-width : 360px) and (max-device-width : 700px) {
   .tables {
     width: 100%;
     margin-left: -19%;
@@ -141,31 +142,30 @@ and (max-device-width : 700px) {
   table th,
   table td {
     width: 100%;
-   padding: 10px 8px
+    padding: 10px 8px
   }
 }
-@media only screen   
-and (min-device-width : 320px)   
-and (max-device-width : 480px)   {
-.tables {
-  width: 70%;
-  margin-left: -89px;
-  margin-top: 2px;
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .tables {
+    width: 70%;
+    margin-left: -89px;
+    margin-top: 2px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 100%;
+    padding: 10px 6px;
+  }
 }
 
-table {
-  width: 100%;
-}
 
-table th,
-table td {
-  width: 100%;
-  padding: 10px 6px;
-}
-}
-
-
-.popup .overlay{
+.popup .overlay {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -175,11 +175,12 @@ table td {
   z-index: 1;
   display: none;
 }
-.popup .content{
+
+.popup .content {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
   background: #fff;
   width: 450px;
   height: 400px;
@@ -188,7 +189,8 @@ table td {
   padding: 20px;
   box-sizing: border-box;
 }
-.popup .close-btn{
+
+.popup .close-btn {
   cursor: pointer;
   position: absolute;
   right: 20px;
@@ -205,25 +207,28 @@ table td {
 
 
 }
+
 .popup.active .overlay {
-display: block;
+  display: block;
 }
-.popup.active .content{
+
+.popup.active .content {
   transition: all 300ms ease-in-out;
-  transform: translate(-50%,-50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 
-}  
+}
 
 
-.moree{
+.moree {
   height: 30px;
-  width:80px;
+  width: 80px;
   background-color: #9b6043;
   border: none;
   color: rgb(255, 255, 255);
   border-radius: 25px;
 }
-.moree:hover{
+
+.moree:hover {
   background: #b70707;
   cursor: pointer;
 }
@@ -237,12 +242,12 @@ display: block;
 
 
 
-form{
+form {
   width: 300px;
   margin-left: 30px;
 }
 
-form input{
+form input {
   width: 100%;
   height: 30px;
   padding: 5px;
@@ -252,24 +257,27 @@ form input{
   margin-bottom: 10px;
   border-bottom: 2px solid black;
 }
-form input:focus{
+
+form input:focus {
   border: none;
 
 }
 
 
-button{
-width: 320px;
-height: 35px;
-margin-top: 20px;
-border: none;
-background-color: rgb(206, 20, 20);
-color: aliceblue;
-font-size: 18px;
+button {
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: rgb(206, 20, 20);
+  color: aliceblue;
+  font-size: 18px;
 
 }
-button:hover{
-cursor: pointer;
-font-size: 20px;
-opacity: 50%;
+
+button:hover {
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 50%;
 }
+/* formated */
