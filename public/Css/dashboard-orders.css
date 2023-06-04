@@ -1,5 +1,5 @@
-.details{
-   
+.details {
+
     /* margin-left: 0px; */
     margin-left: -5%;
     position: relative;
@@ -8,43 +8,43 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 30px;
-    
-    /* margin-top: 10px; */
-   
-  
-    
-   
-} 
 
-.details .recentOrders{
+    /* margin-top: 10px; */
+
+
+
+
+}
+
+.details .recentOrders {
     /* background-color: aliceblue; */
     position: relative;
     display: grid;
     min-height: 500px;
-   background-color:antiquewhite;
+    background-color: antiquewhite;
     padding: 20px;
     box-shadow: 0 10px 25px rgb(232, 76, 3);
     border-radius: 20px;
-    overflow:auto;
-   
-   
+    overflow: auto;
+
+
 }
 
-.details  .cardHeader{
+.details .cardHeader {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-   
+
 
 }
 
-.cardHeader h2{
+.cardHeader h2 {
     font-weight: 600;
-   color: coral;
+    color: coral;
 
 }
 
-.cardHeader .btnv{
+.cardHeader .btnv {
     position: relative;
     padding: 5px 10px;
     background-color: rgb(230, 142, 35);
@@ -54,52 +54,53 @@
 
 }
 
-.details table{
+.details table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
 
 }
 
-.details table thead td{
+.details table thead td {
     font-weight: 600;
 
 }
 
-.details .recentOrders table tr{
+.details .recentOrders table tr {
     color: black;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
 
 }
 
-.details .recentOrders table tbody tr:hover{
+.details .recentOrders table tbody tr:hover {
     background-color: coral;
     color: antiquewhite;
 
 }
 
-.details .recentOrders table tr:last-child{
+.details .recentOrders table tr:last-child {
     border-bottom: none;
 }
 
-.details .recentOrders table tr td{
+.details .recentOrders table tr td {
     padding: 10px;
 
 }
 
-.details .recentOrders table tr td:last-child{
+.details .recentOrders table tr td:last-child {
     text-align: end;
 }
 
-.details .recentOrders table tr td:nth-child(2){
+.details .recentOrders table tr td:nth-child(2) {
     text-align: end;
 }
 
-.details .recentOrders table tr td:nth-child(3){
+.details .recentOrders table tr td:nth-child(3) {
     text-align: center;
 }
-.delivered{
+
+.delivered {
     padding: 2px 4px;
     background: #8de02c;
     color: antiquewhite;
@@ -107,10 +108,10 @@
     font-size: 14px;
     font-weight: 500;
     margin-right: 78%;
-    
+
 }
 
-.pen{
+.pen {
     padding: 2px 4px;
     background: #fd1d04;
     color: antiquewhite;
@@ -120,7 +121,7 @@
     margin-right: 78%;
 }
 
-.ret{
+.ret {
     padding: 2px 4px;
     background: #f0743a;
     color: antiquewhite;
@@ -130,7 +131,7 @@
     margin-right: 78%;
 }
 
-.in{
+.in {
     padding: 2px 4px;
     background: #3a8ff0;
     color: antiquewhite;
@@ -140,9 +141,9 @@
     margin-right: 78%;
 }
 
-#kconn{
+#kconn {
     padding: 2px 4px;
-   
+
     background: #fd1d04;
     color: antiquewhite;
     border-radius: 4px;
@@ -150,15 +151,15 @@
     font-weight: 500;
 }
 
-#iconn:hover{
-    
-        box-shadow: 0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset;
-        cursor: pointer;
+#iconn:hover {
+
+    box-shadow: 0 3px 50px orangered inset, 0 3px 50px orangered inset, 0 3px 50px orangered inset, 0 3px 50px orangered inset;
+    cursor: pointer;
     border-radius: 4px;
-    
+
 }
 
-.searchid{
+.searchid {
     height: 10px;
     padding: 10px;
     border: none;
@@ -167,7 +168,8 @@
     width: 200px;
 
 }
-.searchnum{
+
+.searchnum {
     height: 10px;
     padding: 10px;
     border: none;
@@ -176,20 +178,22 @@
     width: 300px;
 
 }
-.search-btn{
+
+.search-btn {
     height: 30px;
-    width:80px;
+    width: 80px;
     background-color: #f0743a;
     border: none;
     color: black;
     border-radius: 25px;
 }
-.search-btn:hover{
+
+.search-btn:hover {
     background: #b70707;
     cursor: pointer;
 }
 
-.popup .overlay{
+.popup .overlay {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -199,11 +203,12 @@
     z-index: 1;
     display: none;
 }
-.popup .content{
+
+.popup .content {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) scale(0);
+    transform: translate(-50%, -50%) scale(0);
     background: #fff;
     width: 450px;
     height: 220px;
@@ -212,7 +217,8 @@
     padding: 20px;
     box-sizing: border-box;
 }
-.popup .close-btn{
+
+.popup .close-btn {
     cursor: pointer;
     position: absolute;
     right: 20px;
@@ -229,25 +235,28 @@
 
 
 }
-  .popup.active .overlay {
-  display: block;
+
+.popup.active .overlay {
+    display: block;
 }
-.popup.active .content{
+
+.popup.active .content {
     transition: all 300ms ease-in-out;
-    transform: translate(-50%,-50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
 
-}  
+}
 
 
-.moree{
+.moree {
     height: 30px;
-    width:80px;
+    width: 80px;
     background-color: #9b6043;
     border: none;
     color: rgb(255, 255, 255);
     border-radius: 25px;
 }
-.moree:hover{
+
+.moree:hover {
     background: #b70707;
     cursor: pointer;
 }
@@ -258,17 +267,18 @@
 
 
 
-.right{
+.right {
     position: absolute;
     right: -30px;
     width: 81vw;
     height: 100vh;
     top: 1px;
     /* background-color:rgba(34, 33, 33, 0.521); */
-   overflow-y: auto;
-   overflow-x: hidden;
-   background: rgba(0, 0, 0, 0.7) url(../photos/food2.webp)  fixed;
-   background-size: cover;
-   background-blend-mode: darken;
-   
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(0, 0, 0, 0.7) url(../photos/food2.webp) fixed;
+    background-size: cover;
+    background-blend-mode: darken;
+
 }
+/* formated */
