@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,27 @@
     <title>Admin|portal</title>
     <link rel="stylesheet" href="/Css/admin_login.css">
 </head>
+
 <body>
 
     <%if(alert){%>
         <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-            <strong>Error ! </strong> <%=text%> 
-          </div>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Error ! </strong>
+            <%=text%>
+        </div>
         <%}%>
-    <div id="LoginForms">
-        <form action="/employees/signin" id ="LoginForm" method="post">
-            <input type="text" placeholder="User Name" name="Email">
-            <input type="password" placeholder="password" name="password">
-            <input type="submit" value="Login">
-        </form>
-    </div>
-    <div id="left">
-        <img src="/images/logo.png" alt="" >
-    </div>
+            <div id="LoginForms">
+                <form action="/employees/signin" id="LoginForm" method="post">
+                    <input type="text" placeholder="User Name" name="Email">
+                    <input type="password" placeholder="password" name="password">
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+            <div id="left">
+                <img src="/images/logo.png" alt="">
+            </div>
 </body>
+
 </html>
+<!-- formated -->
