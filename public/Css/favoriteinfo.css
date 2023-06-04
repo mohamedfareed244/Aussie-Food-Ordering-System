@@ -1,13 +1,26 @@
+
+body{
+
+overflow-x: hidden;
+
+
+
+}
+
+
 .tablesfav{
   box-sizing: border-box;
   font-family: sans-serif;
   min-height: 89vh;
   color: #555;
-  margin-left: 374px;
-  margin-top: -775px;
+  margin-left: 300px;
+  margin-top: -500px;
+  width: fit-content;
+
 }
 table{
-	width:  1000px;
+	width:  950px;
+  margin-right: 10px;
 }
 table th{
 	padding: 10px 0;
