@@ -48,7 +48,7 @@
                                     <td>price : </td>
                                     <%let sum =0 ; for(let k=0;k<orders[i].items.length;k++){sum+=orders[i].items[k].price*orders[i].items[k].Qty}%>
                                     <td><%=sum%>$</td>
-<%%>
+
 
                                 </tr>
                                 <tr style="text-align: center; border-bottom: 2px solid black;">
@@ -64,11 +64,13 @@
 
 
                                 </tr>
-<%}%>
+
 
                             </tbody>
                         </table>
+
                     </td>
+                    <%}%>
                 <!-- <tr class="order_summ" onclick="show(1)">
                     <td>12345</td>
                     <td>10</td>
@@ -116,7 +118,7 @@
 
             </tbody>
         </table>
-        </td>
+        
 
 
 </body>
