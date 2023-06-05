@@ -191,4 +191,13 @@ function sub() {
         .then(response => console.log(JSON.stringify(response)))
 }
 
-//formated
+async function favadd(id,index){
+    await fetch (`http://127.0.0.1:3001/customers/favs/add/check/signin/not/${id}`,{method:'GET'}).then((o)=>{
+        if(!o.added){
+            location.href='/customers/signin';
+        }else{
+document.getElementsByClassName("favs")[index].style.display="none";
+document.getElementsByClassName("favrs")[index]
+        }
+    })
+}

@@ -30,27 +30,27 @@
 <!-- onclick="favorites(event.target)" -->
 <div id ="menubody" >
  
-    <% browse.forEach(function(items) { %>
+    <% for(let i=0;i<browse.length;i++) { %>
       
-    <div class="menu_items" ><img src="<%=items.path %>"alt="" width="100%" height="100%" class="menu_img">
+    <div class="menu_items" ><img src="<%=browse[i].path %>"alt="" width="100%" height="100%" class="menu_img">
         <div class="descr_and_add">
-            <img src="/images/favourite.png" class="favrs" alt=""title="remove from favourite" onclick="favremv(<%=items.id%>)">
-            <img src="/images/love.png" class="favs" alt=""title="add to favourite" onclick="favadd(<%=items.id%>)">
-            <img src="/images/add.png" alt="add_item" class="icons" onclick=add_to_cart("<%=items.id%>")>
-            <!-- <a href="/menu/<%=items.section%>/<%=items.id%>" ></a> -->
+            <img src="/images/favourite.png" class="favrs" alt=""title="remove from favourite" onclick="favremv(<%=browse[i].id%>,<%=i%>)">
+            <img src="/images/love.png" class="favs" alt=""title="add to favourite" onclick="favadd(<%=browse[i].id%>,<%=i%>)">
+            <img src="/images/add.png" alt="add_item" class="icons" onclick=add_to_cart("<%=browse[i].id%>")>
+            <!-- <a href="/menu/<%=browse[i].section%>/<%=browse[i].id%>" ></a> -->
             
                
                
             
         <div class="description"> 
-            <span class="names">  <%= items.name %></span>
+            <span class="names">  <%= browse[i].name %></span>
             <br>
-            <p class="ingred"><%= items.description %></p>
-            <span class="prices">Price : <%= items.price %> $</span>
+            <p class="ingred"><%= browse[i].description %></p>
+            <span class="prices">Price : <%= browse[i].price %> $</span>
         </div></div>
     
     </div>
-    <% }); %> 
+    <% } %> 
 
 
 
