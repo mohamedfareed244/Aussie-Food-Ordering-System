@@ -242,7 +242,8 @@ const customeraddr = async (req, res) => {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access addreses " });
   } else {
-    res.render("addressinfo", { user: req.session.signed_customer });
+    const x=await orders.find({customermail:req.session.signed_customer.Email});
+    res.render("addressinfo", { user: req.session.signed_customer ,orders:x});
   }
 }
 

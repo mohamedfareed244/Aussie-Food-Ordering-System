@@ -15,15 +15,16 @@
             <thead>
                 <td>order_number</td>
                 <td>items_number</td>
-                <td>price</td>
+                <td>Date</td>
                 <td>status</td>
             </thead>
             <tbody>
+                <%for(let i=0;i<orders.length;i++){%>
                 <tr class="order_summ" onclick="show(0)">
-                    <td>12345</td>
-                    <td>10</td>
-                    <td>300 $ </td>
-                    <td>delivered</td>
+                    <td><%=orders[i].num%></td>
+                    <td><%=orders[i].items.length%></td>
+                    <td><%=orders[i].orderdate%></td>
+                    <td><%=orders[i].status%></td>
                 </tr>
                 <tr class="yy">
                     <td id="uu" style="text-align: center; " colspan="4">
@@ -34,44 +35,47 @@
                                 <td>qty </td>
 
                             </thead>
+                           
                             <tbody>
+                                <%for(let j=0;j<orders.items.length;j++){%>
                                 <tr style="text-align: center;">
-                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);">burger 150 gm </td>
-                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 20 $</td>
-                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> 3</td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"><%=orders.items[j].item_name%> </td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"><%=orders.items[j].price%> Egp</td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> <%=orders.items[j].Qty%></td>
                                 </tr>
-
+<%}%>
                                 <tr style=" border-top: 2px solid black;">
                                     <td>price : </td>
-                                    <td>20$</td>
-
+                                    <%let sum =0 ; for(let k=0;k<orders.items.length;k++){sum+=orders.items[k].price*orders.items[k].Qty}%>
+                                    <td><%=sum%>$</td>
+<%%>
 
                                 </tr>
                                 <tr style="text-align: center; border-bottom: 2px solid black;">
                                     <td>Address : </td>
-                                    <td style="max-width: 50px;  word-wrap: break-word;">new cairo (north 90)</td>
+                                    <td style="max-width: 50px;  word-wrap: break-word;"><%=orders[i].Address%></td>
 
 
                                 </tr>
                                 <tr style="text-align: center;">
                                     <td>delivery comments : </td>
-                                    <td style="max-width: 50px;  word-wrap: break-word;">please add more ketchup with my
-                                        order because the last order was so bad thank you </td>
+                                    <td style="max-width: 50px;  word-wrap: break-word;"><%=orders[i].notes%>
+                                        </td>
 
 
                                 </tr>
-
+<%}%>
 
                             </tbody>
                         </table>
                     </td>
-                <tr class="order_summ" onclick="show(1)">
+                <!-- <tr class="order_summ" onclick="show(1)">
                     <td>12345</td>
                     <td>10</td>
                     <td>300 $ </td>
                     <td>delivered</td>
-                </tr>
-                <tr class="yy">
+                </tr> -->
+                <!-- <tr class="yy">
                     <td id="uu" style="text-align: center; " colspan="4">
                         <table id="table_inside" style="width: 100%; display: table;">
                             <thead>
@@ -107,7 +111,7 @@
 
                                 </tr>
 
-                </tr>
+                </tr> -->
 
 
             </tbody>
