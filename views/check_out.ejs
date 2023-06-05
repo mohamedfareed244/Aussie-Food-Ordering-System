@@ -11,7 +11,7 @@
     <script src="/js/script.js"></script>
 </head>
 
-<body>
+<body id="mybody">
     <% let nu=0;for(let i=0;i<cart.length;i++){nu+=(cart[i].qty)} %>
         <% let sum=0;for(let i=0;i<cart.length;i++){sum+=(cart[i].item.price*cart[i].qty)} %>
             <div id="container">
@@ -132,7 +132,7 @@
 
 
 
-
+<!-- 
             <%if(ord.confirm){%>
 
                 <div class="popup" id="popup-1">
@@ -153,7 +153,8 @@
                     </div>
 
                 </div>
-                <%}%>
+                <%}%> -->
+            </body>
                     <script data-data="<%= JSON.stringify(ord) %>">
                         const data = JSON.parse(document.currentScript.dataset.data);
                         console.log(data);
@@ -164,11 +165,7 @@
 
 
                         }
-                        if (data.confirm) {
-                            togglePopup();
-                            setTimeout(togglePopup, 5000);
-                            setTimeout(red, 5000);
-                        }
+                       
                         function red() {
                             document.location.href = "/products/All";
                         }
@@ -191,12 +188,39 @@
 		'Content-Type': 'application/x-www-form-urlencoded'
 	},
                          body : data
-                        })
+                        }).then((o)=>{
+                        return o.json();
+                    }).then((b)=>{
+                       if(b.confirm){
+                        const g=`   <div class="popup" id="popup-1">
+
+<div class="overlay"> </div>
+<div class="content">
+    <img src="/images/404-tick.png" alt="">
+    <div class="close-btn" onclick="togglePopup()">
+        &times;
+    </div>
+    <h2>Thank You!</h2>
+
+    <p>Your order has been succesfully sent , An email will be sent to you with order status </p>
+    <p>Thanks for shopping with Aussie . </p>
+    <p>order number: ${b.num}
+    </p>
+    <!-- <button type="button" onclick="togglePopup()">OK</button> -->
+</div>
+
+</div>`
+document.getElementById("mybody").innerHTML+=g;
+ togglePopup();
+                            setTimeout(togglePopup, 5000);
+                            setTimeout(red, 5000);
+                       }
+                    })
                     }
                     </script>
 
 
-</body>
+
 
 </html>
 
