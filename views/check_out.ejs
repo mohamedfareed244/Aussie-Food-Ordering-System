@@ -156,6 +156,7 @@
                 <%}%> -->
             </body>
                     <script data-data="<%= JSON.stringify(ord) %>">
+                        let check=false;
                         const data = JSON.parse(document.currentScript.dataset.data);
                         console.log(data);
 
@@ -173,8 +174,10 @@
                             const tx1=document.getElementsByClassName(`${s}`)[0].innerHTML;
                             const tx2=document.getElementsByClassName(`${s}`)[1].innerHTML;
                             document .getElementById("sd").innerHTML=`${tx1} ${tx2}`;
+                            check=true;
                         }
                     function end(){
+                        if (check){
                         const data = new URLSearchParams();
                         
                        const x=document.getElementById("sd").innerHTML;
@@ -210,12 +213,39 @@
 </div>
 
 </div>`
+if(document.getElementById("popup-1")===null){
 document.getElementById("mybody").innerHTML+=g;
+}else{
+   document.getElementById("mybody").removeChild(document.getElementById("popup-1"));
+   document.getElementById("mybody").innerHTML+=g;
+}
+
  togglePopup();
                             setTimeout(togglePopup, 5000);
                             setTimeout(red, 5000);
                        }
                     })
+                
+                }else{
+                    const g=`   <div class="popup" id="popup-1">
+
+<div class="overlay"> </div>
+<div class="content">
+    <img src="/images/redicon.png" alt="">
+    <div class="close-btn" onclick="togglePopup()">
+        &times;
+    </div>
+    <h2>Sorry !</h2>
+
+    <p>You have to choose address first ! </p>
+    <p>If you don't have addresses you can go to Profile then click addreses icon and add your address  </p>
+    <!-- <button type="button" onclick="togglePopup()">OK</button> -->
+</div>
+
+</div>`
+document.getElementById("mybody").innerHTML+=g;
+togglePopup();
+                }
                     }
                     </script>
 
