@@ -20,8 +20,8 @@
             </thead>
             <tbody>
                 <%for(let i=0;i<orders.length;i++){%>
-                <tr class="order_summ" onclick="show(0)">
-                    <td><%=orders[i].num%></td>
+                <tr class="order_summ" onclick="show(<%=i%>)">
+                    <td><%=orders[i].num%> </td>
                     <td><%=orders[i].items.length%></td>
                     <td><%=orders[i].orderdate%></td>
                     <td><%=orders[i].status%></td>
@@ -37,16 +37,16 @@
                             </thead>
                            
                             <tbody>
-                                <%for(let j=0;j<orders.items.length;j++){%>
+                                <%for(let j=0;j<orders[i].items.length;j++){%>
                                 <tr style="text-align: center;">
-                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"><%=orders.items[j].item_name%> </td>
-                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"><%=orders.items[j].price%> Egp</td>
-                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> <%=orders.items[j].Qty%></td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"><%=orders[i].items[j].item_name%> </td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"><%=orders[i].items[j].price%> Egp</td>
+                                    <td style="border-bottom: 2px solid rgb(82, 110, 185);"> <%=orders[i].items[j].Qty%></td>
                                 </tr>
 <%}%>
                                 <tr style=" border-top: 2px solid black;">
                                     <td>price : </td>
-                                    <%let sum =0 ; for(let k=0;k<orders.items.length;k++){sum+=orders.items[k].price*orders.items[k].Qty}%>
+                                    <%let sum =0 ; for(let k=0;k<orders[i].items.length;k++){sum+=orders[i].items[k].price*orders[i].items[k].Qty}%>
                                     <td><%=sum%>$</td>
 <%%>
 

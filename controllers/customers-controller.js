@@ -189,7 +189,12 @@ const customerpr = async (req, res) => {
 }
 
 const customeror = async (req, res) => {
-  res.render("customer_orders");
+  if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
+    res.render("sign-in", { alert: true, text: "you must sign in to access profile " });
+  }else{
+    const x=await orders.find({customermail:req.session.signed_customer.Email});
+  res.render("customer_orders",{orders:x});
+  }
 }
 
 const customerchnagepass = async (req, res) => {
@@ -242,8 +247,8 @@ const customeraddr = async (req, res) => {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access addreses " });
   } else {
-    const x=await orders.find({customermail:req.session.signed_customer.Email});
-    res.render("addressinfo", { user: req.session.signed_customer ,orders:x});
+    // const x=await orders.find({customermail:req.session.signed_customer.Email});
+    res.render("addressinfo", { user: req.session.signed_customer });
   }
 }
 
