@@ -61,7 +61,7 @@
                      
                        <td>
                         <span id='<%=item.status%>' class="sst"><%=item.status%></span>
-                        <input type="hidden" class="vv" value=`<%=item._id%>`>
+                        <input type="hidden" class="vv" value=<%=item._id%>>
                        </td>
                        <td><button class="moree" onclick="togglePopup(`<%=item.id%>`)">Show More</button></td>
                        <%if(item.status==="Pending"){%>
@@ -277,23 +277,24 @@ const finals =`   <tr>
                }
             
                async function confirmord(id){
-await fetch(`/products/admin/confirm/order/send/mail/customer/${id}`,{method:'GET'}).then((o)=>{
-const x=Array.from(document.getElementsByClassName("vv"));
-console.log("x is ",x);
+ fetch(`/products/admin/confirm/order/send/mail/customer/${id}`,{method:'GET'}).then((o)=>{
+const x=document.getElementsByClassName("vv");
+console.log("x is ",x[0].value);
 for(let i=0;i<x.length;i++){
   if(x[i].value===id){
     document.getElementsByClassName("sst")[i].innerHTML="Delivered";
     document.getElementsByClassName("sst")[i].id="Delivered";
-    document.getElementsByClassName("td1")[i].style.diplay="none";
-    document.getElementsByClassName("td2")[i].style.diplay="none";
+    document.getElementsByClassName("td1")[i].style.display="none";
+    document.getElementsByClassName("td2")[i].style.display="none";
   }
 }
 })
                }
                async function decord(id){
-                await fetch(`/products/admin/cancel/order/send/mail/customer/${id}`,{method:'GET'}).then(()=>{
+                 fetch(`/products/admin/cancel/order/send/mail/customer/${id}`,{method:'GET'}).then(()=>{
 const x=Array.from(document.getElementsByClassName("vv"));
 for(let i=0;i<x.length;i++){
+  console.log(x[i].value);
   if(x[i].value===id){
     document.getElementsByClassName("sst")[i].innerHTML="Delivered";
   }
