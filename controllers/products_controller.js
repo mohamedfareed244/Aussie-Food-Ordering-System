@@ -160,13 +160,14 @@ const new_order = async (req, res) => {
     emp_phone: emp.Phone,
     orderdate: formattedToday,
     status: "Pending",
-    Addressid: "req.body.obj",
+    Address: [{location:"cairo",Adress:"new ",apartment:"ss",floor:"9",Building:"333"}],
     num: numbers,
+    discount:"none",
   })
   console.log("stuck");
   for (let i = 0; i < current_cart.length; i++) {
 
-    let obj = { item_name: current_cart[i].item.name, Qty: 0, price: current_cart[i].item.price };
+    let obj = { item_name: current_cart[i].item.name, Qty:current_cart[i].qty, price: current_cart[i].item.price };
     ord.items.push(obj);
   }
   await ord.save();
@@ -227,6 +228,7 @@ const postproduct = async (req, res) => {
 const getorderdet= async (req, res) => {
 
  const ord =await orders.findById(req.params.id);
+ console.log("the orders founded is ",ord);
  res.json(ord);
 
 }

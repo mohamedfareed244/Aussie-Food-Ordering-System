@@ -89,8 +89,8 @@
 
         <div class="popup" id="popup-1">
       
-         <div class="overlay"> </div>
-            <div class="content">
+         <div class="overlay" > </div>
+            <div class="content" style="height: 500px;">
                <div class="close-btn" onclick="togglePopup(`hello`)">
                   &times;
                </div>
@@ -112,7 +112,7 @@
       
                   <tbody id="tabledeatails">
                <tr>
-                <td colspan="2">Total price : </td>
+                <!-- <td colspan="2">Total price : </td>
                 <td>${sum}</td>
                </tr>
                <tr>
@@ -122,7 +122,7 @@
                <tr>
                 <td>Shipping Address : </td>
                 <td colspan="2">`${obj}.Address.location  ${obj}.Address.Adress ${obj}.Address.apartment ${obj}.Address.floor ${obj}.Address.Building `</td>
-               </tr>
+               </tr> -->
             </div>
         
          </div>
@@ -213,20 +213,22 @@ td7.appendChild(i2);
    
    
               async function togglePopup(id){
-           await Fetch(`http://127.0.0.1:3001/products/ordrers/get/details/admin/${id}`,{method:'Get'})
+if(id!=="hello"){
+           await fetch(`http://127.0.0.1:3001/products/ordrers/get/details/admin/${id}`,{method:'Get'})
            .then(async(o)=>{
 return o.json();
            }).then(async (obj)=>{
             let sum=0;
-for(let i=0;i<obj.length;i++){
+            let g=obj.items;
+for(let i=0;i<g.length;i++){
   const str=`  <tr>
                           <td>
-                             ${obj[i].item_name}
+                             ${g[i].item_name}
                           </td>
                           <td>
-                             ${obj[i].price}
+                             ${g[i].price}
                           </td> <td>
-                            ${obj[i].Qty}
+                            ${g[i].Qty}
                           </td>
                           
                           <!-- <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
@@ -234,7 +236,7 @@ for(let i=0;i<obj.length;i++){
                       </tr>`
                   
                       document.getElementById("tabledeatails").innerHTML+=str;
-                      sum+=obj[i].price;
+                      sum+=g[i].price;
 }
 const finals =`   <tr>
                 <td colspan="2">Total price : </td>
@@ -246,12 +248,13 @@ const finals =`   <tr>
                </tr>
                <tr>
                 <td>Shipping Address : </td>
-                <td colspan="2">${obj.Address.location}  ${obj.Address.Adress} ${obj.Address.apartment} ${obj.Address.floor} ${obj.Address.Building} </td>
+                <td colspan="2">${obj.Address[0].location}  ${obj.Address[0].Adress} ${obj.Address[0].apartment} ${obj.Address[0].floor} ${obj.Address[0].Building} </td>
                </tr> `
-
+               document.getElementById("tabledeatails").innerHTML+=finals;
+                  
            })
-           document.getElementById("tabledeatails").innerHTML+=finals;
-                  document.getElementById("popup-1").classList.toggle("active");
+          }
+          document.getElementById("popup-1").classList.toggle("active");
                }
             </script>
    
