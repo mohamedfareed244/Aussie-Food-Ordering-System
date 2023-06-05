@@ -65,8 +65,8 @@
                        </td>
                        <td><button class="moree" onclick="togglePopup(`<%=item.id%>`)">Show More</button></td>
                        <%if(item.status==="Pending"){%>
-                       <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn" onclick="confirmord(`<%=item._id%>`)"></i></td>
-                       <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                       <td class="td1"><i class="fa-sharp fa-solid fa-circle-check" id="iconn" onclick="confirmord(`<%=item._id%>`)"></i></td>
+                       <td class="td2"><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
                        <%}%>
                    </tr>
                  <%})%>
@@ -282,12 +282,22 @@ const x=Array.from(document.getElementsByClassName("vv"));
 for(let i=0;i<x.length;i++){
   if(x[i].value===id){
     document.getElementsByClassName("sst")[i].innerHTML="Delivered";
+    document.getElementsByClassName("sst")[i].id="Delivered";
+    document.getElementsByClassName("td1")[i].style.diplay="none";
+    document.getElementsByClassName("td2")[i].style.diplay="none";
   }
 }
 })
                }
                async function decord(id){
-                
+                await fetch(`/products/admin/cancel/order/send/mail/customer/${id}`,{method:'GET'}).then(()=>{
+const x=Array.from(document.getElementsByClassName("vv"));
+for(let i=0;i<x.length;i++){
+  if(x[i].value===id){
+    document.getElementsByClassName("sst")[i].innerHTML="Delivered";
+  }
+}
+})
                }
             </script>
    

@@ -4,7 +4,7 @@
 // and listens for connections on the specified port.
 
 // Module dependencies
-import { addmsg, addmsgfromadmin,confirml } from "../controllers/customers-controller.js"
+import { addmsg, addmsgfromadmin } from "../controllers/customers-controller.js"
 import { Server } from 'socket.io';
 import {
   addemp, app, findforchat, add_customer, chg_custsock, getmyemp
@@ -223,7 +223,7 @@ async function rec_order(emp, order) {
     console.log("the index is : " + index);
     console.log("in while loop ");
   } while (index == -1);
-  await confirml(order);
+
   io.to(socid).emit("recieve order", order);
 }
 

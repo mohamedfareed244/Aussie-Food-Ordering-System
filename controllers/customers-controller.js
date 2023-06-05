@@ -1,4 +1,5 @@
 import { customers } from "../models/customers.js";
+import { orders } from "../models/orders.js";
 import { io } from "../bin/www.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
@@ -318,7 +319,8 @@ const deladr = async (req, res) => {
 
   }
   }
-  const confirml = async (order) => {
+  const confirml = async (req,res) => {
+    let order = await orders.findById(req.params.id);
     const trans = nodemailer.createTransport({
       service: 'gmail',
       auth: {
