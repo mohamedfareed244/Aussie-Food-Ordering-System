@@ -409,5 +409,14 @@ const deladr = async (req, res) => {
           res.json({added:true});
         }
       }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav};
+      async function remfav(req,res){
+        if(req.session.signed_customer===null||req.session.signed_customer===undefined){
+          res.json({removed:false});
+        }else{
+    
+          await customers.findOneAndUpdate({_id:req.session.signed_customer._id},{$pull:{favorites:{itemId:req.params.id}}});
+          res.json({removed:true});
+        }
+      }
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav};
 
