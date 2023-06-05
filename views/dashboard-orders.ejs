@@ -238,7 +238,7 @@ for(let i=0;i<g.length;i++){
                       </tr>`
                   
                       document.getElementById("tabledeatails").innerHTML+=str;
-                      sum+=g[i].price;
+                      sum+=g[i].price*g[i].Qty;
 }
 const finals =`   <tr>
                 <td colspan="2">Total price : </td>

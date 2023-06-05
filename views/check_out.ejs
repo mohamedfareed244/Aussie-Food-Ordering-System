@@ -85,24 +85,27 @@
 
                 <div id="v1">
                     <input type="text" placeholder="Voucher Code " id="voucher">
-                    <button id="app_vouch_btn">Apply </button>
+                    <button id="app_vouch_btn"> Apply </button>
                 </div>
 
 
                 <div id="drop_addr">
-                    <button id="dropbtn" onclick="">Choose Your Address <img
+                    <button id="dropbtn" style="font-size: 14px; height: 50px;">Choose Your Address <img
                             src="/images/arrow-down-sign-to-navigate.png" alt="" width="15px" id="hide_img"></button>
                     <div id="dropdown-content">
-                        <ul id="adds_list">
-                            <%for(let i=0;i<user.addreses.length;i++){%>
-                            <li>
-                                <article class="art2" title="Select This address"> <span class="sp1"> <b>
+                        <ul id="adds_list" >
+                            <%for(let i=0;i<user.addreses.length;i++){ %>
+                            <li onclick="chgaddr(`<%=user.addreses[i]._id %>`)">
+                                <article class="art2" title="Select This address"> <span class="sp1"> <b class="<%=user.addreses[i]._id%>">
                                             <%=user.addreses[i].location%>
                                         </b> </span>
                                     <br>
-                                    <span class="sp2">
-                                        <%=user.addreses[i].Adress%> , apt : <%=user.addreses[i].apartment%> , floor :
-                                                <%=user.addreses[i].floor%>, building : <%=user.addreses[i].building%>
+                                    <span class="sp2" >
+                                        <span class="<%=user.addreses[i]._id%>">
+                                            <%=user.addreses[i].Adress%> , apt : <%=user.addreses[i].apartment%> , floor :
+                                            <%=user.addreses[i].floor%>, building : <%=user.addreses[i].Building%>
+                                        </span>
+                                       
                                     </span>
                                 </article>
                             </li>
@@ -130,12 +133,6 @@
             <%if(ord.confirm){%>
 
                 <div class="popup" id="popup-1">
-
-
-
-
-
-
 
                     <div class="overlay"> </div>
                     <div class="content">
@@ -171,6 +168,11 @@
                         }
                         function red() {
                             document.location.href = "/products/All";
+                        }
+                        function chgaddr(s){
+                            const tx1=document.getElementsByClassName(`${s}`)[0].innerHTML;
+                            const tx2=document.getElementsByClassName(`${s}`)[1].innerHTML;
+                            document .getElementById("dropbtn").innerHTML=`${tx1} ${tx2}`;
                         }
                     </script>
 
