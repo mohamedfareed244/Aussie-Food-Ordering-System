@@ -81,7 +81,8 @@
                 </tr>
 
             </table>
-            <form action="/products/customer/cart/checkout/order" method="post"> 
+            <!-- /products/customer/cart/checkout/order -->
+            
             <div id="voucher_area">
 
                 <div id="v1">
@@ -117,9 +118,10 @@
                 </div>
 
                 <textarea name="" id="notes" cols="30" rows="10" placeholder="Add delivery notes here "></textarea>
-                <button id="end" type="submit">check out now </button> 
+                
+                <button id="end" onclick="end()">check out now </button> 
 
-            </form>
+        
 
 
 
@@ -175,10 +177,19 @@
                             const tx2=document.getElementsByClassName(`${s}`)[1].innerHTML;
                             document .getElementById("dropbtn").innerHTML=`${tx1} ${tx2}`;
                         }
+                    function end(){
+                       
+                        fetch("/products/customer/cart/checkout/order",{
+                            method:'POST',
+                            body:{address:document.getElementById("dropbtn").innerHTML,
+                        notes:document.getElementById("notes").value , 
+                    voucher : document.getElementById("voucher").value}
+                        })
+                    }
                     </script>
 
 
 </body>
 
 </html>
-<!-- formated -->
+

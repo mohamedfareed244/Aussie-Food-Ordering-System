@@ -160,9 +160,9 @@ const new_order = async (req, res) => {
     emp_phone: emp.Phone,
     orderdate: formattedToday,
     status: "Pending",
-    Address: [{location:"cairo",Adress:"new ",apartment:"ss",floor:"9",Building:"333"}],
+    Address: req.body.address,
     num: numbers,
-    discount:"none",
+    discount:req.body.voucher===" "?"none":`${req.body.voucher}`,
   })
   console.log("stuck");
   for (let i = 0; i < current_cart.length; i++) {
