@@ -30,12 +30,13 @@ body {
 }
 
 table td {
-  margin: 19px;
+  margin: 10px;
   padding: 0.75rem;
   border-top: 1px solid gray;
   font-weight: 500;
   font-family: sans-serif;
   text-align: center;
+
 }
 
 table th {
@@ -44,7 +45,7 @@ table th {
   border-top: 9px solid rgb(113, 113, 234);
   background-color: rgb(113, 113, 234);
   color: #fff;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -183,7 +184,7 @@ button:hover {
   transform: translate(-50%, -50%) scale(0);
   background: #fff;
   width: 450px;
-  height: 400px;
+  height: 450px;
   z-index: 2;
   text-align: center;
   padding: 20px;
@@ -264,7 +265,7 @@ form input:focus {
 }
 
 
-button {
+.popup button {
   width: 320px;
   height: 35px;
   margin-top: 20px;
@@ -275,7 +276,7 @@ button {
 
 }
 
-button:hover {
+.popup button:hover {
   cursor: pointer;
   font-size: 20px;
   opacity: 50%;
