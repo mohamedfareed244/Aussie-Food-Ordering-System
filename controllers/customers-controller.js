@@ -14,6 +14,7 @@ async function sendsms(User) {
     }
   });
   let data;
+ 
   ejs.renderFile("/Users/user/Desktop/web_back2 /views/template.ejs", { user: User }, (err, d) => {
     data = d;
     
@@ -326,7 +327,11 @@ const deladr = async (req, res) => {
       }
     });
     let data;
-    ejs.renderFile("/Users/user/Desktop/web_back2 /views/order-confirm-mail.ejs", { ord:order }, (err, d) => {
+    let sums=0;
+    for(let i=0;i<order.items.length;i++){
+      sums+=order.items[i].price*order.items[i].Qty;
+    }
+    ejs.renderFile("/Users/user/Desktop/web_back2 /views/order-confirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
       data = d;
       console.log(d);
     });
