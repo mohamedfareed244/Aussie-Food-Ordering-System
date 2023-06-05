@@ -163,8 +163,8 @@ const new_order = async (req, res) => {
     status: "Pending",
     Address: req.body.address,
     num: numbers,
-    discount:req.body.voucher===" "?"none":`${req.body.voucher}`,
-    notes:req.body.notes,
+    discount:req.body.voucher===undefined?"none":`${req.body.voucher}`,
+    notes:req.body.notes===undefined?"no comments ":req.body.notes,
   })
   console.log("stuck");
   for (let i = 0; i < current_cart.length; i++) {
