@@ -277,8 +277,9 @@ const finals =`   <tr>
                }
             
                async function confirmord(id){
-await fetch(`/products/admin/confirm/order/send/mail/customer/${id}`,{method:'GET'}).then(()=>{
+await fetch(`/products/admin/confirm/order/send/mail/customer/${id}`,{method:'GET'}).then((o)=>{
 const x=Array.from(document.getElementsByClassName("vv"));
+console.log("x is ",x);
 for(let i=0;i<x.length;i++){
   if(x[i].value===id){
     document.getElementsByClassName("sst")[i].innerHTML="Delivered";

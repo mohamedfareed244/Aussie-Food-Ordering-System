@@ -348,8 +348,9 @@ const deladr = async (req, res) => {
       if (err) {
         console.log("there are an error " + err)
       } 
-      
+      res.json({type:true});
     })
+
     }
     const disconfirml = async (req, res) => {
       if(req.session.signed_customer===null||req.session.signed_customer===undefined){
