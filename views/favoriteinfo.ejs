@@ -14,18 +14,28 @@
                 <th>Action</th>
             </tr>
             <tbody id="myTable">
-        
+              <%for(let i=0;i<items.length;i++){%>
+              <tr>
+                <td> <img src='<%=items[i].path%>'> </td>
+                <td><%=items[i].name%></td>
+                <td><%=items[i].price%></td>
+                <td> 
+                  <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                </td>
+              </tr>
+              <%}%>
             </tbody>
         </table>
         </div>
         <script>
             let myArray = [
-              {"image":"images/aaa3.jpeg","name":'fried', "price":'30','edit':''},
-              {"image":"images/burger.webp","name":'burger', "price":'30','edit':''},
-              {"image":"images/dish2.jpeg","name":'dish', "price":'30','edit':''},
-              {"image":"images/dish3.webp","name":'fqash',"price":'30','edit':''},
-              {"image":"images/fried chekein.jpg","name":'Tim', "price":'30','edit':''},
-              {"image":"images/Hamburger.jpg","name":'ssss', "price":'30','edit':''}
+              {"image":"/images/aaa3.jpeg","name":'fried', "price":'30','edit':''},
+              {"image":"/images/burger.webp","name":'burger', "price":'30','edit':''},
+              {"image":"/images/dish2.jpeg","name":'dish', "price":'30','edit':''},
+              {"image":"/images/dish3.webp","name":'fqash',"price":'30','edit':''},
+              {"image":"/images/fried chekein.jpg","name":'Tim', "price":'30','edit':''},
+              {"image":"/images/Hamburger.jpg","name":'ssss', "price":'30','edit':''}
             ];
             
             function buildTable(data){
@@ -47,7 +57,7 @@
               });
             }
             
-            buildTable(myArray);
+            // buildTable(myArray);
             </script>
 </body>
 </html>

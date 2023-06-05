@@ -255,7 +255,17 @@ const customeraddr = async (req, res) => {
 
 
 const customerfav = async (req, res) => {
-  res.render('favoriteinfo');
+  if(req.session.signed_customer===null||req.session.signed_customer===undefined){
+    res.render("sign-in",{alert:true,text:"You should sign in first to access favourites "})
+  }else{
+    const obj=req.session.signed_customer.favorites;
+    let a=new Array();
+    for(let i=0;i<obj.length;i++){
+      const g=await All.findById(obj[i].itemId);
+a.push(g);
+    }
+  res.render('favoriteinfo',{items:a});
+  }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //customer sockets connections 
@@ -406,6 +416,7 @@ const deladr = async (req, res) => {
         }else{
     
           await customers.findOneAndUpdate({_id:req.session.signed_customer._id},{$push:{favorites:{itemId:req.params.id}}});
+          req.session.signed_customer= await customers.findById(req.session.signed_customer._id);
           res.json({added:true});
         }
       }
@@ -415,6 +426,7 @@ const deladr = async (req, res) => {
         }else{
     
           await customers.findOneAndUpdate({_id:req.session.signed_customer._id},{$pull:{favorites:{itemId:req.params.id}}});
+          req.session.signed_customer= await customers.findById(req.session.signed_customer._id);
           res.json({removed:true});
         }
       }
