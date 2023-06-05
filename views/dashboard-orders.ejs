@@ -213,7 +213,9 @@ td7.appendChild(i2);
    
    
               async function togglePopup(id){
+
 if(id!=="hello"){
+  document.getElementById("tabledeatails").innerHTML="";
            await fetch(`http://127.0.0.1:3001/products/ordrers/get/details/admin/${id}`,{method:'Get'})
            .then(async(o)=>{
 return o.json();
