@@ -31,7 +31,7 @@ html {
 
 }
 
-.navbar ul li {
+.navbar ul li,.navbar2 ul li {
     display: inline;
     padding: 25px;
     text-transform: uppercase;
@@ -39,7 +39,7 @@ html {
      opacity: 30%; */
 }
 
-.navbar ul li a {
+.navbar ul li a, .navbar2 ul li a {
 
     text-decoration: none;
     color: #fff;
@@ -49,7 +49,7 @@ html {
 
 }
 
-.navbar ul li i {
+.navbar ul li i ,.navbar2 ul li i {
 
     /* color:#fff;
      
@@ -76,13 +76,13 @@ ul li i:hover {
 
 
 
-.navbar ul li a:hover {
+.navbar ul li a:hover, .navbar2 ul li a:hover {
     border-radius: 7px;
     box-shadow: 0 3px 50px orangered inset, 0 3px 50px orangered inset, 0 3px 50px orangered inset, 0 3px 50px orangered inset;
 
 }
 
-.navbar .sign {
+.navbar .sign,.navbar2 .sign {
     padding: 10px;
     background-color: orangered;
 
@@ -90,7 +90,7 @@ ul li i:hover {
 
 .navbar {
 
-
+/* opacity: 80%; */
     position: fixed;
     z-index: 1;
     align-items: center;
@@ -101,6 +101,45 @@ ul li i:hover {
     width: 100%;
     height: 10%;
     background-color: rgb(20, 20, 24, 0.903);
+    /* margin-top: 100px; */
+
+}
+
+.navbar2{
+
+
+
+    opacity: 80%;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    background-color: rgb(20, 20, 24, 0.903);
+    margin-top: 100px;
+}
+
+
+.navbar2 .close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #f5f4f4;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    display: none;
+
 
 }
 
@@ -304,3 +343,71 @@ ul li i:hover {
     left: -4px;
 }
 /* formated */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.popup .overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
+}
+
+.popup .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 450px;
+    height: 400px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup .close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+
+
+}
+
+.popup.active .overlay {
+    display: block;
+}
+
+.popup.active .content {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+
