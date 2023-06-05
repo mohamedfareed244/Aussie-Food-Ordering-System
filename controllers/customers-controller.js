@@ -4,6 +4,7 @@ import { io } from "../bin/www.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
 import validator from 'validator';
+import { All } from "../models/schema.js";
 
 async function sendsms(User) {
 
@@ -399,5 +400,14 @@ const deladr = async (req, res) => {
         
       })
       }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml};
+      async function addfav(req,res){
+        if(req.session.signed_customer===null||req.session.signed_customer===undefined){
+          res.json({added:false});
+        }else{
+    
+          await customers.findOneAndUpdate({_id:req.session.signed_customer._id},{$push:{favorites:{itemId:req.params.id}}});
+          res.json({added:true});
+        }
+      }
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav};
 

@@ -193,11 +193,17 @@ function sub() {
 
 async function favadd(id,index){
     await fetch (`http://127.0.0.1:3001/customers/favs/add/check/signin/not/${id}`,{method:'GET'}).then((o)=>{
+        const g=o.json();
+        return g;
+}).then((o)=>{
+console.log("the response is ",o);
+
         if(!o.added){
             location.href='/customers/signin';
         }else{
 document.getElementsByClassName("favs")[index].style.display="none";
-document.getElementsByClassName("favrs")[index]
+document.getElementsByClassName("favrs")[index].style.display="block";
         }
     })
+    
 }
