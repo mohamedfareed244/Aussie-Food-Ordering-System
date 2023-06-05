@@ -16,10 +16,10 @@ async function sendsms(User) {
   let data;
   ejs.renderFile("/Users/user/Desktop/web_back2 /views/template.ejs", { user: User }, (err, d) => {
     data = d;
-    console.log(d);
+    
   });
   const options = {
-    from: "aussiefood6@gmail.com",
+    from: "AussieFood",
     to: User.Email,
     subject: "mail confirmation",
     html: data
@@ -28,9 +28,8 @@ async function sendsms(User) {
   trans.sendMail(options, function (err, info) {
     if (err) {
       console.log("there are an error " + err)
-    } else {
-      console.log(info);
-    }
+    } 
+    
   })
 
 }
@@ -318,5 +317,42 @@ const deladr = async (req, res) => {
 
   }
   }
+  const confirml = async (req, res) => {
+    const trans = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: "aussiefood6@gmail.com",
+        pass: "gqhnpwicffirkdhn"
+      }
+    });
+    let data;
+    ejs.renderFile("/Users/user/Desktop/web_back2 /views/order-confirm-mail.ejs", { user: User }, (err, d) => {
+      data = d;
+      
+    });
+    const options = {
+      from: "AussieFood",
+      to: User.Email,
+      subject: "mail confirmation",
+      html: data
+  
+    }
+    trans.sendMail(options, function (err, info) {
+      if (err) {
+        console.log("there are an error " + err)
+      } 
+      
+    })
+    }
+    const disconfirml = async (req, res) => {
+      if(req.session.signed_customer===null||req.session.signed_customer===undefined){
+        res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
+      }else{
+      await customers.updateOne({_id:req.session.signed_customer._id},{ $pull: { addreses: { _id: req.params.id } } });
+      req.session.signed_customer=await customers.findById(req.session.signed_customer._id);
+      res.redirect("/customers/profile/addr");
+    
+      }
+      }
 export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr};
 
