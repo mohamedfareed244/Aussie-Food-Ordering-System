@@ -317,7 +317,7 @@ const deladr = async (req, res) => {
 
   }
   }
-  const confirml = async (req, res) => {
+  const confirml = async (order) => {
     const trans = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -326,14 +326,14 @@ const deladr = async (req, res) => {
       }
     });
     let data;
-    ejs.renderFile("/Users/user/Desktop/web_back2 /views/order-confirm-mail.ejs", { user: User }, (err, d) => {
+    ejs.renderFile("/Users/user/Desktop/web_back2 /views/order-confirm-mail.ejs", { ord:order }, (err, d) => {
       data = d;
-      
+      console.log(d);
     });
     const options = {
-      from: "AussieFood",
-      to: User.Email,
-      subject: "mail confirmation",
+      from: "aussiefood6@gmail.com",
+      to: order.customermail,
+      subject: "order confirmation",
       html: data
   
     }
@@ -354,5 +354,5 @@ const deladr = async (req, res) => {
     
       }
       }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr};
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml};
 

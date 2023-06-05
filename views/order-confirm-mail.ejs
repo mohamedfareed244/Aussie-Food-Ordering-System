@@ -98,21 +98,21 @@
           </tr>
         </thead>
         <tbody>
-          <% let sum =0;for(let i=0;i<ord.items.length;i++){ %>
+          <% for(let i=0;i<ord.items.length;i++){ %>
           <tr>
             <td><%=ord.items[i].item_name%></td>
             <td><%=ord.items[i].price%> Egp</td>
             <td><%=ord.items[i].Qty%></td>
           </tr>
-      <%sum+=ord.items[i].price*ord.items[i].Qty}%>
+      <%}%>
         
         </tbody>
       </table>
       <p>Shipping Address: <%=ord.Address%></p>
-      <%if(ord.discount!===""){%>
+      
       <p class="discount">Discount code: SAVE10</p>
-      <%}%>
-      <p>Total: <%=sum%> Egp</p>
+      
+      <p>Total: 4 Egp</p>
       <p class="footer">Please contact us if you have any questions or concerns.</p>
     </div>
   </body>
