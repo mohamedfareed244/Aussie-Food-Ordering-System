@@ -51,7 +51,7 @@ td:first-child {
   font-weight: bold;
 }
 
-.passwordch {
+#passwordch {
 
   background-color: #004A7F;
   border-radius: 10px;
@@ -66,7 +66,7 @@ td:first-child {
   text-decoration: none;
 }
 
-.passwordch:hover {
+#passwordch:hover {
   background-color: rgb(234, 102, 102);
 }
 
