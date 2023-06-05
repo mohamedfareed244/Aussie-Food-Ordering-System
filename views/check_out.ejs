@@ -92,7 +92,7 @@
 
 
                 <div id="drop_addr">
-                    <button id="dropbtn" style="font-size: 14px; height: 50px;">Choose Your Address <img
+                    <button id="dropbtn" style="font-size: 14px; height: 50px;"> <b id="sd">Choose Your Address</b>  <img
                             src="/images/arrow-down-sign-to-navigate.png" alt="" width="15px" id="hide_img"></button>
                     <div id="dropdown-content">
                         <ul id="adds_list" >
@@ -175,15 +175,22 @@
                         function chgaddr(s){
                             const tx1=document.getElementsByClassName(`${s}`)[0].innerHTML;
                             const tx2=document.getElementsByClassName(`${s}`)[1].innerHTML;
-                            document .getElementById("dropbtn").innerHTML=`${tx1} ${tx2}`;
+                            document .getElementById("sd").innerHTML=`${tx1} ${tx2}`;
                         }
                     function end(){
-                       
+                        const data = new URLSearchParams();
+                        
+                       const x=document.getElementById("sd").innerHTML;
+                       data.append('address',x);
+                       data.append('discount',document.getElementById("voucher".value));
+                       data.append('notes',document.getElementById("notes").value);
+                       data.append('voucher',document.getElementById("voucher").value);
                         fetch("/products/customer/cart/checkout/order",{
                             method:'POST',
-                            body:{address:document.getElementById("dropbtn").innerHTML,
-                        notes:document.getElementById("notes").value , 
-                    voucher : document.getElementById("voucher").value}
+                            headers: {
+		'Content-Type': 'application/x-www-form-urlencoded'
+	},
+                         body : data
                         })
                     }
                     </script>

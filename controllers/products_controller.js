@@ -151,6 +151,7 @@ const new_order = async (req, res) => {
     }
   })
   numbers++;
+  console.log("the address is ",req.body.address);
   const ord = new orders({
     customername: current_customer.Firstname,
     customermail: current_customer.Email,
@@ -163,6 +164,7 @@ const new_order = async (req, res) => {
     Address: req.body.address,
     num: numbers,
     discount:req.body.voucher===" "?"none":`${req.body.voucher}`,
+    notes:req.body.notes,
   })
   console.log("stuck");
   for (let i = 0; i < current_cart.length; i++) {
