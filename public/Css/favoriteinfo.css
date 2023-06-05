@@ -1,64 +1,47 @@
-body {
-
-  overflow-x: hidden;
-
-
-
+.tablesfav{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    min-height: 89vh;
+    color: #555;
+    border-collapse: collapse;
+    position: relative;
+    top: -754px;
+    left: 384px;
+    width: 61%;
 }
-
-
-.tablesfav {
-  box-sizing: border-box;
-  font-family: sans-serif;
-  min-height: 89vh;
-  color: #555;
-  margin-left: 300px;
-  margin-top: -500px;
-  width: fit-content;
-
+table{
+	width:  1000px;
 }
-
-table {
-  width: 950px;
-  margin-right: 10px;
+table th{
+	padding: 10px 0;
+	background-color: #f4f4f4;
+	border:  thin solid #d4d4d4;
 }
-
-table th {
-  padding: 10px 0;
-  background-color: #f4f4f4;
-  border: thin solid #d4d4d4;
-}
-
-table td {
+table td{
   padding: 14px;
   border: thin solid #d4d4d4;
-  width: 37%;
+  width: 25%;
   text-align: center;
   background-color: #fff;
 }
-
-table img {
-  width: 70%;
+table img{
+	width:  50%;
 }
-
-.delete {
-  color: red;
+.delete{
+	color: red;
 }
-
-.delete:hover {
-  color: brown;
+.delete:hover{
+	color: brown;
 }
-
-table img {
-  width: 60%;
-}
-
-
+table img{
+	width:  60%;
+} 
 @media only screen and (min-width: 1030px) and (max-width: 1366px)  {
   .tablesfav {
-    width: 73%;
-    margin-left: 25%;
-    margin-top: -66%;
+    position: relative;
+    top: -754px;
+    left: 330px;
+    width: 61%;
   }
 
   table {
@@ -67,8 +50,8 @@ table img {
 
   table th,
   table td {
-    width: 50%;
-    padding: 10px 8px
+    width: 25%;
+    padding: 10px 8px;
   }
 
   table img {
@@ -80,9 +63,10 @@ table img {
 @media only screen and (min-device-width : 700px) and (max-device-width : 1030px) 
  {
   .tablesfav {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 0;
+    position: relative;
+    width: 70%;
+    top: -752px;
+    left: 254px;
   }
 
   table {
@@ -91,8 +75,8 @@ table img {
 
   table th,
   table td {
-    width: 50%;
-    padding: 10px 8px
+    width: 25%;
+    padding: 10px 8px;
   }
 
   table img {
@@ -100,12 +84,13 @@ table img {
   }
 }
 
-@media only screen and (min-device-width : 360px) and (max-device-width : 700px) {
+@media only screen and (min-device-width : 480px) and (max-device-width : 700px) {
 
   .tablesfav {
+    position: relative;
+    top: 0px;
+    left: 0px;
     width: 100%;
-    margin-left: 0;
-    margin-top: 0;
   }
 
   table {
@@ -114,7 +99,7 @@ table img {
 
   table th,
   table td {
-    width: 50%;
+    width: 25%;
     padding: 10px 6px;
   }
 
@@ -124,9 +109,10 @@ table img {
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   .tablesfav {
+    position: relative;
+    top: 0px;
+    left: 0px;
     width: 100%;
-    margin-left: 0;
-    margin-top: 0;
   }
 
   table {
@@ -135,12 +121,13 @@ table img {
 
   table th,
   table td {
-    width: 50%;
+
+    width: 25%;
     padding: 10px 6px;
+
   }
 
   table img {
     width: 50%;
   }
 }
-/* formated */
