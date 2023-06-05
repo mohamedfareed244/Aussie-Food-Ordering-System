@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Confirmation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Set up some basic styles */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333333;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      /* Style the container */
+      .container {
+        margin: 0 auto;
+        max-width: 600px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      /* Style the headings */
+      h1, h2, h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-weight: normal;
+        color: #333333;
+      }
+
+      /* Style the table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      /* Style the buttons */
+      .button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+
+      /* Style the discount code */
+      .discount {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+      }
+
+      /* Style the footer */
+      .footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #999999;
+      }
+
+      /* Media queries for different screen sizes */
+      @media only screen and (max-width: 600px) {
+        .container {
+          width: 100%;
+          margin: 0;
+          border-radius: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Order Cancellation</h1>
+      <p>Dear <%=ord.customername%> , </p>
+      <p>Thanks for trusting in Aussie we Are Sorry to inform you that the restaurant can't recieve your order at the moment .</p>
+      <p> order number : <b>#<%=ord.num%></b> <p>Here are the details of your Order :</p> </p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0;i<ord.items.length;i++){ %>
+          <tr>
+            <td><%=ord.items[i].item_name%></td>
+            <td><%=ord.items[i].price%> Egp</td>
+            <td><%=ord.items[i].Qty%></td>
+          </tr>
+      <%}%>
+        
+        </tbody>
+      </table>
+      <p>Shipping Address: <%=ord.Address%></p>
+      <%if(ord.discount!==""){%>
+      <p class="discount">Discount code: ord.discount</p>
+      <%}%>
+      <p>Total: <%=sum%> Egp</p>
+      <p class="footer">Please contact us if you have any questions or concerns.</p>
+    </div>
+  </body>
+</html>
+

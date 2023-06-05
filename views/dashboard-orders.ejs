@@ -292,11 +292,14 @@ for(let i=0;i<x.length;i++){
                }
                async function decord(id){
                  fetch(`/products/admin/cancel/order/send/mail/customer/${id}`,{method:'GET'}).then(()=>{
-const x=Array.from(document.getElementsByClassName("vv"));
+                  const x=document.getElementsByClassName("vv");
+
 for(let i=0;i<x.length;i++){
-  console.log(x[i].value);
   if(x[i].value===id){
-    document.getElementsByClassName("sst")[i].innerHTML="Delivered";
+    document.getElementsByClassName("sst")[i].innerHTML="Cancelled";
+    document.getElementsByClassName("sst")[i].id="Cancelled";
+    document.getElementsByClassName("td1")[i].style.display="none";
+    document.getElementsByClassName("td2")[i].style.display="none";
   }
 }
 })
