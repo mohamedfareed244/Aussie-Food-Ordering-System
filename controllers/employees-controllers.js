@@ -3,6 +3,7 @@ import { Emp } from "../models/Employees.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs";
 import { addemp, get_customers } from "../app.js";
+import { orders } from "../models/orders.js";
 
 
 
@@ -200,9 +201,13 @@ const emporder= async(req,res)=>{
 const curr=req.session.employee;
 if(curr===null||curr===undefined){
   res.render("admin_signin",{alert:true,text:"You have to sign in first to access orders section "});
-}else[
-
-]
+}else{
+await orders.find({emp_name:curr.Name,emp_phone:curr.Phone}).then((items)=>{
+  res.render("dashboard-orders",{orders:items});
+}).catch((err)=>{
+  res.render("error-page");
+})
 }
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats };
+}
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder};
 //formated
