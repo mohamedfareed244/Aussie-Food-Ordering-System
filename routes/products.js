@@ -5,7 +5,7 @@ import { getitembyid } from "../controllers/products_controller.js";
 import { delitem } from "../controllers/products_controller.js";
 import { check_out } from "../controllers/products_controller.js";
 import { new_order ,getorderdet} from "../controllers/products_controller.js";
-import { confirml} from "../controllers/customers-controller.js";
+import { confirml,disconfirml} from "../controllers/customers-controller.js";
 // import {postsection} from "../controllers/products_controller.js";
 //import the products database controllers 
 
@@ -28,5 +28,6 @@ router.get('/add section', postproduct);
 router.post('/customer/cart/checkout/order', new_order);
 router.get('/ordrers/get/details/admin/:id',getorderdet);
 router.get('/admin/confirm/order/send/mail/customer/:id',confirml);
+router.get('/admin/cancel/order/send/mail/customer/ok/:id',disconfirml);
 export default router;
 //formated
