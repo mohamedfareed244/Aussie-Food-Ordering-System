@@ -26,6 +26,8 @@
     box-shadow: 0 10px 25px rgb(232, 76, 3);
     border-radius: 20px;
     overflow: auto;
+    
+   
 
 
 }
@@ -280,5 +282,83 @@
     background-size: cover;
     background-blend-mode: darken;
 
+}
+/* formated */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#t {
+
+    border-collapse: collapse;
+    width: 74%;
+    position: relative;
+    top: -810px;
+    left: 350px;
+}
+
+.popup td {
+    width: 30%;
+}
+
+.popup thead {
+    background-color: rgb(70, 121, 203);
+    text-align: center;
+}
+
+
+
+#table_inside {
+
+    display: block;
+    width: 1200px;
+    border: 1px solid rgb(56, 56, 205);
+
+}
+
+.item_details {
+    display: none;
+    /* display: none; */
+    /* animation: hideMe 1s forwards; */
+}
+
+@keyframes hideMe {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.yy {
+    display: none;
+}
+
+.popup tr {
+    border: none;
+    transition: 2s;
+    height: 50px;
+}
+
+#t:hover #yy {
+    display: table-row;
+    animation: hideMe 1s forwards;
 }
 /* formated */
