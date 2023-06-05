@@ -377,7 +377,7 @@ const deladr = async (req, res) => {
       const options = {
         from: "aussiefood6@gmail.com",
         to: order.customermail,
-        subject: "order confirmation",
+        subject: "order cancellation",
         html: data
     
       }
