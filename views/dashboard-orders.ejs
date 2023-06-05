@@ -66,7 +66,7 @@
                        <td><button class="moree" onclick="togglePopup(`<%=item.id%>`)">Show More</button></td>
                        <%if(item.status==="Pending"){%>
                        <td class="td1"><i class="fa-sharp fa-solid fa-circle-check" id="iconn" onclick="confirmord(`<%=item._id%>`)"></i></td>
-                       <td class="td2"><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
+                       <td class="td2"><i class="fa-solid fa-circle-xmark" id="iconn" onclick="decord(`<%=item._id%>`)"></i></td>
                        <%}%>
                    </tr>
                  <%})%>
@@ -291,7 +291,7 @@ for(let i=0;i<x.length;i++){
 })
                }
                async function decord(id){
-                 fetch(`/products/admin/cancel/order/send/mail/customer/${id}`,{method:'GET'}).then(()=>{
+                 fetch(`/products/admin/cancel/order/send/mail/customer/ok/${id}`,{method:'GET'}).then(()=>{
                   const x=document.getElementsByClassName("vv");
 
 for(let i=0;i<x.length;i++){

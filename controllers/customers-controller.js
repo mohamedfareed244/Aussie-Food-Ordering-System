@@ -344,23 +344,54 @@ const deladr = async (req, res) => {
       html: data
   
     }
-    trans.sendMail(options, function (err, info) {
+    trans.sendMail(options, async function (err, info) {
       if (err) {
         console.log("there are an error " + err)
-      } 
-      res.json({type:true});
+      } else{
+        await orders.findByIdAndUpdate(order._id,{status:"Delivered"}).then((o)=>{
+         res.json({type:true});
+        })
+     }
+     
     })
 
     }
     const disconfirml = async (req, res) => {
-      if(req.session.signed_customer===null||req.session.signed_customer===undefined){
-        res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
-      }else{
-      await customers.updateOne({_id:req.session.signed_customer._id},{ $pull: { addreses: { _id: req.params.id } } });
-      req.session.signed_customer=await customers.findById(req.session.signed_customer._id);
-      res.redirect("/customers/profile/addr");
+      let order = await orders.findById(req.params.id);
+      const trans = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: "aussiefood6@gmail.com",
+          pass: "gqhnpwicffirkdhn"
+        }
+      });
+      let data;
+      let sums=0;
+      for(let i=0;i<order.items.length;i++){
+        sums+=order.items[i].price*order.items[i].Qty;
+      }
+      ejs.renderFile("/Users/user/Desktop/web_back2 /views/order-disconfirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
+        data = d;
+        console.log(d);
+      });
+      const options = {
+        from: "aussiefood6@gmail.com",
+        to: order.customermail,
+        subject: "order confirmation",
+        html: data
     
       }
+      trans.sendMail(options, async function (err, info) {
+        if (err) {
+          console.log("there are an error " + err)
+        } else{
+           await orders.findByIdAndUpdate(order._id,{status:"Cancelled"}).then((o)=>{
+            res.json({type:true});
+           })
+        }
+       
+        
+      })
       }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml};
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml};
 
