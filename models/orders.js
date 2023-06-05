@@ -11,9 +11,10 @@ const Items = new Schema({
     emp_phone: String,
     orderdate: String,
     status: String,
-    Address: [{location:String,Adress:String,apartment:String,floor:String,Building:String}],
+    Address: String,
     num: Number,
     discount:String,
+    notes:String
 
 });
 const orders = mongoose.model('orders', Items);
