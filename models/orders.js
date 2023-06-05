@@ -14,6 +14,7 @@ const Items = new Schema({
     Address: String,
     num: Number,
     discount:String,
+    notes:String
 
 });
 const orders = mongoose.model('orders', Items);
