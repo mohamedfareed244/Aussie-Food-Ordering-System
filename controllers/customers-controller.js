@@ -430,5 +430,21 @@ const deladr = async (req, res) => {
           res.json({removed:true});
         }
       }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav};
+      async function remfavpro(req,res){
+        if(req.session.signed_customer===null||req.session.signed_customer===undefined){
+          res.render("sign-in",{alert:true,text:"you have to sign in first to make this action "})
+        }else{
+    
+          await customers.findOneAndUpdate({_id:req.session.signed_customer._id},{$pull:{favorites:{itemId:req.params.id}}});
+          req.session.signed_customer= await customers.findById(req.session.signed_customer._id);
+          const obj=req.session.signed_customer.favorites;
+          let a=new Array();
+          for(let i=0;i<obj.length;i++){
+            const g=await All.findById(obj[i].itemId);
+      a.push(g);
+          }
+          res.render("favoriteinfo",{items:a});
+        }
+      }
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro};
 

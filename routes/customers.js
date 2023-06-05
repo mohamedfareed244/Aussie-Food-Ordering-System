@@ -8,7 +8,7 @@ import { customerml } from "../controllers/customers-controller.js";
 import { customeraddr } from "../controllers/customers-controller.js";
 import { customerfav } from "../controllers/customers-controller.js";
 import { customerchnagepass } from "../controllers/customers-controller.js";
-import { getmsgs ,addadr,deladr,addfav,remfav} from "../controllers/customers-controller.js";
+import { getmsgs ,addadr,deladr,addfav,remfav,remfavpro} from "../controllers/customers-controller.js";
 const router = Router();
 
 router.post('/signup', postcustomers);
@@ -31,5 +31,6 @@ router.post('/profile/address/add/new',addadr);
 router.get('/profile/address/del/sel/:id',deladr)
 router.get('/favs/add/check/signin/not/:id',addfav);
 router.get('/favs/remove/check/signin/not/:id',remfav);
+router.get('/favs/remove/check/signin/not/first/:id',remfavpro)
 export default router;
 //formated
