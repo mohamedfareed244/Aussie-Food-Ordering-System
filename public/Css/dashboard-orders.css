@@ -102,7 +102,7 @@
     text-align: center;
 }
 
-.delivered {
+#delivered {
     padding: 2px 4px;
     background: #8de02c;
     color: antiquewhite;
@@ -113,7 +113,7 @@
 
 }
 
-.pen {
+#cancelled {
     padding: 2px 4px;
     background: #fd1d04;
     color: antiquewhite;
@@ -123,7 +123,7 @@
     margin-right: 78%;
 }
 
-.ret {
+#pending {
     padding: 2px 4px;
     background: #f0743a;
     color: antiquewhite;

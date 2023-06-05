@@ -60,11 +60,12 @@
                        
                      
                        <td>
-                        <span class="delivered"><%=item.status%></span>
+                        <span id='<%=item.status%>' class="sst"><%=item.status%></span>
+                        <input type="hidden" class="vv" value=`<%=item._id%>`>
                        </td>
                        <td><button class="moree" onclick="togglePopup(`<%=item.id%>`)">Show More</button></td>
                        <%if(item.status==="Pending"){%>
-                       <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn"></i></td>
+                       <td><i class="fa-sharp fa-solid fa-circle-check" id="iconn" onclick="confirmord(`<%=item._id%>`)"></i></td>
                        <td><i class="fa-solid fa-circle-xmark" id="iconn"></i></td>
                        <%}%>
                    </tr>
@@ -165,7 +166,8 @@
   let td6 = row.insertCell(5);
   let td7 = row.insertCell(6);
   let sp=document.createElement("span");
-  sp.className="delivered";
+  sp.id="pending";
+  sp.className=("sst");
   sp.innerHTML=msg.status;
 
   let g1=document.createElement("span");
@@ -180,7 +182,10 @@ let g3=document.createElement("span");
   g3.innerHTML=msg.num;
 td3.appendChild(g3);
   
-
+let f=document.createElement("input");
+f.type="hidden";
+f.className="vv";
+f.value=`${msg._id}`;
   td4.appendChild(sp);
   let btn =document.createElement("button");
   btn.className="moree";
@@ -192,10 +197,16 @@ td3.appendChild(g3);
   i1.id="iconn";
 i1.className="fa-sharp fa-solid fa-circle-check";
 td6.appendChild(i1);
+i1.addEventListener('click', ()=>{
+  confirmord(msg._id);
+})
 let i2=document.createElement("i");
   i2.id="iconn";
 i2.className="fa-solid fa-circle-xmark";
 td7.appendChild(i2);
+i2.addEventListener('click',()=>{
+decord(msg._id);
+})
      sou();
      
      btn.addEventListener('click',()=>{
@@ -213,6 +224,7 @@ td7.appendChild(i2);
    
    
               async function togglePopup(id){
+
 
 if(id!=="hello"){
   document.getElementById("tabledeatails").innerHTML="";
@@ -262,6 +274,20 @@ const finals =`   <tr>
            })
           }
           document.getElementById("popup-1").classList.toggle("active");
+               }
+            
+               async function confirmord(id){
+await fetch(`/products/admin/confirm/order/send/mail/customer/${id}`,{method:'GET'}).then(()=>{
+const x=Array.from(document.getElementsByClassName("vv"));
+for(let i=0;i<x.length;i++){
+  if(x[i].value===id){
+    document.getElementsByClassName("sst")[i].innerHTML="Delivered";
+  }
+}
+})
+               }
+               async function decord(id){
+                
                }
             </script>
    
