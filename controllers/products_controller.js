@@ -191,13 +191,14 @@ const new_order = async (req, res) => {
 const postsection = async (req, res) => {
 
   const obj = {
-    Name: req.body.Name
+    name: req.body.name
 
   }
   const section = new Sec(obj);
 
   try {
-    await section.save();
+   await section.save();
+   
     console.log("saved successfully");
   } catch (err) {
     console.log(err);
@@ -206,11 +207,22 @@ const postsection = async (req, res) => {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 //add product to menu
 const postproduct = async (req, res) => {
 
   const obj = {
-    name: req.body.Name,
+    name: req.body.name,
     path: req.body.path,
     price: req.body.price,
     description: req.body.description,

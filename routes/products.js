@@ -10,6 +10,7 @@ import { confirml,disconfirml} from "../controllers/customers-controller.js";
 //import the products database controllers 
 
 
+
 const router = Router();
 
 //get section items by section name 
@@ -21,9 +22,11 @@ router.get('/cartdel/:id', delitem);
 //check out 
 router.get('/cart/end/checkout', check_out);
 //add section
-router.get('/add section', postsection);
+router.post('/add/sectionn', postsection);
+
+
 //add product
-router.get('/add section', postproduct);
+router.post('/add/product', postproduct);
 //router.post('/customer/order/address',)
 router.post('/customer/cart/checkout/order', new_order);
 router.get('/ordrers/get/details/admin/:id',getorderdet);

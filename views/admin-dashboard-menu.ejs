@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="/images/barbecue.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="/Css/admin-dashboard-menu.css">
+   
 
 </head>
 
@@ -37,6 +38,7 @@
                                 <li data-color=".Arrivals">Desserts</li>
                                 <li data-color=".Arrivals">Desserts</li>
                                 <li data-color=".Arrivals">Desserts</li>
+                                
                             </div>
 
                             <li><a class="sign" href="#" onclick="togglePopup4()">Add Section</a></li>
@@ -517,13 +519,13 @@
                     &times;
                 </div>
                 <h1>Add Meal</h1>
-                <form action="">
+                <form  action="/products/add/product" method="post">
 
-                    <input type="text" id="name" placeholder="Enter Item Name">
-                    <input type="text" id="name" placeholder="Enter Item Price">
-                    <input type="text" id="name" placeholder="Enter Item Description">
+                    <input type="text" id="name" name="name" placeholder="Enter Item Name">
+                    <input type="text" id="name" name="price" placeholder="Enter Item Price">
+                    <input type="text" id="name" name="description" placeholder="Enter Item Description">
 
-                    <select class="selecttt" Name="choose section" Size="Number_of_options">
+                    <select class="selecttt" Name="choose section" name="section" Size="Number_of_options">
                         <option> ind meals </option>
                         <option> healthy food </option>
                         <option> ind meals </option>
@@ -592,9 +594,9 @@
                 &times;
             </div>
             <h1>Add Section</h1>
-            <form action="">
+            <form  action="/products/add/sectionn" method="post">
 
-                <input type="text" id="name" class="seccc" placeholder="Enter Section Name">
+                <input type="text" id="name" class="seccc" name="name" placeholder="Enter Section Name">
                 
 
 
