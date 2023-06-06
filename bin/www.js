@@ -16,6 +16,7 @@ import ios from "express-socket.io-session";
 import { chg_sock } from "../app.js";
 import mongoose from "mongoose";
 import { createServer } from "http";
+import https from "https"
 import dotenv from "dotenv";
 import { sessionMiddleware } from "../app.js"
 import session from "express-session"
@@ -35,8 +36,20 @@ const HOST = process.env.HOST || "127.0.0.1";
 // Get MongoDB connection URI from environment variable 
 const MURI = process.env.MURI;
 
-// Create HTTP server.
-const server = createServer(app);
+
+//create https server
+// /etc/letsencrypt/live/aussiefood.store/privkey.pem private key path on server 
+// /etc/letsencrypt/live/aussiefood.store/fullchain.pem certificate path on server 
+const privatekey=fs.readFileSync("./ssl/key.pem",'utf-8');
+const certificate =fs.readFileSync("./ssl/certificate.pem",'utf-8');
+const credentials={
+  key:privatekey,
+  cert:certificate,
+}
+
+
+// Create HTTPS server.
+const server = https.createServer(credentials,app);
 
 //create Socket 
 const io = new Server(server);
