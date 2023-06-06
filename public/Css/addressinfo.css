@@ -5,6 +5,7 @@ body {
 
 
 }
+
 .tables {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -206,7 +207,8 @@ button:hover {
   transform: translate(-50%, -50%) scale(1);
 
 }
-.pop{
+
+.pop {
   margin-left: 91px;
 }
 
@@ -272,4 +274,5 @@ form input:focus {
   font-size: 20px;
   opacity: 50%;
 }
+
 /* formated */
