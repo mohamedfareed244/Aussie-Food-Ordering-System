@@ -29,6 +29,7 @@ res.json(obj);
 
 
 const apply = async (req,res)=>{
+    console.log("i recieve ",req.body);
     const user=await voucher.findOne({code:req.body.code});
     if(user!==null){
         let finded;
@@ -45,10 +46,12 @@ const apply = async (req,res)=>{
             .then(async (o)=>{
         return o.json();
             }).then((o)=>{
+                console.log("fareed returned with ",o);
              if(!o.found){
                 res.json({applied:false});
              }else{
                 req.session.voucher=req.body.code;
+                res.json({applied:true});
              }
             })
         

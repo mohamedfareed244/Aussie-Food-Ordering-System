@@ -172,15 +172,19 @@
                             
                             const tex=document.getElementById("voucher").value;
                             const data=new URLSearchParams();
+
                             data.append("code",tex);
+                            console.log("start fetching");
                             await fetch("https://127.0.0.1:3001/api/voucher/",{method:"POST",
                             headers: {
 		'Content-Type': 'application/x-www-form-urlencoded'
 	},
                          body : data
                         }).then((o)=>{
-                            return o.json();
-                        }).then((o)=>{
+                            return  o.json();
+                            console.log(o.json());
+                        }).then(async (o)=>{
+                            console.log(o);
                             if(!o.applied){
                                 const g=`   <div class="popup" id="popup-1">
 
@@ -207,7 +211,7 @@ document.getElementById("mybody").innerHTML+=g;
 
 togglePopup();
                             }else{
-                                const gi=`   <div class="popup" id="popup-1">
+                                const g=`   <div class="popup" id="popup-1">
 
 <div class="overlay"> </div>
 <div class="content">

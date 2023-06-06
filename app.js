@@ -8,6 +8,7 @@ import product_router from "./routes/products.js";
 //ali
 import cust_router from "./routes/customers.js";
 import emp_router from "./routes/employees.js";
+import api_router from "./routes/api.js"
 // end import routes 
 import { CLIENT_RENEG_LIMIT } from "tls";
 import session from "express-session";
@@ -49,8 +50,7 @@ app.use(express.urlencoded({extended:true}));
 app.use('/products',product_router);
 app.use('/employees',emp_router);
 app.use('/customers',cust_router);
-
-
+app.use('/api',api_router);
 
 
 
