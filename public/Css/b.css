@@ -65,7 +65,8 @@ tr {
     display: table-row;
     animation: hideMe 1s forwards;
 }
-/* formated */
+
+
 @media only screen and (min-width: 1030px) and (max-width: 1366px) {
     #t {
         border-collapse: collapse;
@@ -74,12 +75,14 @@ tr {
         top: -713px;
         left: 323px;
     }
+
     td {
         width: 25%;
     }
-    
+
 
 }
+
 @media only screen and (min-device-width : 700px) and (max-device-width : 1030px) {
 
     #t {
@@ -89,6 +92,7 @@ tr {
         top: -700px;
         left: 245px;
     }
+
     td {
         width: 26%;
     }
@@ -105,10 +109,12 @@ tr {
         top: 0px;
         left: 0px;
     }
+
     td {
         width: 25%;
     }
 }
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
     #t {
@@ -119,7 +125,9 @@ tr {
         top: 0px;
         left: 0px;
     }
+
     td {
         width: 25%;
     }
 }
+/* formated */
