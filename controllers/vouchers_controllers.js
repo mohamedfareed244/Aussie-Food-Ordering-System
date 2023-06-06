@@ -26,3 +26,42 @@ res.json(obj);
 
 
 }
+
+
+const apply = async (req,res)=>{
+    const user=await voucher.findOne({code:req.body.code});
+    if(user!==null){
+        let finded;
+        try {
+            await fetch("https://dsk-jf.onrender.com/api", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id:user.mongoid
+              }),
+            })
+            .then(async (o)=>{
+        return o.json();
+            }).then((o)=>{
+             if(!o.found){
+                res.json({applied:false});
+             }else{
+                req.session.voucher=req.body.code;
+             }
+            })
+        
+          } catch (err) {
+            console.log(err);
+          }
+
+    }else{
+        res.json({applied:false});
+    }
+  
+    
+    
+    
+    }
+export {generatefor,apply}

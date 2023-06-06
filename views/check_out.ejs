@@ -86,8 +86,8 @@
             <div id="voucher_area">
 
                 <div id="v1">
-                    <input type="text" placeholder="Voucher Code " id="voucher">
-                    <button id="app_vouch_btn"> Apply </button>
+                    <input type="text" placeholder="Voucher Code" id="voucher">
+                    <input  type="button" id="app_vouch_btn" onclick="applyvoucher()" value="Apply"> 
                 </div>
 
 
@@ -156,6 +156,7 @@
                 <%}%> -->
             </body>
                     <script data-data="<%= JSON.stringify(ord) %>">
+                      
                         let check=false;
                         const data = JSON.parse(document.currentScript.dataset.data);
                         console.log(data);
@@ -164,6 +165,87 @@
                             // const togel=document.querySelector(".popup")
                             document.getElementById("popup-1").classList.toggle("active");
 
+                        }
+                        async function applyvoucher(){
+                            
+                            
+                            
+                            const tex=document.getElementById("voucher").value;
+                            const data=new URLSearchParams();
+                            data.append("code",tex);
+                            await fetch("https://127.0.0.1:3001/api/voucher/",{method:"POST",
+                            headers: {
+		'Content-Type': 'application/x-www-form-urlencoded'
+	},
+                         body : data
+                        }).then((o)=>{
+                            return o.json();
+                        }).then((o)=>{
+                            if(!o.applied){
+                                const g=`   <div class="popup" id="popup-1">
+
+<div class="overlay"> </div>
+<div class="content">
+    <img src="/images/redicon.png" alt="">
+    <div class="close-btn" onclick="togglePopup()">
+        &times;
+    </div>
+    <h2>Sorry !</h2>
+
+    <p>You have to enter a vocuher first  ! </p>
+    
+    <!-- <button type="button" onclick="togglePopup()">OK</button> -->
+</div>
+
+</div>`
+if(document.getElementById("popup-1")===null){
+document.getElementById("mybody").innerHTML+=g;
+}else{
+   document.getElementById("mybody").removeChild(document.getElementById("popup-1"));
+   document.getElementById("mybody").innerHTML+=g;
+}
+
+togglePopup();
+                            }else{
+                                const gi=`   <div class="popup" id="popup-1">
+
+<div class="overlay"> </div>
+<div class="content">
+    <img src="/images/404-tick.png" alt="">
+    <div class="close-btn" onclick="togglePopup()">
+        &times;
+    </div>
+    <h2>Thank You!</h2>
+
+    <p>Your voucher has been applied you have recieved 10% off your order enjoy</p>
+    </p>
+    <!-- <button type="button" onclick="togglePopup()">OK</button> -->
+</div>
+
+</div>`
+let num= parseFloat(document.getElementById("table_total").innerHTML,10);
+console.log("the number ",num);
+const discou=(num/100)*10;
+num-=discou;
+num=Math.round(num);
+document.getElementById("table_total").innerHTML=`${num}`;
+document.getElementById("voucher").value=tex;
+                                document.getElementById("voucher").readOnly=true;
+                                document.getElementById("voucher").placeholder =`${tex}`;
+                                document.getElementById("app_vouch_btn").style.backgroundColor="green";
+                                document.getElementById("app_vouch_btn").value="Applied";
+                                document.getElementById("app_vouch_btn").disabled=true;
+
+                                
+                                if(document.getElementById("popup-1")===null){
+document.getElementById("mybody").innerHTML+=g;
+}else{
+   document.getElementById("mybody").removeChild(document.getElementById("popup-1"));
+   document.getElementById("mybody").innerHTML+=g;
+}
+                                togglePopup();
+                            }
+                        })
 
                         }
                        
@@ -243,10 +325,16 @@ document.getElementById("mybody").innerHTML+=g;
 </div>
 
 </div>`
+if(document.getElementById("popup-1")===null){
 document.getElementById("mybody").innerHTML+=g;
+}else{
+   document.getElementById("mybody").removeChild(document.getElementById("popup-1"));
+   document.getElementById("mybody").innerHTML+=g;
+}
 togglePopup();
                 }
                     }
+                    
                     </script>
 
 

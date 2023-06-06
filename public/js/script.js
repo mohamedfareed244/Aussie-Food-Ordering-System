@@ -66,8 +66,8 @@ async function playsound() {
 async function get_item(id) {
 
     let data;
-    console.log(`the    http://127.0.0.1:3001/${id}`);
-    let item = await fetch(`http://127.0.0.1:3001/products/getitem/${id}`, { method: 'GET' }).then(function (response) {
+    console.log(`the    https://127.0.0.1:3001/${id}`);
+    let item = await fetch(`https://127.0.0.1:3001/products/getitem/${id}`, { method: 'GET' }).then(function (response) {
         data = response.json();
         console.log("the data " + data);
         return data;
@@ -111,7 +111,7 @@ async function inc_qty(id, price) {
 async function get_the2(id) {
     let data;
 
-    let item = await fetch(`http://127.0.0.1:3001/products/cartdel/${id}`, { method: 'GET' }).then(function (response) {
+    let item = await fetch(`https://127.0.0.1:3001/products/cartdel/${id}`, { method: 'GET' }).then(function (response) {
         data = response.json();
         console.log("the is " + response);
         return data;
@@ -179,7 +179,7 @@ function sub() {
     let obj = {
         "o": selected
     }
-    fetch('http:/127.0.0.1:3001/products/customer/order', {
+    fetch('https:/127.0.0.1:3001/products/customer/order', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -192,7 +192,7 @@ function sub() {
 }
 
 async function favadd(id,index){
-    await fetch (`http://127.0.0.1:3001/customers/favs/add/check/signin/not/${id}`,{method:'GET'}).then((o)=>{
+    await fetch (`https://127.0.0.1:3001/customers/favs/add/check/signin/not/${id}`,{method:'GET'}).then((o)=>{
         const g=o.json();
         return g;
 }).then((o)=>{
@@ -208,7 +208,7 @@ document.getElementsByClassName("favrs")[index].style.display="block";
     
 }
 async function favremv(id,index){
-    await fetch (`http://127.0.0.1:3001/customers/favs/remove/check/signin/not/${id}`,{method:'GET'}).then((o)=>{
+    await fetch (`https://127.0.0.1:3001/customers/favs/remove/check/signin/not/${id}`,{method:'GET'}).then((o)=>{
         const g=o.json();
         return g;
 })
