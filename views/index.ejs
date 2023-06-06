@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aussie</title>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
     <link rel="stylesheet" href="/Css/index.css">
     <script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
 
@@ -14,213 +16,240 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 
 </head>
+
 <body>
- 
-
-  <%- include("partials/navbar") %>
-
-  
-
-  
-
-    <div class="content">
-        <h3>Welcome To Aussie</h3>
-        <h1>Healthy and Natural Food</h1>
-        <p>HeaFoodHealthyHealthy HealthyHealth and Natural FoodHealthyHealthy and Natural FoodHealthyHeHealthy and Natural FoodHealthy and Natural FoodHealthy and Natural Food</p>
-      <button onclick="location.href = '/products/All';">ORDER NOW</button>
-
-      
-
-    </div>
 
 
-    
+    <%- include("partials/navbar") %>
 
-<div  id="shows">
-    <div id ="cc">
-        <div id="cart_body">
 
-            <%if(s.length>0){%>
-                <% s.forEach( function(itemss) { %> 
-                   
-                    <div class ="art"><img src="<%-itemss.item.path%>"alt="" class="item_img" >
-                        
-                    <span class="s1"> <b>item name :</b> <%- itemss.item.name %></span>
-                    <br>
-                    <span class="s2"><b>Price : <%-itemss.item.price%> $ Qty : </b> <b class="qty1"><%-itemss.qty%></b> </span>
-                    
-                </div>  
-                <% }); %>  
-           
-            
- <%}%>
-</div>
 
- <button id="chout" onclick="location.href = '/products/cart/end/checkout';">Proceed to checkout</button>
+
+
+        <div class="content">
+            <h3>Welcome To Aussie</h3>
+            <h1>Healthy and Natural Food</h1>
+            <p>HeaFoodHealthyHealthy HealthyHealth and Natural FoodHealthyHealthy and Natural FoodHealthyHeHealthy and
+                Natural FoodHealthy and Natural FoodHealthy and Natural Food</p>
+            <button onclick="location.href = '/products/All';">ORDER NOW</button>
+
+
+
         </div>
 
-        
-</div>
-<!-- end shows -->
 
 
 
+        <div id="shows">
+            <div id="cc">
+                <div id="cart_body">
 
-<script>document.getElementById("shows").style.display="none";</script>
+                    <%if(s.length>0){%>
+                        <% s.forEach( function(itemss) { %>
 
-    
-    
+                            <div class="art"><img src="<%-itemss.item.path%>" alt="" class="item_img">
 
-   <section class="alifood">
-        <h1>How it Works</h1>
-       <div class="row">
-        <div class="foodcol">
-            <h1>1</h1>
-            <h3>You place your order</h3><br>
-            <p>You choose your order type and area to see all the kitchens that operate in that area and their menus and place your order with only three total clicks.</p>
+                                <span class="s1"> <b>item name :</b> <%- itemss.item.name %></span>
+                                <br>
+                                <span class="s2"><b>Price : <%-itemss.item.price%> $ Qty : </b> <b
+                                        class="qty1"><%-itemss.qty%></b> </span>
+
+                            </div>
+                            <% }); %>
+
+
+                                <%}%>
+                </div>
+
+                <button id="chout" onclick="location.href = '/products/cart/end/checkout';">Proceed to checkout</button>
+            </div>
+
+
         </div>
+        <!-- end shows -->
 
-        <div class="foodcol">
-            <h1>2</h1>
-            <h3>Homechef starts cooking</h3><br>
-            <p> Mumms’ homechefs receive your order instantly and start cooking you delicious meals, all prepared in their pre-approved kitchens. All the kitchens go through a serious process of hygiene and safety checks</p>
-        </div>
 
-        <div class="foodcol">
-            <h1>3</h1>
-            <h3>Order delivery</h3><br>
-            <p>One of Mumm’s delivery guys will pick up your order from the homechef’s kitchen and deliver it to your doorstep</p>
-        </div>
 
-        <!-- <div class="foodcol">
+
+        <script>document.getElementById("shows").style.display = "none";</script>
+
+
+
+
+        <section class="alifood">
+            <h1>How it Works</h1>
+            <div class="row">
+                <div class="foodcol">
+                    <h1>1</h1>
+                    <h3>You place your order</h3><br>
+                    <p>You choose your order type and area to see all the kitchens that operate in that area and their
+                        menus and place your order with only three total clicks.</p>
+                </div>
+
+                <div class="foodcol">
+                    <h1>2</h1>
+                    <h3>Homechef starts cooking</h3><br>
+                    <p> Mumms’ homechefs receive your order instantly and start cooking you delicious meals, all
+                        prepared in their pre-approved kitchens. All the kitchens go through a serious process of
+                        hygiene and safety checks</p>
+                </div>
+
+                <div class="foodcol">
+                    <h1>3</h1>
+                    <h3>Order delivery</h3><br>
+                    <p>One of Mumm’s delivery guys will pick up your order from the homechef’s kitchen and deliver it to
+                        your doorstep</p>
+                </div>
+
+                <!-- <div class="foodcol">
             <h3>Rate your experience</h3>
             <p>We love feedback! You can rate your experience with mumm along with rating every dish you have tried.</p>
         </div> -->
 
-       </div>
-   </section>
-
-
-
-   <section class="dishes">
-    <h1>Dishes Types</h1>
-    <div class="row">
-        <div class="foodcol2">
-            <img src="/images/veget.jpg" alt="">
-            <div class="layer"><h3>
-                Single Dishes
-            </h3></div>
-        </div>
-
-        <div class="foodcol2">
-            <img src="/images/zzz.jpeg" alt="">
-            <div class="layer"><h3>
-                Frozen Dishes
-            </h3></div>
-        </div>
-
-        <div class="foodcol2">
-            <img src="/images/ooo.jpg" alt="">
-            <div class="layer"><h3>
-                Family Dishes
-            </h3></div>
-        </div>
-    </div>
-
-
-   </section>
-
-
-
-   <section class="problems">
-    <h1>Problems we Solve</h1>
-    <p>Mumm is an online platform connecting talented homebased cooks with hungry professionals to give them access to wholesome fresh homemade food, from the homechef’s kitchen.</p>
-
-<div class="row">
-    <div class="foodcol3">
-        <img src="/images/ex1.jpeg" alt="">
-        <h3>Is eating healthy really more expensive?</h3>
-        <p>It's a common belief that eating healthy is too expensive. In 2013, the Harvard School of Public Health analyzed 27 studies and found that it cost an average of $1.50 more per day to eat healthy. </p>
-    </div>
-
-    <div class="foodcol3">
-        <img src="/images/ppp.jpeg" alt="">
-        <h3>It takes too much time to prepare homemade food?</h3>
-        <p>It's a common belief that eating healthy is too expensive. In 2013, the Harvard School of Public Health analyzed 27 studies and found that it cost an average of $1.50 more per day to eat healthy. </p>
-    </div>
-
-
-
-    <div class="foodcol3">
-        <img src="/images/aaa3.jpeg" alt="">
-        <h3>Junk food is really not healthy?</h3>
-        <p>It's a common belief that eating healthy is too expensive. In 2013, the Harvard School of Public Health analyzed 27 studies and found that it cost an average of $1.50 more per day to eat healthy. </p>
-    </div>
-
-
-</div>
-</section>
-
-
-<section class="rates">
-    <button onclick="call()"> click me pleaseeeeee</button>
-    <h1>What Our Customers Says</h1>
-
-
-    <div class="row">
-        <div class="alirates">
-            <img src="/images/model1.jpeg" alt="">
-            <div>
-                <p>
-                    ting talented homebased cooks with hungry professting talented homebased cooks with hungry professting talented homebased cooks with hungry professting talented homebased cooks with hungry professting talented homebased cooks with hungry profess
-                </p>
-                <h3>Eslam Ahmed</h3>
             </div>
-        </div>
+        </section>
 
 
-        <div class="alirates">
-            <img src="/images/model2.jpeg" alt="">
-            <div>
-                <p>
-                    ting talented homebased cooks with hungry professting talented homebased cooks with hungry professting talented homebased cooks with hungry professting talented homebased cooks with hungry professting talented homebased cooks with hungry profess
-                </p>
-                <h3>saher</h3>
+
+        <section class="dishes">
+            <h1>Dishes Types</h1>
+            <div class="row">
+                <div class="foodcol2">
+                    <img src="/images/veget.jpg" alt="">
+                    <div class="layer">
+                        <h3>
+                            Single Dishes
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="foodcol2">
+                    <img src="/images/zzz.jpeg" alt="">
+                    <div class="layer">
+                        <h3>
+                            Frozen Dishes
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="foodcol2">
+                    <img src="/images/ooo.jpg" alt="">
+                    <div class="layer">
+                        <h3>
+                            Family Dishes
+                        </h3>
+                    </div>
+                </div>
             </div>
-        </div>
+
+
+        </section>
 
 
 
-    </div>
+        <section class="problems">
+            <h1>Problems we Solve</h1>
+            <p>Mumm is an online platform connecting talented homebased cooks with hungry professionals to give them
+                access to wholesome fresh homemade food, from the homechef’s kitchen.</p>
 
-</section>
+            <div class="row">
+                <div class="foodcol3">
+                    <img src="/images/ex1.jpeg" alt="">
+                    <h3>Is eating healthy really more expensive?</h3>
+                    <p>It's a common belief that eating healthy is too expensive. In 2013, the Harvard School of Public
+                        Health analyzed 27 studies and found that it cost an average of $1.50 more per day to eat
+                        healthy. </p>
+                </div>
+
+                <div class="foodcol3">
+                    <img src="/images/ppp.jpeg" alt="">
+                    <h3>It takes too much time to prepare homemade food?</h3>
+                    <p>It's a common belief that eating healthy is too expensive. In 2013, the Harvard School of Public
+                        Health analyzed 27 studies and found that it cost an average of $1.50 more per day to eat
+                        healthy. </p>
+                </div>
 
 
 
-  <script>
-    var navv=document.getElementById("naxx")
-    function showmenu(){
-        naxx.style.right="0"
-    }
-    function hidemenu(){
-        naxx.style.right="-200px"
-    }
-    </script>
+                <div class="foodcol3">
+                    <img src="/images/aaa3.jpeg" alt="">
+                    <h3>Junk food is really not healthy?</h3>
+                    <p>It's a common belief that eating healthy is too expensive. In 2013, the Harvard School of Public
+                        Health analyzed 27 studies and found that it cost an average of $1.50 more per day to eat
+                        healthy. </p>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <section class="rates">
+            <button onclick="call()"> click me pleaseeeeee</button>
+            <h1>What Our Customers Says</h1>
+
+
+            <div class="row">
+                <div class="alirates">
+                    <img src="/images/model1.jpeg" alt="">
+                    <div>
+                        <p>
+                            ting talented homebased cooks with hungry professting talented homebased cooks with hungry
+                            professting talented homebased cooks with hungry professting talented homebased cooks with
+                            hungry professting talented homebased cooks with hungry profess
+                        </p>
+                        <h3>Eslam Ahmed</h3>
+                    </div>
+                </div>
+
+
+                <div class="alirates">
+                    <img src="/images/model2.jpeg" alt="">
+                    <div>
+                        <p>
+                            ting talented homebased cooks with hungry professting talented homebased cooks with hungry
+                            professting talented homebased cooks with hungry professting talented homebased cooks with
+                            hungry professting talented homebased cooks with hungry profess
+                        </p>
+                        <h3>saher</h3>
+                    </div>
+                </div>
 
 
 
-<%- include("partials/footer") %>
+            </div>
 
-<section>
-   
-  <button class="chat-btn"> 
-      <i class="material-icons"> comment </i>
-  </button>
+        </section>
 
-   <div class="chat-popup">
-     <div class="badge" ><iframe src="https://giphy.com/embed/xTkcEQACH24SMPxIQg" width="50" height="50" frameBorder="0" class="giphy-embed" allowFullScreen style="border-radius: 30px;" id="waiting"></iframe>
-   <div> <span id="spin">you will</span></div></div>
-      <!-- <div class="chat-area">
+
+
+        <script>
+            var navv = document.getElementById("naxx")
+            function showmenu() {
+                naxx.style.right = "0"
+            }
+            function hidemenu() {
+                naxx.style.right = "-200px"
+            }
+        </script>
+
+
+
+        <%- include("partials/footer") %>
+
+            <section>
+
+                <button class="chat-btn">
+                    <i class="material-icons"> comment </i>
+                </button>
+
+                <div class="chat-popup">
+                    <div class="badge"><iframe src="https://giphy.com/embed/xTkcEQACH24SMPxIQg" width="50" height="50"
+                            frameBorder="0" class="giphy-embed" allowFullScreen style="border-radius: 30px;"
+                            id="waiting"></iframe>
+                        <div> <span id="spin">you will</span></div>
+                    </div>
+                    <!-- <div class="chat-area">
        <div class="income-msg">
         
             <p class="msg"> Hi, How can I help you?</p>
@@ -232,41 +261,45 @@
       </div> -->
 
 
-   
-
-<div class="conversation" style="overflow-y: auto;">
-    <%if(current_user!==null&&current_user!==undefined){%>
-        <%for(let i=0;i<current_user.chat.length;i++){ if(!current_user.chat[i].issent){%>
-            
-    <div class="talkleft" >
-        <!-- <img src="/images/user.png"> -->
-        <p><%=current_user.chat[i].msg%></p>
-    </div>
-    <%}else{%>
-    <div class="talkright" >
-        <p><%=current_user.chat[i].msg%></p>
-        <!-- <img src="/images/user.png"> -->
-    </div>
-   
-   
-<%}}}%>
 
 
-</div> 
+                    <div class="conversation" style="overflow-y: auto;">
+                        <%if(current_user!==null&&current_user!==undefined){%>
+                            <%for(let i=0;i<current_user.chat.length;i++){ if(!current_user.chat[i].issent){%>
+
+                                <div class="talkleft">
+                                    <!-- <img src="/images/user.png"> -->
+                                    <p>
+                                        <%=current_user.chat[i].msg%>
+                                    </p>
+                                </div>
+                                <%}else{%>
+                                    <div class="talkright">
+                                        <p>
+                                            <%=current_user.chat[i].msg%>
+                                        </p>
+                                        <!-- <img src="/images/user.png"> -->
+                                    </div>
 
 
-      <div class="input-area">
-          <input type="text" id ="msgbody">
-          <!-- <button id="emoji-btn"> &#127773;</button> -->
-          <button class="submit" onclick="sendmessage()"> <i class="material-icons"> send</i></button>
-      </div>
+                                    <%}}}%>
+
+
+                    </div>
+
+
+                    <div class="input-area">
+                        <input type="text" id="msgbody">
+                        <!-- <button id="emoji-btn"> &#127773;</button> -->
+                        <button class="submit" onclick="sendmessage()"> <i class="material-icons"> send</i></button>
+                    </div>
 
 
 
-<audio id="audio" src="/sounds/Messagenotification.m4r"></audio>
-</section>
-<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
-<script src="/js/chatbox.js"></script>
+                    <audio id="audio" src="/sounds/Messagenotification.m4r"></audio>
+            </section>
+            <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+            <script src="/js/chatbox.js"></script>
 
 
 </body>
