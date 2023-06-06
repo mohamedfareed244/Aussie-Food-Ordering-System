@@ -176,6 +176,7 @@ async function startServer() {
     server.on("error", onError);
     server.on("listening", onListening);
     console.log(`Server running at https://${HOST}:${PORT}/`);
+
   } catch (error) {
     console.error("Mongo Error: " + error);
   }
@@ -204,9 +205,29 @@ function onError(error) {
 }
 
 // Event listener for HTTP server "listening" event.
-function onListening() {
+async function onListening() {
   const { port } = server.address();
   console.log(`Listening on Port ${port}`);
+
+  try {
+    await fetch("https://dsk-jf.onrender.com/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id:"123"
+      }),
+    })
+    .then(async (o)=>{
+return o.json();
+    }).then((o)=>{
+      console.log(o);
+    })
+
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 
