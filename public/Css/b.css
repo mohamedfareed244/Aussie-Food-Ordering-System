@@ -116,12 +116,12 @@ tr {
     #t {
 
         border-collapse: collapse;
-        width: 74%;
+        width: 100%;
         position: relative;
-        top: -810px;
-        left: 350px;
+        top: 0px;
+        left: 0px;
     }
     td {
-        width: 30%;
+        width: 25%;
     }
 }
