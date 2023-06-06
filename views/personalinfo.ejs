@@ -4,29 +4,53 @@
 
 	<html lang="en">
 	<link rel="stylesheet" href="/Css/personalinfo.css">
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,ar' }, 'google_translate_element');
+		}
+	</script>
+
+	<script type="text/javascript"
+		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<style>
+		body>.skiptranslate {
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
+	<div id="google_translate_element" ></div>
+
 	<%- include("./partials/nav-profileinfo") %>
+
 		<div class="card">
 			<div class="right">
 				<h3>Profile Details</h3>
 				<table>
 					<tr>
 						<td>Name :</td>
-						<td> <%=customer.Firstname%></td>
+						<td>
+							<%=customer.Firstname%>
+						</td>
 					</tr>
 					<tr>
 						<td>Mobile :</td>
-						<td><%=customer.Phone%></td>
+						<td>
+							<%=customer.Phone%>
+						</td>
 					</tr>
 					<tr>
 						<td>Email :</td>
-						<td><%=customer.Email%></td>
+						<td>
+							<%=customer.Email%>
+						</td>
 					</tr>
 					<tr>
 						<td>Orders :</td>
-						<td> <%=customer.Orders%></td>
+						<td>
+							<%=customer.Orders%>
+						</td>
 					</tr>
 					<tr>
 						<td><a id="passwordch" href="#changepasswordinfo">Change Password</a></td>
@@ -36,17 +60,18 @@
 			</div>
 		</div>
 
-		<div class="downbox" id="downbox"style="display: none;">
-			<form action="/customers/profile/login/account/changepass" method="post" name="changepasswordinfo" id="changepasswordinfo" >
+		<div class="downbox" id="downbox" style="display: none;">
+			<form action="/customers/profile/login/account/changepass" method="post" name="changepasswordinfo"
+				id="changepasswordinfo">
 
-				
+
 				<div class="exitbutton">
 
 					<a role="button" class="navbar-burger" id="navbar-burger" aria-label="menu" aria-expanded="false">
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
-					  </a>
+					</a>
 				</div>
 
 				<div class="inputDiv">
@@ -54,7 +79,7 @@
 					<input type="password" id="currentpassword" name="currentpassword" required>
 				</div>
 
-	
+
 				<div class="inputDiv">
 					<label class="inputLabel" for="password">New Password</label>
 					<input type="password" id="password" name="password" required>
@@ -73,8 +98,8 @@
 					</button>
 				</div>
 
-				</form>
-			</div>
+			</form>
+		</div>
 
 		<script>
 			document.getElementById("passwordch").addEventListener("click", function () {
@@ -90,7 +115,7 @@
 
 			let password = document.getElementById("password")
 				, confirm_password = document.getElementById("confirmPassword"),
-				current_password= document.getElementById("currentpassword");
+				current_password = document.getElementById("currentpassword");
 
 			enableSubmitButton();
 
@@ -109,7 +134,7 @@
 
 			password.onchange = validatePassword;
 			confirm_password.onkeyup = validatePassword;
-			current_password.onkeyup= validatePassword;
+			current_password.onkeyup = validatePassword;
 
 			function enableSubmitButton() {
 				document.getElementById('submitButton').disabled = false;
@@ -136,7 +161,7 @@
 				}
 
 			}
-</script>
+		</script>
 </body>
 
 </html>
