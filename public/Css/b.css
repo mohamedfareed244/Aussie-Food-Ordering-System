@@ -68,15 +68,14 @@ tr {
 /* formated */
 @media only screen and (min-width: 1030px) and (max-width: 1366px) {
     #t {
-
         border-collapse: collapse;
         width: 74%;
         position: relative;
-        top: -810px;
-        left: 350px;
+        top: -713px;
+        left: 323px;
     }
     td {
-        width: 30%;
+        width: 25%;
     }
     
 
@@ -87,8 +86,8 @@ tr {
         border-collapse: collapse;
         width: 100%;
         position: relative;
-        top: -708px;
-        left: 171px;
+        top: -700px;
+        left: 245px;
     }
     td {
         width: 26%;
