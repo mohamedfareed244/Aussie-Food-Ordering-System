@@ -11,6 +11,20 @@
     <script src="/js/script.js"></script>
 
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en' , includedLanguages : 'en,ar'}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+   body > .skiptranslate {
+    display: none;
+}
+
+    </style>
 
 </head>
 
@@ -26,6 +40,7 @@
         
            
             <h1>Aussie</h1>
+            <div id="google_translate_element" ></div>
 
             <ul>
 
@@ -33,6 +48,8 @@
                     <input class="search" type="text" placeholder="Search Food">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </li>
+                
+
 
                 <li class="part2"><a href="/">Home</a></li>
                 <li class="part2"><a href="/products/All">Menu</a></li>
