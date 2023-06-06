@@ -1,9 +1,6 @@
 body {
 
   overflow-x: hidden;
-
-
-
 }
 
 .tables {
@@ -80,79 +77,6 @@ button:hover {
   color: rgb(0, 0, 0);
 }
 
-@media only screen and (min-width: 1030px) and (max-width: 1366px) {
-
-  .tables {
-    position: relative;
-    top: -798px;
-    left: -66px;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  table th,
-  table td {
-    width: 25%;
-    padding: 0.25rem 2.25rem;
-  }
-}
-
-
-@media only screen and (min-device-width : 700px) and (max-device-width : 1030px) {
-  .tables {
-    position: relative;
-    top: -748px;
-    left: 140px;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  table th,
-  table td {
-    width: 25%;
-    padding: 0.25rem 2rem;
-  }
-}
-
-@media only screen and (min-device-width : 360px) and (max-device-width : 700px) {
-  .tables {
-    position: relative;
-    top: 0px;
-    left: -80px;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  table th,
-  table td {
-    width: 25%;
-    padding: 0.25rem 1rem;
-  }
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  .tables {
-    position: relative;
-    top: 0px;
-    left: -80px;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  table th,
-  table td {
-    width: 25%;
-    padding: 0.25rem 0.5rem;
-  }
-}
 
 
 .popup .overlay {
@@ -228,14 +152,6 @@ button:hover {
 }
 
 
-
-
-
-
-
-
-
-
 form {
   width: 300px;
   margin-left: 30px;
@@ -257,7 +173,6 @@ form input:focus {
 
 }
 
-
 .popup button {
   width: 320px;
   height: 35px;
@@ -275,4 +190,77 @@ form input:focus {
   opacity: 50%;
 }
 
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+
+  .tables {
+    position: relative;
+    top: -798px;
+    left: -66px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 25%;
+    padding: 0.25rem 2.25rem;
+  }
+}
+
+
+@media only screen and (min-device-width : 700px) and (max-device-width : 1030px) {
+  .tables {
+    position: relative;
+    top: -748px;
+    left: 140px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 25%;
+    padding: 0.25rem 2rem;
+  }
+}
+
+@media only screen and (min-device-width : 360px) and (max-device-width : 700px) {
+  .tables {
+    position: relative;
+    top: 0px;
+    left: -80px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 25%;
+    padding: 0.25rem 1rem;
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .tables {
+    position: relative;
+    top: 0px;
+    left: -80px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    width: 25%;
+    padding: 0.25rem 0.5rem;
+  }
+}
 /* formated */
