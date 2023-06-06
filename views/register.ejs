@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,79 +9,82 @@
     <script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/Css/register.css">
     <script src="../public/js/register.js"></script>
-  
+
 </head>
+
 <body>
     <%if(alert){%>
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-        <strong>Error ! </strong> <%=text%> 
-      </div>
-    <%}%>
-    <div class="container">
-        
-       
-        <!-- <img src="./images/signlogo.png" alt="phpt">  -->
-   
-        <h1>Sign Up Now</h1>
-        <h3>Aussie food to be enjoyed</h3>
-        <form action='/customers/signup' method='post' onsubmit='return validate(this)'>
-        <!-- <label><b>Firstname: </b> </label> -->
-        <input type="text" id="inputfname" name="Firstname" placeholder="Firstname" size="15" />
-        <div id='fname' class='err'></div>
-        <!-- <label> <b>Middlename:</b> </label> -->
-        <input type="text" id="inputmname" name="Middlename" placeholder="Middlename" size="15"  />
-        <div id='mname' class='err'></div>
-
-        <!-- <label> <b>Lastname</b>: </label> -->
-        <input type="text"  id="inputlname" name="Lastname" placeholder="Lastname" size="15"  />
-        <div id='lname' class='err'></div>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Error ! </strong>
+            <%=text%>
+        </div>
+        <%}%>
+            <div class="container">
 
 
-        <!-- <label>
+                <!-- <img src="./images/signlogo.png" alt="phpt">  -->
+
+                <h1>Sign Up Now</h1>
+                <h3>Aussie food to be enjoyed</h3>
+                <form action='/customers/signup' method='post' onsubmit='return validate(this)'>
+                    <!-- <label><b>Firstname: </b> </label> -->
+                    <input type="text" id="inputfname" name="Firstname" placeholder="Firstname" size="15" />
+                    <div id='fname' class='err'></div>
+                    <!-- <label> <b>Middlename:</b> </label> -->
+                    <input type="text" id="inputmname" name="Middlename" placeholder="Middlename" size="15" />
+                    <div id='mname' class='err'></div>
+
+                    <!-- <label> <b>Lastname</b>: </label> -->
+                    <input type="text" id="inputlname" name="Lastname" placeholder="Lastname" size="15" />
+                    <div id='lname' class='err'></div>
+
+
+                    <!-- <label>
          <b>Phone:</b>
         </label> -->
-       
-        <input type="text" id="inputphone" name="Phone" placeholder="phone no." size="11">
-        <div id='phone' class='err'></div>
 
-        <!-- <label for="email"><b>Email</b></label> -->
-        <input type="email" id="inputmail" placeholder="Enter Email" name="Email" required>
-        <div id='mail' class='err'></div>
+                    <input type="text" id="inputphone" name="Phone" placeholder="phone no." size="11">
+                    <div id='phone' class='err'></div>
 
-
-        <!-- <label for="psw"><b>Password</b></label> -->
-        <input type="password" name="Password" id="inputpass" placeholder="Enter Password"  >
-        <div id='password' class='err'></div>
-        <!-- <label for="psw-confirm"><b>Re-type Password</b></label> -->
-        <input type="password" name="psw_confirmt" id="inputcpass" placeholder="confirm Password"  >
-        <div id='cpassword' class='err'></div>
-
-        <button type="submit" class="registerbtn">Sign Up</button>
-    </form>
-   
-    <div class="icon">
-        <i class="fa-brands fa-facebook"></i>
-        <span>Facebook</span>
-    </div>
-        <div class="icon">
-        <i class="fa-brands fa-google"></i>
-        <span>Google</span>
-    </div>
-
- <div class="icon">
-        <i class="fa-brands fa-apple"></i>
-        <span>apple</span>
-    </div>
-
-            <p>Already have an account? <a href="signin.html">sign
-                    in</a></p>
+                    <!-- <label for="email"><b>Email</b></label> -->
+                    <input type="email" id="inputmail" placeholder="Enter Email" name="Email" required>
+                    <div id='mail' class='err'></div>
 
 
-       
-               
+                    <!-- <label for="psw"><b>Password</b></label> -->
+                    <input type="password" name="Password" id="inputpass" placeholder="Enter Password">
+                    <div id='password' class='err'></div>
+                    <!-- <label for="psw-confirm"><b>Re-type Password</b></label> -->
+                    <input type="password" name="psw_confirmt" id="inputcpass" placeholder="confirm Password">
+                    <div id='cpassword' class='err'></div>
 
-    </div>
+                    <button type="submit" class="registerbtn">Sign Up</button>
+                </form>
+
+                <div class="icon">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Facebook</span>
+                </div>
+                <div class="icon">
+                    <i class="fa-brands fa-google"></i>
+                    <span>Google</span>
+                </div>
+
+                <div class="icon">
+                    <i class="fa-brands fa-apple"></i>
+                    <span>apple</span>
+                </div>
+
+                <p>Already have an account? <a href="signin.html">sign
+                        in</a></p>
+
+
+
+
+
+            </div>
 
 </body>
+
 </html>
