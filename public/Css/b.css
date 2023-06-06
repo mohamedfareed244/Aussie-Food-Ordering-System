@@ -84,15 +84,14 @@ tr {
 @media only screen and (min-device-width : 700px) and (max-device-width : 1030px) {
 
     #t {
-
         border-collapse: collapse;
-        width: 74%;
+        width: 100%;
         position: relative;
-        top: -810px;
-        left: 350px;
+        top: -708px;
+        left: 171px;
     }
     td {
-        width: 30%;
+        width: 26%;
     }
 
 }
