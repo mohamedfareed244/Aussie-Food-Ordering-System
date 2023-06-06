@@ -30,7 +30,7 @@ const __dirname = path.dirname(__filename);
 
 
 // Get port from environment variable or default to 8000
-const PORT = process.env.PORT || "3001";
+const PORT = process.env.PORT || "300";
 const HOST = process.env.HOST || "127.0.0.1";
 
 // Get MongoDB connection URI from environment variable 
@@ -64,7 +64,7 @@ io.on('connection', async (socket) => {
   const sess = socket.request.session;
   const from = socket.handshake.headers.referer;
   console.log("from ", from);
-  if (from === "http://127.0.0.1:3001/" || from === "http://127.0.0.1:3001") {
+  if (from === "https://127.0.0.1:3001/" || from === "https://127.0.0.1:3001") {
     console.log("customer detected ");
     if (socket.request.session.signed_customer !== null && socket.request.session.signed_customer !== undefined) {
       console.log("not null")
@@ -103,7 +103,7 @@ io.on('connection', async (socket) => {
 
 
   socket.on('disconnect', async () => {
-    if (from === "http://127.0.0.1:3001/" || from === "http://127.0.0.1:3001") {
+    if (from === "https://127.0.0.1:3001/" || from === "https://127.0.0.1:3001") {
       for (let i = 0; i < connected_customers.length; i++) {
         if (connected_customers[i] === socket) {
           connected_customers.splice(i, 1);
@@ -175,7 +175,7 @@ async function startServer() {
     server.listen(PORT, "0.0.0.0");
     server.on("error", onError);
     server.on("listening", onListening);
-    console.log(`Server running at http://${HOST}:${PORT}/`);
+    console.log(`Server running at https://${HOST}:${PORT}/`);
   } catch (error) {
     console.error("Mongo Error: " + error);
   }
