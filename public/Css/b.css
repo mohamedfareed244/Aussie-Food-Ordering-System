@@ -66,3 +66,62 @@ tr {
     animation: hideMe 1s forwards;
 }
 /* formated */
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+    #t {
+
+        border-collapse: collapse;
+        width: 74%;
+        position: relative;
+        top: -810px;
+        left: 350px;
+    }
+    td {
+        width: 30%;
+    }
+    
+
+}
+@media only screen and (min-device-width : 700px) and (max-device-width : 1030px) {
+
+    #t {
+
+        border-collapse: collapse;
+        width: 74%;
+        position: relative;
+        top: -810px;
+        left: 350px;
+    }
+    td {
+        width: 30%;
+    }
+
+}
+
+@media only screen and (min-device-width : 360px) and (max-device-width : 700px) {
+
+    #t {
+
+        border-collapse: collapse;
+        width: 74%;
+        position: relative;
+        top: -810px;
+        left: 350px;
+    }
+    td {
+        width: 30%;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    #t {
+
+        border-collapse: collapse;
+        width: 74%;
+        position: relative;
+        top: -810px;
+        left: 350px;
+    }
+    td {
+        width: 30%;
+    }
+}
