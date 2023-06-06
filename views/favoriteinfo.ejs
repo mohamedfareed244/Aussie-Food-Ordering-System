@@ -1,49 +1,56 @@
 <html lang="en">
-<head></head>
-<link rel="stylesheet" href="/Css/favoriteinfo.css">      
-        <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
-    </head>
-<body>
-    <%- include("./partials/nav-profileinfo") %>
-    <div class="tablesfav" >
-        <table class="table table-striped">
-            <tr  class="bg-info">
-                <th>Product</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Action</th>
-            </tr>
-            <tbody id="myTable">
-              <%for(let i=0;i<items.length;i++){%>
-              <tr>
-                <td> <img src='<%=items[i].path%>'> </td>
-                <td><%=items[i].name%></td>
-                <td><%=items[i].price%></td>
-                <td> 
-                  <a href="/customers/favs/remove/check/signin/not/first/<%=items[i]._id%>" class="delete" data-toggle="modal">
-                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                </td>
-              </tr>
-              <%}%>
-            </tbody>
-        </table>
-        </div>
-        <script>
 
-            let myArray = [
-              {"image":"/images/aaa3.jpeg","name":'fried', "price":'30','edit':''},
-              {"image":"/images/burger.webp","name":'burger', "price":'30','edit':''},
-              {"image":"/images/dish2.jpeg","name":'dish', "price":'30','edit':''},
-              {"image":"/images/dish3.webp","name":'fqash',"price":'30','edit':''},
-              {"image":"/images/fried chekein.jpg","name":'Tim', "price":'30','edit':''},
-              {"image":"/images/Hamburger.jpg","name":'ssss', "price":'30','edit':''}
-            ];
-            
-            function buildTable(data){
-              let table = document.getElementById('myTable')
-            
-              data.forEach(function(item) {
-                let row = `<tr>
+<head></head>
+<link rel="stylesheet" href="/Css/favoriteinfo.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <%- include("./partials/nav-profileinfo") %>
+    <div class="tablesfav">
+      <table class="table table-striped">
+        <tr class="bg-info">
+          <th>Product</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+        <tbody id="myTable">
+          <%for(let i=0;i<items.length;i++){%>
+            <tr>
+              <td> <img src='<%=items[i].path%>'> </td>
+              <td>
+                <%=items[i].name%>
+              </td>
+              <td>
+                <%=items[i].price%>
+              </td>
+              <td>
+                <a href="/customers/favs/remove/check/signin/not/first/<%=items[i]._id%>" class="delete"
+                  data-toggle="modal">
+                  <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+              </td>
+            </tr>
+            <%}%>
+        </tbody>
+      </table>
+    </div>
+    <script>
+
+      let myArray = [
+        { "image": "/images/aaa3.jpeg", "name": 'fried', "price": '30', 'edit': '' },
+        { "image": "/images/burger.webp", "name": 'burger', "price": '30', 'edit': '' },
+        { "image": "/images/dish2.jpeg", "name": 'dish', "price": '30', 'edit': '' },
+        { "image": "/images/dish3.webp", "name": 'fqash', "price": '30', 'edit': '' },
+        { "image": "/images/fried chekein.jpg", "name": 'Tim', "price": '30', 'edit': '' },
+        { "image": "/images/Hamburger.jpg", "name": 'ssss', "price": '30', 'edit': '' }
+      ];
+
+      function buildTable(data) {
+        let table = document.getElementById('myTable')
+
+        data.forEach(function (item) {
+          let row = `<tr>
                   <td> <img src='${item.image}'> </td>
                   <td>${item.name}</td>
                   <td>${item.price}</td>
@@ -52,13 +59,14 @@
                       <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                   </td>
                 </tr>`;
-            
-                table.innerHTML += row;
-            
-              });
-            }
-            
+
+          table.innerHTML += row;
+
+        });
+      }
+
             // buildTable(myArray);
-            </script>
+    </script>
 </body>
+
 </html>
