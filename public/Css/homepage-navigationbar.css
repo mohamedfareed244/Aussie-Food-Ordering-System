@@ -349,7 +349,22 @@ ul li i:hover {
 
 
 
+.googlee{
+    
+    text-decoration: none;
+    color: #fff;
+    padding: 4px;
+    transition: 1s;
 
+    height: 140px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    overflow: hidden;
+}
 
 
 
