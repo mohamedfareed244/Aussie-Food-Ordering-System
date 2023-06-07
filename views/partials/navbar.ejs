@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aussie</title>
     <link rel="stylesheet" href="/Css/homepage-navigationbar.css">
-    <link rel="stylesheet" href="background_styles.css">
     <script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
 
@@ -38,13 +37,14 @@
 
 
    
-        <div class="navbarr">
+      <nav class="navbarr">
    
-       
+            
         
            
             <h1>Aussie</h1>
             <div id="google_translate_element" class="googlee" ></div>
+          
             <a href="#" class="toggle-button">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -109,7 +109,7 @@
                             <li class="part2"><a class="sign" href="/customers/signup">Register</a></li>
             </ul>
         </div>
-        </div>
+    </nav>
    
    
 
@@ -121,12 +121,24 @@
 
             document.getElementsByClassName(" fa-solid fa-magnifying-glass")[0].style.display = "none";
         } </script>
-</body>
-<script>const toggleButton = document.getElementsByClassName('toggle-button')[0]
+
+
+
+
+
+
+
+
+
+
+
+        <script>const toggleButton = document.getElementsByClassName('toggle-button')[0]
             const navbarLinks = document.getElementsByClassName('navbar-links')[0]
             
             toggleButton.addEventListener('click', () => {
               navbarLinks.classList.toggle('active')
             })</script>
+</body>
+
 
 </html>
