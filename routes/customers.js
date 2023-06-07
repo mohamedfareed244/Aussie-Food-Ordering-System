@@ -24,6 +24,9 @@ router.get('/profile/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });
+router.get('/profile/rej', async (req, res) => {
+  res.render("register", { alert: false });
+});
 router.get('/profile/login', customerpr);
 router.post('/profile/login/account/changepass', customerchnagepass);
 router.get('/profile/orders', customeror);
