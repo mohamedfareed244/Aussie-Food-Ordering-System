@@ -180,7 +180,7 @@ const getcustomers = async (req, res) => {
 }
 
 
-//customr personal
+
 const customerpr = async (req, res) => {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access profile " });
@@ -188,7 +188,7 @@ const customerpr = async (req, res) => {
     res.render("personalinfo", { customer: req.session.signed_customer });
   }
 }
-//customer order 
+
 const customeror = async (req, res) => {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access profile " });
@@ -228,7 +228,7 @@ const customerchnagepass = async (req, res) => {
 
 
 
-//verified
+
 const customerml = async (req, res) => {
 
   console.log("recieve request");
@@ -243,7 +243,7 @@ const customerml = async (req, res) => {
   res.redirect('/');
 
 }
-//customer address 
+
 const customeraddr = async (req, res) => {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access addreses " });
@@ -253,7 +253,7 @@ const customeraddr = async (req, res) => {
   }
 }
 
-//custome favorite 
+
 const customerfav = async (req, res) => {
   if(req.session.signed_customer===null||req.session.signed_customer===undefined){
     res.render("sign-in",{alert:true,text:"You should sign in first to access favourites "})
@@ -305,7 +305,6 @@ const getmsgs = async (req, res) => {
   res.json(ch);
 }
 //////////////////////////////////////////////////////////
-//add address
 const addadr = async (req, res) => {
 if(req.session.signed_customer===null||req.session.signed_customer===undefined){
   res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
@@ -327,7 +326,6 @@ if(req.session.signed_customer===null||req.session.signed_customer===undefined){
   res.redirect("/customers/profile/addr");
 }
 }
-//delete address
 const deladr = async (req, res) => {
   if(req.session.signed_customer===null||req.session.signed_customer===undefined){
     res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
@@ -338,7 +336,6 @@ const deladr = async (req, res) => {
 
   }
   }
-  //order confirmation 
   const confirml = async (req,res) => {
     let order = await orders.findById(req.params.id);
     const trans = nodemailer.createTransport({
@@ -376,7 +373,6 @@ const deladr = async (req, res) => {
     })
 
     }
-    //cancel order 
     const disconfirml = async (req, res) => {
       let order = await orders.findById(req.params.id);
       const trans = nodemailer.createTransport({
