@@ -4,7 +4,7 @@ import { getsection, postproduct, postsection } from "../controllers/products_co
 import { getitembyid } from "../controllers/products_controller.js";
 import { delitem } from "../controllers/products_controller.js";
 import { check_out } from "../controllers/products_controller.js";
-import { new_order ,getorderdet} from "../controllers/products_controller.js";
+import { new_order ,getorderdet,searchitems} from "../controllers/products_controller.js";
 import { confirml,disconfirml} from "../controllers/customers-controller.js";
 // import {postsection} from "../controllers/products_controller.js";
 //import the products database controllers 
@@ -24,6 +24,7 @@ router.get('/cart/end/checkout', check_out);
 //add section
 router.post('/add/sectionn', postsection);
 
+router.post('/search',searchitems);
 
 //add product
 router.post('/add/product', postproduct);
