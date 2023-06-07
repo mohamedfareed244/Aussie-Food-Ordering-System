@@ -219,6 +219,15 @@ button[disabled] {
   width: 33%;
   height: 2px;
 }
+.goog-te-gadget .goog-te-combo {
+  margin: 4px 0;
+  border: 0px solid;
+  background: #ff4500;
+  border-radius: 10px;
+}
+#google_translate_element span{
+  display: none;
+}
 
 @media only screen and (min-width: 1030px) and (max-width: 1400px) {
 
