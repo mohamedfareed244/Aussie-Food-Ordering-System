@@ -12,7 +12,7 @@ import { GetAllemps } from "../controllers/employees-controllers.js";
 import { GetAllcustomers} from "../controllers/employees-controllers.js";
 import { emplogout} from "../controllers/employees-controllers.js";
 
-import { GetAllsections } from "../controllers/employees-controllers.js";
+import { sectionsdetails } from "../controllers/employees-controllers.js";
 
 
 
@@ -43,7 +43,7 @@ router.get('/profile/logout', emplogout);
 router.get("/emp", GetAllemps);
 
 //for admin menu sections
-router.get("/emppp", GetAllsections);
+router.get("/emppp", sectionsdetails);
 
 
 router.get("/emppp", GetAllproducts);

@@ -261,7 +261,7 @@ const GetAllemps = (req, res) => {
 
 
 //get sections in menu
-const sectionsdetaisl = async (req, res) => {
+const sectionsdetails = async (req, res) => {
   let sections_names;
   let selected_section=req.body.sec_name;
  Sec.find()
@@ -334,7 +334,7 @@ const GetAllproducts = (req, res) => {
 
 
 
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,GetAllsections,GetAllproducts,GetAllcustomers,emplogout};
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,sectionsdetails,GetAllproducts,GetAllcustomers,emplogout};
 //formated
 
 

@@ -69,8 +69,8 @@
                                     </div>
                                     <article><%= pr.description %></article>
                                     <h5><%= pr.section%></h5>
-                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                    <li><a onclick="togglePopup2(<%=pr._id%>)" class="sign2" href="#">Edit item</a></li>
+                                    <li onclick="delitem(<%pr._id%>)"><a class="sign3" href="#">Delete item</a></li>
                                 </div>
                             </div>
                             <% });} %>
