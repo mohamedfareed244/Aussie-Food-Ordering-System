@@ -28,17 +28,17 @@
                             Healthy and natural food
                         </p>
                     </div>
+                    <% if (section.length> 0) { %>
                     <div class="content">
                         <div class="list">
+                         
+
+                                <% section.forEach((emp)=> { %>
                             <div style="display: flex; overflow: auto; max-width: 500px;">
-                                <li data-color=".All">All</li>
-                                <li data-color=".featured">Individual meet</li>
-                                <li data-color=".Special">Ready to eat</li>
-                                <li data-color=".Arrivals">Desserts</li>
-                                <li data-color=".Arrivals">Desserts</li>
-                                <li data-color=".Arrivals">Desserts</li>
-                                <li data-color=".Arrivals">Desserts</li>
-                                
+
+                                <li > <%= emp.name %></li>
+                               
+                                <% });} %>
                             </div>
 
                             <li><a class="sign" href="#" onclick="togglePopup4()">Add Section</a></li>

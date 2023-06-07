@@ -74,12 +74,12 @@ app.get('/',(req,res)=>{
 
 //ali
 
-app.get("/employees/profile/customers",function(req,res){
-  res.render("recent-customers");
-})
-   app.get("/emp",function(req,res){
-     res.render("dashboard-orders");
-})
+// app.get("/employees/profile/customers",function(req,res){
+//   res.render("recent-customers");
+// })
+//    app.get("",function(req,res){
+//      res.render("dashboard-employees");
+// })
 
 //error handling 
 app.use((req,res)=>{

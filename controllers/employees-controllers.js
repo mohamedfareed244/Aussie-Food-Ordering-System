@@ -224,5 +224,56 @@ await orders.find({emp_name:curr.Name,emp_phone:curr.Phone}).then((items)=>{
 //   });
 // }; 
 
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder};
+
+
+
+
+
+
+
+
+
+
+
+const GetAllemps = (req, res) => {
+  Emp.find()
+    .then((result) => {
+      console.log(result)
+      res.render('dashboard-employees', { employees: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+const GetAllsections = (req, res) => {
+ Sec.find()
+    .then((result) => {
+      console.log(result)
+      res.render('admin-dashboard-menu', { section: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+
+
+
+
+
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,GetAllsections};
 //formated
+
+

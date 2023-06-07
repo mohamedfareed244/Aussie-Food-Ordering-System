@@ -20,7 +20,7 @@
 
       
       <div class="details" style="width: 100%;" >
-        <div class="recentOrders"  id="ordd" style="width: 980px; height: 700px; top: -30px; left: 5px; " >
+        <div class="recentOrders"  id="ordd" style="width: 980px; height: 500px; top: -30px; left: 5px;" >
             <div class="cardHeader" >
                 <h2>Employees</h2>
                 <div class="formbox" >
@@ -34,10 +34,12 @@
             </div>
 
             <table >
+              
+      <% if (employees.length> 0) { %>
                 <thead>
                     <tr>
                         <td>
-                            Name
+                          Name
                         </td>
                         <td>
                            Email
@@ -50,147 +52,29 @@
                        
                     </tr>
                 </thead>
+                <% employees.forEach((emp)=> { %>
 
                 <tbody>
                     <tr>
                         <td>
-                         Ahmed
+                          <%= emp.Name %>
                         </td>
                         <td>
-                          ahmed@gmail.com
+                          <%= emp.Email %>
                         </td> <td>
-                          cairo
+                          <%= emp.Address %>
                         </td>
                         
                       
                         <td>
-                       010145677
+                          <%= emp.Phone %>
                         </td>
-                        <td>employee</td>
+                        <td></td>
                        
                     </tr>
-                    <tr>
-                        <td>
-                         Ahmed
-                        </td>
-                        <td>
-                          ahmed@gmail.com
-                        </td> <td>
-                          cairo
-                        </td>
-                        
-                      
-                        <td>
-                       010145677
-                        </td>
-                        <td>employee</td>
+                   <% });} %>
                        
-                    </tr>
-                    <tr>
-                        <td>
-                         Ahmed
-                        </td>
-                        <td>
-                          ahmed@gmail.com
-                        </td> <td>
-                          cairo
-                        </td>
-                        
-                      
-                        <td>
-                       010145677
-                        </td>
-                        <td>employee</td>
-                       
-                    </tr>
-                    <tr>
-                        <td>
-                         Ahmed
-                        </td>
-                        <td>
-                          ahmed@gmail.com
-                        </td> <td>
-                          cairo
-                        </td>
-                        
-                      
-                        <td>
-                       010145677
-                        </td>
-                        <td>employee</td>
-                       
-                    </tr>
-                    <tr>
-                        <td>
-                         Ahmed
-                        </td>
-                        <td>
-                          ahmed@gmail.com
-                        </td> <td>
-                          cairo
-                        </td>
-                        
-                      
-                        <td>
-                       010145677
-                        </td>
-                        <td>employee</td>
-                       
-                    </tr>
-
-                    <tr>
-                        <td>
-                         Ahmed
-                        </td>
-                        <td>
-                          ahmed@gmail.com
-                        </td> <td>
-                          cairo
-                        </td>
-                        
-                      
-                        <td>
-                       010145677
-                        </td>
-                        <td>employee</td>
-                       
-                    </tr>
-
-                    <tr>
-                        <td>
-                         Ahmed
-                        </td>
-                        <td>
-                          ahmed@gmail.com
-                        </td> <td>
-                          cairo
-                        </td>
-                        
-                      
-                        <td>
-                       010145677
-                        </td>
-                        <td>employee</td>
-                       
-                    </tr>
-
-                    <tr>
-                        <td>
-                         Ahmed
-                        </td>
-                        <td>
-                          ahmed@gmail.com
-                        </td> <td>
-                          cairo
-                        </td>
-                        
-                      
-                        <td>
-                       010145677
-                        </td>
-                        <td>employee</td>
-                       
-                    </tr>
+                 
                 </tbody>
             </table>
         </div>

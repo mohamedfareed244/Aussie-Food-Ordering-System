@@ -7,6 +7,11 @@ import { empprof } from "../controllers/employees-controllers.js";
 import { changepass } from "../controllers/employees-controllers.js";
 import { getallchats } from "../controllers/employees-controllers.js";
 
+import { GetAllemps } from "../controllers/employees-controllers.js";
+
+
+import { GetAllsections } from "../controllers/employees-controllers.js";
+
 
 import { getallchatssel ,emporder} from "../controllers/employees-controllers.js";
 const router = Router();
@@ -15,6 +20,7 @@ console.log(postemployees);
 router.post("/", postemployees)
 //employees sign in 
 router.post("/signin", getemployees);
+
 //access to employees profile 
 router.get("/profile", empprof);
 //verify employees mail 
@@ -28,6 +34,12 @@ router.get("/profile/chat/details/:id", getallchatssel);
 router.get("/profile/chat/details", getallchats);
 router.get("/profile/orders", emporder)
 
+
+
+router.get("/emp", GetAllemps);
+
+
+router.get("/emppp", GetAllsections);
 
 
 
