@@ -8,6 +8,7 @@ import { customerml } from "../controllers/customers-controller.js";
 import { customeraddr } from "../controllers/customers-controller.js";
 import { customerfav } from "../controllers/customers-controller.js";
 import { customerchnagepass } from "../controllers/customers-controller.js";
+import{customerlogout} from "../controllers/customers-controller.js";
 import { getmsgs ,addadr,deladr,addfav,remfav,remfavpro} from "../controllers/customers-controller.js";
 const router = Router();
 
@@ -19,6 +20,10 @@ router.get('/signup', async (req, res) => {
 });
 router.get('/signin', async (req, res) => {
   res.render("sign-in", { alert: false });
+});
+router.get('/profile/logout', customerlogout);
+router.get('/profile/rej', async (req, res) => {
+  res.render("register", { alert: false });
 });
 router.get('/profile/signinn', async (req, res) => {
   res.render("sign-in", { alert: false });
