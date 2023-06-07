@@ -56,8 +56,10 @@
             <ul>
 
                 <li>
-                    <input class="search" type="text" placeholder="Search Food">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <form action="/products/search" method="post">
+                    <input class="search" type="text" placeholder="Search Food" name="search">
+                 <button type="submit"><i class="fa-solid fa-magnifying-glass" onclick="itemsearch()"></i></button> 
+                </form>
                 </li>
                 
 
