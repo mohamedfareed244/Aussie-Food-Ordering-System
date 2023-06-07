@@ -81,7 +81,7 @@ function validate(req, res) {
 
 
 
-
+  
   if (obj.Password == obj.confirm) {
 
     const hasUpperCase = /[A-Z]/.test(obj.Password);
@@ -206,8 +206,8 @@ const customerchnagepass = async (req, res) => {
   else {
     const curr = req.session.signed_customer;
     if (curr.Password == req.body.currentpassword) {
-      if (req.body.newpassword == req.body.confirmPassword) {
-        curr.Password = req.body.newpassword;
+      if (req.body.password == req.body.confirmPassword) {
+        curr.Password = req.body.password;
 
         await customers.findOneAndReplace({ Email: curr.Email }, curr);
         console.log("password changed ");
@@ -215,7 +215,7 @@ const customerchnagepass = async (req, res) => {
         res.render("personalinfo", { customer: req.session.signed_customer });
       }
       else {
-        console.log(req.body.newpassword, req.body.confirmPassword);
+        console.log(req.body.password, req.body.confirmPassword);
       }
     }
 
