@@ -213,16 +213,16 @@ await orders.find({emp_name:curr.Name,emp_phone:curr.Phone}).then((items)=>{
 
 
 //get section items by section name 
-const getsectionAdmin = async (req, res,) => {
-  Sec.find()
-  .then((result) => {
-    res.render('admin-dashboard-menu',{employes:result})
+// const getsectionAdmin = async (req, res,) => {
+//   Sec.find()
+//   .then((result) => {
+//     res.render('admin-dashboard-menu',{employes:result})
 
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-}; 
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+// }; 
 
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,getsectionAdmin};
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder};
 //formated

@@ -21,7 +21,7 @@ html {
 
 }
 
-.navbarr ul li {
+.navbar-links ul li {
     display: inline;
     padding: 25px;
     text-transform: uppercase;
@@ -29,7 +29,7 @@ html {
      opacity: 30%; */
 }
 
-.navbarr ul li a{
+.navbar-links ul li a{
 
     text-decoration: none;
     color: #fff;
@@ -39,7 +39,7 @@ html {
 
 }
 
-.navbarr ul li i  {
+.navbar-links ul li i  {
 
     /* color:#fff;
      
@@ -66,13 +66,13 @@ ul li i:hover {
 
 
 
-.navbarr ul li a:hover{
+ .navbar-links ul li a:hover{
     border-radius: 7px;
     box-shadow: 0 3px 50px orangered inset, 0 3px 50px orangered inset, 0 3px 50px orangered inset, 0 3px 50px orangered inset;
 
 }
 
-.navbarr .sign {
+.navbar-links .sign {
     padding: 10px;
     background-color: orangered;
 
@@ -304,5 +304,59 @@ ul li i:hover {
 
 
 
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links ul li {
+        text-align: center;
+    }
+
+    .navbar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+}
 
 

@@ -7,7 +7,7 @@ import { empprof } from "../controllers/employees-controllers.js";
 import { changepass } from "../controllers/employees-controllers.js";
 import { getallchats } from "../controllers/employees-controllers.js";
 
-import { getsectionAdmin } from "../controllers/employees-controllers.js";
+
 import { getallchatssel ,emporder} from "../controllers/employees-controllers.js";
 const router = Router();
 console.log(postemployees);
@@ -27,7 +27,7 @@ router.get("/signin", (req, res) => {
 router.get("/profile/chat/details/:id", getallchatssel);
 router.get("/profile/chat/details", getallchats);
 router.get("/profile/orders", emporder)
-router.get('/products/sectionn', getsectionAdmin)
+
 
 
 

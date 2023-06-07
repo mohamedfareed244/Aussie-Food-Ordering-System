@@ -223,3 +223,5 @@ document.getElementsByClassName("favrs")[index].style.display="none";
     })
     
 }
+
+
