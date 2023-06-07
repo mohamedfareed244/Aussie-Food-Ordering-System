@@ -263,8 +263,8 @@ const GetAllemps = (req, res) => {
 //get sections in menu
 const sectionsdetails = async (req, res) => {
   let sections_names;
-  let selected_section=req.body.sec_name;
- Sec.find()
+  let selected_section=req.params.sec_name;
+await  Sec.find()
     .then((result) => {
       console.log(result)
       sections_names=result;
@@ -278,7 +278,7 @@ const sectionsdetails = async (req, res) => {
       if(sections_names[i].name===selected_section){
 found=true;
 for(let j=0;j<sections_names[i].items.length;j++){
-  const v=awaitAll.findById(sections_names[i].items[j].id);
+  const v=await All.findById(sections_names[i].items[j].id);
   items.push(v);
 }
 break;

@@ -43,7 +43,7 @@ router.get('/profile/logout', emplogout);
 router.get("/emp", GetAllemps);
 
 //for admin menu sections
-router.get("/emppp", sectionsdetails);
+router.get("/profile/menu/:sec_name", sectionsdetails);
 
 
 router.get("/emppp", GetAllproducts);
