@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+</html>
+
+
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,8 +98,8 @@
                        </td>
                        <td><button class="moree" onclick="togglePopup(`<%=item.id%>`)">Show More</button></td>
                        <%if(item.status==="Pending"){%>
-                       <td class="td1"><i class="fa-sharp fa-solid fa-circle-check" id="iconn" onclick="confirmord(`<%=item._id%>`)"></i></td>
-                       <td class="td2"><i class="fa-solid fa-circle-xmark" id="iconn" onclick="decord(`<%=item._id%>`)"></i></td>
+                       <td class="td1"><i class="fa-sharp fa-solid fa-circle-check"  id="iconn" onclick="confirmord(`<%=item._id%>`)" ></i></td>
+                       <td><i class="fa-solid fa-circle-xmark" id="iconn" onclick="decord(`<%=item._id%>`)"  class="td2"></i></td>
                        <%}%>
                    </tr>
                  <%})%>
@@ -158,60 +191,90 @@
       console.log(msg.customername);
       let table = document.getElementById("mytable");
   let row = table.insertRow(1);
-  let td1 = row.insertCell(0);
-  let td2 = row.insertCell(1);
-  let td3 = row.insertCell(2);
-  let td4 = row.insertCell(3);
-  let td5 = row.insertCell(4);
-  let td6 = row.insertCell(5);
-  let td7 = row.insertCell(6);
-  let sp=document.createElement("span");
-  sp.id="pending";
-  sp.className=("sst");
-  sp.innerHTML=msg.status;
 
-  let g1=document.createElement("span");
-  g1.innerHTML=msg.customername;
-td1.appendChild(g1);
-  
-  let g=document.createElement("span");
-  g.innerHTML=msg.customerphone;
-td2.appendChild(g);
+const f=` <td>
+  ${msg.customername}
+                       </td>
+                       <td>
+                        ${msg.customerphone}
+                       </td> <td>
+                        ${msg.num}
+                       </td>
+                       
+                     
+                       <td>
+                        <span id='${msg.status}' class="sst">${msg.status}</span>
+                        <input type="hidden" class="vv" value=${msg._id}>
+                       </td>
+                       <td><button class="moree" onclick="togglePopup(${msg._id})">Show More</button></td>
+                       
+                       <td ><i class="fa-sharp fa-solid fa-circle-check" id="iconn" onclick="confirmord(${msg._id})" class="td1"></i></td>
+                       <td ><i class="fa-solid fa-circle-xmark" id="iconn" onclick="decord(${msg._id})" class="td2"></i></td>
+                       `
 
-let g3=document.createElement("span");
-  g3.innerHTML=msg.num;
-td3.appendChild(g3);
+row.innerHTML=f;
+
+
+
+
+
+
+
+//   let td1 = row.insertCell(0);
+//   let td2 = row.insertCell(1);
+//   let td3 = row.insertCell(2);
+//   let td4 = row.insertCell(3);
+//   let td5 = row.insertCell(4);
+//   let td6 = row.insertCell(5);
+//   let td7 = row.insertCell(6);
+//   let sp=document.createElement("span");
+//   sp.id="pending";
+//   sp.className=("sst");
+//   sp.innerHTML=msg.status;
+
+//   let g1=document.createElement("span");
+//   g1.innerHTML=msg.customername;
+// td1.appendChild(g1);
   
-let f=document.createElement("input");
-f.type="hidden";
-f.className="vv";
-f.value=`${msg._id}`;
-  td4.appendChild(sp);
-  let btn =document.createElement("button");
-  btn.className="moree";
-  btn.innerHTML="Show More";
+//   let g=document.createElement("span");
+//   g.innerHTML=msg.customerphone;
+// td2.appendChild(g);
+
+// let g3=document.createElement("span");
+//   g3.innerHTML=msg.num;
+// td3.appendChild(g3);
+  
+// let f=document.createElement("input");
+// f.type="hidden";
+// f.className="vv";
+// f.value=`${msg._id}`;
+//   td4.appendChild(sp);
+//   let btn =document.createElement("button");
+//   btn.className="moree";
+//   btn.innerHTML="Show More";
   
   
-  td5.appendChild(btn);
-  let i1=document.createElement("i");
-  i1.id="iconn";
-i1.className="fa-sharp fa-solid fa-circle-check";
-td6.appendChild(i1);
-i1.addEventListener('click', ()=>{
-  confirmord(msg._id);
-})
-let i2=document.createElement("i");
-  i2.id="iconn";
-i2.className="fa-solid fa-circle-xmark";
-td7.appendChild(i2);
-i2.addEventListener('click',()=>{
-decord(msg._id);
-})
-     sou();
+//   td5.appendChild(btn);
+//   let i1=document.createElement("i");
+//   i1.id="iconn";
+// i1.className="fa-sharp fa-solid fa-circle-check";
+// td6.appendChild(i1);
+// i1.addEventListener('click', ()=>{
+//   confirmord(msg._id);
+// })
+// let i2=document.createElement("i");
+//   i2.id="iconn";
+// i2.className="fa-solid fa-circle-xmark";
+// td7.appendChild(i2);
+// i2.addEventListener('click',()=>{
+// decord(msg._id);
+// })
+    
      
-     btn.addEventListener('click',()=>{
- togglePopup(msg._id);
-     })
+//      btn.addEventListener('click',()=>{
+//  togglePopup(msg._id);
+//      })
+sou();
      })
 
      async function sou(){
@@ -305,10 +368,15 @@ for(let i=0;i<x.length;i++){
 
 for(let i=0;i<x.length;i++){
   if(x[i].value===id){
+    const arr=x[i];
+    console.log("the index is ",i);
     document.getElementsByClassName("sst")[i].innerHTML="Cancelled";
     document.getElementsByClassName("sst")[i].id="Cancelled";
-    document.getElementsByClassName("td1")[i].style.display="none";
-    document.getElementsByClassName("td2")[i].style.display="none";
+    arr.removeChild(arr.children[0]);
+    arr.removeChild(arr.children[0]);
+   
+    // document.getElementsByClassName("td1")[i].style.display="none";
+    // document.getElementsByClassName("td2")[i].style.display="none";
   }
 }
 })
