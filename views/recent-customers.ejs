@@ -10,15 +10,17 @@
   
 
  
-<main>
-  <%- include("partials/admin_sidebar") %>
-    <div class="right">
+  <main>
+    <%- include("partials/admin_sidebar") %>
 
+    <!-- orders -->
+    <div class="right" >
       <%- include("partials/alert") %>
-    
+
+      
       <div class="details" style="width: 100%;" >
         <div class="recentOrders"  id="ordd" style="width: 980px; height: 500px; top: -30px; left: 5px;" >
-            <div class="cardHeader">
+            <div class="cardHeader" >
                 <h2>Customers</h2>
                 <div class="formbox">
                   <input type="text" class="searchid" placeholder="Enter customer email">
