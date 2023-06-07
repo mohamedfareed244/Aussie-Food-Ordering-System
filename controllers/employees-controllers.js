@@ -14,7 +14,7 @@ import {customers } from "../models/customers.js";
 
 
 
-
+//confirm mail 
 function sendmail(User) {
   const trans = nodemailer.createTransport({
     service: 'gmail',
@@ -84,7 +84,7 @@ const postemployees = async (req, res) => {
 }
 
 
-
+// create a new employee and send them an email
 const getemployees = async (req, res) => {
   console.log(req.body.Email)
   console.log(req.body.password)
@@ -105,7 +105,7 @@ const getemployees = async (req, res) => {
   }
 
 }
-
+//verified 
 const confirmmail = async (req, res) => {
   const User = await Emp.findById(req.params.id);
   if (!User.verified) {
@@ -118,7 +118,7 @@ const confirmmail = async (req, res) => {
     res.redirect("/employees/profile")
   }
 }
-
+//admin profile 
 const empprof = async (req, res) => {
   if (req.session.employee === undefined || req.session.employee === null) {
     res.render("admin_signin", { alert: true, text: "You must login first to access this section !" });

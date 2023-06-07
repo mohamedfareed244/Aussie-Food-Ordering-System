@@ -60,6 +60,7 @@ io.use(wrap(sessionMiddleware));
 
 let connected_sockets = new Array();
 let connected_customers = new Array();
+//This code will allow customers to connect to the server and be assigned to an employee. The employee will then be able to see the customer's chat and respond to them.
 io.on('connection', async (socket) => {
   const sess = socket.request.session;
   const from = socket.handshake.headers.referer;
@@ -101,7 +102,7 @@ io.on('connection', async (socket) => {
   }
   console.log('a user connected ' + socket.id);
 
-
+//This code will allow customers to disconnect from the server and be removed from the list of connected customers. The employee who is assigned to the customer will then no longer be able to see the customer's chat or respond to them.
   socket.on('disconnect', async () => {
     if (from === "https://127.0.0.1:3001/" || from === "https://127.0.0.1:3001") {
       for (let i = 0; i < connected_customers.length; i++) {
@@ -129,6 +130,7 @@ io.on('connection', async (socket) => {
     }
     console.log('user disconnected');
   });
+  // This code will allow admins to send messages to customers and have those messages be reflected in the customer's chat.
   socket.on('sendtocustomer', async (msg) => {
     console.log("the admin emitted done ", msg.id)
     let user;
@@ -144,10 +146,11 @@ io.on('connection', async (socket) => {
 
 
   })
-
+//This code will disconnect the client from the server when the client closes the tab or navigates away from the page.
   socket.on("diconnme", async () => {
     socket.disconnect();
   })
+  //This code will allow customers to send messages to admins and have those messages be reflected in the admin's chat.
   socket.on("sendtoadmin", async (msg) => {
     console.log("now i will add")
     await addmsg(sess.signed_customer, msg.body).then(async (c) => {
@@ -183,7 +186,7 @@ async function startServer() {
 }
 
 startServer();
-
+//This code will help to ensure that your server is only accessible to users who have the appropriate permissions and that it will not crash if the port is already in use.
 // Event listener for HTTP server "error" event.
 function onError(error) {
   if (error.syscall !== "listen") {
@@ -214,6 +217,7 @@ async function onListening() {
 
 
 //recieve order for employees 
+//This code can be used to find the socket with the specified id 
 async function getsoc(id) {
   for (let i = 0; i < connected_sockets.length; i++) {
     if (connected_sockets[i].id === id) {
@@ -222,6 +226,7 @@ async function getsoc(id) {
   }
   return -1;
 }
+//This code can be used to receive orders from employees and then process them accordingly.
 async function rec_order(emp, order) {
   let index;
   let socid;
