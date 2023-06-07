@@ -28,13 +28,14 @@
                             Healthy and natural food
                         </p>
                     </div>
-                    <% if (section.length> 0) { %>
+                   
                     <div class="content">
                         <div class="list">
                          
-
+                            <% if (section.length> 0) { %>
+                                <div style="display: flex; overflow: auto; max-width: 500px;">
                                 <% section.forEach((emp)=> { %>
-                            <div style="display: flex; overflow: auto; max-width: 500px;">
+                          
 
                                 <li > <%= emp.name %></li>
                                
