@@ -6,6 +6,7 @@ import { addemp, get_customers } from "../app.js";
 import { orders } from "../models/orders.js";
 import { Sec } from "../models/menu_sections.js";
 
+import {All } from "../models/schema.js";
 
 
 
@@ -234,7 +235,7 @@ await orders.find({emp_name:curr.Name,emp_phone:curr.Phone}).then((items)=>{
 
 
 
-
+//get emps in table
 const GetAllemps = (req, res) => {
   Emp.find()
     .then((result) => {
@@ -256,7 +257,7 @@ const GetAllemps = (req, res) => {
 
 
 
-
+//get sections in menu
 const GetAllsections = (req, res) => {
  Sec.find()
     .then((result) => {
@@ -269,6 +270,24 @@ const GetAllsections = (req, res) => {
 };
 
 
+
+
+
+
+
+
+//get sections in menu
+const GetAllproducts = (req, res) => {
+  All.find()
+     .then((result) => {
+       console.log(result)
+       res.render('admin-dashboard-menu', {prod: result });
+     })
+     .catch((err) => {
+       console.log(err);
+     });
+ };
+ 
 
 
 
