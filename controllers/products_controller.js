@@ -256,19 +256,25 @@ const getorderdet= async (req, res) => {
  res.json(ord);
 
 }
-// const orderappr=async (req, res) => {
-
-
- 
-//  }
-// const orderdec=async (req, res) => {
-
- 
- 
-//  }
+const searchitems= async (req,res)=>{
+  const word=req.body.search;
+  await All.find({name:{ "$regex": word, "$options": "i" }}).then(async (o)=>{
+    let sections_data = await Sec.find();
+    let number = 0;
+    if (req.session.cart_items != undefined) {
+      for (let i = 0; i < req.session.cart_items.length; i++) { number += req.session.cart_items[i].qty; }
+    }
+    console.log("the array is ",o);
+    res.render("menu", {
+      men: ("menu|Search" ), num: number, sections: sections_data, browse: o
+      , s: (req.session.cart_items === undefined ? new Array() : req.session.cart_items),
+      current_user: req.session.signed_customer == undefined ? null : req.session.signed_customer
+    });
+  })
+}
 
 export {
   getsection,
-  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet
+  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems
 };
 //formatedv
