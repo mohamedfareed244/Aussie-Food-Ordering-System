@@ -12,10 +12,8 @@ import { confirml,disconfirml} from "../controllers/customers-controller.js";
 
 
 const router = Router();
-router.post('/edit',(req,res)=>{
-    console.log(req.body);
-    res.redirect("/employees/menu/All");
-})
+router.post('/edit/a/a/a',edititem)
+
 //get section items by section name 
 router.get('/:sec_name', getsection);
 //send item id to append to the cart 
