@@ -160,12 +160,7 @@ ul li i:hover {
 
 }
 
-.search:hover {
 
-    /* box-shadow: 0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset,0 3px 50px orangered inset; */
-
-
-}
 
 
 #fx {
@@ -338,8 +333,15 @@ ul li i:hover {
     padding: 1rem;
 }
 
-
-
+.goog-te-gadget .goog-te-combo {
+    margin: 4px 0;
+    border: 0px solid;
+    background: #ff4500;
+    border-radius: 10px;
+}
+#google_translate_element span{
+    display: none;
+}
 
 
 
