@@ -261,16 +261,36 @@ const GetAllemps = (req, res) => {
 
 
 //get sections in menu
-const GetAllsections = (req, res) => {
+const sectionsdetaisl = async (req, res) => {
+  let sections_names;
+  let selected_section=req.body.sec_name;
  Sec.find()
     .then((result) => {
       console.log(result)
-      res.render('admin-dashboard-menu', { section: result });
+      sections_names=result;
     })
     .catch((err) => {
       console.log(err);
     });
+    let found =false;
+    let items=new Array();
+    for(let i=0;i<sections_names.length;i++){
+      if(sections_names[i].name===selected_section){
+found=true;
+for(let j=0;j<sections_names[i].items.length;j++){
+  const v=awaitAll.findById(sections_names[i].items[j].id);
+  items.push(v);
+}
+break;
+      }
+    }
+    if(!found){
+      res.render("error-page");
+    }else{
+      res.render("admin-dashboard-menu",{sections:sections_names,"items":items});
+    }
 };
+
 
 
 

@@ -32,12 +32,11 @@
                     <div class="content">
                         <div class="list">
                          
-                            <% if (section.length> 0) { %>
+                            <% if (sections.length> 0) { %>
                                 <div style="display: flex; overflow: auto; max-width: 500px;">
-                                <% section.forEach((emp)=> { %>
+                                <% sections.forEach((sec)=> { %>
                           
-
-                                <li > <%= emp.name %></li>
+                                <li onclick="location.href='/employees/profile/menu/<%=sec.name%>'" > <%= sec.name %></li>
                                
                                 <% });} %>
                             </div>
@@ -48,10 +47,10 @@
                             <li><a class="sign" href="#" onclick="togglePopup3()">Add Meal</a></li>
 
                         </div>
-                        <% if (produc.length> 0) { %>
+                        <% if (items.length> 0) { %>
 
                         <div class="box_flex">
-                            <% produc.forEach((pr)=> { %>
+                            <% items.forEach((pr)=> { %>
 
                             <div class="box All featured">
                                 <div class="box_img">
@@ -68,7 +67,7 @@
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-regular fa-star"></i>
                                     </div>
-                                    <article><%= pr.descrition %></article>
+                                    <article><%= pr.description %></article>
                                     <h5><%= pr.section%></h5>
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
