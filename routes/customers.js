@@ -20,6 +20,10 @@ router.get('/signup', async (req, res) => {
 router.get('/signin', async (req, res) => {
   res.render("sign-in", { alert: false });
 });
+router.get('/profile/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
 router.get('/profile/login', customerpr);
 router.post('/profile/login/account/changepass', customerchnagepass);
 router.get('/profile/orders', customeror);
