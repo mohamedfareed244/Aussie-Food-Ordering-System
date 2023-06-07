@@ -1,6 +1,6 @@
 
 import Router from "express"
-import { getemployees } from "../controllers/employees-controllers.js";
+import { GetAllproducts, getemployees } from "../controllers/employees-controllers.js";
 import { postemployees } from "../controllers/employees-controllers.js";
 import { confirmmail } from "../controllers/employees-controllers.js";
 import { empprof } from "../controllers/employees-controllers.js";
@@ -11,6 +11,8 @@ import { GetAllemps } from "../controllers/employees-controllers.js";
 
 
 import { GetAllsections } from "../controllers/employees-controllers.js";
+
+
 
 
 import { getallchatssel ,emporder} from "../controllers/employees-controllers.js";
@@ -35,12 +37,14 @@ router.get("/profile/chat/details", getallchats);
 router.get("/profile/orders", emporder)
 
 
-
+//for employees
 router.get("/emp", GetAllemps);
 
-
+//for admin menu sections
 router.get("/emppp", GetAllsections);
 
+
+router.get("/emppp", GetAllproducts);
 
 
 

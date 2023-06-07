@@ -276,12 +276,12 @@ const GetAllsections = (req, res) => {
 
 
 
-//get sections in menu
+//get products in menu in menu
 const GetAllproducts = (req, res) => {
   All.find()
      .then((result) => {
        console.log(result)
-       res.render('admin-dashboard-menu', {prod: result });
+       res.render('admin-dashboard-menu', {produc: result });
      })
      .catch((err) => {
        console.log(err);
@@ -292,7 +292,7 @@ const GetAllproducts = (req, res) => {
 
 
 
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,GetAllsections};
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,GetAllsections,GetAllproducts};
 //formated
 
 

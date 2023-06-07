@@ -48,17 +48,19 @@
                             <li><a class="sign" href="#" onclick="togglePopup3()">Add Meal</a></li>
 
                         </div>
+                        <% if (produc.length> 0) { %>
 
                         <div class="box_flex">
+                            <% produc.forEach((pr)=> { %>
 
                             <div class="box All featured">
                                 <div class="box_img">
-                                    <img src="photos/dish1.jpg" alt="">
+                                 
                                 </div>
                                 <div class="text">
-                                    <h3>French fries</h3>
+                                    <h3><%= pr.name %></h3>
                                     <hr>
-                                    <section>$28.00</section>
+                                    <section><%= pr.price %></section>
                                     <div class="stars">
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
@@ -66,11 +68,13 @@
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-regular fa-star"></i>
                                     </div>
-                                    <article>Category: Frozen food</article>
+                                    <article><%= pr.descrition %></article>
+                                    <h5><%= pr.section%></h5>
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
                             </div>
+                            <% });} %>
 
                             <div class="box All featured">
                                 <div class="box_img">
