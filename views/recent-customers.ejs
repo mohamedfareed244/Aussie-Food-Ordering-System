@@ -19,7 +19,7 @@
       <%- include("partials/alert") %>
     
       <div class="details" style="width: 100%;" >
-        <div class="recentOrders"  id="ordd" style="width: 9800px; height: 700px; top: -30px; left: 5px;">
+        <div class="recentOrders"  id="ordd" style="width: 980px; height: 500px; top: -30px; left: 5px;" >
             <div class="cardHeader">
                 <h2>Customers</h2>
                 <div class="formbox">
@@ -33,6 +33,7 @@
             </div>
 
             <table >
+              <% if (custt.length> 0) { %>
                 <thead>
                     <tr>
                         <td>
@@ -47,16 +48,17 @@
                       
                     </tr>
                 </thead>
+                <% custt.forEach((emp)=> { %>
 
                 <tbody>
                     <tr>
                         <td>
-                          ali
+                          <%= emp.Firstname %>
                         </td>
                         <td>
-                           ali@gmail.com
+                          <%= emp.Email %>
                         </td> <td>
-                        01014755
+                          <%= emp.Phone %>
                         </td>
                         
                       
@@ -64,121 +66,8 @@
                         <td><button   class="moree"onclick="togglePopup()">Show </button></td>
                        
                     </tr>
-                    <tr>
-                        <td>
-                          ali
-                        </td>
-                        <td>
-                           ali@gmail.com
-                        </td> <td>
-                        01014755
-                        </td>
-                        
-                      
-                      
-                        <td><button   class="moree"onclick="togglePopup()">Show </button></td>
-                       
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                          ali
-                        </td>
-                        <td>
-                           ali@gmail.com
-                        </td> <td>
-                        01014755
-                        </td>
-                        
-                      
-                      
-                        <td><button   class="moree"onclick="togglePopup()">Show </button></td>
-                       
-                    </tr>
-
-                    <tr>
-                        <td>
-                          ali
-                        </td>
-                        <td>
-                           ali@gmail.com
-                        </td> <td>
-                        01014755
-                        </td>
-                        
-                      
-                      
-                        <td><button   class="moree"onclick="togglePopup()">Show </button></td>
-                       
-                    </tr>
-
-                    <tr>
-                        <td>
-                          ali
-                        </td>
-                        <td>
-                           ali@gmail.com
-                        </td> <td>
-                        01014755
-                        </td>
-                        
-                      
-                      
-                        <td><button   class="moree"onclick="togglePopup()">Show </button></td>
-                       
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                          ali
-                        </td>
-                        <td>
-                           ali@gmail.com
-                        </td> <td>
-                        01014755
-                        </td>
-                        
-                      
-                      
-                        <td><button   class="moree"onclick="togglePopup()">Show </button></td>
-                       
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                          ali
-                        </td>
-                        <td>
-                           ali@gmail.com
-                        </td> <td>
-                        01014755
-                        </td>
-                        
-                      
-                      
-                        <td><button   class="moree"onclick="togglePopup()">Show</button></td>
-                       
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                          ali
-                        </td>
-                        <td>
-                           ali@gmail.com
-                        </td> <td>
-                        01014755
-                        </td>
-                        
-                      
-                      
-                        <td><button   class="moree"onclick="togglePopup()">Show </button></td>
-                       
-                    </tr>
+                    <% });} %>
+                   
 
                 </tbody>
             </table>

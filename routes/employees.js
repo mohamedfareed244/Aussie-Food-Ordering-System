@@ -9,6 +9,8 @@ import { getallchats } from "../controllers/employees-controllers.js";
 
 import { GetAllemps } from "../controllers/employees-controllers.js";
 
+import { GetAllcustomers} from "../controllers/employees-controllers.js";
+
 
 import { GetAllsections } from "../controllers/employees-controllers.js";
 
@@ -45,6 +47,9 @@ router.get("/emppp", GetAllsections);
 
 
 router.get("/emppp", GetAllproducts);
+
+
+router.get("/empp", GetAllcustomers);
 
 
 

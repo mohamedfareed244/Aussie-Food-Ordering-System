@@ -9,6 +9,9 @@ import { Sec } from "../models/menu_sections.js";
 import {All } from "../models/schema.js";
 
 
+import {customers } from "../models/customers.js";
+
+
 
 
 
@@ -292,7 +295,23 @@ const GetAllproducts = (req, res) => {
 
 
 
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,GetAllsections,GetAllproducts};
+
+ const GetAllcustomers = (req, res) => {
+  customers.find()
+     .then((result) => {
+       console.log(result)
+       res.render('recent-customers', {custt: result });
+     })
+     .catch((err) => {
+       console.log(err);
+     });
+ };
+ 
+
+
+
+
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,GetAllsections,GetAllproducts,GetAllcustomers};
 //formated
 
 
