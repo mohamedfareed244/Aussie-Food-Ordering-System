@@ -45,12 +45,13 @@ const apply = async (req,res)=>{
             })
             .then(async (o)=>{
         return o.json();
-            }).then((o)=>{
-                console.log("fareed returned with ",o);
+            }).then(async (o)=>{
+                
              if(!o.found){
                 res.json({applied:false});
              }else{
                 req.session.voucher=req.body.code;
+                await voucher.findOneAndUpdate({_id:user._id},{used:true});
                 res.json({applied:true});
              }
             })
