@@ -10,7 +10,7 @@ import { getallchats } from "../controllers/employees-controllers.js";
 import { GetAllemps } from "../controllers/employees-controllers.js";
 
 import { GetAllcustomers} from "../controllers/employees-controllers.js";
-
+import { emplogout} from "../controllers/employees-controllers.js";
 
 import { GetAllsections } from "../controllers/employees-controllers.js";
 
@@ -37,7 +37,7 @@ router.get("/signin", (req, res) => {
 router.get("/profile/chat/details/:id", getallchatssel);
 router.get("/profile/chat/details", getallchats);
 router.get("/profile/orders", emporder)
-
+router.get('/profile/logout', emplogout);
 
 //for employees
 router.get("/emp", GetAllemps);
