@@ -273,8 +273,19 @@ const searchitems= async (req,res)=>{
   })
 }
 
+const getitemforedit=async (req,res)=>{
+  console.log("in get item ")
+  const id=req.params.id;
+  await All.findById(id).then((o)=>{
+    if(o===null){
+      res.json(null);
+    }else{
+res.json(o);
+    }
+  })
+}
 export {
   getsection,
-  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems
+  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems,getitemforedit
 };
 //formatedv

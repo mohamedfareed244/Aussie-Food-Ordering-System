@@ -4,7 +4,7 @@ import { getsection, postproduct, postsection } from "../controllers/products_co
 import { getitembyid } from "../controllers/products_controller.js";
 import { delitem } from "../controllers/products_controller.js";
 import { check_out } from "../controllers/products_controller.js";
-import { new_order ,getorderdet,searchitems} from "../controllers/products_controller.js";
+import { new_order ,getorderdet,searchitems,getitemforedit} from "../controllers/products_controller.js";
 import { confirml,disconfirml} from "../controllers/customers-controller.js";
 // import {postsection} from "../controllers/products_controller.js";
 //import the products database controllers 
@@ -12,7 +12,10 @@ import { confirml,disconfirml} from "../controllers/customers-controller.js";
 
 
 const router = Router();
-
+router.post('/edit',(req,res)=>{
+    console.log(req.body);
+    res.redirect("/employees/menu/All");
+})
 //get section items by section name 
 router.get('/:sec_name', getsection);
 //send item id to append to the cart 
@@ -31,6 +34,7 @@ router.post('/add/product', postproduct);
 //router.post('/customer/order/address',)
 router.post('/customer/cart/checkout/order', new_order);
 router.get('/ordrers/get/details/admin/:id',getorderdet);
+router.get('/employee/edit/item/menu/edit/:id',getitemforedit);
 router.get('/admin/confirm/order/send/mail/customer/:id',confirml);
 router.get('/admin/cancel/order/send/mail/customer/ok/:id',disconfirml);
 export default router;

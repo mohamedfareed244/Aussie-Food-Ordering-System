@@ -54,7 +54,7 @@
 
                             <div class="box All featured">
                                 <div class="box_img">
-                                 
+                                 <img src="<%=pr.path%>" alt="">
                                 </div>
                                 <div class="text">
                                     <h3><%= pr.name %></h3>
@@ -69,12 +69,33 @@
                                     </div>
                                     <article><%= pr.description %></article>
                                     <h5><%= pr.section%></h5>
-                                    <li><a onclick="togglePopup2(<%=pr._id%>)" class="sign2" href="#">Edit item</a></li>
+                                    <li onclick=togglePopup2("<%=pr._id%>")><span  class="sign2" >Edit item</span></li>
                                     <li onclick="delitem(<%pr._id%>)"><a class="sign3" href="#">Delete item</a></li>
                                 </div>
                             </div>
                             <% });} %>
 
+                            <!-- <div class="box All featured">
+                                <div class="box_img">
+                                    <img src="photos/dish2.jpeg" alt="">
+                                </div>
+                                <div class="text">
+                                    <h3>French fries</h3>
+                                    <hr>
+                                    <section>$28.00</section>
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <article>Category: Frozen food</article>
+                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
+                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
+                                </div>
+                            </div> -->
+<!-- 
                             <div class="box All featured">
                                 <div class="box_img">
                                     <img src="photos/dish2.jpeg" alt="">
@@ -94,30 +115,9 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="box All featured">
-                                <div class="box_img">
-                                    <img src="photos/dish2.jpeg" alt="">
-                                </div>
-                                <div class="text">
-                                    <h3>French fries</h3>
-                                    <hr>
-                                    <section>$28.00</section>
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                    <article>Category: Frozen food</article>
-                                    <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
-                                    <li><a class="sign3" href="user_profile.html">Delete item</a></li>
-                                </div>
-                            </div>
-
-                            <div class="box All featured">
+                            <!-- <div class="box All featured">
                                 <div class="box_img">
                                     <img src="images/image4.jpg" alt="">
                                 </div>
@@ -136,9 +136,9 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="box All featured">
+                            <!-- <div class="box All featured">
                                 <div class="box_img">
                                     <img src="images/image5.jpg" alt="">
                                 </div>
@@ -157,9 +157,9 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="box All featured">
+                            <!-- <div class="box All featured">
                                 <div class="box_img">
                                     <img src="images/image6.jpg" alt="">
                                 </div>
@@ -178,8 +178,8 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
-                            <div class="box All Special">
+                            </div> -->
+                            <!-- <div class="box All Special">
                                 <div class="box_img">
                                     <img src="images/image7.jpg" alt="">
                                 </div>
@@ -198,8 +198,8 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
-                            <div class="box All Special">
+                            </div> -->
+                            <!-- <div class="box All Special">
                                 <div class="box_img">
                                     <img src="images/image8.jpg" alt="">
                                 </div>
@@ -218,8 +218,8 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
-                            <div class="box All Special">
+                            </div> -->
+                            <!-- <div class="box All Special">
                                 <div class="box_img">
                                     <img src="images/image9.jpg" alt="">
                                 </div>
@@ -238,8 +238,8 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
-                            <div class="box All Special">
+                            </div> -->
+                            <!-- <div class="box All Special">
                                 <div class="box_img">
                                     <img src="images/image10.jpg" alt="">
                                 </div>
@@ -258,9 +258,9 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="box All Special">
+                            <!-- <div class="box All Special">
                                 <div class="box_img">
                                     <img src="images/image11.jpg" alt="">
                                 </div>
@@ -279,9 +279,9 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="box All Special">
+                            <!-- <div class="box All Special">
                                 <div class="box_img">
                                     <img src="images/image12.jpg" alt="">
                                 </div>
@@ -299,8 +299,8 @@
                                     <article>Category: Individual meals</article>
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
-                                </div>
-                            </div>
+                                </div> -->
+                            <!-- </div>
                             <div class="box All Arrivals">
                                 <div class="box_img">
                                     <img src="images/image13.jpg" alt="">
@@ -320,9 +320,9 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="box All Arrivals">
+                            <!-- <div class="box All Arrivals">
                                 <div class="box_img">
                                     <img src="images/image14.jpg" alt="">
                                 </div>
@@ -341,9 +341,9 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="box All Arrivals">
+                            <!-- <div class="box All Arrivals">
                                 <div class="box_img">
                                     <img src="images/image15.jpg" alt="">
                                 </div>
@@ -362,8 +362,8 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
-                            <div class="box All Arrivals">
+                            </div> -->
+                            <!-- <div class="box All Arrivals">
                                 <div class="box_img">
                                     <img src="images/image16.jpg" alt="">
                                 </div>
@@ -382,8 +382,8 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
-                            <div class="box All Arrivals">
+                            </div> -->
+                            <!-- <div class="box All Arrivals">
                                 <div class="box_img">
                                     <img src="images/image17.jpg" alt="">
                                 </div>
@@ -401,9 +401,9 @@
                                     <article>Category:Ready to eat</article>
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
-                                </div>
-                            </div>
-                            <div class="box All Arrivals">
+                                </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="box All Arrivals">
                                 <div class="box_img">
                                     <img src="images/image18.jpg" alt="">
                                 </div>
@@ -422,7 +422,7 @@
                                     <li><a onclick="togglePopup2()" class="sign2" href="#">Edit item</a></li>
                                     <li><a class="sign3" href="user_profile.html">Delete item</a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -450,10 +450,9 @@
                 </div>
                 <h1>choose section</h1>
                 <select class="selectt" Name="choose section" Size="Number_of_options">
-                    <option> ind meals </option>
-                    <option> healthy food </option>
-                    <option> ind meals </option>
-                    <option> healthy food </option>
+                    <%sections.forEach((sec)=>{%>
+                    <option> <%=sec.name%> </option>
+                    <%});%>
                 </select>
 
 
@@ -484,7 +483,7 @@
         <!-- //for edit item button -->
         <div class="popup" id="popup-2">
 
-            <div class="overlay"> </div>
+            <!-- <div class="overlay"> </div>
             <div class="content">
                 <div class="close-btn" onclick="togglePopup2()">
                     &times;
@@ -505,7 +504,7 @@
 
                     <button type="submit" class="registerbtn">Change</button>
                 </form>
-            </div>
+            </div> -->
 
         </div>
 
@@ -632,11 +631,42 @@ function togglePopup4() {
 
 <script>
 
-
+async function togglePopup2_(){
+    document.getElementById("popup-2").classList.toggle("active");
+}
     //for edit item button
-    function togglePopup2() {
+    async function togglePopup2(id) {
         // const togel=document.querySelector(".popup")
         document.getElementById("popup-2").classList.toggle("active");
+        let item ;
+await fetch (`/products/employee/edit/item/menu/edit/${id}`,{method:'GET'}).then((o)=>{
+    return o.json();
+}).then((b)=>{
+    console.log(b);
+    const f=`   <div class="overlay"> </div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup2_()">
+                    &times;
+                </div>
+                <h1>Edit Item</h1>
+                <form action="/products/edit" method='post'>
+
+                    <input type="text" id="name" placeholder="Change Item Name" value="${b.name}">
+                    <input type="text" id="name" placeholder="Change Item Price" value=${b.price}>
+                    <input type="text" id="name" placeholder="Change Item Description" value="${b.description}">
+                    <input type="file" id="upload" name="path" value ="${b.path}">
+                    <label for="upload">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        change item photo
+                    </label><br>
+
+
+
+                    <button type="submit" class="registerbtn">Change</button>
+                </form>
+            </div>`
+            document.getElementById("popup-2").innerHTML=f;
+})
     }
 </script>
 
