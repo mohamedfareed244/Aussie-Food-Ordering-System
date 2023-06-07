@@ -162,6 +162,15 @@ div.err {
 .closebtn:hover {
   color: black;
 }
+.goog-te-gadget .goog-te-combo {
+  margin: 4px 0;
+  border: 0px solid;
+  background: #ff4500;
+  border-radius: 10px;
+}
+#google_translate_element span{
+  display: none;
+}
 
 /* alert */
 #waitsign {
