@@ -225,7 +225,10 @@ const customerchnagepass = async (req, res) => {
   }
 
 }
-
+const customerlogout = async (req, res) => {
+req.session.signed_customer= null;
+res.redirect('/');
+}
 
 
 
@@ -446,5 +449,5 @@ const deladr = async (req, res) => {
           res.render("favoriteinfo",{items:a});
         }
       }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro};
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro , customerlogout};
 

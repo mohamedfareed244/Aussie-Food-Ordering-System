@@ -20,13 +20,6 @@ router.get('/signup', async (req, res) => {
 router.get('/signin', async (req, res) => {
   res.render("sign-in", { alert: false });
 });
-router.get('/profile/logout', (req, res) => {
-  req.session.destroy();
-  res.redirect('/');
-});
-router.get('/profile/rej', async (req, res) => {
-  res.render("register", { alert: false });
-});
 router.get('/profile/signinn', async (req, res) => {
   res.render("sign-in", { alert: false });
 });
