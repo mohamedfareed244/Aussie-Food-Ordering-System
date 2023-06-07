@@ -125,6 +125,10 @@ const check_out = async (req, res) => {
 }
 //make order 
 const new_order = async (req, res) => {
+  let voucher=req.session.voucher;
+  if(voucher===undefined){
+    voucher="none";
+  }
   const current_cart = req.session.cart_items;
   const current_customer = req.session.signed_customer;
   let emp;
@@ -152,6 +156,10 @@ const new_order = async (req, res) => {
   })
   numbers++;
   console.log("the address is ",req.body.address);
+  let no=req.body.notes;
+  if(no.length==0){
+    no="no comments";
+  }
   const ord = new orders({
     customername: current_customer.Firstname,
     customermail: current_customer.Email,
@@ -163,8 +171,8 @@ const new_order = async (req, res) => {
     status: "Pending",
     Address: req.body.address,
     num: numbers,
-    discount:req.body.voucher===undefined?"none":`${req.body.voucher}`,
-    notes:req.body.notes===undefined?"no comments ":req.body.notes,
+    discount:voucher,
+    notes:no,
   })
   console.log("stuck");
   for (let i = 0; i < current_cart.length; i++) {

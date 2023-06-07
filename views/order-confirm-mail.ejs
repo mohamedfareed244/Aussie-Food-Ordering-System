@@ -109,10 +109,12 @@
         </tbody>
       </table>
       <p>Shipping Address: <%=ord.Address%></p>
-      <%if(ord.discount!==""){%>
-      <p class="discount">Discount code: ord.discount</p>
-      <%}%>
+      <%if(ord.discount!=="none"){%>
+      <p class="discount">Discount code: <%=ord.discount%> </p>
+      <p>Total: <%=sum-((sum/100)*10)%> Egp</p>
+      <%}else{%>
       <p>Total: <%=sum%> Egp</p>
+      <%}%>
       <p class="footer">Please contact us if you have any questions or concerns.</p>
     </div>
   </body>
