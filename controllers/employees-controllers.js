@@ -306,12 +306,15 @@ const GetAllproducts = (req, res) => {
        console.log(err);
      });
  };
- 
+ const emplogout = async (req, res) => {
+  req.session.employee= null;
+  res.render("admin_signin", { alert: false});
+}
 
 
 
 
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,GetAllsections,GetAllproducts,GetAllcustomers};
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,GetAllsections,GetAllproducts,GetAllcustomers,emplogout};
 //formated
 
 
