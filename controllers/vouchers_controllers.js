@@ -50,9 +50,13 @@ const apply = async (req,res)=>{
              if(!o.found){
                 res.json({applied:false});
              }else{
+              if(user.used){
+                res.json({applied:false});
+              }else{
                 req.session.voucher=req.body.code;
                 await voucher.findOneAndUpdate({_id:user._id},{used:true});
                 res.json({applied:true});
+              }
              }
             })
         

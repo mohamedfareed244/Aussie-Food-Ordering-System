@@ -15,6 +15,7 @@ import { rec_order } from "../bin/www.js";
 
 //get section items by section name 
 const getsection = async (req, res, next) => {
+  
   let it = await Sec.findOne({ name: req.params.sec_name });
   let sections_data = await Sec.find();
 

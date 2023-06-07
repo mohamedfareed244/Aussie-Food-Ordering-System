@@ -250,7 +250,13 @@ for(let i=0;i<g.length;i++){
                       </tr>`
                   
                       document.getElementById("tabledeatails").innerHTML+=str;
+   
                       sum+=g[i].price*g[i].Qty;
+}
+
+if(obj.discount!=="none"){
+sum-=((sum/100)*10)
+sum=Math.round(sum);
 }
 const finals =`   <tr>
                 <td colspan="2">Total price : </td>
@@ -258,12 +264,18 @@ const finals =`   <tr>
                </tr>
                <tr>
                 <td colspan="2">Discount : </td>
+                   
                 <td>${obj.discount}</td>
                </tr>
                <tr>
                 <td>Shipping Address : </td>
                 <td colspan="2">${obj.Address}  </td>
                </tr> 
+               <td> Voucher code : </td>
+                <td colspan="2">${obj.discount}  </td>
+               <tr>
+
+                </tr>
                <tr>
                 <td>comments : </td>
                 <td colspan="2">${obj.notes}  </td>
