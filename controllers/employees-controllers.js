@@ -5,7 +5,7 @@ import ejs from "ejs";
 import { addemp, get_customers } from "../app.js";
 import { orders } from "../models/orders.js";
 import { Sec } from "../models/menu_sections.js";
-
+import bcrypt from 'bcryptjs';
 import {All } from "../models/schema.js";
 
 
@@ -89,14 +89,22 @@ const getemployees = async (req, res) => {
   console.log(req.body.Email)
   console.log(req.body.password)
   let curr;
-  await Emp.findOne({ Email: req.body.Email, Password: req.body.password }).then((res) => {
+  await Emp.findOne({ Email: req.body.Email }).then((res) => {
     curr = res;
   })
 
   console.log(curr);
-  if (curr === null || curr === undefined || !curr.verified) {
+  founded =await bcrypt.compare(req.body.password, curr.Password);
+  if(!founded){
+    res.render("admin_signin",{alert:true,text:"Invalid user name or password "});
+  }
+  if (curr === null || curr === undefined ) {
     res.render("admin_signin", { alert: true, text: "invalid Email or Password" })
-  } else {
+  } else if (!curr.verified){
+    res.render("admin_signin", { alert: true, text: "Check Your mail for verfication to signin " })
+  }
+  else {
+    let founded=false;
     req.session.employee = curr;
     console.log("start redirection");
     await addemp(curr);
@@ -134,7 +142,9 @@ const changepass = async (req, res) => {
   }
   else {
     const curr = req.session.employee;
-    curr.Password = req.body.psw;
+    const pass= await bcrypt.hash(req.body.psw,10);
+    curr.Password=pass;
+
     await Emp.findOneAndReplace({ Email: curr.Email }, curr);
 
     res.render("admin_account", { user: req.session.employee });
