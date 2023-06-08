@@ -166,6 +166,8 @@
     outline: none;
     width: 200px;
 
+    color: #000000;
+
 }
 
 .searchnum {
@@ -175,6 +177,7 @@
     border-radius: 15px;
     outline: none;
     width: 300px;
+    color: #000000;
 
 }
 
