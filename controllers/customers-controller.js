@@ -170,7 +170,7 @@ const getcustomers = async (req, res) => {
   })
   console.log(current_customer);
   let founded=false;
-  i
+  
    
   
 
