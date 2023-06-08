@@ -505,5 +505,11 @@ res.render("recent-customers",{custt:arr});
 
       }
       }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro , customerlogout,getempsearch};
+      const loadord= async (req,res)=>{
+        const id =req.body.id;
+        const customer=await customers.findById(id);
+        const orders=await order.find({customermail:customer.Email});
+        res.json(orders);
+      }
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro , customerlogout,getempsearch,loadord};
 
