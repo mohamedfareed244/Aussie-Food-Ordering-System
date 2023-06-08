@@ -64,7 +64,7 @@ io.on('connection', async (socket) => {
   const sess = socket.request.session;
   const from = socket.handshake.headers.referer;
   console.log("from ", from);
-  if (from === "https://127.0.0.1:3001/" || from === "https://127.0.0.1:3001") {
+  if (from === "https://aussiefood.store/" || from === "https://aussiefood.store") {
     console.log("customer detected ");
     if (socket.request.session.signed_customer !== null && socket.request.session.signed_customer !== undefined) {
       console.log("not null")
