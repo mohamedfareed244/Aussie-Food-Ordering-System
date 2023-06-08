@@ -366,7 +366,7 @@ const  delsection= async (req,res)=>{
   const items=Sec.findOne({"name":name});
   for(let i=0;i<items.length;i++){
     await All.findByIdAndDelete(items[i].id);
-    await Sec.findOneAndUpdate({name:"All"},{$pull:{items:{"id":id}}});t 
+    await Sec.findOneAndUpdate({name:"All"},{$pull:{items:{"id":items[i].id}}});
   }
   await Sec.findOneAndDelete({"name":name});
   res.redirect("/employees/profile/menu/All");
