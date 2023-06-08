@@ -121,10 +121,17 @@
          // const togel=document.querySelector(".popup")
          document.getElementById("popup-1").classList.toggle("active");
       }
-      async function togglePopup(){
+      async function togglePopup(id){
          // const togel=document.querySelector(".popup")
          document.getElementById("popup-1").classList.toggle("active");
-         await fetch("/customers/loadorders",{method:'GET'}).then((o)=>{
+         const data=new URLSearchParams();
+         data.append("id",id);
+         await fetch("/customers/loadorders",{method:"POST",
+                            headers: {
+		'Content-Type': 'application/x-www-form-urlencoded'
+	},
+                         body : data})
+                         .then((o)=>{
           return o.json;
          }).then((o)=>{
 for(let i=0;i<o.length;i++){

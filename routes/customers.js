@@ -40,5 +40,6 @@ router.get('/profile/address/del/sel/:id',deladr)
 router.get('/favs/add/check/signin/not/:id',addfav);
 router.get('/favs/remove/check/signin/not/:id',remfav);
 router.get('/favs/remove/check/signin/not/first/:id',remfavpro)
+router.post('/customers/loadorders',load);
 export default router;
 //formated
