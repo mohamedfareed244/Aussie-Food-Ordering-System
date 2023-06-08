@@ -239,8 +239,8 @@ const customerchnagepass = async (req, res) => {
 
         
 
-
-        curr.Password = req.body.password;
+          const x=await bcrypt.hash(req.body.Password, 10);
+        curr.Password =x;
        await customers.findOneAndReplace({ Email: curr.Email }, curr);
         console.log("password changed ");
 
