@@ -223,16 +223,33 @@ const customerchnagepass = async (req, res) => {
     const curr = req.session.signed_customer;
     if (curr.Password == req.body.currentpassword) {
       if (req.body.password == req.body.confirmPassword) {
-        curr.Password = req.body.password;
 
-        await customers.findOneAndReplace({ Email: curr.Email }, curr);
+        const hasUpperCase = /[A-Z]/.test(req.body.password);
+        const hasLowerCase = /[a-z]/.test(req.body.password);
+        const hasNumber = /[0-9]/.test(req.body.password);
+        const hasSpecialChar = /[!@#$%^&*().]/.test(req.body.password);
+        if (!hasUpperCase || !hasLowerCase || !hasNumber || !hasSpecialChar)
+         {
+         console.log('password must contain uppercase, lowercase , number and special character');
+         res.render("personalinfo", { customer: req.session.signed_customer });
+        }
+        else{
+
+        
+
+
+        curr.Password = req.body.password;
+       await customers.findOneAndReplace({ Email: curr.Email }, curr);
         console.log("password changed ");
 
         res.render("personalinfo", { customer: req.session.signed_customer });
       }
+      }
       else {
 
         console.log("Password are not matching");
+        res.render("personalinfo", { customer: req.session.signed_customer });
+
       }
     }
 
