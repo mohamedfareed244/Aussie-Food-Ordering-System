@@ -362,7 +362,8 @@ const GetAllproducts = (req, res) => {
 }
 
 const seremp= async (req,res)=>{
-
+const word=req.body.empsearch;
+await Emp.findOne({Email:word});
 }
 
 
