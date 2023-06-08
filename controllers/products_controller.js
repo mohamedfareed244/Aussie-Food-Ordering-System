@@ -287,8 +287,13 @@ res.json(o);
 }
 
 const edititem= (req,res)=>{
-
- console.log("the is ",req.body);
+  let imgFile;
+  let uploadPath;
+  if (!req.files || Object.keys(req.files).length === 0) {
+    res.render("error-page");
+  }
+ imgFile = req.files.img;
+ uploadPath = __dirname + '/public/images/' + req.body.un + path.extname(imgFile.name);
 res.redirect("/employees/profile/menu/All")
 // let fr=new FileReader();
 // fr.onload=function(){
