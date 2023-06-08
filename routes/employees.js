@@ -46,12 +46,13 @@ router.get("/profile/user", GetAllemps);
 router.get("/profile/menu/:sec_name", sectionsdetails);
 
 
-router.get("/emppp", GetAllproducts);
+// router.get("/emppp", GetAllproducts);
 
 
-router.get("/empp", GetAllcustomers);
+// router.get("/empp", GetAllcustomers);
 
 router.get("/profile/addnewone",switchtoadd);
+router.get("/profile/customers",GetAllcustomers);
 
 export default router;
 
