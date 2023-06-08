@@ -124,17 +124,23 @@
       async function togglePopup(){
          // const togel=document.querySelector(".popup")
          document.getElementById("popup-1").classList.toggle("active");
-         await fetch("/customers/loadorders",{method:'GET'})
+         await fetch("/customers/loadorders",{method:'GET'}).then((o)=>{
+          return o.json;
+         }).then((o)=>{
+for(let i=0;i<o.length;i++){
+        
          const f=`    <tr>
                     <td>
-                       Pizza
+                       ${o[i].num}
                     </td>
                     <td>
-                      27-5-2012
+                     ${o[i].orderdate}
                     </td> <td>
-                      120$
+                      ${o[i].emp_name}
                     </td>
                 </tr>`
+              }
+              })
       }
    </script>
 
