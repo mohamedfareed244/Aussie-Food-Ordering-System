@@ -102,7 +102,7 @@ io.on('connection', async (socket) => {
   console.log('a user connected ' + socket.id);
 
   socket.on('disconnect', async () => {
-    if (from === "https://127.0.0.1:3001/" || from === "https://127.0.0.1:3001") {
+    if (from === "https://aussiefood.store/" || from === "https://aussiefood.store") {
       for (let i = 0; i < connected_customers.length; i++) {
         if (connected_customers[i] === socket) {
           connected_customers.splice(i, 1);
@@ -154,7 +154,7 @@ io.on('connection', async (socket) => {
       await getmyemp(sess.signed_customer).then(async (o) => {
         await repcust(sess.signed_customer);
         const ff = sess.signed_customer.Firstname + " " + sess.signed_customer.Middlename;
-        io.to(o).emit("getmessage", { "from": { "name": ff, "phone": sess.signed_customer.Phone, "id": sess.signed_customer.id }, "body": msg.body });
+        io.to(o.soc).emit("getmessage", { "from": { "name": ff, "phone": sess.signed_customer.Phone, "id": sess.signed_customer.id }, "body": msg.body });
       })
     })
   })
