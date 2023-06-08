@@ -6,7 +6,7 @@ import { orders } from "../models/orders.js";
 import { findfororder,__dirname } from "../app.js";
 import { rec_order } from "../bin/www.js";
 import path from "path"
-
+import fs from "fs"
 //end import models 
 
 
@@ -305,12 +305,20 @@ const item=await All.findById(req.body.idd);
  imgFile = req.files.paths;
  console.log(req.files.paths.name);
  uploadPath = __dirname+ '/public/images/' + req.files.paths.name ;
-//  fs.unlink(item.path);
+  await fs.unlink(__dirname+ '/public'+item.path,(err)=>{
+    if(err){
+      console.log(err);
+      res.render("error-page")
+    }else{
+      console.log("item removed");
+    }
+  });
 
 imgFile.mv(uploadPath,(err)=>{
-  res.render("error-page");
+  
 })
-item.path=`/images/${req.files.paths.name}`;
+item.path="/images/"+req.files.paths.name;
+await item.save();
 res.redirect("/employees/profile/menu/All")
 // let fr=new FileReader();
 // fr.onload=function(){
