@@ -506,10 +506,14 @@ res.render("recent-customers",{custt:arr});
       }
       }
       const loadord= async (req,res)=>{
+       
         const id =req.body.id;
+        console.log("id",id);
         const customer=await customers.findById(id);
-        const orders=await order.find({customermail:customer.Email});
-        res.json(orders);
+        const orderS=await orders.find({customermail:customer.Email});
+        // const obj={val:orders};
+        // console.log(obj)
+        res.json(orderS);
       }
 export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro , customerlogout,getempsearch,loadord};
 

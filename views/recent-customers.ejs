@@ -79,8 +79,8 @@
       </div>
     <div class="popup" id="popup-1">
       
-   <div class="overlay"> </div>
-      <div class="content">
+   <div class="overlay" > </div>
+      <div class="content" style="overflow: auto;">
          <div class="close-btn" onclick="togglePopup_()">
             &times;
          </div>
@@ -100,7 +100,7 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody id="mybody" >
                 <!-- <tr>
                     <td>
                        Pizza
@@ -122,18 +122,22 @@
          document.getElementById("popup-1").classList.toggle("active");
       }
       async function togglePopup(id){
+        console.log(id);
          // const togel=document.querySelector(".popup")
          document.getElementById("popup-1").classList.toggle("active");
          const data=new URLSearchParams();
          data.append("id",id);
-         await fetch("/customers/loadorders",{method:"POST",
+         await fetch("/customers/loadorders/emp",{method:"POST",
                             headers: {
 		'Content-Type': 'application/x-www-form-urlencoded'
 	},
                          body : data})
                          .then((o)=>{
-          return o.json;
-         }).then((o)=>{
+                          console.log(o);
+          return o.json();
+         }).then(async (o)=>{
+          document.getElementById("mybody").innerHTML="";
+          console.log(o);
 for(let i=0;i<o.length;i++){
         
          const f=`    <tr>
@@ -146,7 +150,9 @@ for(let i=0;i<o.length;i++){
                       ${o[i].emp_name}
                     </td>
                 </tr>`
+                document.getElementById("mybody").innerHTML+=f;
               }
+              
               })
       }
    </script>

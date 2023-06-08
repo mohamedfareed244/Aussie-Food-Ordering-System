@@ -11,7 +11,7 @@ import { customerchnagepass,getempsearch ,loadord} from "../controllers/customer
 import{customerlogout} from "../controllers/customers-controller.js";
 import { getmsgs ,addadr,deladr,addfav,remfav,remfavpro} from "../controllers/customers-controller.js";
 const router = Router();
-
+router.post('/loadorders/emp',loadord);
 router.post('/signup', postcustomers);
 router.post("/signin", getcustomers);
 router.post('/getone/foremp',getempsearch);
@@ -40,6 +40,6 @@ router.get('/profile/address/del/sel/:id',deladr)
 router.get('/favs/add/check/signin/not/:id',addfav);
 router.get('/favs/remove/check/signin/not/:id',remfav);
 router.get('/favs/remove/check/signin/not/first/:id',remfavpro)
-router.post('/customers/loadorders',loadord);
+
 export default router;
 //formated
