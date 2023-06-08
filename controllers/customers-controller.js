@@ -488,5 +488,21 @@ const deladr = async (req, res) => {
           res.render("favoriteinfo",{items:a});
         }
       }
-export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro , customerlogout};
+      const getempsearch= async(req,res)=>{
+        try{
+        const word=req.body.email;
+        const g=await All.findOne({Email:word});
+        if(g!==null){
+let arr=new Array();
+arr.push(g);
+res.render("recent-customers",{custt:arr});
+
+        }else{
+          res.redirect("/employees/profile/customers");
+        }
+      }catch(err){
+
+      }
+      }
+export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro , customerlogout,getempsearch};
 
