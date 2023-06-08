@@ -396,9 +396,25 @@ const switchtoadd= async (req,res)=>{
   // }
   res.render("add-employee");
 }
+const getorder= async (req,res)=>{
+  try{
+  const num=req.body.ordernum;
+  const mail=req.body.cusmail;
+  const ord=await orders.findOne({"num":num,customermail:mail});
+  if(ord===null){
+    res.redirect("/employees/profile/orders");
+  }else{
+    let arr=new Array();
+    arr.push(ord);
+    res.render("dashboard-orders",{orders:arr});
+  }
 
+}catch(err){
+
+}
+}
 export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,sectionsdetails,GetAllproducts,GetAllcustomers,emplogout,seremp,
-  switchtoadd};
+  switchtoadd,getorder};
 //formated
 
 
