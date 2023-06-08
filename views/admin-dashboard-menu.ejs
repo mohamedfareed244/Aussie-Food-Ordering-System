@@ -2,7 +2,7 @@
 <html>
 
 
-    <title>Restaurant</title>
+    <title>Menu</title>
     <link rel="shortcut icon" href="/images/barbecue.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="/Css/admin-dashboard-menu.css">
@@ -32,16 +32,18 @@
                             <% if (sections.length> 0) { %>
                                 <div style="display: flex; overflow: auto; max-width: 500px;">
                                 <% sections.forEach((sec)=> { %>
-                          
+                          <%if(selected!==sec.name){%>
                                 <li onclick="location.href='/employees/profile/menu/<%=sec.name%>'" > <%= sec.name %></li>
-                               
+                               <%}else{%>
+                                <li onclick="location.href='/employees/profile/menu/<%=sec.name%>'" style="color:#d4a373; ;" > <%= sec.name %></li>
+                                <%}%>
                                 <% });} %>
                             </div>
 
                             <li><a class="sign" href="#" onclick="togglePopup4()">Add Section</a></li>
                             <li><a class="sign" href="#" onclick="togglePopup()">Delete Section</a></li>
 
-                            <li><a class="sign" href="#" onclick="togglePopup3()">Add Meal</a></li>
+                            <li><a class="sign" href="#" onclick="togglePopup3()">Add item</a></li>
 
                         </div>
                         <% if (items.length> 0) { %>

@@ -68,9 +68,7 @@ body {
     width: 100%;
 }
 
-.content .list li:first-child {
-    color: #d4a373;
-}
+
 
 .box_flex {
     display: flex;

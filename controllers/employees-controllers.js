@@ -287,7 +287,7 @@ break;
     if(!found){
       res.render("error-page");
     }else{
-      res.render("admin-dashboard-menu",{sections:sections_names,"items":items});
+      res.render("admin-dashboard-menu",{sections:sections_names,"items":items,selected:req.params.sec_name});
     }
 };
 
