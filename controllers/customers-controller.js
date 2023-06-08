@@ -137,12 +137,10 @@ const postcustomers = async (req, res) => {
         const customer = new customers(obj);
 
         try {
-        let x
-        await bcrypt.hash(req.body.Password, 10,function(err,hash){
-          x=hash;
-
-         });
-         customer.password=x;
+       
+       const x=await bcrypt.hash(req.body.Password, 10);
+     
+        customer.Password=x;
           await customer.save();
           sendsms(customer);
           res.redirect("/products/All");
@@ -171,11 +169,8 @@ const getcustomers = async (req, res) => {
     current_customer = result;
   })
   console.log(current_customer);
-  let founded=false;
-  bcrypt.compare(req.body.Password, current_customer.password, (err, res) => {
-    founded=res;
-    // res == true or res == false
-  });
+  const founded =await bcrypt.compare(req.body.password, current_customer.Password);
+  
 
   if (current_customer === undefined || current_customer === null|| !founded) {
     res.render("sign-in", { alert: true, text: " incorrect email or password " });
