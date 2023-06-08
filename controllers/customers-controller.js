@@ -216,11 +216,13 @@ const customerchnagepass = async (req, res) => {
         res.render("personalinfo", { customer: req.session.signed_customer });
       }
       else {
-        console.log(req.body.password, req.body.confirmPassword);
+
+        console.log("Password are not matching");
       }
     }
 
     else {
+      console.log("wrong password")
       res.render("personalinfo", { customer: req.session.signed_customer });
     }
   }
