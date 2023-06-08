@@ -369,7 +369,7 @@ if(emp!==null){
   arr.push(emp)
   res.render('dashboard-employees', { employees: result });
 }else{
-  res.redirect("/employees/")
+  res.redirect("/employees/profile/user")
 }
 
 
