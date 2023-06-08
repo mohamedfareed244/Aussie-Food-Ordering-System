@@ -17,7 +17,7 @@ import { sectionsdetails } from "../controllers/employees-controllers.js";
 
 
 
-import { getallchatssel ,emporder,seremp,switchtoadd} from "../controllers/employees-controllers.js";
+import { getallchatssel ,emporder,seremp,switchtoadd,getorder} from "../controllers/employees-controllers.js";
 const router = Router();
 console.log(postemployees);
 //employees sign up 
@@ -31,6 +31,7 @@ router.get("/profile", empprof);
 router.get("/mail/verification/:id", confirmmail);
 //change employees password 
 router.post("/profile/password/change", changepass);
+router.post('/search/order/num',getorder);
 router.get("/signin", (req, res) => {
   res.render("admin_signin", { alert: false });
 })

@@ -20,9 +20,12 @@
             <div class="cardHeader">
                 <h2>Recent Orders</h2>
                 <div class="formbox">
-                  <input type="text" class="searchid" placeholder="Enter order ID">
-                  <input type="text" class="searchnum" placeholder="Enter order name">
-                  <button class="search-btn" type="button">Search</button>
+                  <form action="/employees/search/order/num" method="post">
+                  <input type="text" class="searchid" placeholder="Enter order number"  name="ordernum">
+                  <input type="text" class="searchnum" placeholder="Enter customer mail " name="cusmail">
+                  <input type="submit" class="search-btn" value="Search">
+                 
+                  </form>
 
               </div>
                 <a href="/employees/profile/orders" class="btnv">View All</a>
