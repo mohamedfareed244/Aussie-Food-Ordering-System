@@ -4,6 +4,7 @@ import { io } from "../bin/www.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
 import validator from 'validator';
+import bcrypt from 'bcryptjs';
 import { All } from "../models/schema.js";
 
 async function sendsms(User) {
