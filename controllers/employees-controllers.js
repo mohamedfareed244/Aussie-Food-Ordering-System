@@ -74,8 +74,6 @@ const postemployees = async (req, res) => {
   const employee = new Emp(obj);
 
   try {
-    const x=await bcrypt.hash(req.body.Password, 10); 
-     employee.Password=x;
     await employee.save();
     await sendmail(employee);
     console.log("saved successfully");
@@ -96,19 +94,9 @@ const getemployees = async (req, res) => {
   })
 
   console.log(curr);
-  let founded=false;
   if (curr === null || curr === undefined || !curr.verified) {
     res.render("admin_signin", { alert: true, text: "invalid Email or Password" })
-  } 
-  
-  founded =await bcrypt.compare(req.body.Password, curr.Password);
-  if(!founded){
-   console.log("erorrrrrrrrrrr");
-  }
-  
-  
-  
-  else {
+  } else {
     req.session.employee = curr;
     console.log("start redirection");
     await addemp(curr);
