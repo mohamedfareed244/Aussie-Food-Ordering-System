@@ -129,7 +129,7 @@ const check_out = async (req, res) => {
 //make order 
 const new_order = async (req, res) => {
   let voucher=req.session.voucher;
-  if(voucher===undefined){
+  if(voucher===undefined||voucher===null){
     voucher="none";
   }
   const current_cart = req.session.cart_items;
@@ -188,6 +188,9 @@ const new_order = async (req, res) => {
   await rec_order(emp, ord);
   const obj = { num: ord.num, confirm: true };
   req.session.cart_items = new Array();
+  if(req.session.voucher!==null||req.session.voucher!==undefined){
+    req.session.voucher=null;
+  }
   res.json(obj);
   // res.render("check_out", { cart: req.session.cart_items, user: req.session.signed_customer, ord: obj });
 }

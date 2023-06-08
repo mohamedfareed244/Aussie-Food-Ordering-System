@@ -94,7 +94,7 @@ let online_cus=new Array();
 
 
 async function getmyemp(customer){
-  let ob=null;
+  let ob={"soc":null,"name":null};
   
  for(let i=0;i<online_cus.length;i++){
   if(online_cus[i].customer._id===customer._id){
@@ -102,7 +102,8 @@ async function getmyemp(customer){
     
     await find_soc(onlineemp[online_cus[i].to].curr).then((res)=>{
       console.log("the returned socket is ",res);
-      ob=res;
+      ob.soc=res;
+      ob.name=onlineemp[online_cus[i].to].curr.Name;
       
     })
   }

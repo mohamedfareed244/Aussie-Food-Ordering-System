@@ -5,7 +5,7 @@ import ejs from "ejs";
 import { addemp, get_customers } from "../app.js";
 import { orders } from "../models/orders.js";
 import { Sec } from "../models/menu_sections.js";
-
+import bcrypt from 'bcryptjs';
 import {All } from "../models/schema.js";
 
 
@@ -89,14 +89,22 @@ const getemployees = async (req, res) => {
   console.log(req.body.Email)
   console.log(req.body.password)
   let curr;
-  await Emp.findOne({ Email: req.body.Email, Password: req.body.password }).then((res) => {
+  await Emp.findOne({ Email: req.body.Email }).then((res) => {
     curr = res;
   })
 
   console.log(curr);
-  if (curr === null || curr === undefined || !curr.verified) {
+  founded =await bcrypt.compare(req.body.password, curr.Password);
+  if(!founded){
+    res.render("admin_signin",{alert:true,text:"Invalid user name or password "});
+  }
+  if (curr === null || curr === undefined ) {
     res.render("admin_signin", { alert: true, text: "invalid Email or Password" })
-  } else {
+  } else if (!curr.verified){
+    res.render("admin_signin", { alert: true, text: "Check Your mail for verfication to signin " })
+  }
+  else {
+    let founded=false;
     req.session.employee = curr;
     console.log("start redirection");
     await addemp(curr);
@@ -134,7 +142,9 @@ const changepass = async (req, res) => {
   }
   else {
     const curr = req.session.employee;
-    curr.Password = req.body.psw;
+    const pass= await bcrypt.hash(req.body.psw,10);
+    curr.Password=pass;
+
     await Emp.findOneAndReplace({ Email: curr.Email }, curr);
 
     res.render("admin_account", { user: req.session.employee });
@@ -240,6 +250,14 @@ await orders.find({emp_name:curr.Name,emp_phone:curr.Phone}).then((items)=>{
 
 //get emps in table
 const GetAllemps = (req, res) => {
+  const current=req.session.employee;
+  if(current===null||current===undefined){
+    res.render("sign-in",{alert:true,text:"You must login to access this feature "});
+  }
+  else if(!curr.isadmin){
+    req.session.employee=null;
+    res.render("sign-in",{alert:true,text:"you have signed out sign in again as an admin to access this section "})
+  }
   Emp.find()
     .then((result) => {
       console.log(result)
@@ -262,6 +280,14 @@ const GetAllemps = (req, res) => {
 
 //get sections in menu
 const sectionsdetails = async (req, res) => {
+
+
+if(req.session.employee===null||req.session.employee==undefined){
+  res.render("admin_signin",{alert:true,text:false});
+}
+
+
+
   let sections_names;
   let selected_section=req.params.sec_name;
 await  Sec.find()
@@ -327,14 +353,21 @@ const GetAllproducts = (req, res) => {
      });
  };
  const emplogout = async (req, res) => {
+  if(req.session.employee===null||req.session.employee===undefined){
+    res.render("admin_signin",{alert:true,text:"You already logged out "})
+  }else{
   req.session.employee= null;
   res.render("admin_signin", { alert: false});
+  }
+}
+
+const seremp= async (req,res)=>{
+const word=req.body.empsearch;
+await Emp.findOne({Email:word});
 }
 
 
-
-
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,sectionsdetails,GetAllproducts,GetAllcustomers,emplogout};
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,sectionsdetails,GetAllproducts,GetAllcustomers,emplogout,seremp};
 //formated
 
 
