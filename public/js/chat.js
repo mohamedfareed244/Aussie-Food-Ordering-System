@@ -115,7 +115,7 @@ socket.on("cust_disconnect", (async (o) => {
             }
           }
           let newchat;
-          await fetch(`http://127.0.0.1:3001/customers/admin/chat/changeuser/${collection[i].id}`, { method: 'GET' })
+          await fetch(`/customers/admin/chat/changeuser/${collection[i].id}`, { method: 'GET' })
             .then((obj) => {
               return obj.json();
             })
