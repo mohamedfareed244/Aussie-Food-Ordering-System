@@ -17,14 +17,14 @@ import { sectionsdetails } from "../controllers/employees-controllers.js";
 
 
 
-import { getallchatssel ,emporder} from "../controllers/employees-controllers.js";
+import { getallchatssel ,emporder,seremp} from "../controllers/employees-controllers.js";
 const router = Router();
 console.log(postemployees);
 //employees sign up 
 router.post("/", postemployees)
 //employees sign in 
 router.post("/signin", getemployees);
-
+router.post("/search",seremp);
 //access to employees profile 
 router.get("/profile", empprof);
 //verify employees mail 
