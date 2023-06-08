@@ -491,7 +491,8 @@ const deladr = async (req, res) => {
       const getempsearch= async(req,res)=>{
         try{
         const word=req.body.email;
-        const g=await All.findOne({Email:word});
+        console.log("word is ",word)
+        const g=await customers.findOne({Email:word});
         if(g!==null){
 let arr=new Array();
 arr.push(g);

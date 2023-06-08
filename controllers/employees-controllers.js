@@ -273,7 +273,7 @@ const GetAllemps = (req, res) => {
       console.log(err);
     });
   }catch(err){
-    
+
   }
 };
 
@@ -354,7 +354,7 @@ const GetAllproducts = (req, res) => {
  const GetAllcustomers = (req, res) => {
   customers.find()
      .then((result) => {
-       console.log(result)
+       
        res.render('recent-customers', {custt: result });
      })
      .catch((err) => {
