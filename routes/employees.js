@@ -17,7 +17,7 @@ import { sectionsdetails } from "../controllers/employees-controllers.js";
 
 
 
-import { getallchatssel ,emporder,seremp} from "../controllers/employees-controllers.js";
+import { getallchatssel ,emporder,seremp,switchtoadd} from "../controllers/employees-controllers.js";
 const router = Router();
 console.log(postemployees);
 //employees sign up 
@@ -51,7 +51,7 @@ router.get("/emppp", GetAllproducts);
 
 router.get("/empp", GetAllcustomers);
 
-
+router.get("/profile/addnewone",switchtoadd);
 
 export default router;
 

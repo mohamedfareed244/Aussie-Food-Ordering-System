@@ -375,9 +375,20 @@ if(emp!==null){
 
 
 }
+const switchtoadd= async (req,res)=>{
+  if(req.session.employee===null||req.session.employee===undefined){
+    res.render("admin_signin",{alert:true,text:"You have to sign in first before this action "})
+  }else if (!req.session.employee.isadmin){
+    req.session.employee=null;
+    res.render("admin_signin",{alert:true,text:"You have to sign in as admin first before this action "})
+  }else{
+    
+  }
+  res.render("add-employee");
+}
 
-
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,sectionsdetails,GetAllproducts,GetAllcustomers,emplogout,seremp};
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,sectionsdetails,GetAllproducts,GetAllcustomers,emplogout,seremp,
+  switchtoadd};
 //formated
 
 
