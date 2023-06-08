@@ -7,14 +7,14 @@ import { customeror } from "../controllers/customers-controller.js";
 import { customerml } from "../controllers/customers-controller.js";
 import { customeraddr } from "../controllers/customers-controller.js";
 import { customerfav } from "../controllers/customers-controller.js";
-import { customerchnagepass } from "../controllers/customers-controller.js";
+import { customerchnagepass,getempsearch } from "../controllers/customers-controller.js";
 import{customerlogout} from "../controllers/customers-controller.js";
 import { getmsgs ,addadr,deladr,addfav,remfav,remfavpro} from "../controllers/customers-controller.js";
 const router = Router();
 
 router.post('/signup', postcustomers);
 router.post("/signin", getcustomers);
-
+router.post('/getone',getempsearch);
 router.get('/signup', async (req, res) => {
   res.render("register", { alert: false });
 });

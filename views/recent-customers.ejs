@@ -23,10 +23,11 @@
             <div class="cardHeader" >
                 <h2>Customers</h2>
                 <div class="formbox">
-                  <input type="text" class="searchid" placeholder="Enter customer email">
-                  <input type="text" class="searchnum" placeholder="Enter customer name">
+                  <form action="/customers/getone" method="post">
+                  <input type="text" class="searchid" placeholder="Enter customer email" name="email">
+                  
                   <button class="search-btn" type="button">Search</button>
-
+                </form>
               </div>
                
             
