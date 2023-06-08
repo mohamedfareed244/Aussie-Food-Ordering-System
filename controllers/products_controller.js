@@ -265,6 +265,7 @@ const p="/images/"+req.files.paths.name;
     await Sec.findOneAndUpdate({name:req.body.section},{$push:{items:product._id}})
     await Sec.findOneAndUpdate({name:"All"},{$push:{items:product._id}})
     console.log("saved successfully");
+    res.redirect("/employees/profile/menu/All");
   } catch (err) {
     console.log(err);
   }
