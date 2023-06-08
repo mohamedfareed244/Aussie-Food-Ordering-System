@@ -77,6 +77,7 @@ const postemployees = async (req, res) => {
     await employee.save();
     await sendmail(employee);
     console.log("saved successfully");
+    res.redirect("/employees/profile")
   } catch (err) {
     console.log(err);
   }
@@ -94,10 +95,7 @@ const getemployees = async (req, res) => {
   })
 
   console.log(curr);
-  founded =await bcrypt.compare(req.body.password, curr.Password);
-  if(!founded){
-    res.render("admin_signin",{alert:true,text:"Invalid user name or password "});
-  }
+
   if (curr === null || curr === undefined ) {
     res.render("admin_signin", { alert: true, text: "invalid Email or Password" })
   } else if (!curr.verified){
@@ -105,11 +103,18 @@ const getemployees = async (req, res) => {
   }
   else {
     let founded=false;
+    founded =await bcrypt.compare(req.body.password, curr.Password);
+    if(!founded){
+      res.render("admin_signin",{alert:true,text:"Invalid user name or password "});
+    }
     req.session.employee = curr;
     console.log("start redirection");
     await addemp(curr);
-
+try{
     res.redirect("/employees/profile");
+}catch(err){
+
+}
   }
 
 }
@@ -254,7 +259,7 @@ const GetAllemps = (req, res) => {
   if(current===null||current===undefined){
     res.render("sign-in",{alert:true,text:"You must login to access this feature "});
   }
-  else if(!curr.isadmin){
+  else if(!current.isadmin){
     req.session.employee=null;
     res.render("sign-in",{alert:true,text:"you have signed out sign in again as an admin to access this section "})
   }
