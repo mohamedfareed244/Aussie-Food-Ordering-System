@@ -285,7 +285,7 @@ for(let i=0;i<g.length;i++){
    
                       sum+=g[i].price*g[i].Qty;
 }
-
+sum=sum+((sum/100)*14);
 if(obj.discount!=="none"){
 sum-=((sum/100)*10)
 sum=Math.round(sum);
@@ -325,8 +325,7 @@ for(let i=0;i<x.length;i++){
     document.getElementsByClassName("sst")[i].innerHTML="Delivered";
     document.getElementsByClassName("sst")[i].id="Delivered";
     console.log(document.getElementsByClassName("td1")[i]);
-    document.getElementsByClassName("td1")[i].style.display="none";
-    document.getElementsByClassName("td2")[i].style.display="none";
+    location.reload();
   }
 }
 })
@@ -341,8 +340,7 @@ for(let i=0;i<x.length;i++){
     console.log("the index is ",i);
     document.getElementsByClassName("sst")[i].innerHTML="Cancelled";
     document.getElementsByClassName("sst")[i].id="Cancelled";
-    arr.removeChild(arr.children[0]);
-    arr.removeChild(arr.children[0]);
+    location.reload();
    
     // document.getElementsByClassName("td1")[i].style.display="none";
     // document.getElementsByClassName("td2")[i].style.display="none";
