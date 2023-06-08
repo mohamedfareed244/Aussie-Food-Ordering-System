@@ -232,9 +232,24 @@ const postsection = async (req, res) => {
 //add product to menu
 const postproduct = async (req, res) => {
 
+  let imgFile;
+  let uploadPath;
+  if (!req.files || Object.keys(req.files).length === 0) {
+    res.render("error-page");
+  }
+  
+ imgFile = req.files.paths;
+ console.log(req.files.paths.name);
+ uploadPath = __dirname+ '/public/images/' + req.files.paths.name ;
+
+ imgFile.mv(uploadPath,(err)=>{
+  
+ })
+const p="/images/"+req.files.paths.name;
+
   const obj = {
     name: req.body.name,
-    path: req.body.path,
+    path: p,
     price: req.body.price,
     description: req.body.description,
     section: req.body.section
