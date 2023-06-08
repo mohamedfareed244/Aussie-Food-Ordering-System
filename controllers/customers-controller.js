@@ -173,11 +173,11 @@ const getcustomers = async (req, res) => {
   
    
   
-
+console.log(current_customer);
   if (current_customer === undefined || current_customer === null) {
     res.render("sign-in", { alert: true, text: " incorrect email or password " });
 
-  }
+  }else{
   founded =await bcrypt.compare(req.body.password, current_customer.Password);
 if(!founded){
   res.render("sign-in", { alert: true, text: " incorrect email or password " });
@@ -195,6 +195,8 @@ if(!founded){
     console.log(req.rawHeaders[19]);
     res.redirect("/products/All");
   }
+  }
+
 }
 
 
