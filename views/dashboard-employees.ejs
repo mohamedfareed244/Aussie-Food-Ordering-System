@@ -67,7 +67,11 @@
                         <td>
                           <%= emp.Phone %>
                         </td>
-                        <td></td>
+                        <%if(!emp.isadmin){%>
+                        <td>employee</td>
+                        <%}else{%>
+                          <td>Admin</td>
+                          <%}%>
                        
                     </tr>
                    <% });} %>

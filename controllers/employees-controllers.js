@@ -255,13 +255,14 @@ await orders.find({emp_name:curr.Name,emp_phone:curr.Phone}).then((items)=>{
 
 //get emps in table
 const GetAllemps = (req, res) => {
+  try{
   const current=req.session.employee;
   if(current===null||current===undefined){
-    res.render("sign-in",{alert:true,text:"You must login to access this feature "});
+    res.render("admin_signin",{alert:true,text:"You must login to access this feature "});
   }
   else if(!current.isadmin){
     req.session.employee=null;
-    res.render("sign-in",{alert:true,text:"you have signed out sign in again as an admin to access this section "})
+    res.render("admin_signin",{alert:true,text:"you have signed out sign in again as an admin to access this section "})
   }
   Emp.find()
     .then((result) => {
@@ -271,6 +272,9 @@ const GetAllemps = (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+  }catch(err){
+    
+  }
 };
 
 
@@ -368,11 +372,12 @@ const GetAllproducts = (req, res) => {
 
 const seremp= async (req,res)=>{
 const word=req.body.empsearch;
+console.log(word);
 const emp=await Emp.findOne({Email:word});
 if(emp!==null){
   let arr=new Array();
   arr.push(emp)
-  res.render('dashboard-employees', { employees: result });
+  res.render('dashboard-employees', { employees: arr });
 }else{
   res.redirect("/employees/profile/user")
 }
