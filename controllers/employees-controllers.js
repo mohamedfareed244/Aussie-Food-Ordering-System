@@ -280,6 +280,14 @@ const GetAllemps = (req, res) => {
 
 //get sections in menu
 const sectionsdetails = async (req, res) => {
+
+
+if(req.session.employee===null||req.session.employee==undefined){
+  res.render("admin_signin",{alert:true,text:false});
+}
+
+
+
   let sections_names;
   let selected_section=req.params.sec_name;
 await  Sec.find()
