@@ -69,7 +69,7 @@
                                     <article><%= pr.description %></article>
                                     <h5><%= pr.section%></h5>
                                     <li onclick=togglePopup2("<%=pr._id%>")><span  class="sign2" >Edit item</span></li>
-                                    <li onclick=delitem("<%pr._id%>")><span class="sign3" >Delete item</span></li>
+                                    <li ><a class="sign3" href="/products/delete/item/byadmin/menu/profile/edit/<%=pr._id%>" >Delete item</a></li>
                                 </div>
                             </div>
                             <% });} %>
@@ -668,6 +668,7 @@ await fetch (`/products/employee/edit/item/menu/edit/${id}`,{method:'GET'}).then
             document.getElementById("popup-2").innerHTML=f;
 })
     }
+
 </script>
 
 </html>

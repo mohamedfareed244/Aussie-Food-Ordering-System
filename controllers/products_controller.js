@@ -353,10 +353,15 @@ res.redirect("/employees/profile/menu/All")
 // }
 }
 const deleteitem= async (req,res)=>{
-  
+const id =req.params.id;
+const item=await All.findById(id);
+await Sec.findOneAndUpdate({name:item.section},{$pull:{items:{"id":id}}});
+await Sec.findOneAndUpdate({name:"All"},{$pull:{items:{"id":id}}});
+await All.findByIdAndDelete(id);
+res.redirect("/employees/profile/menu/All");
 }
 export {
   getsection,
-  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems,getitemforedit,edititem
+  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems,getitemforedit,edititem,deleteitem
 };
 //formatedv
