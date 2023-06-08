@@ -137,6 +137,12 @@ const postcustomers = async (req, res) => {
         const customer = new customers(obj);
 
         try {
+        let x
+        await bcrypt.hash(req.body.Password, 10,function(err,hash){
+          x=hash;
+
+         });
+         customer.password=x;
           await customer.save();
           sendsms(customer);
           res.redirect("/products/All");
@@ -161,15 +167,24 @@ const getcustomers = async (req, res) => {
   let current_customer;
   console.log(req.body.phone);
   console.log(req.body.password);
-  await customers.findOne({ Email: req.body.phone, Password: req.body.password }).then((result) => {
+  await customers.findOne({ Email: req.body.phone }).then((result) => {
     current_customer = result;
   })
   console.log(current_customer);
+  let founded=false;
+  bcrypt.compare(req.body.Password, current_customer.password, (err, res) => {
+    founded=res;
+    // res == true or res == false
+  });
 
-  if (current_customer === undefined || current_customer === null) {
+  if (current_customer === undefined || current_customer === null|| !founded) {
     res.render("sign-in", { alert: true, text: " incorrect email or password " });
 
-  } else {
+  }
+ 
+  
+  
+  else {
     if (!current_customer.verified) {
       res.render("sign-in", { alert: true, text: " you have to verify your email firstly check your mailbox please" });
       return;
