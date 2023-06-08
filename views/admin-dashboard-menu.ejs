@@ -647,7 +647,7 @@ await fetch (`/products/employee/edit/item/menu/edit/${id}`,{method:'GET'}).then
                 </div>
                 <h1>Edit Item</h1>
                 <form action="/products/edit/a/a/a/b/c/d/f" method='post' enctype="multipart/form-data">
-
+                    <input type="hidden" id="name" name ="idd"  value="${b._id}">
                     <input type="text" id="name" name ="itemname" placeholder="Change Item Name" value="${b.name}">
                     <input type="text" id="name" name="itemprice" placeholder="Change Item Price" value=${b.price}>
                     <input type="text" id="name" name ="itemdes" placeholder="Change Item Description" value="${b.description}">

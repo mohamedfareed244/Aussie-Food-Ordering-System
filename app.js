@@ -329,7 +329,7 @@ async function repcust(cust){
 }
 
 export {repcust,app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
-,chg_custsock,getmyemp,remove_customer,find_customer_socket};
+,chg_custsock,getmyemp,remove_customer,find_customer_socket,__dirname};
 
 
 

@@ -3,9 +3,10 @@
 import { All } from "../models/schema.js";
 import { Sec } from "../models/menu_sections.js";
 import { orders } from "../models/orders.js";
-import { findfororder } from "../app.js";
+import { findfororder,__dirname } from "../app.js";
 import { rec_order } from "../bin/www.js";
-import fileUpload from "express-fileupload"
+import path from "path"
+
 //end import models 
 
 
@@ -285,15 +286,29 @@ res.json(o);
     }
   })
 }
-
-const edititem= (req,res)=>{
+async function fileexists (path) {  
+  try {
+    await fs.access(path)
+    return true
+  } catch {
+    return false
+  }
+}
+const edititem= async (req,res)=>{
+const item=await All.findById(req.body.idd);
   let imgFile;
   let uploadPath;
   if (!req.files || Object.keys(req.files).length === 0) {
     res.render("error-page");
   }
- imgFile = req.files.img;
- uploadPath = __dirname + '/public/images/' + req.body.un + path.extname(imgFile.name);
+ imgFile = req.files.path;
+ uploadPath = __dirname+ '/public/images/' + req.body.path +path.extname(imgFile.name);
+//  fs.unlink(item.path);
+
+imgFile.mv(uploadPath,(err)=>{
+  res.render("error-page");
+})
+
 res.redirect("/employees/profile/menu/All")
 // let fr=new FileReader();
 // fr.onload=function(){
