@@ -242,8 +242,13 @@ const postproduct = async (req, res) => {
   }
   const product = new All(obj);
 
+
+
+
   try {
     await product.save();
+    await Sec.findOneAndUpdate({name:req.body.section},{$push:{items:product._id}})
+    await Sec.findOneAndUpdate({name:"All"},{$push:{items:product._id}})
     console.log("saved successfully");
   } catch (err) {
     console.log(err);
@@ -318,6 +323,9 @@ imgFile.mv(uploadPath,(err)=>{
   
 })
 item.path="/images/"+req.files.paths.name;
+item.name=req.body.itemname;
+item.description=req.body.itemdes;
+item.price=parseFloat(req.body.itemprice);
 await item.save();
 res.redirect("/employees/profile/menu/All")
 // let fr=new FileReader();

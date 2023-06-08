@@ -528,10 +528,11 @@
                     <input type="text" id="name" name="description" placeholder="Enter Item Description">
 
                     <select class="selecttt" Name="choose section" name="section" Size="Number_of_options">
-                        <option> ind meals </option>
-                        <option> healthy food </option>
-                        <option> ind meals </option>
-                        <option> healthy food </option>
+                        <%sections.forEach((sec)=>{ %>
+                            <%if(sec.name!=="All"){%>
+                        <option> <%=sec.name%> </option>
+                        <%}%>
+                       <%});%>
                     </select>
                     <input type="file" id="upload" name="path">
                     <label for="upload">
