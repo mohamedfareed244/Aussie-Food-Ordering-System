@@ -237,7 +237,7 @@ const postproduct = async (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     res.render("error-page");
   }
-  
+  console.log("the selected one is ",req.body.section);
  imgFile = req.files.paths;
  console.log(req.files.paths.name);
  uploadPath = __dirname+ '/public/images/' + req.files.paths.name ;
@@ -262,8 +262,11 @@ const p="/images/"+req.files.paths.name;
 
   try {
     await product.save();
-    await Sec.findOneAndUpdate({name:req.body.section},{$push:{items:product._id}})
-    await Sec.findOneAndUpdate({name:"All"},{$push:{items:product._id}})
+    let Id=product._id;
+    Id=Id.valueOf();
+    let obj={id:Id};
+    await Sec.findOneAndUpdate({name:req.body.section},{$push:{items:obj}})
+    await Sec.findOneAndUpdate({name:"All"},{$push:{items:obj}})
     console.log("saved successfully");
     res.redirect("/employees/profile/menu/All");
   } catch (err) {

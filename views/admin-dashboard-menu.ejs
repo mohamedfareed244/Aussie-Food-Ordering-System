@@ -527,10 +527,10 @@
                     <input type="text" id="name" name="price" placeholder="Enter Item Price">
                     <input type="text" id="name" name="description" placeholder="Enter Item Description">
 
-                    <select class="selecttt" Name="choose section" name="section" Size="Number_of_options">
+                    <select class="selecttt"  name="section" Size="Number_of_options">
                         <%sections.forEach((sec)=>{ %>
                             <%if(sec.name!=="All"){%>
-                        <option> <%=sec.name%> </option>
+                        <option name="<%=sec.name%>" value="<%=sec.name%>" > <%=sec.name%> </option>
                         <%}%>
                        <%});%>
                     </select>
