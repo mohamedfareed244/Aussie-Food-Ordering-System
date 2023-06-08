@@ -137,6 +137,7 @@
          
     <!-- orders -->
     <audio id="audio" src="/sounds/sound.m4r"></audio>
+    <audio id="audio1" src="/sounds/Messagenotification.m4r"></audio>
   </main>
 </body>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
@@ -161,7 +162,10 @@
 
 
 
-
+socket.on("newcustomer",async (o)=>{
+  displayalert("new customer joined the chat ");
+  sou1();
+})
      async function displayalert(text) {
   document.getElementById("almsg").style.display="block";
   document.getElementById("almsg").innerHTML = `${text}`
@@ -173,7 +177,9 @@ async function hidealert() {
 
 }
 
-socket.on("")
+socket.on("getmessage",async (o)=>{
+  displayalert("you have recieved a new message ");
+})
      
      socket.on('recieve order',async (msg)=>{
       console.log(msg.customername);
@@ -272,6 +278,13 @@ sou();
        console.log(err);
    })
      }
+     async function sou1(){
+   
+   let audio = document.getElementById("audio1");
+audio.play().catch((err)=>{
+   console.log(err);
+})
+ }
    
    
               async function togglePopup(id){
