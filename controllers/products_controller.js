@@ -301,14 +301,16 @@ const item=await All.findById(req.body.idd);
   if (!req.files || Object.keys(req.files).length === 0) {
     res.render("error-page");
   }
- imgFile = req.files.path;
- uploadPath = __dirname+ '/public/images/' + req.body.path +path.extname(imgFile.name);
+  
+ imgFile = req.files.paths;
+ console.log(req.files.paths.name);
+ uploadPath = __dirname+ '/public/images/' + req.files.paths.name ;
 //  fs.unlink(item.path);
 
 imgFile.mv(uploadPath,(err)=>{
   res.render("error-page");
 })
-
+item.path=`/images/${req.files.paths.name}`;
 res.redirect("/employees/profile/menu/All")
 // let fr=new FileReader();
 // fr.onload=function(){
