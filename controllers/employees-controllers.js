@@ -363,7 +363,17 @@ const GetAllproducts = (req, res) => {
 
 const seremp= async (req,res)=>{
 const word=req.body.empsearch;
-await Emp.findOne({Email:word});
+const emp=await Emp.findOne({Email:word});
+if(emp!==null){
+  let arr=new Array();
+  arr.push(emp)
+  res.render('dashboard-employees', { employees: result });
+}else{
+  res.redirect("/employees/")
+}
+
+
+
 }
 
 

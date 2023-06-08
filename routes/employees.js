@@ -40,7 +40,7 @@ router.get("/profile/orders", emporder)
 router.get('/profile/logout', emplogout);
 
 //for employees
-router.get("/emp", GetAllemps);
+router.get("/profile/user", GetAllemps);
 
 //for admin menu sections
 router.get("/profile/menu/:sec_name", sectionsdetails);
