@@ -89,19 +89,19 @@
             <thead>
                 <tr>
                     <td>
-                       Order ID
+                       Order num
                     </td>
                     <br>
                     <td>
                        Order Date
                     </td> <br><td>
-                       total price
+                       Employee
                     </td> <br>
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td>
                        Pizza
                     </td>
@@ -110,7 +110,7 @@
                     </td> <td>
                       120$
                     </td>
-                </tr>
+                </tr> -->
       </div>
   
    </div>
@@ -121,9 +121,20 @@
          // const togel=document.querySelector(".popup")
          document.getElementById("popup-1").classList.toggle("active");
       }
-      function togglePopup(){
+      async function togglePopup(){
          // const togel=document.querySelector(".popup")
          document.getElementById("popup-1").classList.toggle("active");
+         await fetch("/customers/loadorders",{method:'GET'})
+         const f=`    <tr>
+                    <td>
+                       Pizza
+                    </td>
+                    <td>
+                      27-5-2012
+                    </td> <td>
+                      120$
+                    </td>
+                </tr>`
       }
    </script>
 
