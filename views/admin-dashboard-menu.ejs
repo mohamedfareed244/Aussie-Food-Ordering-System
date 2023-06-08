@@ -69,7 +69,7 @@
                                     <article><%= pr.description %></article>
                                     <h5><%= pr.section%></h5>
                                     <li onclick=togglePopup2("<%=pr._id%>")><span  class="sign2" >Edit item</span></li>
-                                    <li onclick="delitem(<%pr._id%>)"><a class="sign3" href="#">Delete item</a></li>
+                                    <li onclick=delitem("<%pr._id%>")><span class="sign3" >Delete item</span></li>
                                 </div>
                             </div>
                             <% });} %>

@@ -352,6 +352,9 @@ res.redirect("/employees/profile/menu/All")
 
 // }
 }
+const deleteitem= async (req,res)=>{
+  
+}
 export {
   getsection,
   getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems,getitemforedit,edititem
