@@ -13,6 +13,7 @@ import api_router from "./routes/api.js"
 import { CLIENT_RENEG_LIMIT } from "tls";
 import session from "express-session";
 import cors from "cors"
+import fileUpload from "express-fileupload"
 // import cors from "cors"
 // import { Server } from "http";
 //Read the current directory name
@@ -24,7 +25,7 @@ const app = express();
 
 app.use(cors());
 
-
+app.use(fileUpload());
 
 
 
@@ -328,7 +329,7 @@ async function repcust(cust){
 }
 
 export {repcust,app,addemp,delemp,findforchat,findfororder,chg_sock,sessionMiddleware,find_soc,remove_emp,get_customers,add_customer
-,chg_custsock,getmyemp,remove_customer,find_customer_socket};
+,chg_custsock,getmyemp,remove_customer,find_customer_socket,__dirname};
 
 
 

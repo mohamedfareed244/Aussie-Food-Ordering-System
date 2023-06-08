@@ -3,8 +3,10 @@
 import { All } from "../models/schema.js";
 import { Sec } from "../models/menu_sections.js";
 import { orders } from "../models/orders.js";
-import { findfororder } from "../app.js";
+import { findfororder,__dirname } from "../app.js";
 import { rec_order } from "../bin/www.js";
+import path from "path"
+
 //end import models 
 
 
@@ -274,7 +276,7 @@ const searchitems= async (req,res)=>{
 }
 
 const getitemforedit=async (req,res)=>{
-  console.log("in get item ")
+
   const id=req.params.id;
   await All.findById(id).then((o)=>{
     if(o===null){
@@ -284,8 +286,37 @@ res.json(o);
     }
   })
 }
+async function fileexists (path) {  
+  try {
+    await fs.access(path)
+    return true
+  } catch {
+    return false
+  }
+}
+const edititem= async (req,res)=>{
+const item=await All.findById(req.body.idd);
+  let imgFile;
+  let uploadPath;
+  if (!req.files || Object.keys(req.files).length === 0) {
+    res.render("error-page");
+  }
+ imgFile = req.files.path;
+ uploadPath = __dirname+ '/public/images/' + req.body.path +path.extname(imgFile.name);
+//  fs.unlink(item.path);
+
+imgFile.mv(uploadPath,(err)=>{
+  res.render("error-page");
+})
+
+res.redirect("/employees/profile/menu/All")
+// let fr=new FileReader();
+// fr.onload=function(){
+
+// }
+}
 export {
   getsection,
-  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems,getitemforedit
+  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems,getitemforedit,edititem
 };
 //formatedv
