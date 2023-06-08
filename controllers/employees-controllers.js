@@ -240,6 +240,14 @@ await orders.find({emp_name:curr.Name,emp_phone:curr.Phone}).then((items)=>{
 
 //get emps in table
 const GetAllemps = (req, res) => {
+  const current=req.session.employee;
+  if(current===null||current===undefined){
+    res.render("sign-in",{alert:true,text:"You must login to access this feature "});
+  }
+  else if(!curr.isadmin){
+    req.session.employee=null;
+    res.render("sign-in",{alert:true,text:"you have signed out sign in again as an admin to access this section "})
+  }
   Emp.find()
     .then((result) => {
       console.log(result)
