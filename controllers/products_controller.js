@@ -5,6 +5,7 @@ import { Sec } from "../models/menu_sections.js";
 import { orders } from "../models/orders.js";
 import { findfororder } from "../app.js";
 import { rec_order } from "../bin/www.js";
+import fileUpload from "express-fileupload"
 //end import models 
 
 
@@ -274,7 +275,7 @@ const searchitems= async (req,res)=>{
 }
 
 const getitemforedit=async (req,res)=>{
-  console.log("in get item ")
+
   const id=req.params.id;
   await All.findById(id).then((o)=>{
     if(o===null){
@@ -284,8 +285,18 @@ res.json(o);
     }
   })
 }
+
+const edititem= (req,res)=>{
+
+ console.log("the is ",req.body);
+res.redirect("/employees/profile/menu/All")
+// let fr=new FileReader();
+// fr.onload=function(){
+
+// }
+}
 export {
   getsection,
-  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems,getitemforedit
+  getitembyid, delitem, check_out, new_order, postsection, postproduct,getorderdet,searchitems,getitemforedit,edititem
 };
 //formatedv

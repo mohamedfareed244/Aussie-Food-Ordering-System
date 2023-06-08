@@ -646,11 +646,11 @@ await fetch (`/products/employee/edit/item/menu/edit/${id}`,{method:'GET'}).then
                     &times;
                 </div>
                 <h1>Edit Item</h1>
-                <form action="/products/edit/a/a/a" method='post'>
+                <form action="/products/edit/a/a/a/b/c/d/f" method='post' enctype="multipart/form-data">
 
-                    <input type="text" id="name" placeholder="Change Item Name" value="${b.name}">
-                    <input type="text" id="name" placeholder="Change Item Price" value=${b.price}>
-                    <input type="text" id="name" placeholder="Change Item Description" value="${b.description}">
+                    <input type="text" id="name" name ="itemname" placeholder="Change Item Name" value="${b.name}">
+                    <input type="text" id="name" name="itemprice" placeholder="Change Item Price" value=${b.price}>
+                    <input type="text" id="name" name ="itemdes" placeholder="Change Item Description" value="${b.description}">
                     <input type="file" id="upload" name="path" value ="${b.path}">
                     <label for="upload">
                         <i class="fa-solid fa-cloud-arrow-up"></i>

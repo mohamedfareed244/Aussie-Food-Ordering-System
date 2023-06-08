@@ -3,7 +3,7 @@ import Router from "express"
 import { getsection, postproduct, postsection } from "../controllers/products_controller.js";
 import { getitembyid } from "../controllers/products_controller.js";
 import { delitem } from "../controllers/products_controller.js";
-import { check_out } from "../controllers/products_controller.js";
+import { check_out,edititem } from "../controllers/products_controller.js";
 import { new_order ,getorderdet,searchitems,getitemforedit} from "../controllers/products_controller.js";
 import { confirml,disconfirml} from "../controllers/customers-controller.js";
 // import {postsection} from "../controllers/products_controller.js";
@@ -12,7 +12,7 @@ import { confirml,disconfirml} from "../controllers/customers-controller.js";
 
 
 const router = Router();
-router.post('/edit/a/a/a',edititem)
+router.post('/edit/a/a/a/b/c/d/f',edititem);
 
 //get section items by section name 
 router.get('/:sec_name', getsection);
