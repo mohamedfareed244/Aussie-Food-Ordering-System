@@ -361,10 +361,12 @@ const GetAllproducts = (req, res) => {
   }
 }
 
+const seremp= async (req,res)=>{
+
+}
 
 
-
-export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,sectionsdetails,GetAllproducts,GetAllcustomers,emplogout};
+export { getallchatssel, getemployees, postemployees, confirmmail, empprof, changepass, getallchats ,emporder,GetAllemps,sectionsdetails,GetAllproducts,GetAllcustomers,emplogout,seremp};
 //formated
 
 
