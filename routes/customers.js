@@ -14,7 +14,7 @@ const router = Router();
 
 router.post('/signup', postcustomers);
 router.post("/signin", getcustomers);
-router.post('/getone',getempsearch);
+router.post('/getone/foremp',getempsearch);
 router.get('/signup', async (req, res) => {
   res.render("register", { alert: false });
 });
