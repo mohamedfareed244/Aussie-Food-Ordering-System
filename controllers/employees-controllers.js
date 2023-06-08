@@ -345,8 +345,12 @@ const GetAllproducts = (req, res) => {
      });
  };
  const emplogout = async (req, res) => {
+  if(req.session.employee===null||req.session.employee===undefined){
+    res.render("admin_signin",{alert:true,text:"You already logged out "})
+  }else{
   req.session.employee= null;
   res.render("admin_signin", { alert: false});
+  }
 }
 
 
