@@ -64,7 +64,7 @@
                         
                       
                       
-                        <td><button   class="moree"onclick="togglePopup()">Show </button></td>
+                        <td><button   class="moree"onclick=togglePopup("<%=emp._id%>")>Show </button></td>
                        
                     </tr>
                     <% });} %>
@@ -81,7 +81,7 @@
       
    <div class="overlay"> </div>
       <div class="content">
-         <div class="close-btn" onclick="togglePopup()">
+         <div class="close-btn" onclick="togglePopup_()">
             &times;
          </div>
          <h1>Orders</h1>
@@ -117,6 +117,10 @@
 
   </main>
    <script>
+      function togglePopup_(){
+         // const togel=document.querySelector(".popup")
+         document.getElementById("popup-1").classList.toggle("active");
+      }
       function togglePopup(){
          // const togel=document.querySelector(".popup")
          document.getElementById("popup-1").classList.toggle("active");
