@@ -158,6 +158,22 @@
          input.value = '';
        }
      }
+
+
+
+
+     async function displayalert(text) {
+  document.getElementById("almsg").style.display="block";
+  document.getElementById("almsg").innerHTML = `${text}`
+ setTimeout(hidealert,3000);
+
+}
+async function hidealert() {
+  document.getElementById("alylert").style.display= "none";
+
+}
+
+socket.on("")
      
      socket.on('recieve order',async (msg)=>{
       console.log(msg.customername);

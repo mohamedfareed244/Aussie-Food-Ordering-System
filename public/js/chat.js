@@ -25,6 +25,7 @@ socket.on('recieve order', async (msg) => {
   sou();
 
 })
+
 socket.on("require signin", () => {
   location.href = '/employees/signin';
 })
@@ -182,7 +183,13 @@ async function sendmessage() {
   document.getElementById("message-body").scrollTo(0, document.getElementById("message-body").scrollHeight);
 }
 async function displayalert(text) {
+  document.getElementById("almsg").style.display="block";
   document.getElementById("almsg").innerHTML = `${text}`
+ setTimeout(hidealert,3000);
+
+}
+async function hidealert() {
+  document.getElementById("alylert").style.display= "none";
 
 }
 //formated
