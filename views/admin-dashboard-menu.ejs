@@ -448,14 +448,16 @@
                     &times;
                 </div>
                 <h1>choose section</h1>
-                <select class="selectt" Name="choose section" Size="Number_of_options">
+                <form action="/products/admin/items/menu/edit/delete/section">
+                <select class="selectt" name="section" Size="Number_of_options">
                     <%sections.forEach((sec)=>{%>
-                    <option> <%=sec.name%> </option>
+                    <option name="<%=sec.name%>" value="<%=sec.name%>"> <%=sec.name%> </option>
                     <%});%>
                 </select>
 
 
                 <button type="submit" class="registerbtn">Delete</button>
+                </form>>
             </div>
 
         </div>
