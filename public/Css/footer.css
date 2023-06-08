@@ -58,10 +58,7 @@ ul{
 	display: block;
 	transition: all 0.3s ease;
 }
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
-}
+
 .footer-col .social-links a{
 	display: inline-block;
 	height: 40px;
@@ -73,6 +70,13 @@ ul{
 	border-radius: 50%;
 	color: #ffffff;
 	transition: all 0.5s ease;
+}
+
+
+
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
 }
 .footer-col .social-links a:hover{
 	color: #24262b;
