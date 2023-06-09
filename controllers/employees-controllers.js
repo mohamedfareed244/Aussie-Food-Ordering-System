@@ -2,7 +2,7 @@
 import { Emp } from "../models/Employees.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs";
-import { addemp, get_customers } from "../app.js";
+import { addemp, get_customers ,__dirname} from "../app.js";
 import { orders } from "../models/orders.js";
 import { Sec } from "../models/menu_sections.js";
 import bcrypt from 'bcryptjs';
@@ -24,7 +24,7 @@ function sendmail(User) {
     }
   });
   let data;
-  ejs.renderFile("/Users/user/Desktop/web_back2 /views/emp_mail.ejs", { user: User }, (err, d) => {
+  ejs.renderFile(__dirname+"/views/emp_mail.ejs", { user: User }, (err, d) => {
     data = d;
 
   });

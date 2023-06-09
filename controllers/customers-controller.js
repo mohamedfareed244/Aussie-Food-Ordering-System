@@ -1,6 +1,6 @@
 import { customers } from "../models/customers.js";
 import { orders } from "../models/orders.js";
-import { io } from "../bin/www.js";
+import { __dirname} from "../app/js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
 import validator from 'validator';
@@ -18,7 +18,7 @@ async function sendsms(User) {
   });
   let data;
  
-  ejs.renderFile("/Users/user/Desktop/web_back2 /views/template.ejs", { user: User }, (err, d) => {
+  ejs.renderFile(__dirname+"/views/template.ejs", { user: User }, (err, d) => {
     data = d;
     
   });
@@ -394,7 +394,7 @@ const deladr = async (req, res) => {
     }
     sums=sums+((sums/100)*14);
     // /Users/user/Desktop/web_back2
-    ejs.renderFile("/Users/user/Desktop/web_back2/views/order-confirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
+    ejs.renderFile(__dirname+"/views/order-confirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
       data = d;
       console.log(d);
     });
@@ -432,7 +432,7 @@ const deladr = async (req, res) => {
         sums+=order.items[i].price*order.items[i].Qty;
       }
       sums=sums+((sums/100)*14);
-      ejs.renderFile("/Users/user/Desktop/web_back2 /views/order-disconfirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
+      ejs.renderFile(__dirname+ "/views/order-disconfirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
         data = d;
         console.log(d);
       });
