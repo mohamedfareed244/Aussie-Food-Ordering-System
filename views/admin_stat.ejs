@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="Css/user.css">
+    <link rel="stylesheet" href="Css/admin_home.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="js/rej.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include("partials/admin_sidebar") %>
+        <canvas id="myChart" class="right" style="width:100%;max-width:600px ; "></canvas>
+
+        <script>
+            var xValues = ["Pizza", "burger", "shawerma", "mahshy", "chicken"];
+            var yValues = [55, 49, 44, 24, 88];
+            var barColors = ["black", "yellow", 'green'];
+
+            new Chart("myChart", {
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: "Most buying items"
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>
+<!-- formated -->
