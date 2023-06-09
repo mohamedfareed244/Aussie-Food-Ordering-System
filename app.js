@@ -305,9 +305,9 @@ if(onlineemp.length!=0){
           online_cus.splice(i,1);
           
           console.log("removed from both employees and customers");
- return o;
+ return o.soc;
 })
-     return h;    
+     return h.soc;    
         }
       }
     }else{
