@@ -142,6 +142,7 @@
 </body>
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
+    document.getElementById("alylert").style.display= "none";
    var socket = io();
      socket.on('connect',()=>{
       
@@ -167,7 +168,7 @@ socket.on("newcustomer",async (o)=>{
   sou1();
 })
      async function displayalert(text) {
-  document.getElementById("almsg").style.display="block";
+  document.getElementById("alylert").style.display="block";
   document.getElementById("almsg").innerHTML = `${text}`
  setTimeout(hidealert,3000);
 
@@ -179,6 +180,7 @@ async function hidealert() {
 
 socket.on("getmessage",async (o)=>{
   displayalert("you have recieved a new message ");
+  sou1();
 })
      
      socket.on('recieve order',async (msg)=>{
@@ -208,66 +210,6 @@ const f=` <td>
 
 row.innerHTML=f;
 
-
-
-
-
-
-
-//   let td1 = row.insertCell(0);
-//   let td2 = row.insertCell(1);
-//   let td3 = row.insertCell(2);
-//   let td4 = row.insertCell(3);
-//   let td5 = row.insertCell(4);
-//   let td6 = row.insertCell(5);
-//   let td7 = row.insertCell(6);
-//   let sp=document.createElement("span");
-//   sp.id="pending";
-//   sp.className=("sst");
-//   sp.innerHTML=msg.status;
-
-//   let g1=document.createElement("span");
-//   g1.innerHTML=msg.customername;
-// td1.appendChild(g1);
-  
-//   let g=document.createElement("span");
-//   g.innerHTML=msg.customerphone;
-// td2.appendChild(g);
-
-// let g3=document.createElement("span");
-//   g3.innerHTML=msg.num;
-// td3.appendChild(g3);
-  
-// let f=document.createElement("input");
-// f.type="hidden";
-// f.className="vv";
-// f.value=`${msg._id}`;
-//   td4.appendChild(sp);
-//   let btn =document.createElement("button");
-//   btn.className="moree";
-//   btn.innerHTML="Show More";
-  
-  
-//   td5.appendChild(btn);
-//   let i1=document.createElement("i");
-//   i1.id="iconn";
-// i1.className="fa-sharp fa-solid fa-circle-check";
-// td6.appendChild(i1);
-// i1.addEventListener('click', ()=>{
-//   confirmord(msg._id);
-// })
-// let i2=document.createElement("i");
-//   i2.id="iconn";
-// i2.className="fa-solid fa-circle-xmark";
-// td7.appendChild(i2);
-// i2.addEventListener('click',()=>{
-// decord(msg._id);
-// })
-    
-     
-//      btn.addEventListener('click',()=>{
-//  togglePopup(msg._id);
-//      })
 sou();
      })
 
