@@ -286,6 +286,7 @@ for(let i=0;i<online_cus.length;i++){
  }
  //
 async function remove_customer(cust){
+  let found ={a:false,soc:null};
   for(let i=0;i<online_cus.length;i++){
     if(online_cus[i].customer._id===cust._id){
 if(onlineemp.length!=0){
@@ -305,9 +306,14 @@ if(onlineemp.length!=0){
           online_cus.splice(i,1);
           
           console.log("removed from both employees and customers");
- return o.soc;
+          found.a=true;
+          found.soc=o.soc;
+         
+
 })
-     return h.soc;    
+       if(found.a&&found.soc!==null){
+        return found.soc;
+       }  
         }
       }
     }else{

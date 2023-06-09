@@ -112,7 +112,7 @@ io.on('connection', async (socket) => {
       if (sess.signed_customer !== null && sess.signed_customer !== undefined) {
         let v = await remove_customer(sess.signed_customer);
         if (v !== null) {
-          console.log("sending to admin ")
+          console.log("sending to admin ",v)
           io.to(v).emit("cust_disconnect", { "user": sess.signed_customer });
         }
       }
