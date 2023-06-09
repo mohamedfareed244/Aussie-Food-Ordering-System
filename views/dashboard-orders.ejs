@@ -161,7 +161,9 @@
        }
      }
 
-
+     socket.on("require signin", () => {
+  location.href = '/employees/signin';
+})
 
 socket.on("newcustomer",async (o)=>{
   displayalert("new customer joined the chat ");
@@ -202,14 +204,16 @@ const f=` <td>
                         <span id='${msg.status}' class="sst">${msg.status}</span>
                         <input type="hidden" class="vv" value=${msg._id}>
                        </td>
-                       <td><button class="moree" onclick="togglePopup(${msg._id})">Show More</button></td>
+                       <td></td>
                        
-                       <td ><i class="fa-sharp fa-solid fa-circle-check" id="iconn" onclick="confirmord(${msg._id})" class="td1"></i></td>
-                       <td ><i class="fa-solid fa-circle-xmark" id="iconn" onclick="decord(${msg._id})" class="td2"></i></td>
+                       <td ></td>
+                       <td ></td>
                        `
 
 row.innerHTML=f;
-
+setTimeout(() => {
+  location.reload();
+}, 2000);
 sou();
      })
 

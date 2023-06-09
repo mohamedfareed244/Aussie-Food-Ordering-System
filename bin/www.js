@@ -224,7 +224,7 @@ async function rec_order(emp, order) {
   let index;
   let socid;
 
-  do {
+
     console.log("in : ", emp);
     console.log(emp.Password);
     await find_soc(emp).then((res) => {
@@ -234,11 +234,11 @@ async function rec_order(emp, order) {
     await getsoc(socid).then((res) => {
       index = res;
     });
-    console.log("the index is : " + index);
-    console.log("in while loop ");
-  } while (index == -1);
-
+    if(index==-1){
+    
+    }else{
   io.to(socid).emit("recieve order", order);
+    }
 }
 
 export { mongoose, rec_order, io };
