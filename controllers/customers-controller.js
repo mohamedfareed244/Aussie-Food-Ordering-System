@@ -1,6 +1,6 @@
 import { customers } from "../models/customers.js";
 import { orders } from "../models/orders.js";
-import { __dirname} from "../app/js";
+import { __dirname} from "../app.js";
 import nodemailer from "nodemailer"
 import ejs from "ejs"
 import validator from 'validator';
@@ -113,7 +113,7 @@ function validate(req, res) {
 
 
 //add new customer to the database 
-const postcustomers = async (req, res) => {
+async function postcustomers(req, res) {
   await validate(req, res);
   if (pass) {
     console.log(req.body.Phone);
@@ -133,14 +133,14 @@ const postcustomers = async (req, res) => {
           verified: false,
           favorites: new Array(),
           addreses: new Array()
-        }
+        };
         const customer = new customers(obj);
 
         try {
-       
-       const x=await bcrypt.hash(req.body.Password, 10);
-     
-        customer.Password=x;
+
+          const x = await bcrypt.hash(req.body.Password, 10);
+
+          customer.Password = x;
           await customer.save();
           sendsms(customer);
           res.redirect("/products/All");
@@ -149,7 +149,7 @@ const postcustomers = async (req, res) => {
         }
       }
 
-    })
+    });
 
 
 
@@ -160,48 +160,48 @@ const postcustomers = async (req, res) => {
 
 }
 //customer sign in 
-const getcustomers = async (req, res) => {
+async function getcustomers(req, res) {
 
   let current_customer;
   console.log(req.body.phone);
   console.log(req.body.password);
   await customers.findOne({ Email: req.body.phone }).then((result) => {
     current_customer = result;
-  })
+  });
   console.log(current_customer);
-  let founded=false;
-  
-   
-  
-console.log(current_customer);
+  let founded = false;
+
+
+
+  console.log(current_customer);
   if (current_customer === undefined || current_customer === null) {
     res.render("sign-in", { alert: true, text: " incorrect email or password " });
 
-  }else{
-  founded =await bcrypt.compare(req.body.password, current_customer.Password);
-if(!founded){
-  res.render("sign-in", { alert: true, text: " incorrect email or password " });
-}
-
- 
-  
-  
-  else {
-    if (!current_customer.verified) {
-      res.render("sign-in", { alert: true, text: " you have to verify your email firstly check your mailbox please" });
-      return;
+  } else {
+    founded = await bcrypt.compare(req.body.password, current_customer.Password);
+    if (!founded) {
+      res.render("sign-in", { alert: true, text: " incorrect email or password " });
     }
-    req.session.signed_customer = current_customer;
-    console.log(req.rawHeaders[19]);
-    res.redirect("/products/All");
-  }
+
+
+
+
+    else {
+      if (!current_customer.verified) {
+        res.render("sign-in", { alert: true, text: " you have to verify your email firstly check your mailbox please" });
+        return;
+      }
+      req.session.signed_customer = current_customer;
+      console.log(req.rawHeaders[19]);
+      res.redirect("/products/All");
+    }
   }
 
 }
 
 
 
-const customerpr = async (req, res) => {
+async function customerpr(req, res) {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access profile " });
   } else {
@@ -209,16 +209,16 @@ const customerpr = async (req, res) => {
   }
 }
 
-const customeror = async (req, res) => {
+async function customeror(req, res) {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access profile " });
-  }else{
-    const x=await orders.find({customermail:req.session.signed_customer.Email});
-  res.render("customer_orders",{orders:x});
+  } else {
+    const x = await orders.find({ customermail: req.session.signed_customer.Email });
+    res.render("customer_orders", { orders: x });
   }
 }
 
-const customerchnagepass = async (req, res) => {
+async function customerchnagepass(req, res) {
 
   if (req.session.signed_customer === undefined || req.session.signed_customer === null) {
     res.render("sign-in", { alert: true, text: "You must login first to access this section !" });
@@ -232,22 +232,21 @@ const customerchnagepass = async (req, res) => {
         const hasLowerCase = /[a-z]/.test(req.body.password);
         const hasNumber = /[0-9]/.test(req.body.password);
         const hasSpecialChar = /[!@#$%^&*().]/.test(req.body.password);
-        if (!hasUpperCase || !hasLowerCase || !hasNumber || !hasSpecialChar)
-         {
-         console.log('password must contain uppercase, lowercase , number and special character');
-         res.render("personalinfo", { customer: req.session.signed_customer });
+        if (!hasUpperCase || !hasLowerCase || !hasNumber || !hasSpecialChar) {
+          console.log('password must contain uppercase, lowercase , number and special character');
+          res.render("personalinfo", { customer: req.session.signed_customer });
         }
-        else{
+        else {
 
-        
 
-          const x=await bcrypt.hash(req.body.Password, 10);
-        curr.Password =x;
-       await customers.findOneAndReplace({ Email: curr.Email }, curr);
-        console.log("password changed ");
 
-        res.render("personalinfo", { customer: req.session.signed_customer });
-      }
+          const x = await bcrypt.hash(req.body.Password, 10);
+          curr.Password = x;
+          await customers.findOneAndReplace({ Email: curr.Email }, curr);
+          console.log("password changed ");
+
+          res.render("personalinfo", { customer: req.session.signed_customer });
+        }
       }
       else {
 
@@ -258,20 +257,20 @@ const customerchnagepass = async (req, res) => {
     }
 
     else {
-      console.log("wrong password")
+      console.log("wrong password");
       res.render("personalinfo", { customer: req.session.signed_customer });
     }
   }
 
 }
-const customerlogout = async (req, res) => {
-req.session.signed_customer= null;
-res.redirect('/');
+async function customerlogout(req, res) {
+  req.session.signed_customer = null;
+  res.redirect('/');
 }
 
 
 
-const customerml = async (req, res) => {
+async function customerml(req, res) {
 
   console.log("recieve request");
   const customer = await customers.findById(req.params.id);
@@ -286,7 +285,7 @@ const customerml = async (req, res) => {
 
 }
 
-const customeraddr = async (req, res) => {
+async function customeraddr(req, res) {
   if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
     res.render("sign-in", { alert: true, text: "you must sign in to access addreses " });
   } else {
@@ -296,22 +295,22 @@ const customeraddr = async (req, res) => {
 }
 
 
-const customerfav = async (req, res) => {
-  if(req.session.signed_customer===null||req.session.signed_customer===undefined){
-    res.render("sign-in",{alert:true,text:"You should sign in first to access favourites "})
-  }else{
-    const obj=req.session.signed_customer.favorites;
-    let a=new Array();
-    for(let i=0;i<obj.length;i++){
-      const g=await All.findById(obj[i].itemId);
-a.push(g);
+async function customerfav(req, res) {
+  if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
+    res.render("sign-in", { alert: true, text: "You should sign in first to access favourites " });
+  } else {
+    const obj = req.session.signed_customer.favorites;
+    let a = new Array();
+    for (let i = 0; i < obj.length; i++) {
+      const g = await All.findById(obj[i].itemId);
+      a.push(g);
     }
-  res.render('favoriteinfo',{items:a});
+    res.render('favoriteinfo', { items: a });
   }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //customer sockets connections 
-const addmsg = async (customer, msg) => {
+async function addmsg(customer, msg) {
   const obj = { "msg": msg, issent: true };
   await customer.chat.push(obj);
   const newobj = await customer.chat;
@@ -325,7 +324,7 @@ const addmsg = async (customer, msg) => {
 }
 
 
-const addmsgfromadmin = async (customer, msg) => {
+async function addmsgfromadmin(customer, msg) {
   const obj = { "msg": msg, issent: false };
   await customer.chat.push(obj);
   const newobj = await customer.chat;
@@ -337,124 +336,122 @@ const addmsgfromadmin = async (customer, msg) => {
 
   return customer;
 }
-const getmsgs = async (req, res) => {
+async function getmsgs(req, res) {
   console.log("now fetching the messages ");
   const ch = await customers.findById(req.params.id)
     .then(async (o) => {
       return o.chat;
-    })
+    });
   console.log(" the message will be json to the custojer is ", ch);
   res.json(ch);
 }
 //////////////////////////////////////////////////////////
-const addadr = async (req, res) => {
-if(req.session.signed_customer===null||req.session.signed_customer===undefined){
-  res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
-}else{
-  const addr={
-    location:req.body.location,
-    Adress:req.body.Adress,
-    apartment:req.body.apartment,
-    floor:req.body.floor,
-    Building:req.body.Building
+async function addadr(req, res) {
+  if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
+    res.render("sign-in", { alert: true, text: "You should login firstly to add new address" });
+  } else {
+    const addr = {
+      location: req.body.location,
+      Adress: req.body.Adress,
+      apartment: req.body.apartment,
+      floor: req.body.floor,
+      Building: req.body.Building
+    };
+    const curr = req.session.signed_customer;
+    const newobj = curr.addreses;
+    newobj.push(addr);
+    curr.addreses = newobj;
+    await customers.findOneAndUpdate({ _id: curr._id }, { $push: { addreses: addr } });
+    req.session.signed_customer = await customers.findById(curr._id);
+
+    res.redirect("/customers/profile/addr");
   }
-  const curr=req.session.signed_customer;
-  const newobj=curr.addreses;
-  newobj.push(addr);
-  curr.addreses=newobj;
-  await customers.findOneAndUpdate({_id:curr._id},{$push:{addreses:addr}});
-  req.session.signed_customer= await customers.findById(curr._id);
- 
-  res.redirect("/customers/profile/addr");
 }
-}
-const deladr = async (req, res) => {
-  if(req.session.signed_customer===null||req.session.signed_customer===undefined){
-    res.render("sign-in",{alert:true,text:"You should login firstly to add new address"});
-  }else{
-  await customers.updateOne({_id:req.session.signed_customer._id},{ $pull: { addreses: { _id: req.params.id } } });
-  req.session.signed_customer=await customers.findById(req.session.signed_customer._id);
-  res.redirect("/customers/profile/addr");
+async function deladr(req, res) {
+  if (req.session.signed_customer === null || req.session.signed_customer === undefined) {
+    res.render("sign-in", { alert: true, text: "You should login firstly to add new address" });
+  } else {
+    await customers.updateOne({ _id: req.session.signed_customer._id }, { $pull: { addreses: { _id: req.params.id } } });
+    req.session.signed_customer = await customers.findById(req.session.signed_customer._id);
+    res.redirect("/customers/profile/addr");
 
   }
+}
+  async function confirml(req, res) {
+  let order = await orders.findById(req.params.id);
+  const trans = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: "aussiefood6@gmail.com",
+      pass: "gqhnpwicffirkdhn"
+    }
+  });
+  let data;
+  let sums = 0;
+  for (let i = 0; i < order.items.length; i++) {
+    sums += order.items[i].price * order.items[i].Qty;
   }
-  const confirml = async (req,res) => {
-    let order = await orders.findById(req.params.id);
-    const trans = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: "aussiefood6@gmail.com",
-        pass: "gqhnpwicffirkdhn"
-      }
-    });
-    let data;
-    let sums=0;
-    for(let i=0;i<order.items.length;i++){
-      sums+=order.items[i].price*order.items[i].Qty;
+  sums = sums + ((sums / 100) * 14);
+  // /Users/user/Desktop/web_back2
+  ejs.renderFile(__dirname + "/views/order-confirm-mail.ejs", { ord: order, sum: sums }, (err, d) => {
+    data = d;
+    console.log(d);
+  });
+  const options = {
+    from: "aussiefood6@gmail.com",
+    to: order.customermail,
+    subject: "order confirmation",
+    html: data
+  };
+  trans.sendMail(options, async function (err, info) {
+    if (err) {
+      console.log("there are an error " + err);
+    } else {
+      await orders.findByIdAndUpdate(order._id, { status: "Delivered" }).then((o) => {
+        res.json({ type: true });
+      });
     }
-    sums=sums+((sums/100)*14);
-    // /Users/user/Desktop/web_back2
-    ejs.renderFile(__dirname+"/views/order-confirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
-      data = d;
-      console.log(d);
-    });
-    const options = {
-      from: "aussiefood6@gmail.com",
-      to: order.customermail,
-      subject: "order confirmation",
-      html: data
-  
-    }
-    trans.sendMail(options, async function (err, info) {
-      if (err) {
-        console.log("there are an error " + err)
-      } else{
-        await orders.findByIdAndUpdate(order._id,{status:"Delivered"}).then((o)=>{
-         res.json({type:true});
-        })
-     }
-     
-    })
 
+  });
+
+}
+    async function disconfirml(req, res) {
+  let order = await orders.findById(req.params.id);
+  const trans = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: "aussiefood6@gmail.com",
+      pass: "gqhnpwicffirkdhn"
     }
-    const disconfirml = async (req, res) => {
-      let order = await orders.findById(req.params.id);
-      const trans = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: "aussiefood6@gmail.com",
-          pass: "gqhnpwicffirkdhn"
-        }
+  });
+  let data;
+  let sums = 0;
+  for (let i = 0; i < order.items.length; i++) {
+    sums += order.items[i].price * order.items[i].Qty;
+  }
+  sums = sums + ((sums / 100) * 14);
+  ejs.renderFile(__dirname + "/views/order-disconfirm-mail.ejs", { ord: order, sum: sums }, (err, d) => {
+    data = d;
+    console.log(d);
+  });
+  const options = {
+    from: "aussiefood6@gmail.com",
+    to: order.customermail,
+    subject: "order cancellation",
+    html: data
+  };
+  trans.sendMail(options, async function (err, info) {
+    if (err) {
+      console.log("there are an error " + err);
+    } else {
+      await orders.findByIdAndUpdate(order._id, { status: "Cancelled" }).then((o) => {
+        res.json({ type: true });
       });
-      let data;
-      let sums=0;
-      for(let i=0;i<order.items.length;i++){
-        sums+=order.items[i].price*order.items[i].Qty;
-      }
-      sums=sums+((sums/100)*14);
-      ejs.renderFile(__dirname+ "/views/order-disconfirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
-        data = d;
-        console.log(d);
-      });
-      const options = {
-        from: "aussiefood6@gmail.com",
-        to: order.customermail,
-        subject: "order cancellation",
-        html: data
-    
-      }
-      trans.sendMail(options, async function (err, info) {
-        if (err) {
-          console.log("there are an error " + err)
-        } else{
-           await orders.findByIdAndUpdate(order._id,{status:"Cancelled"}).then((o)=>{
-            res.json({type:true});
-           })
-        }
-       
-        
-      })
-      }
+    }
+
+
+  });
+}
       async function addfav(req,res){
         if(req.session.signed_customer===null||req.session.signed_customer===undefined){
           res.json({added:false});
@@ -491,32 +488,31 @@ const deladr = async (req, res) => {
           res.render("favoriteinfo",{items:a});
         }
       }
-      const getempsearch= async(req,res)=>{
-        try{
-        const word=req.body.email;
-        console.log("word is ",word)
-        const g=await customers.findOne({Email:word});
-        if(g!==null){
-let arr=new Array();
-arr.push(g);
-res.render("recent-customers",{custt:arr});
+      async function getempsearch(req, res) {
+  try {
+    const word = req.body.email;
+    console.log("word is ", word);
+    const g = await customers.findOne({ Email: word });
+    if (g !== null) {
+      let arr = new Array();
+      arr.push(g);
+      res.render("recent-customers", { custt: arr });
 
-        }else{
-          res.redirect("/employees/profile/customers");
-        }
-      }catch(err){
+    } else {
+      res.redirect("/employees/profile/customers");
+    }
+  } catch (err) {
+  }
+}
+      async function loadord(req, res) {
 
-      }
-      }
-      const loadord= async (req,res)=>{
-       
-        const id =req.body.id;
-        console.log("id",id);
-        const customer=await customers.findById(id);
-        const orderS=await orders.find({customermail:customer.Email});
-        // const obj={val:orders};
-        // console.log(obj)
-        res.json(orderS);
-      }
+  const id = req.body.id;
+  console.log("id", id);
+  const customer = await customers.findById(id);
+  const orderS = await orders.find({ customermail: customer.Email });
+  // const obj={val:orders};
+  // console.log(obj)
+  res.json(orderS);
+}
 export { addmsg, getcustomers, postcustomers, customerpr, customeror, customerml, customeraddr, customerfav, addmsgfromadmin, customerchnagepass, getmsgs ,addadr,deladr,confirml,disconfirml,addfav,remfav,remfavpro , customerlogout,getempsearch,loadord};
 
