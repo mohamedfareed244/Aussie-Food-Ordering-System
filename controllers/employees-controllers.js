@@ -336,6 +336,9 @@ break;
 
 //get products in menu in menu
 const GetAllproducts = (req, res) => {
+  if(req.session.employee===null||req.session.employee===undefined){
+    res.render("amdin_signin",{alert:true,text:"You have to sign in first to accesss this section "});
+  }
   All.find()
      .then((result) => {
        console.log(result)
