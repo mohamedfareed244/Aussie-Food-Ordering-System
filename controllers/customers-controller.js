@@ -393,7 +393,8 @@ const deladr = async (req, res) => {
       sums+=order.items[i].price*order.items[i].Qty;
     }
     sums=sums+((sums/100)*14);
-    ejs.renderFile("/Users/user/Desktop/web_back2 /views/order-confirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
+    // /Users/user/Desktop/web_back2
+    ejs.renderFile("/Users/user/Desktop/web_back2/views/order-confirm-mail.ejs", { ord:order , sum:sums}, (err, d) => {
       data = d;
       console.log(d);
     });

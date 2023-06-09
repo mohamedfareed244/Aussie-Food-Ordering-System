@@ -1,4 +1,5 @@
 document.getElementById("message-body").scrollTo(0, document.getElementById("message-body").scrollHeight);
+document.getElementById("almsg").style.display="block";
 const h = document.getElementById("custId").value;
 const l = document.getElementById(h);
 const s = l.children;
@@ -183,7 +184,8 @@ async function sendmessage() {
   document.getElementById("message-body").scrollTo(0, document.getElementById("message-body").scrollHeight);
 }
 async function displayalert(text) {
-  document.getElementById("almsg").style.display="block";
+  
+  
   document.getElementById("almsg").innerHTML = `${text}`
  setTimeout(hidealert,3000);
 
