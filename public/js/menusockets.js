@@ -1,3 +1,5 @@
+document.getElementById("alylert").style.display= "none";
+
 var socket = io();
 socket.on('connect', () => {
   console.log("socket id " + socket.id);
@@ -27,11 +29,11 @@ socket.on("newcustomer", async (msg) => {
 })
 socket.on("getmessage", async (msg) => {
   console.log("msg from ", msg.from);
-  displayalert(`New message from ${msg.from}`);
+  displayalert(`You have recieved new message `);
   sou1();
 })
 async function displayalert(text) {
-  document.getElementById("almsg").style.display="block";
+  document.getElementById("alylert").style.display="block";
   document.getElementById("almsg").innerHTML = `${text}`
  setTimeout(hidealert,3000);
 
